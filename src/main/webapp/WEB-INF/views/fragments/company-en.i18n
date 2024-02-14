@@ -10,11 +10,11 @@
 
 master.company.title = The company
 master.company.text = \
-	Hello World, Inc. is a fictitious company that provides a starter \
-	project for the students of the Design and Testing subject of the \
-	Software Engineering Curriculum of the University of Seville.
-master.company.name = Acme, Inc.
-master.company.address = 01 Acme Drive, Wondercity, Wonderland
-master.company.phone = +1 000 111 222
+	Acme Software Factory, Inc. is a fictitious company created \
+	by students of the Design and Testing subject of the Software \
+	Engineering degree at the University of Seville.
+master.company.name = Acme SF, Inc.
+master.company.address = Av. de la Reina Mercedes, s/n, 41012 Sevilla
+master.company.phone = +34 666 777 888
 master.company.email = contact@acme.com
 
