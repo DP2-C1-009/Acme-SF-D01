@@ -22,6 +22,7 @@
 			<acme:menu-suboption code="master.menu.anonymous.favourite-link" action="http://www.example.com/"/>
 			<acme:menu-suboption code="master.menu.anonymous.favourite-link-juamarcan8" action="https://www.twitter.com/"/>
 			<acme:menu-suboption code="master.menu.anonymous.favourite-link-edubusluc" action="https://www.astonmartinf1.com/en-GB/"/>
+			<acme:menu-suboption code="master.menu.anonymous.favourite-link-jualeomad" action="https://www.fcbarcelona.es/"/>
 		</acme:menu-option>
 
 		<acme:menu-option code="master.menu.administrator" access="hasRole('Administrator')">
