@@ -20,8 +20,10 @@ master.menu.sign-out = Sign out
 master.menu.anonymous = Anonymous
 master.menu.anonymous.favourite-link = Favourite link
 master.menu.anonymous.favourite-link-juamarcan8 = 29545666G: Martínez Cano, Juan
-master.menu.anonymous.favourite-link-edubusluc = 54435001G Bustamante Lucena, Eduardo
 master.menu.anonymous.favourite-link-riccarmar = 80230334D: Carreno Marino, Ricardo
+master.menu.anonymous.favourite-link-jualeomad = 20503423G: León Madroñal, Juan Carlos
+master.menu.anonymous.favourite-link-edubusluc = 54435001G: Bustamante Lucena, Eduardo
+master.menu.anonymous.favourite-link-rafgargal = 48124399G: García Galocha, Rafael David
 
 
 # master.menu.administrator ###################################################
