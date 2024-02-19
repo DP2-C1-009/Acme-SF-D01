@@ -65,10 +65,10 @@ def compare_sets(set1, set2):
 
 if __name__ == "__main__":
     #Ruta de tu proyecto Acme
-    directory_path = "./Workspace-24/projects/Acme-SF-D01"
+    directory_path = "./Workspace-24/projects/Acme-SF-D02"
 
     #Ruta de la carpeta target del proyecto
-    excluded_path = "./Workspace-24/projects/Acme-SF-D01/target"
+    excluded_path = "./Workspace-24/projects/Acme-SF-D02/target"
 
     set1 = get_jsp_code(directory_path,excluded_path)
     set2 = get_i18n_code(directory_path,excluded_path)
