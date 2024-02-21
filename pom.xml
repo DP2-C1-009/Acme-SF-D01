@@ -23,7 +23,7 @@
 	<name>Acme-SF</name>
 	<description> This is my first project </description>
 
-	<artifactId>Acme-SF-D01</artifactId>
+	<artifactId>Acme-SF-D02</artifactId>
 	
 	<packaging>war</packaging>
 	
