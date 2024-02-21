@@ -1,0 +1,201 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<diagram program="umlet" version="15.1">
+  <zoom_level>10</zoom_level>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>550</x>
+      <y>280</y>
+      <w>390</w>
+      <h>160</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;Entity&gt;&gt;
+TrainingSession
+--
++ code: String {Pattern([A-Z]{1,3}-[0-9]{3}), NotBlank, Unique}
++ startDateTime: Date {NotNull, Temporal(TIMESTAMP)}
++ endDateTime: Date {NotNull, Temporal(TIMESTAMP)}
++ location: String {NotBlank, Lenght(max = 75)}
++ instructor: String {NotBlank, Lenght(max = 75)}
++ contactEmail: String {NotBlank}
++ optionalLink: String {URL}
+bg=green</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>50</x>
+      <y>280</y>
+      <w>390</w>
+      <h>160</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;Entity&gt;&gt;
+TrainingModule
+--
++ code: String {Pattern([A-Z]{1,3}-[0-9]{3}), NotBlank, Unique}
++ creationMoment: Date {NotNull, Temporal(TIMESTAMP)}
++ details: String {NotBlank, Lenght(max = 100)}
++ difficultyLevel: difficultyLevel
++ updateMoment: Date {Temporal(TIMESTAMP)}
++ optionalLink : String {URL}
++ estimatedTotalTime: Double {Positive}
+bg=green</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>510</x>
+      <y>80</y>
+      <w>270</w>
+      <h>140</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;Form&gt;&gt;
+DeveloperDashboard
+--
++ totalTrainingModules: Integer
++ totalTrainingSessions : Integer
++ averageTrainingModulesTime: Double
++ deviationTrainingModulesTime: Double
++ minTrainingModulesTime: Double
++ maxTrainingModulesTime: Double
+bg=green</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>200</x>
+      <y>490</y>
+      <w>350</w>
+      <h>130</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;Role&gt;&gt;
+Developer
+--
++ degree: String {NotBlank, Lenght(max = 75)}
++ specialisation: String {NotBlank, Lenght(max = 100)}
++ skills: String {NotBlank, Lenght(max = 100)}
++ email: String {Email}
++ optionalLink: String {URL}
+bg=green</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>430</x>
+      <y>360</y>
+      <w>140</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;&lt;&lt;-
+m2=1..*</panel_attributes>
+    <additional_attributes>10.0;10.0;120.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>110</x>
+      <y>430</y>
+      <w>110</w>
+      <h>160</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-x
+m1=1
+m2= 1..*</panel_attributes>
+    <additional_attributes>90.0;130.0;10.0;130.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>540</x>
+      <y>430</y>
+      <w>140</w>
+      <h>160</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-x
+m1=1
+m2= 1..*</panel_attributes>
+    <additional_attributes>10.0;130.0;100.0;130.0;100.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>50</x>
+      <y>50</y>
+      <w>390</w>
+      <h>150</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;Entity&gt;&gt;
+Project
+--
+-code: String {Pattern([A-Z]{1,3}-[0-9]{4}), NotBlank, Unique}
+-title: String {NotBlank, Lenght(max = 75)}
+-pAbstract: String {NotBlank, Lenght(max = 100)}
+-hasFatalErrors: Boolean
+-cost: Money
+-optionalLink: String {URL}
+bg=green</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>140</x>
+      <y>190</y>
+      <w>50</w>
+      <h>110</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-x
+m1= 1
+m2= 1..*</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;90.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>830</x>
+      <y>120</y>
+      <w>160</w>
+      <h>100</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;Enum&gt;&gt;
+DifficultyLevel
+--
++ BASIC
++ INTERMEDIATE
++ ADVANCED
+bg=YELLOW</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLNote</id>
+    <coordinates>
+      <x>680</x>
+      <y>530</y>
+      <w>320</w>
+      <h>120</h>
+    </coordinates>
+    <panel_attributes>- startDateTime must be at least one 
+week ahead the TrainingModule creationMoment
+
+- timePeriod defined by startDateTime
+and endDateTime must be at least one week
+(using seconds and primitive int)
+bg=pink</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>800</x>
+      <y>430</y>
+      <w>30</w>
+      <h>120</h>
+    </coordinates>
+    <panel_attributes>lt=.</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;100.0</additional_attributes>
+  </element>
+</diagram>
