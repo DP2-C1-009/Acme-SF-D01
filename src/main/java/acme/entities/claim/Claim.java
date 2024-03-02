@@ -44,6 +44,7 @@ public class Claim extends AbstractEntity {
 
 	@NotBlank
 	@Length(max = 75)
+	@NotNull
 	private String				heading;
 
 	@NotBlank
