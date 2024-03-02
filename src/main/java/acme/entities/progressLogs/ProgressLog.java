@@ -40,6 +40,7 @@ public class ProgressLog extends AbstractEntity {
 	protected Integer			completeness;
 
 	@NotBlank
+	@NotNull
 	@Length(max = 100)
 	private String				comment;
 
@@ -49,6 +50,7 @@ public class ProgressLog extends AbstractEntity {
 	protected Date				registrationMoment;
 
 	@NotBlank
+	@NotNull
 	@Length(max = 75)
 	protected String			responsiblePerson;
 
