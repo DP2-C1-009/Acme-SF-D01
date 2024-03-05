@@ -33,7 +33,6 @@ public class TrainingSession extends AbstractEntity {
 	@NotBlank
 	@Pattern(regexp = "^TS-[A-Z]{1,3}-[0-9]{3}$")
 	@Column(unique = true)
-	@NotNull
 	private String				code;
 
 	@NotNull
