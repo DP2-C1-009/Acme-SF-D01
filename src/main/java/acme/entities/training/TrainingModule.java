@@ -27,38 +27,36 @@ public class TrainingModule extends AbstractEntity {
 
 	// Serialisation identifier -----------------------------------------------
 
-	protected static final long	serialVersionUID	= 1L;
+	private static final long	serialVersionUID	= 1L;
 
 	// Attributes -------------------------------------------------------------
 
 	@NotBlank
 	@Column(unique = true)
 	@Pattern(regexp = "^[A-Z]{1,3}-[0-9]{3}$")
-	@NotNull
-	protected String			code;
+	private String				code;
 
 	@Temporal(TemporalType.TIMESTAMP)
 	@NotNull
 	@Past
-	protected Date				creationMoment;
+	private Date				creationMoment;
 
 	@NotBlank
-	@NotNull
 	@Length(max = 100)
-	protected String			details;
+	private String				details;
 
 	@NotNull
-	protected DifficultyLevel	difficultyLevel;
+	private DifficultyLevel		difficultyLevel;
 
 	@Temporal(TemporalType.TIMESTAMP)
 	@Past
-	protected Date				updateMoment;
+	private Date				updateMoment;
 
 	@URL
-	protected String			optionalLink;
+	private String				optionalLink;
 
 	@Positive
-	protected Double			estimatedTotalTime;
+	private Double				estimatedTotalTime;
 
 	// Relationships ----------------------------------------------------------
 
