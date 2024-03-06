@@ -1,0 +1,3 @@
+key,key:userAccount,name,expectedBenefits,furtherInformation,email
+sponsor-01,user-account-sponsor-01,Sponsor 1,"benefit1, benefit2, benefit3",https://www.google.com,
+sponsor-02,user-account-sponsor-02,Sponsor 2,"benefit1, benefit2, benefit3",,jualeomad@alum.us.es
