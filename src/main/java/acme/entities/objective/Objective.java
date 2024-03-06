@@ -6,10 +6,9 @@ import java.util.Date;
 import javax.persistence.Entity;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
-import javax.persistence.Transient;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Past;
+import javax.validation.constraints.PastOrPresent;
 
 import org.hibernate.validator.constraints.Length;
 import org.hibernate.validator.constraints.URL;
@@ -30,7 +29,7 @@ public class Objective extends AbstractEntity {
 	// Attributes -------------------------------------------------------------
 
 	@Temporal(TemporalType.TIMESTAMP)
-	@Past
+	@PastOrPresent
 	@NotNull
 	private Date				instantiationMoment;
 
@@ -60,17 +59,16 @@ public class Objective extends AbstractEntity {
 
 	// Derived attributes -----------------------------------------------------
 
-
-	@Transient
-	private boolean isDurationValid() {
-		if (!this.durationStart.after(this.instantiationMoment))
-			return false;
-
-		if (!this.durationStart.before(this.durationFinish) && !this.durationFinish.after(this.durationStart))
-			return false;
-
-		long time = this.durationFinish.getTime() - this.durationStart.getTime();
-		return time >= 3600000; // 1 hour in milliseconds
-	}
+	//	@Transient
+	//	private boolean isDurationValid() {
+	//		if (!MomentHelper.isAfter(this.durationStart, this.instantiationMoment))
+	//			return false;
+	//
+	//		if (!MomentHelper.isBefore(this.durationStart, this.durationFinish) && !MomentHelper.isAfter(this.durationFinish, this.durationStart))
+	//			return false;
+	//
+	//		long time = this.durationFinish.getTime() - this.durationStart.getTime();
+	//		return time >= 3600000; // 1 hour in milliseconds
+	//	}
 
 }
