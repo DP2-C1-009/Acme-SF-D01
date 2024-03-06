@@ -1,0 +1,3 @@
+key,key:userAccount,identification,company_name,type,email,furtherInformation
+client-01,user-account-client-01,CLI-0001,AcmeSF,INDIVIDUAL,email@ejemplo.com,https://www.astonmartinf1.com/en-GB/
+client-02,user-account-client-02,CLI-0002,AcmeSF2,COMPANY,email@ejemplo2.com,
