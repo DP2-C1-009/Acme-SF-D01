@@ -37,7 +37,7 @@ public class TrainingModule extends AbstractEntity {
 
 	@NotBlank
 	@Column(unique = true)
-	@Pattern(regexp = "^[A-Z]{1,3}-[0-9]{3}$")
+	@Pattern(regexp = "^[A-Z]{1,3}-[0-9]{3}$", message = "{validation.trainingModule.reference}")
 	private String				code;
 
 	@Temporal(TemporalType.TIMESTAMP)
@@ -60,7 +60,7 @@ public class TrainingModule extends AbstractEntity {
 	private String				optionalLink;
 
 	@Positive
-	private Double				estimatedTotalTime;
+	private Integer				estimatedTotalTime;
 
 	// Relationships ----------------------------------------------------------
 
