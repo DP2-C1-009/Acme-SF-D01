@@ -35,7 +35,7 @@ public class Client extends AbstractRole {
 	@NotNull
 	private String				companyName;
 
-	@NotBlank
+	@NotNull
 	private ClientType			type;
 
 	@NotBlank
