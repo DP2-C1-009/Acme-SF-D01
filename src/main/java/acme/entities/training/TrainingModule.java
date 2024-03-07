@@ -11,7 +11,7 @@ import javax.persistence.TemporalType;
 import javax.validation.Valid;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Past;
+import javax.validation.constraints.PastOrPresent;
 import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Positive;
 
@@ -37,12 +37,12 @@ public class TrainingModule extends AbstractEntity {
 
 	@NotBlank
 	@Column(unique = true)
-	@Pattern(regexp = "^[A-Z]{1,3}-[0-9]{3}$")
+	@Pattern(regexp = "^[A-Z]{1,3}-[0-9]{3}$", message = "{validation.trainingModule.reference}")
 	private String				code;
 
 	@Temporal(TemporalType.TIMESTAMP)
 	@NotNull
-	@Past
+	@PastOrPresent
 	private Date				creationMoment;
 
 	@NotBlank
@@ -53,14 +53,14 @@ public class TrainingModule extends AbstractEntity {
 	private DifficultyLevel		difficultyLevel;
 
 	@Temporal(TemporalType.TIMESTAMP)
-	@Past
+	@PastOrPresent
 	private Date				updateMoment;
 
 	@URL
 	private String				optionalLink;
 
 	@Positive
-	private Double				estimatedTotalTime;
+	private Integer				estimatedTotalTime;
 
 	// Relationships ----------------------------------------------------------
 
