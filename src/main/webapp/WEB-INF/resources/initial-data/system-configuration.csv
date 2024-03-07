@@ -1,0 +1,4 @@
+key,currency,systemCurrency,acceptedCurrency
+system-configuration-01,"EUR",true,true
+system-configuration-02,"USD",false,true
+system-configuration-03,"GBP",false,true
