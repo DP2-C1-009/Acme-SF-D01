@@ -26,20 +26,17 @@ public class Client extends AbstractRole {
 	// Attributes -------------------------------------------------------------
 	@Column(unique = true)
 	@NotBlank
-	@NotNull
-	@Pattern(regexp = "CLI-[0-9]{4}")
+	@Pattern(regexp = "^CLI-[0-9]{4}$", message = "{validation.ClientIdentification}")
 	private String				identification;
 
 	@NotBlank
 	@Length(max = 75)
-	@NotNull
 	private String				companyName;
 
 	@NotNull
 	private ClientType			type;
 
 	@NotBlank
-	@NotNull
 	@Email
 	private String				email;
 
