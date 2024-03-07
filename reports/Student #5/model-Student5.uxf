@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<diagram program="umlet" version="15.1">
+  <zoom_level>9</zoom_level>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>0</x>
+      <y>405</y>
+      <w>315</w>
+      <h>198</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;Form&gt;&gt;
+AuditorDashboard
+--
++ totalStaticAudits: int
++ totalDynamicAudits: int
++ averageAuditRecords: double
++ deviationAuditRecords: double
++ minimunAuditRecords: int
++ maximunAuditRecords: int
++ averagePeriodAuditRecord: double
++ deviationPeriodAuditRecord: double
++ minPeriodAuditRecord: int
++ maxPeriodAuditRecord: int
+bg=green
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>648</x>
+      <y>0</y>
+      <w>540</w>
+      <h>108</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;Role&gt;&gt;
+Auditor
+--
++ firm: String {NotNull,NotBlank, Length{max=75}}
++ professionalID: String {NotNull,NotBlank, Length{max=25}, column(unique=true)}
++ certifications: String{MotNull,NotBlank, Length(max=100)}
++ moreInfoLink: String {URL}
+bg=green
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>909</x>
+      <y>99</y>
+      <w>81</w>
+      <h>180</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-x
+m1=1
+m2=0..*
+makes v</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;180.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>981</x>
+      <y>387</y>
+      <w>63</w>
+      <h>198</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-x
+m1=1
+m2=0..*
+has v</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;200.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>720</x>
+      <y>567</y>
+      <w>522</w>
+      <h>144</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;Entity&gt;&gt;
+AuditRecord
+--
++ code: String {NotNull,column(unique=true), NotBlank,Pattern{regexp = "^AU-[0-9]{4}-[0-9]{3}$"}
++ startMoment: Date{NotNull, PastOrPresent}
++ finishMoment: Date{NotNull, PastOrPresent}
++ mark: Mark{NotNull}
++ moreInfoLink: String{URL}
+
+bg=green
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1260</x>
+      <y>315</y>
+      <w>153</w>
+      <h>81</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;Enum&gt;&gt;
+AuditType
+--
++ STATIC
++ DYNAMIC
+bg=red
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1278</x>
+      <y>576</y>
+      <w>153</w>
+      <h>135</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;Enum&gt;&gt;
+Mark
+--
++ A_PLUS
++ A
++ B
++ C
++ F
++ F_MINUS
+bg=red
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>603</x>
+      <y>261</y>
+      <w>630</w>
+      <h>135</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;Entity&gt;&gt;
+CodeAudit
+--
++ code: String {column(unique=true), NotBlank,Pattern{regexp = "^[A-Z]{1,3}-[0-9]{3}$", NotNull}
++ execution: Date {Past}
++ correctiveActions: String {NotNull,NotBlank, Length(max=100)}
++ type: CodeAuditType{NotNull}
++ moreInfoLink: String {URL}
+bg=green
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+</diagram>
