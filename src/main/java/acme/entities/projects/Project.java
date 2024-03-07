@@ -3,15 +3,18 @@ package acme.entities.projects;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.Transient;
+import javax.persistence.ManyToOne;
+import javax.validation.Valid;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
 
 import org.hibernate.validator.constraints.Length;
 import org.hibernate.validator.constraints.URL;
 
 import acme.client.data.AbstractEntity;
+import acme.roles.Manager;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -26,7 +29,7 @@ public class Project extends AbstractEntity {
 
 	// Attributes -----------------------------------------------------------------------------------------
 
-	@Pattern(regexp = "[A-Z]{3}-[0-9]{4}")
+	@Pattern(regexp = "^[A-Z]{3}-[0-9]{4}$", message = "{validation.ProjectCode}")
 	@NotBlank
 	@Column(unique = true)
 	private String				code;
@@ -39,7 +42,7 @@ public class Project extends AbstractEntity {
 	@Length(max = 100)
 	private String				pAbstract;
 
-	private boolean				hasFatalErrors;
+	private boolean				fatalErrors;
 
 	@Min(value = 0)
 	private int					cost;
@@ -51,16 +54,19 @@ public class Project extends AbstractEntity {
 
 	// Derived attributes -----------------------------------------------------
 
-
-	@Transient
-	public boolean isAvailable() {
-		boolean result;
-
-		result = !this.draftMode && !this.hasFatalErrors;
-
-		return result;
-	}
+	//	@Transient
+	//	public boolean isAvailable() {
+	//		boolean result;
+	//
+	//		result = !this.draftMode && !this.hasFatalErrors;
+	//
+	//		return result;
+	//	}
 
 	// Relationships ----------------------------------------------------------
 
+	@NotNull
+	@Valid
+	@ManyToOne(optional = false)
+	private Manager				manager;
 }
