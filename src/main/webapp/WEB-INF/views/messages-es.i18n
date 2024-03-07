@@ -4,3 +4,5 @@ validation.trainingSession.reference = La referencia debe empezar por "TS-" y co
 validation.ContractCode = El código introducido debe contener una letra mayúscula seguida de hasta tres letras mayúsculas y luego tres números..
 validation.ProgressLogRecord = El código debe seguir el formato "PG-" seguido de una letra mayúscula una o dos veces, seguido de un guion y luego cuatro dígitos numéricos.
 validation.ClientIdentification = El código ingresado debe seguir el formato: "CLI-" seguido de cuatro dígitos numéricos.
+validation.CodeAuditCode = "Formato inválido. Por favor, ingresa un código que comience con una a tres letras mayúsculas, seguido de un guion medio, y luego seguido por exactamente tres dígitos."
+
