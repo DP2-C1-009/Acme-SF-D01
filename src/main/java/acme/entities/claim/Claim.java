@@ -1,14 +1,13 @@
 
-package acme.entities.codeAudits;
+package acme.entities.claim;
 
 import java.util.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.ManyToOne;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
-import javax.validation.Valid;
+import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.PastOrPresent;
@@ -18,46 +17,52 @@ import org.hibernate.validator.constraints.Length;
 import org.hibernate.validator.constraints.URL;
 
 import acme.client.data.AbstractEntity;
-import acme.roles.Auditor;
 import lombok.Getter;
 import lombok.Setter;
 
 @Entity
 @Getter
 @Setter
-public class CodeAudit extends AbstractEntity {
+public class Claim extends AbstractEntity {
 
-	protected static final long	serialVersionUID	= 1L;
+	// Serialisation identifier -----------------------------------------------
+
+	private static final long	serialVersionUID	= 1L;
+
+	// Attributes -------------------------------------------------------------
 
 	@Column(unique = true)
 	@NotBlank
-	@Pattern(regexp = "[A-Z]{1,3}-[0-9]{3}", message = "{validation.CodeAuditCode}")
+	@Pattern(regexp = "C-[0-9]{4}")
 	@NotNull
-	protected String			code;
+	private String				code;
 
 	@Temporal(TemporalType.TIMESTAMP)
 	@PastOrPresent
 	@NotNull
-	protected Date				execution;
+	private Date				instatiationMoment;
 
+	@NotBlank
+	@Length(max = 75)
 	@NotNull
-	protected CodeAuditType		type;
+	private String				heading;
 
 	@NotBlank
 	@Length(max = 100)
 	@NotNull
-	private String				correctiveActions;
+	private String				description;
+
+	@NotBlank
+	@Length(max = 100)
+	@NotNull
+	private String				department;
+
+	@Email
+	@NotNull
+	private String				email;
 
 	@URL
-	protected String			moreInfoLink;
-	// Derived attributes -----------------------------------------------------
-	@NotNull
-	protected AuditRecordMark	mark;
-	// Relationships ----------------------------------------------------------
-
-	@NotNull
-	@Valid
-	@ManyToOne(optional = false)
-	private Auditor				auditor;
+	@Length(max = 255)
+	private String				optionalLink;
 
 }
