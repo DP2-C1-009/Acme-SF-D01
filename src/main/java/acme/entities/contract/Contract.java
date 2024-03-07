@@ -59,6 +59,9 @@ public class Contract extends AbstractEntity {
 	@NotNull
 	protected Money				budget;
 
+	@NotNull
+	protected Boolean			draftmode;
+
 	// Relationships ----------------------------------------------------------
 
 	@NotNull
