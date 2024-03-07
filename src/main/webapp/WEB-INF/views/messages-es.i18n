@@ -3,3 +3,5 @@ validation.ProgressLogRecord = El código debe seguir el formato "PG-" seguido d
 validation.ClientIdentification = El código ingresado debe seguir el formato: "CLI-" seguido de cuatro dígitos numéricos.
 validation.CodeAuditCode = Formato inválido. Por favor, ingresa un código que comience con una a tres letras mayúsculas, seguido de un guion medio, y luego seguido por exactamente tres dígitos.
 validation.ProjectCode = El código del proyecto debe seguir el patrón de tres letras mayúsculas seguidas de un guion y cuatro dígitos.
+validation.trainingModule.reference	= La referencia debe contener de 1 a 3 letras y 3 dígitos, separados por un guión
+validation.trainingSession.reference = La referencia debe empezar por "TS-" y contener de 1 a 3 letras y 3 dígitos, separados por un guión
