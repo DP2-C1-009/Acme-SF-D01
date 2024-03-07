@@ -13,4 +13,3 @@ user-account-auditor-01,true,"UserIdentity{name: 'Auditor1', surname: 'auditor1'
 user-account-auditor-02,true,"UserIdentity{name: 'Auditor2', surname: 'auditor2', email: 'auditor2@acme.com'}",auditor2,auditor2
 user-account-manager-01,true,"UserIdentity{name: 'Manager1', surname: 'Acme', email: 'manager1@acme.com'}",manager1,manager1
 user-account-manager-02,true,"UserIdentity{name: 'Manager2', surname: 'Acme', email: 'manager2@acme.com'}",manager2,manager2
-
