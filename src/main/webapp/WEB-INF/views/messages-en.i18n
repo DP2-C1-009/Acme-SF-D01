@@ -5,5 +5,5 @@ validation.ContractCode = The code entered must contain a capital letter followe
 validation.ProgressLogRecord = The code must follow the format "PG-" followed by a capital letter once or twice, followed by a hyphen and then four numeric digits.
 validation.ClientIdentification = The code entered must follow the format: "CLI-" followed by four numeric digits.
 validation.CodeAuditCode = "Invalid format. Please enter a code that starts with one to three uppercase letters, followed by a hyphen, and then followed by exactly three digits."
-validation.invoiceCode = The invoice code must begin with IN- and continue with exactly 4 digits.
+validation.invoiceCode = The invoice code must begin with IN-, 4 digits, another - and another 4 digits (like IN-9999-9999).
 validation.sponsorshipCode = The sponsorship code must start with 1 up to 3 letters, following by a hyphen and exactly 3 digits at the end.
