@@ -1,3 +1,7 @@
+
+validation.referenceRisk = The code must begin with 'R-' followed by three numeric digits.
+validation.trainingModule.reference	= The reference must have 1 to 3 letters and 3 digits, separated by a hyphen
+validation.trainingSession.reference = The reference must begin with "TS-" and must have 1 to 3 letters and 3 digits, separated by a hyphen
 validation.ContractCode = The code entered must contain a capital letter followed by up to three capital letters and then three numbers.
 validation.ProgressLogRecord = The code must follow the format "PG-" followed by a capital letter once or twice, followed by a hyphen and then four numeric digits.
 validation.ClientIdentification = The code entered must follow the format: "CLI-" followed by four numeric digits.

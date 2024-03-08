@@ -11,3 +11,5 @@ user-account-client-01,true,"UserIdentity{name: 'Client1', surname: 'client1', e
 user-account-client-02,true,"UserIdentity{name: 'Client2', surname: 'client2', email: 'email@ejemplo2.com'}",client2,client2
 user-account-auditor-01,true,"UserIdentity{name: 'Auditor1', surname: 'auditor1', email: 'auditor1@acme.com'}",auditor1,auditor1
 user-account-auditor-02,true,"UserIdentity{name: 'Auditor2', surname: 'auditor2', email: 'auditor2@acme.com'}",auditor2,auditor2
+user-account-administrator-01,true,"UserIdentity{name: 'Administrator1', surname: 'administrator1', email: 'administrator1@acme.com'}",administrator1,administrator1
+user-account-administrator-02,true,"UserIdentity{name: 'Administrator2', surname: 'administrator2', email: 'administrator2@acme.com'}",administrator2,administrator2
