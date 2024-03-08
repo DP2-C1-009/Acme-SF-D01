@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<diagram program="umlet" version="15.1">
+  <zoom_level>10</zoom_level>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>220</x>
+      <y>170</y>
+      <w>550</w>
+      <h>160</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;Entity&gt;&gt;
+Claim
+--
++ code: String {NotBlank, Unique, Pattern(C-[0-9]{4})}
++ instationMoment: Date {NotNull, PastOrPresent, Temporal(TIMESTAMP)}
++ heading: String {NotBlank, Length(0,75)}
++ description: String {NotBlank, Length(0,100)}
++ department: String {NotBlank, Length(0,100)}
++ email: String {Email}
++ optionalLink: String {URL}
+bg=green</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>220</x>
+      <y>480</y>
+      <w>550</w>
+      <h>160</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;Entity&gt;&gt;
+Risk
+--
++ reference: String {NotBlank, Unique, Pattern(^R-[0-9]{3}$)}
++ identificationDate: Date {NotNull, PastOrPresent, Temporal(TIMESTAMP)}
++ impact: Double {NotNull, Positive}
++ probability: double {NotNull}
++ description: String {NotBlank, Length(0,100)}
++ optionalLink: String {URL}
++ / value: Double
+bg=green</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>860</x>
+      <y>190</y>
+      <w>550</w>
+      <h>180</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;Entity&gt;&gt;
+Objective
+--
++ instantiationMoment: Date {NotNull, PastOrPresent, Temporal(TIMESTAMP)}
++ title: String {NotBlank, Length(0,75)}
++ description: String {NotBlank, Length(0,100)}
++ priority: ObjectivePriority {NotNull}
++ critical: boolean
++ durationStart: Date {NotNull, Temporal(TIMESTAMP)}
++ durationFinish: Date {NotNull, Temporal(TIMESTAMP)}
++ optionalLink: String {URL}
+bg=green</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>560</x>
+      <y>740</y>
+      <w>550</w>
+      <h>150</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;Entity&gt;&gt;
+Banner
+--
++ moment: Date {NotNull, PastOrPresent, Temporal(TIMESTAMP)}
++ start: Date {NotNull, Temporal(TIMESTAMP)}
++ end: Date {NotNull, Temporal(TIMESTAMP)}
++ picture: String {NotBlank, URL}
++ slogan: String {NotBlank, Length(0,75)}
++ web: String {NotBlank, URL}
+bg=green</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>870</x>
+      <y>470</y>
+      <w>550</w>
+      <h>150</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;Entity&gt;&gt;
+Notice
+--
++ instationMoment: Date {NotNull, PastOrPresent, Temporal(TIMESTAMP)}
++ title: String {NotBlank, Length(0,75)}
++ author: String {NotBlank, Length(0,75)}
++ message: String {NotBlank, Length(0,100)}
++ optionalLink: String {URL}
++ email: String {Email}
+bg=green</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1460</x>
+      <y>230</y>
+      <w>190</w>
+      <h>100</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;Enum&gt;&gt;
+ObjectivePriority
+--
++ LOW
++ MEDIUM
++ HIGH
+bg=yellow</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1160</x>
+      <y>630</y>
+      <w>440</w>
+      <h>300</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;Form&gt;&gt;
+AdminDashboard
+--
++ int totalNumberOfConsumers
++ int totalNumberOfProviders
++ int totalNumberOfDevelopers
++ int totalNumberOfSponsors
++ int totalNumberOfClients
++ int totalNumberOfAuditors
++ int totalNumberOfManagers
++ Double ratioOfNoticesWithEmailAndLink
++ Double ratioOfCriticalObjetives
++ Double	ratioOfNonCriticalObjetives
++ Double	averageValueOfRisks
++ Double	deviationValueOfRisks
++ Double maxValueOfRisks
++ Double	minValueOfRisks
++ Double	averageNumberOfClaimsPostedOverTenWeeks
++ Double	deviationNumberOfClaimsPostedOverTenWeeks
++ Double	maxNumberOfClaimsPostedOverTenWeeks
++ Double	minNumberOfClaimsPostedOverTenWeeks
+
+bg=green</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>0</x>
+      <y>740</y>
+      <w>550</w>
+      <h>80</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;Entity&gt;&gt;
+SystemCurrency
+--
++ systemCurrency: String {NotBlank, Pattern(^[A-Z]{3}$)}
++ acceptedCurrency: String {NotBlank}
+bg=green</panel_attributes>
+    <additional_attributes/>
+  </element>
+</diagram>
