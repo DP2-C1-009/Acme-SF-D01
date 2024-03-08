@@ -4,8 +4,8 @@
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>371</x>
-      <y>357</y>
+      <x>231</x>
+      <y>315</y>
       <w>364</w>
       <h>133</h>
     </coordinates>
@@ -13,10 +13,10 @@
 Sponsorship
 --
 + code: String {Unique, NotBlank, Pattern([A-Z]{1,3}-[0-9]{3})}
-+ moment: Date {NotNull, Temporal(TIMESTAMP)}
++ moment: Date {NotNull, PastOrPresent, Temporal(TIMESTAMP)}
 + start: Date {NotNull, Temporal(TIMESTAMP)}
 + end: Date {NotNull, Temporal(TIMESTAMP)}
-+ amount: double {Min(0)}
++ amount: Money {NotNull}
 + type: SponsorshipType
 + email: String {Email}
 + furtherInfo: String {URL}
@@ -26,8 +26,8 @@ bg=green</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>140</x>
-      <y>154</y>
+      <x>0</x>
+      <y>112</y>
       <w>112</w>
       <h>70</h>
     </coordinates>
@@ -42,8 +42,8 @@ bg=orange</panel_attributes>
   <element>
     <id>UMLNote</id>
     <coordinates>
-      <x>154</x>
-      <y>385</y>
+      <x>14</x>
+      <y>343</y>
       <w>175</w>
       <h>77</h>
     </coordinates>
@@ -57,8 +57,8 @@ bg=blue</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>322</x>
-      <y>420</y>
+      <x>182</x>
+      <y>378</y>
       <w>63</w>
       <h>21</h>
     </coordinates>
@@ -68,8 +68,8 @@ bg=blue</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>364</x>
-      <y>588</y>
+      <x>224</x>
+      <y>546</y>
       <w>364</w>
       <h>133</h>
     </coordinates>
@@ -77,25 +77,28 @@ bg=blue</panel_attributes>
 Invoice
 --
 + code: String {Unique, NotBlank, Pattern(IN-[0-9]{4}-[0-9]{4})}
-+ registrationTime: Date {NotNull, Past}
++ registrationTime: Date {NotNull, PastOrPresent}
 + dueDate: Date {NotNull, Temporal(TIMESTAMP)}
-+ quantity: double
++ quantity: Money {NotNull}
 + tax: double {Min(0)}
 + furtherInfo: String {URL}
-+ / totalAmount: double {Transient}
++ / totalAmount: Money {Transient}
 bg=green</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>UMLNote</id>
     <coordinates>
-      <x>147</x>
-      <y>616</y>
+      <x>7</x>
+      <y>574</y>
       <w>175</w>
       <h>77</h>
     </coordinates>
     <panel_attributes>- dueDate must be at least one
   month ahead registrationTIme
+
+- totalAmount cannot be more that
+their sponsorship amount
 
 - quantity must be positive not nought
 bg=blue</panel_attributes>
@@ -104,8 +107,8 @@ bg=blue</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>315</x>
-      <y>651</y>
+      <x>175</x>
+      <y>609</y>
       <w>63</w>
       <h>21</h>
     </coordinates>
@@ -115,22 +118,22 @@ bg=blue</panel_attributes>
   <element>
     <id>UMLNote</id>
     <coordinates>
-      <x>770</x>
-      <y>588</y>
+      <x>630</x>
+      <y>546</y>
       <w>175</w>
       <h>77</h>
     </coordinates>
     <panel_attributes>totalAmount
 
-quantity * tax
+quantity * (1 + tax)
 bg=green</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>812</x>
-      <y>119</y>
+      <x>672</x>
+      <y>77</y>
       <w>217</w>
       <h>175</h>
     </coordinates>
@@ -154,8 +157,8 @@ bg=green</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>721</x>
-      <y>623</y>
+      <x>581</x>
+      <y>581</y>
       <w>63</w>
       <h>21</h>
     </coordinates>
@@ -165,8 +168,8 @@ bg=green</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>371</x>
-      <y>196</y>
+      <x>231</x>
+      <y>154</y>
       <w>364</w>
       <h>84</h>
     </coordinates>
@@ -183,8 +186,8 @@ bg=green</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>539</x>
-      <y>483</y>
+      <x>399</x>
+      <y>441</y>
       <w>49</w>
       <h>119</h>
     </coordinates>
@@ -197,8 +200,8 @@ bills &gt;</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>539</x>
-      <y>273</y>
+      <x>399</x>
+      <y>231</y>
       <w>77</w>
       <h>98</h>
     </coordinates>
@@ -211,8 +214,8 @@ is related  &gt;</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>875</x>
-      <y>392</y>
+      <x>735</x>
+      <y>350</y>
       <w>238</w>
       <h>63</h>
     </coordinates>
@@ -226,8 +229,8 @@ bg=green</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>728</x>
-      <y>413</y>
+      <x>588</x>
+      <y>371</y>
       <w>161</w>
       <h>35</h>
     </coordinates>
