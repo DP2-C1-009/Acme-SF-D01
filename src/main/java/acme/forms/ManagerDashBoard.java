@@ -20,14 +20,14 @@ public class ManagerDashBoard extends AbstractForm {
 	private int					totalNumberOfCouldUserStories;
 	private int					totalNumberOfWontUserStories;
 
-	private double				averageEstimatedCostUserStories;
-	private double				deviationEstimatedCostUserStories;
-	private double				maxEstimatedCostUserStories;
-	private double				minEstimatedCostUserStories;
+	private Double				averageEstimatedCostUserStories;
+	private Double				deviationEstimatedCostUserStories;
+	private Double				maxEstimatedCostUserStories;
+	private Double				minEstimatedCostUserStories;
 
-	private double				averageCostProjects;
-	private double				deviationCostProjects;
-	private double				maxCostProjects;
-	private double				minCostProjects;
+	private Double				averageCostProjects;
+	private Double				deviationCostProjects;
+	private Double				maxCostProjects;
+	private Double				minCostProjects;
 
 }
