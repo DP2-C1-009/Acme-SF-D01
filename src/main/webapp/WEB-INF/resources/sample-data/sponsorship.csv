@@ -1,0 +1,10 @@
+key,code,moment,start,end,amount,type,email,further-info,key:sponsor,key:project
+sponsorship-01,AAA-111,2022/07/30 00:00,2022/07/30 05:00,2022/07/30 05:00,EUR 220.00,IN_KIND,test@example.com,http://example.com,sponsor-01,project-01
+sponsorship-02,AAA-112,2022/07/30 00:00,2022/07/30 05:00,2022/07/30 05:01,EUR 220.00,IN_KIND,test@example.com,http://example.com,sponsor-01,project-01
+sponsorship-03,AAA-113,2022/07/30 00:00,2022/07/30 05:00,2022/08/30 13:00,EUR 220.00,IN_KIND,test@example.com,http://example.com,sponsor-01,project-01
+sponsorship-04,AAA-114,2022/07/30 00:00,2022/07/30 05:00,2022/08/30 13:00,EUR 220.00,IN_KIND,test@example.com,http://example.com,sponsor-01,project-01
+sponsorship-05,A-114,2022/07/30 00:00,2022/07/30 05:00,2022/08/30 13:00,EUR 220.00,FINANCIAL,test@example.com,http://example.com,sponsor-01,project-01
+sponsorship-06,AAA-115,2022/07/30 00:00,2022/07/30 05:00,2022/08/30 13:00,EUR 0.1,FINANCIAL,test@example.com,http://example.com,sponsor-01,project-01
+sponsorship-07,AAA-116,2022/07/30 00:00,2022/07/30 05:00,2022/08/30 13:00,USD 220.00,FINANCIAL,test@example.com,http://example.com,sponsor-01,project-01
+sponsorship-08,AAA-117,2022/07/30 00:00,2022/07/30 05:00,2022/08/30 13:00,USD 220.00,FINANCIAL,null,http://example.com,sponsor-01,project-01
+sponsorship-09,AAA-118,2022/07/30 00:00,2022/07/30 05:00,2022/08/30 13:00,USD 220.00,FINANCIAL,test@example.com,null,sponsor-01,project-01
