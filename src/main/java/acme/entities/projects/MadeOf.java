@@ -30,9 +30,9 @@ public class MadeOf extends AbstractEntity {
 	@ManyToOne(optional = false)
 	private UserStory			story;
 
-	//	@NotNull
-	//	@Valid
-	//	@ManyToOne(optional = false)
-	//	private Project					work;
+	@NotNull
+	@Valid
+	@ManyToOne(optional = false)
+	private Project				work;
 
 }
