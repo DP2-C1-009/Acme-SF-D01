@@ -22,10 +22,9 @@ public class SystemConfiguration extends AbstractEntity {
 
 	@NotBlank
 	@Pattern(regexp = "^[A-Z]{3}$")
-	private String				currency;
+	private String				systemCurrency;
 
-	private boolean				systemCurrency;
-
-	private boolean				acceptedCurrency;
+	@NotBlank
+	private String				acceptedCurrency;
 
 }
