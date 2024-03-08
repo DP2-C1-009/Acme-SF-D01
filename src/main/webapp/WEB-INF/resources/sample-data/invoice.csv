@@ -1,0 +1,10 @@
+key,code,registration-time,due-date,quantity,tax,further-info,key:sponsorship
+invoice-01,IN-9999-9999,2022/07/30 00:00,2022/08/30 00:00,EUR 220.00,20,null,sponsorship-01
+invoice-02,IN-0000-0000,2022/07/30 00:00,2022/08/30 00:01,EUR 220.00,20,null,sponsorship-01
+invoice-03,IN-0000-0001,2022/07/30 00:00,2022/09/30 00:01,EUR 220.00,20,null,sponsorship-01
+invoice-04,IN-0000-0002,2022/07/30 00:00,2022/09/30 00:01,EUR 0.1,20,null,sponsorship-01
+invoice-05,IN-0000-0003,2022/07/30 00:00,2022/09/30 00:01,USD 220.00,20,null,sponsorship-01
+invoice-06,IN-0000-0004,2022/07/30 00:00,2022/09/30 00:01,USD 220.00,0.0,null,sponsorship-01
+invoice-07,IN-0000-0005,2022/07/30 00:00,2022/09/30 00:01,USD 220.00,0.1,null,sponsorship-01
+invoice-08,IN-0000-0006,2022/07/30 00:00,2022/09/30 00:01,USD 220.00,0.21,null,sponsorship-01
+invoice-09,IN-0000-0007,2022/07/30 00:00,2022/09/30 00:01,USD 220.00,0.21,http://www.google.es,sponsorship-01
