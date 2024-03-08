@@ -2,13 +2,17 @@
 package acme.entities.projects;
 
 import javax.persistence.Entity;
+import javax.persistence.ManyToOne;
+import javax.validation.Valid;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 
 import org.hibernate.validator.constraints.Length;
 import org.hibernate.validator.constraints.URL;
 
 import acme.client.data.AbstractEntity;
+import acme.roles.Manager;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -38,6 +42,7 @@ public class UserStory extends AbstractEntity {
 	@Length(max = 100)
 	private String				acceptanceCriteria;
 
+	@NotNull
 	private UserStoryPriority	priority;
 
 	@URL
@@ -47,8 +52,8 @@ public class UserStory extends AbstractEntity {
 
 	// Relationships ----------------------------------------------------------
 
-	//	@NotNull
-	//	@Valid
-	//	@ManyToOne(optional = false)
-	//	private Manager 			manager;
+	@NotNull
+	@Valid
+	@ManyToOne(optional = false)
+	private Manager				manager;
 }
