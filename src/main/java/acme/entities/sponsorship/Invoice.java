@@ -13,13 +13,13 @@ import javax.validation.Valid;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Past;
+import javax.validation.constraints.PastOrPresent;
 import javax.validation.constraints.Pattern;
-import javax.validation.constraints.Positive;
 
 import org.hibernate.validator.constraints.URL;
 
 import acme.client.data.AbstractEntity;
+import acme.client.data.datatypes.Money;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -36,11 +36,12 @@ public class Invoice extends AbstractEntity {
 
 	@Column(unique = true)
 	@NotBlank
-	@Pattern(regexp = "IN-[0-9]{4}-[0-9]{4}")
+	@NotNull
+	@Pattern(regexp = "^IN-[0-9]{4}-[0-9]{4}$", message = "{validation.invoiceCode}")
 	protected String			code;
 
 	@NotNull
-	@Past
+	@PastOrPresent
 	@Temporal(TemporalType.TIMESTAMP)
 	protected Date				registrationTime;
 
@@ -48,8 +49,8 @@ public class Invoice extends AbstractEntity {
 	@Temporal(TemporalType.TIMESTAMP)
 	protected Date				dueDate;
 
-	@Positive
-	protected double			quantity;
+	@NotNull
+	protected Money				quantity;
 
 	@Min(0)
 	protected double			tax;
@@ -62,7 +63,7 @@ public class Invoice extends AbstractEntity {
 
 	@Transient
 	public Double totalAmount() {
-		return this.quantity * this.tax;
+		return this.quantity.getAmount() * (1 + this.tax / 100);
 	}
 
 	// Relationships ----------------------------------------------------------
