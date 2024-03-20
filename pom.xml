@@ -24,7 +24,7 @@
 	<description> This is my first project </description>
 
 	<artifactId>Acme-SF</artifactId>
-	<version>D02</version>
+	<version>D03</version>
 	
 	<packaging>war</packaging>
 	
