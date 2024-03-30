@@ -42,6 +42,10 @@
 		<acme:menu-option code="master.menu.consumer" access="hasRole('Consumer')">
 			<acme:menu-suboption code="master.menu.consumer.favourite-link" action="http://www.example.com/"/>
 		</acme:menu-option>
+		
+		<acme:menu-option code="master.menu.developer" access="hasRole('Developer')">
+			<acme:menu-suboption code="master.menu.developer.my-training-modules" action="/developer/training-module/list"/>
+		</acme:menu-option>
 	</acme:menu-left>
 
 	<acme:menu-right>
