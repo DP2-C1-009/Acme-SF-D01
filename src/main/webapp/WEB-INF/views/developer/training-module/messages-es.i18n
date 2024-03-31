@@ -3,3 +3,13 @@ developer.training-module.list.title = Lista de módulos de formación
 
 developer.training-module.list.label.code = Código
 developer.training-module.list.label.difficultyLevel = Dificultad
+
+developer.training-module.form.title = Módulo de formación
+
+developer.training-module.form.label.code = Código
+developer.training-module.form.label.creation-moment = Fecha de creación
+developer.training-module.form.label.details = Detalles
+developer.training-module.form.label.difficulty-level = Dificultad
+developer.training-module.form.label.update-moment = Fecha de actualización
+developer.training-module.form.label.optional-link = Enlace
+developer.training-module.form.label.estimated-total-time = Tiempo total estimado
