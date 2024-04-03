@@ -23,5 +23,6 @@
 	<acme:input-moment code="developer.training-module.form.label.update-moment" path="updateMoment"/>
 	<acme:input-url code="developer.training-module.form.label.optional-link" path="optionalLink"/>
 	<acme:input-integer code="developer.training-module.form.label.estimated-total-time" path="estimatedTotalTime"/>
+	<acme:input-textbox code="developer.training-module.form.label.draft-mode" path="draftMode" readonly="true"/>
 </acme:form>
 

@@ -13,3 +13,4 @@ developer.training-module.form.label.difficulty-level = Dificultad
 developer.training-module.form.label.update-moment = Fecha de actualización
 developer.training-module.form.label.optional-link = Enlace
 developer.training-module.form.label.estimated-total-time = Tiempo total estimado
+developer.training-module.form.label.draft-mode = Modo borrador

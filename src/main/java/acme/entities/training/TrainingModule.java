@@ -62,6 +62,9 @@ public class TrainingModule extends AbstractEntity {
 	@Positive
 	private Integer				estimatedTotalTime;
 
+	@NotNull
+	protected Boolean			draftMode;
+
 	// Relationships ----------------------------------------------------------
 
 	@NotNull
