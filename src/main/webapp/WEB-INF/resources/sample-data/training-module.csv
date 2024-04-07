@@ -1,25 +1,38 @@
 key,code,creation-moment,details,difficulty-level,update-moment,optional-link,estimated-total-time,draft-mode,key:project,key:developer
-training-module-01,A-111,2022/07/30 00:00,Introducción a Java Programming,BASIC,,,1,true,project-01,developer-01
-training-module-02,ZZZ-999,2022/07/29 23:59,Advanced Data Structures and Algorithms,ADVANCED,,,3,false,project-01,developer-02
-training-module-03,AB-123,2000/07/30 00:00,Machine Learning Fundamentals,BASIC,2000/09/05 15:45,https://example.com/machine-learning,5,true,project-01,developer-01
-training-module-04,YZ-987,1970/08/01 00:00,Web Development with Spring Boot,INTERMEDIATE,,,2,false,project-01,developer-02
-training-module-05,M-456,1970/07/30 00:00,Agile Methodologies in Software Development,INTERMEDIATE,,,4,true,project-01,developer-01
-training-module-06,C-333,2022/07/30 00:00,I,ADVANCED,2022/07/30 00:00,,6,false,project-01,developer-02
-training-module-07,X-999,2022/07/30 00:00,SO,BASIC,,,2,true,project-01,developer-01
-training-module-08,DEF-456,2022/07/30 00:00,Responsive Web Design with CSS3,INTERMEDIATE,,,3,false,project-01,developer-02
-training-module-09,Y-777,2022/07/30 00:00,Database Management Essentialssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss,BASIC,2022/07/30 00:00,,4,true,project-01,developer-01
-training-module-10,Z-666,2022/07/30 00:00,Security in Software Developmenttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttt,ADVANCED,2022/07/30 00:00,https://example.com/security,5,false,project-01,developer-02
-training-module-11,ABC-123,2022/07/30 00:00,Object-Oriented Programming Principles,BASIC,,,1,true,project-01,developer-01
-training-module-12,XYZ-789,2022/07/30 00:00,Software Architecture Fundamentals,INTERMEDIATE,,,3,false,project-01,developer-02
-training-module-13,JAV-567,2022/07/30 00:00,Java Spring Framework Essentials,ADVANCED,,,5,true,project-01,developer-01
-training-module-14,HTM-321,2022/07/30 00:00,HTML5 and CSS3 Basics,BASIC,2022/07/30 00:00,,2,false,project-01,developer-02
-training-module-15,PY-987,2022/07/30 00:00,Python for Data Science,BASIC,2022/07/30 00:00,,4,true,project-01,developer-01
-training-module-16,JAV-654,2022/07/30 00:00,Modern JavaScript Fundamentals,INTERMEDIATE,2000/07/30 00:00,,6,false,project-01,developer-02
-training-module-17,CLO-789,2022/07/30 00:00,Cloud Computing Essentials,ADVANCED,1970/08/01 00:00,,3,true,project-01,developer-01
-training-module-18,DEV-123,2022/07/30 00:00,Introduction to DevOps,BASIC,1970/07/30 00:00,,5,false,project-01,developer-02
-training-module-19,SQL-456,2022/07/30 00:00,SQL Database Fundamentals,INTERMEDIATE,,,2,true,project-01,developer-01
-training-module-20,DOC-789,2022/07/30 00:00,Docker Containerization Basics,BASIC,,https://github.com/,4,false,project-01,developer-02
-training-module-21,AWS-123,2022/07/30 00:00,AWS Cloud Practitioner Essentials,INTERMEDIATE,,,1,true,project-01,developer-01
-training-module-22,KUB-456,2022/07/30 00:00,Kubernetes Fundamentals,ADVANCED,,,2,false,project-01,developer-02
-training-module-23,GIT-789,2022/07/30 00:00,Git Version Control Basics,BASIC,,,999,true,project-01,developer-01
-training-module-24,JEN-123,2022/07/30 00:00,Jenkins CI/CD Pipeline Automation,INTERMEDIATE,,,999999,false,project-01,developer-02
+training-module-01,JAV-111,2020/07/30 00:00,Introducción a Java Programming,BASIC,2020/08/05 12:00,https://java.com,120,false,project-01,developer-01
+training-module-02,JAV-112,2000/01/01 00:00,Introducción a Java Programming,BASIC,2020/08/05 12:00,https://java.com,120,false,project-01,developer-01
+training-module-03,JAV-113,2000/01/01 00:01,Introducción a Java Programming,BASIC,2020/08/05 12:00,https://java.com,120,false,project-01,developer-01
+training-module-04,JAV-114,2022/07/30 00:00,Introducción a Java Programming,BASIC,2020/08/05 12:00,https://java.com,120,false,project-01,developer-01
+training-module-05,JAV-115,2022/07/29 23:59,Introducción a Java Programming,BASIC,2020/08/05 12:00,https://java.com,120,false,project-01,developer-01
+training-module-06,JAV-116,2020/02/29 00:00,Introducción a Java Programming,BASIC,2020/08/05 12:00,https://java.com,120,false,project-01,developer-01
+training-module-07,JAV-117,2000/12/31 23:59,Introducción a Java Programming,BASIC,2020/08/05 12:00,https://java.com,120,false,project-01,developer-01
+training-module-08,JAV-118,2001/01/01 00:00,Introducción a Java Programming,BASIC,2020/08/05 12:00,https://java.com,120,false,project-01,developer-01
+training-module-09,JAV-119,2020/07/30 00:00,I,BASIC,2020/08/05 12:00,https://java.com,120,false,project-01,developer-01
+training-module-10,JAV-120,2020/07/30 00:00,In,BASIC,2020/08/05 12:00,https://java.com,120,false,project-01,developer-01
+training-module-11,JAV-121,2020/07/30 00:00,Introducción a Java Programmingggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggg,BASIC,2020/08/05 12:00,https://java.com,120,false,project-01,developer-01
+training-module-12,JAV-122,2020/07/30 00:00,Introducción a Java Programminggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggg,BASIC,2020/08/05 12:00,https://java.com,120,false,project-01,developer-01
+training-module-13,JAV-123,2020/07/30 00:00,مقدمة عن برمجة جافا,BASIC,2020/08/05 12:00,https://java.com,120,false,project-01,developer-01
+training-module-14,JAV-124,2020/07/30 00:00,Java 编程简介,BASIC,2020/08/05 12:00,https://java.com,120,false,project-01,developer-01
+training-module-15,JAV-125,2020/07/30 00:00,' OR 'x'='x,BASIC,2020/08/05 12:00,https://java.com,120,false,project-01,developer-01
+training-module-16,JAV-126,2020/07/30 00:00,<script>alert('Injected!');</script>,BASIC,2020/08/05 12:00,https://java.com,120,false,project-01,developer-01
+training-module-17,JAV-127,2020/07/30 00:00,Introducción a Java Programming,INTERMEDIATE,2020/08/05 12:00,https://java.com,120,false,project-01,developer-01
+training-module-18,JAV-128,2020/07/30 00:00,Introducción a Java Programming,ADVANCED,2020/08/05 12:00,https://java.com,120,false,project-01,developer-01
+training-module-19,JAV-129,2020/07/30 00:00,Introducción a Java Programming,BASIC,,https://java.com,120,false,project-01,developer-01
+training-module-20,JAV-130,2020/07/30 00:00,Introducción a Java Programming,BASIC,2000/01/01 00:00,https://java.com,120,false,project-01,developer-01
+training-module-21,JAV-131,2020/07/30 00:00,Introducción a Java Programming,BASIC,2000/01/01 00:01,https://java.com,120,false,project-01,developer-01
+training-module-22,JAV-132,2020/07/30 00:00,Introducción a Java Programming,BASIC,2022/07/30 00:00,https://java.com,120,false,project-01,developer-01
+training-module-23,JAV-133,2020/07/30 00:00,Introducción a Java Programming,BASIC,2022/07/29 23:59,https://java.com,120,false,project-01,developer-01
+training-module-24,JAV-134,2020/07/30 00:00,Introducción a Java Programming,BASIC,2020/02/29 00:00,https://java.com,120,false,project-01,developer-01
+training-module-25,JAV-135,2020/07/30 00:00,Introducción a Java Programming,BASIC,2000/12/31 23:59,https://java.com,120,false,project-01,developer-01
+training-module-26,JAV-136,2020/07/30 00:00,Introducción a Java Programming,BASIC,2001/01/01 00:00,https://java.com,120,false,project-01,developer-01
+training-module-27,JAV-137,2020/07/30 00:00,Introducción a Java Programming,BASIC,2020/08/05 12:00,,120,false,project-01,developer-01
+training-module-28,JAV-138,2020/07/30 00:00,Introducción a Java Programming,BASIC,2020/08/05 12:00,https://javaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa.com,120,false,project-01,developer-01
+training-module-29,JAV-139,2020/07/30 00:00,Introducción a Java Programming,BASIC,2020/08/05 12:00,https://javaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa.com,120,false,project-01,developer-01
+training-module-30,JAV-140,2020/07/30 00:00,Introducción a Java Programming,BASIC,2020/08/05 12:00,https://java.com?,120,false,project-01,developer-01
+training-module-31,JAV-141,2020/07/30 00:00,Introducción a Java Programming,BASIC,2020/08/05 12:00,https://java.com?a,120,false,project-01,developer-01
+training-module-32,JAV-142,2020/07/30 00:00,Introducción a Java Programming,BASIC,2020/08/05 12:00,https://java.com,1,false,project-01,developer-01
+training-module-33,JAV-143,2020/07/30 00:00,Introducción a Java Programming,BASIC,2020/08/05 12:00,https://java.com,12,false,project-01,developer-01
+training-module-34,JAV-144,2020/07/30 00:00,Introducción a Java Programming,BASIC,2020/08/05 12:00,https://java.com,9999,false,project-01,developer-01
+training-module-35,JAV-145,2020/07/30 00:00,Introducción a Java Programming,BASIC,2020/08/05 12:00,https://java.com,10000,false,project-01,developer-01
+training-module-36,JAV-146,2020/07/30 00:00,Introducción a Java Programming,BASIC,2020/08/05 12:00,https://java.com,120,true,project-01,developer-01
+training-module-37,JAV-147,1999/01/01 00:00,Introducción a Java Programming (TS pruebas),BASIC,,https://java.com,120,true,project-01,developer-01

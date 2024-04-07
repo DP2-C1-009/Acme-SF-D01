@@ -9,6 +9,7 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.validation.Valid;
+import javax.validation.constraints.Max;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.PastOrPresent;
@@ -57,13 +58,14 @@ public class TrainingModule extends AbstractEntity {
 	private Date				updateMoment;
 
 	@URL
+	@Length(max = 255)
 	private String				optionalLink;
 
 	@Positive
-	private Integer				estimatedTotalTime;
+	@Max(10000)
+	private int					estimatedTotalTime;
 
-	@NotNull
-	protected Boolean			draftMode;
+	protected boolean			draftMode;
 
 	// Relationships ----------------------------------------------------------
 
