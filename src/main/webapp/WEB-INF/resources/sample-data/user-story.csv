@@ -1,21 +1,21 @@
 key,title,description,estimatedCost,acceptanceCriteria,priority,optionalLink,key:manager
-user-story-01,"A","A",1,"A",MUST,"https://www.google.com",manager-01
-user-story-02,"a","a",2,"a",SHOULD,"https://ev.us.es",manager-01
-user-story-03,"Sign in and sign out","As a customer, i want to sign in and sign out of application",123456789,"The feature must work great and dont overload the server",COULD,null,manager-01
-user-story-04,"Make excels automaticly","As a manager, i want to generate automaticly an excel with the numbers",987654321,"This feature must perform on the app in less than a minute",WONT,null,manager-01
-user-story-05,"Examples test to test that we can have 75 characters of attribute title now","Examples test to test that we can have 100 characters in the description atributte of user-story, so",50,"Example criteria",MUST,null,manager-01
-user-story-06,"Example title","Example description",33,"Example criteria",MUST,null,manager-01
-user-story-07,"Example title","Example description",33,"Example criteria",MUST,null,manager-01
-user-story-08,"Example title","Example description",33,"Example criteria",SHOULD,null,manager-01
-user-story-09,"Example title","Example description",33,"Example criteria",SHOULD,null,manager-01
-user-story-10,"Example title","Example description",33,"Example criteria",SHOULD,null,manager-01
-user-story-11,"Example title","Example description",33,"Example criteria",SHOULD,null,manager-02
-user-story-12,"Example title","Example description",33,"Example criteria",SHOULD,null,manager-02
-user-story-13,"Example title","Example description",33,"Example criteria",COULD,null,manager-02
-user-story-14,"Example title","Example description",33,"Example criteria",COULD,null,manager-02
-user-story-15,"Example title","Example description",33,"Example criteria",COULD,null,manager-02
-user-story-16,"Example title","Example description",33,"Example criteria",COULD,null,manager-02
-user-story-17,"Example title","Example description",33,"Example criteria",COULD,null,manager-02
-user-story-18,"Example title","Example description",33,"Example criteria",WONT,null,manager-02
-user-story-19,"Example title","Example description",33,"Example criteria",WONT,null,manager-02
-user-story-20,"Example title","Example description",33,"Example criteria",WONT,null,manager-02
+user-story-01,A,A,1,A,MUST,https://www.google.com,manager-01
+user-story-02,UX,UX,2,UX,SHOULD,https://ev.us.es,manager-01
+user-story-03,Sign in and sign out,"As a customer, i want to sign in and sign out of application",123456789,The feature must work great and dont overload the server,COULD,null,manager-01
+user-story-04,Make excels automaticly,"As a manager, i want to generate automaticly an excel with the numbers",987654321,This feature must perform on the app in less than a minute,WONT,https://example.com/example-us4,manager-01
+user-story-05,Examples test to test that we can have 75 characters of attribute title now,"Examples test to test that we can have 100 characters in the description atributte of user-story, so",50,Example criteria,MUST,https://example.com/example-us5,manager-01
+user-story-06,User Login Authentication with Two-Factor Verification,Enhance security by requiring a code from the user's mobile device in addition to the password.,33,User can successfully log in with two-factor authentication within 30 seconds of receiving the code.,MUST,null,manager-01
+user-story-07,Data Export Functionality for User-Generated Reports,Allow users to export their data into various formats for easy sharing and analysis.,33,"The system exports data in the selected format within 10 seconds, with a 100% accuracy rate.",MUST,null,manager-01
+user-story-08,Personalized Dashboard Creation for Analytics Overview,Enable users to customize their dashboard to see the metrics that matter most to them.,33,Users can fully customize their dashboard layout and save changes with immediate effect.,SHOULD,https://example.com/example-us8,manager-01
+user-story-09,Automated Backup System for User Data Protection,Automatically back up user data to prevent loss and enable easy recovery.,33,Data backup completes within 60 minutes without user intervention and is ready for restoration.,SHOULD,null,manager-01
+user-story-10,Real-Time Notification Service for System Updates,Notify users of system updates or important alerts in real-time to keep them informed.,33,Real-time notifications are delivered to users within 5 seconds of any system update initiation.,SHOULD,https://example.com/example-us10,manager-01
+user-story-11,Customizable User Profile Settings for Enhanced Privacy,"Let users control their privacy settings, including who can see their profile and activities.",33,Changes to user privacy settings take effect immediately and persist across all sessions.,SHOULD,https://example.com/example-us11,manager-02
+user-story-12,Integration of Third-Party APIs for Expanded Functionality,Facilitate the addition of new features by integrating with various third-party services.,33,Integration of a new third-party API does not degrade system performance or user experience.,SHOULD,null,manager-02
+user-story-13,Dynamic Content Filtering Based on User Preferences,Allow users to filter the content they see based on their selected interests and dislikes.,33,Content filtering adjusts dynamically to user preferences with 100% accuracy in content display.,COULD,null,manager-02
+user-story-14,Mobile App Accessibility Features for Visually Impaired Users,Implement features to make the app usable for users with visual impairments.,33,App functions are accessible using screen readers and voice commands for visually impaired users.,COULD,null,manager-02
+user-story-15,User-Driven Custom Report Generation Tool,"Empower users to create reports with the data they choose, using templates or from scratch.",33,"Custom reports reflect user-selected parameters accurately, with no data mismatch.",COULD,null,manager-02
+user-story-16,Cloud Storage Options for User Data Management,"Offer users options for storing their data in the cloud, with varying levels of access.",33,"Users can select, configure, and use cloud storage without encountering access or sync issues.",COULD,null,manager-02
+user-story-17,Interactive Tutorial for First-Time Software Users,"Guide new users through the software's features with an interactive, step-by-step tutorial.",33,First-time users demonstrate basic competency in app navigation and feature use after the tutorial.,COULD,null,manager-02
+user-story-18,Multi-Language Support for Global User Access,Support multiple languages to accommodate users from different countries.,33,The system supports seamless switching between at least three languages without reload delays.,WONT,null,manager-02
+user-story-19,User Feedback System for Product Improvement,Collect and analyze user feedback to identify areas for product enhancement.,33,"User feedback is recorded, acknowledged via email within 24 hours, and accessible to admins.",WONT,null,manager-02
+user-story-20,Secure Password Recovery Mechanism for Users,"Provide a secure method for users to recover their password, verifying identity thoroughly.",33,The password recovery process requires only information the user would know or have access to.,WONT,https://example.com/example-us20,manager-02

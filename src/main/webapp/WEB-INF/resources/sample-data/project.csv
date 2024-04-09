@@ -1,21 +1,21 @@
 key,code,title,pAbstract,fatalErrors,cost,optionalLink,draftMode,key:manager
-project-01,"AAA-0000","A","A",true,0,"https://www.google.com",true,manager-01
-project-02,"AAB-0000","a","a",true,1,"https://ev.us.es",true,manager-01
-project-03,"MMM-0000","Efficient Data Management System for Businesses","Smart Home Automation Systems SO for Modern Living",true,123456789,null,true,manager-01
-project-04,"ZZY-0000","Advanced Marketing Analytics Platform for Enterprises","Integrated Health Monitoring and Wellness Platform Leveraging IoT and AI's Personalized Healthcare",true,987654321,null,true,manager-01
-project-05,"ZZZ-0000","Next Generation Renewable Energy Solution for Sustainable Urban Development","Integrated Healths Monitoring and Wellness Platform Leveraging IoT and AI's Personalized Healthcare",true,33,null,true,manager-01
-project-06,"ABC-0001","Example title","Example pAbstract",true,33,null,true,manager-01
-project-07,"LMN-5000","Example title","Example pAbstract",true,33,null,true,manager-01
-project-08,"OPQ-9998","Example title","Example pAbstract",true,33,null,true,manager-01
-project-09,"RST-9999","Example title","Example pAbstract",true,33,null,true,manager-01
-project-10,"APO-2743","Example title","Example pAbstract",true,33,null,true,manager-01
-project-11,"TVI-8351","Example title","Example pAbstract",false,33,null,false,manager-02
-project-12,"DFG-3333","Example title","Example pAbstract",false,33,null,false,manager-02
-project-13,"RTU-3333","Example title","Example pAbstract",false,33,null,false,manager-02
-project-14,"QQQ-3333","Example title","Example pAbstract",false,33,null,false,manager-02
-project-15,"WWW-3333","Example title","Example pAbstract",false,33,null,false,manager-02
-project-16,"PPP-3333","Example title","Example pAbstract",false,33,null,false,manager-02
-project-17,"XXX-3333","Example title","Example pAbstract",false,33,null,false,manager-02
-project-18,"FFF-9999","Example title","Example pAbstract",false,33,null,false,manager-02
-project-19,"HHH-4444","Example title","Example pAbstract",false,33,null,false,manager-02
-project-20,"KKK-6666","Example title","Example pAbstract",false,33,null,false,manager-02
+project-01,AAA-0000,A,A,true,0,https://www.google.com,true,manager-01
+project-02,AAB-0000,UX,UX,true,1,https://ev.us.es,true,manager-01
+project-03,MMM-0000,Efficient Data Management System for Businesses,Smart Home Automation Systems SO for Modern Living,true,123456789,null,true,manager-01
+project-04,ZZY-0000,Advanced Marketing Analytics Platform for Enterprisessssssssssssssssssssss,Integrated Health Monitoring and Wellness Platform Leveraging IoT and AI's Personalized Healthcare,true,987654321,https://example.com/example5,true,manager-01
+project-05,ZZZ-0000,Next Generation Renewable Energy Solution for Sustainable Urban Development,Integrated Healths Monitoring and Wellness Platform Leveraging IoT and AI's Personalized Healthcare,true,33,https://example.com/example6,true,manager-01
+project-06,ABC-0001,Development of a Distributed Database Management System,Creating a robust system to manage and access distributed databases efficiently.,true,33,null,true,manager-01
+project-07,LMN-5000,Optimization of Algorithms for Deep Neural Networks,Enhancing deep learning by refining neural network algorithms for better accuracy.,true,33,null,true,manager-01
+project-08,OPQ-9998,Process Automation with Software Robotics,Utilizing robotic software to automate repetitive and time-consuming tasks.,true,33,https://example.com/example8,true,manager-01
+project-09,RST-9999,Web Application Security: Strategies Against Attacks,Implementing defensive strategies to protect web apps from cybersecurity threats.,true,33,https://example.com/example9,true,manager-01
+project-10,APO-2743,Personalized Recommendation Systems through AI,Using AI to tailor recommendations to individual preferences and behaviors.,true,33,null,true,manager-01
+project-11,TVI-8351,Machine Learning Platform for Data Analysis,A platform that leverages machine learning for insightful data analysis and predictions.,false,33,null,false,manager-02
+project-12,DFG-3333,Cybersecurity Strategies for Critical Infrastructures,Protecting critical infrastructure with cutting-edge cybersecurity methodologies.,false,33,null,false,manager-02
+project-13,RTU-3333,Development of an Internal Search Engine with NLP,Building a search engine powered by natural language processing for precise results.,false,33,null,false,manager-02
+project-14,QQQ-3333,Blockchain Implementation for Secure Transactions,Securely recording transactions with blockchain to enhance trust and transparency.,false,33,https://example.com/example14,false,manager-02
+project-15,WWW-3333,Advanced Techniques for Lossless Data Compression,Employing novel data compression techniques to save space without losing quality.,false,33,https://example.com/example15,false,manager-02
+project-16,PPP-3333,Complex System Simulations with Quantum Computing,Simulating complex systems with quantum computing for groundbreaking insights.,false,33,null,false,manager-02
+project-17,XXX-3333,Predictive Analysis for Online Fraud Detection,"Detecting online fraud through predictive analytics, safeguarding digital transactions.",false,33,null,false,manager-02
+project-18,FFF-9999,Smart Home Automation with IoT,Integrating IoT devices for automated and efficient home management solutions.,false,33,null,false,manager-02
+project-19,HHH-4444,Development of Educational Video Games with Augmented Reality,Crafting educational games that use augmented reality for engaging learning experiences.,false,33,null,false,manager-02
+project-20,KKK-6666,Network Performance Improvement through SDN (Software Defined Networking),Optimizing network functionality and management with software-defined networking.,false,33,https://example.com/example20,false,manager-02
