@@ -47,7 +47,7 @@ public class ClientContractPublishService extends AbstractService<Client, Contra
 
 		super.getBuffer().addData(object);
 	}
-	
+
 	@Override
 	public void bind(final Contract object) {
 		assert object != null;
@@ -58,11 +58,22 @@ public class ClientContractPublishService extends AbstractService<Client, Contra
 
 	@Override
 	public void validate(final Contract object) {
-		final Contract contract = this.repository.findOneContractById(object.getId());
-		final Collection<String> allCodes = this.repository.findAllContractsCode();
+		Project project = object.getProject();
 		boolean isCodeChanged = false;
 
-		Project project = object.getProject();
+		double res = 0.0;
+
+		final Collection<String> allCodes = this.repository.findAllContractsCode();
+		final Collection<Contract> allContractsByProject = this.repository.findAllContractsWithProject(object.getProject().getId());
+		final Contract contract = this.repository.findOneContractById(object.getId());
+
+		for (Contract c : allContractsByProject) {
+			Double money = c.getBudget().getAmount();
+			res = res + money;
+		}
+
+		if (object.getBudget().getAmount() != 0.0 && project.getCost() < res)
+			super.state(false, "budget", "client.contract.error.projectBudget");
 
 		if (!super.getBuffer().getErrors().hasErrors("code")) {
 			isCodeChanged = !contract.getCode().equals(object.getCode());
@@ -71,8 +82,6 @@ public class ClientContractPublishService extends AbstractService<Client, Contra
 
 		if (object.getBudget() == null)
 			super.state(false, "budget", "client.contract.error.budget");
-		if (object.getBudget() != null && object.getBudget().getAmount() > project.getCost())
-			super.state(false, "budget", "client.contract.error.projectBudget");
 
 	}
 
@@ -99,6 +108,5 @@ public class ClientContractPublishService extends AbstractService<Client, Contra
 		super.getResponse().addData(dataset);
 
 	}
-
 
 }

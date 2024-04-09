@@ -1,0 +1,3 @@
+key,key:contract,recordId,completeness,comment,registrationMoment,responsiblePerson,draftmode
+progressLog-01,contract-35,PG-A-1234,75.5,Un comentario de ejemplo,2022/03/22 12:00,Eduardo Bustamante, false
+progressLog-02,contract-35,PG-A-1235,75.55,Un comentario de ejemplo,2022/03/22 12:00,Eduardo Bustamante, true

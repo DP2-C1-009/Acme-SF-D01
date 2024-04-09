@@ -37,17 +37,25 @@ public class ClientContractCreateService extends AbstractService<Client, Contrac
 
 	@Override
 	public void validate(final Contract object) {
-		final Collection<String> allCodes = this.repository.findAllContractsCode();
-
 		Project project = object.getProject();
+		double res = 0.0;
+
+		final Collection<String> allCodes = this.repository.findAllContractsCode();
+		final Collection<Contract> allContractsByProject = this.repository.findAllContractsWithProject(object.getProject().getId());
+
+		for (Contract c : allContractsByProject) {
+			Double money = c.getBudget().getAmount();
+			res = res + money;
+		}
+
+		if (object.getBudget().getAmount() != 0.0 && project.getCost() < res)
+			super.state(false, "budget", "client.contract.error.projectBudget");
 
 		if (!super.getBuffer().getErrors().hasErrors("code"))
 			super.state(!allCodes.contains(object.getCode()), "code", "client.contract.error.codeDuplicate");
 
 		if (object.getBudget() == null)
 			super.state(false, "budget", "client.contract.error.budget");
-		if (object.getBudget() != null && object.getBudget().getAmount() > project.getCost())
-			super.state(false, "budget", "client.contract.error.projectBudget");
 
 	}
 
