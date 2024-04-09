@@ -42,7 +42,7 @@ public class ProgressLog extends AbstractEntity {
 
 	@DecimalMin(value = "0", message = "{validation.Progresscompleteness}")
 	@DecimalMax(value = "100", message = "{validation.Progresscompleteness}")
-	@Digits(integer = 2, fraction = 2, message = "{validation.Progresscompleteness}")
+	@Digits(integer = 3, fraction = 2, message = "{validation.Progresscompleteness}")
 	protected double			completeness;
 
 	@NotBlank

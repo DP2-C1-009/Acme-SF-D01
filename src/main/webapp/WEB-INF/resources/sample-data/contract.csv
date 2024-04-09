@@ -33,3 +33,6 @@ contract-32,project-11,client-02,A030,2022/07/29 23:59,Eduardo Bustamante,Juan M
 contract-33,project-11,client-01,A031,2022/03/22 11:00,愛德華多·布斯塔曼特,胡安·馬丁內斯,這是一個測試,10EUR,false
 contract-34,project-11,client-01,A032,2022/03/22 11:00,Εδουάρδος Μπουσταμάντε,Χουάν Μαρτίνεθ,Αυτή είναι μια δοκιμή,10EUR,false
 contract-35,project-11,client-01,A033,2022/03/22 11:00,エドゥアルド・ブスタマンテ,フアン・マルティネス,これはテストです,10EUR,false
+contract-36,project-11,client-02,A034,2021/10/18 17:39,//,\\,'',10EUR,true
+contract-37,project-11,client-02,A035,2021/10/18 17:39,%00,||,%,10EUR,true
+contract-38,project-11,client-02,A036,2021/10/18 17:39,/*…*/,@variable,@@variable,10EUR,true

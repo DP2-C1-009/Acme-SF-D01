@@ -1,3 +1,36 @@
 key,key:contract,recordId,completeness,comment,registrationMoment,responsiblePerson,draftmode
-progressLog-01,contract-35,PG-A-1234,75.5,Un comentario de ejemplo,2022/03/22 12:00,Eduardo Bustamante, false
-progressLog-02,contract-35,PG-A-1235,75.55,Un comentario de ejemplo,2022/03/22 12:00,Eduardo Bustamante, true
+progressLog-01,contract-35,PG-A-1234,75.5,Un comentario de ejemplo,2022/03/22 12:00,Eduardo Bustamante,false
+progressLog-02,contract-35,PG-A-1235,75.55,Un comentario de ejemplo,2022/03/22 12:00,Eduardo Bustamante,true
+progressLog-03,contract-18,PG-A-0001,75.55,Un comentario de ejemplo,2022/03/22 12:00,Eduardo Bustamante,true
+progressLog-04,contract-18,PG-A-0002,75.55,Un comentario de ejemplo,2022/03/22 12:00,Eduardo Bustamante,true
+progressLog-05,contract-18,PG-AB-1234,75.55,Un comentario de ejemplo,2022/03/22 12:00,Eduardo Bustamante,true
+progressLog-06,contract-18,PG-ZZ-9999,75.55,Un comentario de ejemplo,2022/03/22 12:00,Eduardo Bustamante,true
+progressLog-07,contract-18,PG-ZZ-9998,75.55,Un comentario de ejemplo,2022/03/22 12:00,Eduardo Bustamante,true
+progressLog-08,contract-19,PG-A-0003,0.00,Un comentario de ejemplo,2022/03/22 12:00,Eduardo Bustamante,false
+progressLog-09,contract-19,PG-A-0004,0.01,Un comentario de ejemplo,2022/03/22 12:00,Eduardo Bustamante,false
+progressLog-10,contract-19,PG-A-0005,50.50,Un comentario de ejemplo,2022/03/22 12:00,Eduardo Bustamante,false
+progressLog-11,contract-19,PG-A-0006,100.00,Un comentario de ejemplo,2022/03/22 12:00,Eduardo Bustamante,false
+progressLog-12,contract-19,PG-A-0007,99.99,Un comentario de ejemplo,2022/03/22 12:00,Eduardo Bustamante,false
+progressLog-13,contract-08,PG-A-0009,75.55,a,2022/03/22 12:00,Eduardo Bustamante,true
+progressLog-14,contract-08,PG-A-0010,75.55,ab,2022/03/22 12:00,Eduardo Bustamante,true
+progressLog-15,contract-08,PG-A-0011,75.55,Este es un comentario,2022/03/22 12:00,Eduardo Bustamante,true
+progressLog-16,contract-08,PG-A-0012,75.55,Este es un comentario que alcanza el límite máximo de cien caracteres. Este es un comentario que pr,2022/03/22 12:00,Eduardo Bustamante,true
+progressLog-17,contract-08,PG-A-0013,75.55,Este es un comentario que alcanza el límite máximo de cien caracteres. Este es un comentario que p,2022/03/22 12:00,Eduardo Bustamante,true
+progressLog-18,contract-09,PG-A-0014,99.99,Un comentario de ejemplo,2000/01/01 00:00,Eduardo Bustamante,false
+progressLog-19,contract-09,PG-A-0015,99.99,Un comentario de ejemplo,2000/01/01 00:01,Eduardo Bustamante,false
+progressLog-20,contract-09,PG-A-0016,99.99,Un comentario de ejemplo,2019/11/24 18:28,Eduardo Bustamante,false
+progressLog-21,contract-09,PG-A-0017,99.99,Un comentario de ejemplo,2022/07/30 00:00,Eduardo Bustamante,false
+progressLog-22,contract-09,PG-A-0018,99.99,Un comentario de ejemplo,2022/07/29 23:59,Eduardo Bustamante,false
+progressLog-23,contract-18,PG-A-0019,75.55,Un comentario de ejemplo,2022/03/22 12:00,a,true
+progressLog-24,contract-18,PG-A-0020,75.55,Un comentario de ejemplo,2022/03/22 12:00,ab,true
+progressLog-25,contract-18,PG-A-0021,75.55,Un comentario de ejemplo,2022/03/22 12:00,John Doe, true
+progressLog-26,contract-18,PG-A-0022,75.55,Un comentario de ejemplo,2022/03/22 12:00,This is a long name for a responsible person that reaches the maximum limit,true
+progressLog-27,contract-18,PG-A-0023,75.55,Un comentario de ejemplo,2022/03/22 12:00,This is a long name for a responsible person that reaches the maximum limi,true
+progressLog-28,contract-35,PG-A-0024,75.5,Ένα παράδειγμα σχολίου,2022/03/22 12:00,Εδουάρδος Μπουσταμάντε,false
+progressLog-29,contract-35,PG-A-0025,75.5,例のコメント,2022/03/22 12:00,エドゥアルド・ブスタマンテ,false
+progressLog-30,contract-35,PG-A-0026,75.5,一个示例评论,2022/03/22 12:00,爱德华多·布斯塔曼特,false
+progressLog-31,contract-35,PG-A-0027,75.5,ความคิดเห็นตัวอย่าง,2022/03/22 12:00,เอดูอาร์โด บุสตามันเต,false
+progressLog-32,contract-35,PG-A-0028,75.55,//,2022/03/22 12:00,\\,true
+progressLog-33,contract-35,PG-A-0029,75.55,'',2022/03/22 12:00,%00,true
+progressLog-34,contract-35,PG-A-0030,75.55,/*…*/,2022/03/22 12:00,@variable,true
+progressLog-35,contract-35,PG-A-0031,75.55,@@variable,2022/03/22 12:00,%,true
