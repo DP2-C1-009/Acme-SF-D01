@@ -19,4 +19,4 @@ client.contract.form.button.create = Create Contract
 client.contract.form.button.publish = Publish
 client.contract.form.button.update = Update
 client.contract.form.label.projects = Projects
-client.contract.error.budgetMax = The maximum value for a budget is of 1.000.000
+client.contract.form.button.delete = Delete

@@ -12,11 +12,12 @@
     <acme:input-money code="client.contract.form.label.budget" path="budget"/>
 	
 	<jstl:choose>
-		<jstl:when test="${acme:anyOf(_command, 'show|update|publish') && draftmode == true}">
+		<jstl:when test="${acme:anyOf(_command, 'show|update|publish|delete') && draftmode == true}">
 			<acme:input-moment code="client.contract.form.label.instantiationMoment" path="instantiationMoment" readonly="true"/>
 			<acme:input-textbox code="client.contract.form.label.projectCode" path="projectCode" readonly="true"/>
 		    <acme:submit code="client.contract.form.button.update" action="/client/contract/update"/>
 		    <acme:submit code="client.contract.form.button.publish" action="/client/contract/publish"/>
+		     <acme:submit code="client.contract.form.button.delete" action="/client/contract/delete"/>
 		</jstl:when>	
 		
 		<jstl:when test="${acme:anyOf(_command, 'show|update') && draftmode == false}">

@@ -19,3 +19,4 @@ client.contract.form.button.create = Nuevo Contrato
 client.contract.form.label.projects = Proyectos
 client.contract.form.button.publish = Publicar
 client.contract.form.button.update = Actualizar
+client.contract.form.button.delete = Eliminar
