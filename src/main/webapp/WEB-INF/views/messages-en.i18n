@@ -12,3 +12,4 @@ validation.CodeAuditCode = Invalid format. Please enter a code that starts with 
 validation.ProjectCode = The project code must follow the pattern of three uppercase letters followed by a hyphen and four digits.
 validation.trainingModule.reference	= The reference must have 1 to 3 letters and 3 digits, separated by a hyphen
 validation.trainingSession.reference = The reference must begin with "TS-" and must have 1 to 3 letters and 3 digits, separated by a hyphen
+validation.Progresscompleteness = The percentage must be a number from 0 to 100 and allow only two decimal places
