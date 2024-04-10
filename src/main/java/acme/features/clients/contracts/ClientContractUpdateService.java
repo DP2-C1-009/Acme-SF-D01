@@ -32,7 +32,7 @@ public class ClientContractUpdateService extends AbstractService<Client, Contrac
 
 		principal = super.getRequest().getPrincipal();
 
-		status = object != null && object.getClient().getId() == principal.getActiveRoleId();
+		status = object != null && object.getClient().getId() == principal.getActiveRoleId() && object.isDraftmode();
 
 		super.getResponse().setAuthorised(status);
 	}

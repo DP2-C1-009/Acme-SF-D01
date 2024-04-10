@@ -24,17 +24,19 @@ public class ClientProgressLogPublishService extends AbstractService<Client, Pro
 	public void authorise() {
 		boolean status;
 		int id;
-		Contract contract;
+		Contract contract = null;
 		Principal principal;
 		ProgressLog progressLog;
 
 		id = super.getRequest().getData("id", int.class);
 		progressLog = this.repository.findProgressLogById(id);
-		contract = progressLog.getContract();
+
+		if (progressLog != null)
+			contract = progressLog.getContract();
 
 		principal = super.getRequest().getPrincipal();
 
-		status = contract.getClient().getId() == principal.getActiveRoleId() && progressLog.isDraftmode() && progressLog != null;
+		status = progressLog != null && contract.getClient().getId() == principal.getActiveRoleId() && progressLog.isDraftmode();
 
 		super.getResponse().setAuthorised(status);
 	}

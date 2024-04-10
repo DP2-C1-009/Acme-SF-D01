@@ -8,4 +8,4 @@
 	<acme:list-column code="client.progressLog.list.label.completeness" path="completeness"/>
 	<acme:list-column code="client.progressLog.list.label.draftMode" path="draftmode"/>
 </acme:list>
- <acme:button code="student.activity.list.button.create" action="/client/progress-log/create?contractId=${contractId}"/>
+ <acme:button code="client.progressLog.list.button.create" action="/client/progress-log/create?contractId=${contractId}"/>
