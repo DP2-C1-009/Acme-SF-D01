@@ -1,0 +1,18 @@
+key,key:auditor,code,execution,type,correctiveActions,moreInfoLink
+code-audit-01,auditor-01,A-001,2000/01/01 00:00,STATIC,Optimize code performance,https://example.com
+code-audit-02,auditor-02,ABC-002,2022/07/30 00:00,STATIC,Optimize code performance,https://example.com
+code-audit-03,auditor-02,ABC-003,2021/08/30 00:00,STATIC,Optimize code performance,https://example.com
+code-audit-04,auditor-02,ABC-004,2021/08/30 00:00,DYNAMIC,Optimize code performance,https://example.com
+code-audit-05,auditor-02,ABC-005,2021/08/30 00:00,DYNAMIC,Optimize code performance,https://example.com
+code-audit-06,auditor-02,A-000,2021/08/30 00:00,DYNAMIC,Optimize code performance,https://example.com
+code-audit-07,auditor-01,ABC-085,2021/08/30 00:00,DYNAMIC,Optimize code performance,https://example.com
+code-audit-08,auditor-01,AB-008,2021/08/30 00:00,DYNAMIC,a,https://example.com
+code-audit-09,auditor-01,AB-006,2021/08/30 00:00,DYNAMIC,ab,https://example.com
+code-audit-10,auditor-01,AB-044,2021/08/30 00:00,DYNAMIC,Esto es una lista de correcciones para probar el maximo de caracteres permitidos para alcanzar el li,https://example.com
+code-audit-11,auditor-01,AB-234,2021/08/30 00:00,DYNAMIC,Esto es una lista de correcciones para probar el maximo de caracteres permitidos para alcanzar el l,https://example.com
+code-audit-12,auditor-01,AB-254,2021/08/30 00:00,DYNAMIC,愛德華多·布斯塔曼特,https://example.com
+code-audit-13,auditor-01,AB-024,2021/08/30 00:00,DYNAMIC,Εδουάρδος Μπουσταμάντε,https://example.com
+code-audit-14,auditor-01,AB-104,2021/08/30 00:00,DYNAMIC,<script><h2>Prueba</h2></script>,https://example.com
+code-audit-15,auditor-01,AB-504,2021/08/30 00:00,DYNAMIC,Optimize code performance,https://www.google.com/aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+code-audit-16,auditor-01,AB-064,2021/08/30 00:00,DYNAMIC,Optimize code performance,https://www.google.com/aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+code-audit-17,auditor-01,AB-096,2021/08/30 00:00,DYNAMIC,Optimize code performance,

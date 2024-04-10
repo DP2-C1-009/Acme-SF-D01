@@ -31,7 +31,7 @@ public class CodeAudit extends AbstractEntity {
 
 	@Column(unique = true)
 	@NotBlank
-	@Pattern(regexp = "[A-Z]{1,3}-[0-9]{3}", message = "{validation.CodeAuditCode}")
+	@Pattern(regexp = "^[A-Z]{1,3}-[0-9]{3}$", message = "{validation.CodeAuditCode}")
 	protected String			code;
 
 	@Temporal(TemporalType.TIMESTAMP)
@@ -48,10 +48,11 @@ public class CodeAudit extends AbstractEntity {
 	private String				correctiveActions;
 
 	@URL
+	@Length(max = 255)
 	protected String			moreInfoLink;
 	// Derived attributes -----------------------------------------------------
-	@NotNull
-	protected AuditRecordMark	mark;
+	//	@NotNull
+	//	protected AuditRecordMark	mark;
 	// Relationships ----------------------------------------------------------
 
 	@NotNull
