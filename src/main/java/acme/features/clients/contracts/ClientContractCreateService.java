@@ -47,18 +47,26 @@ public class ClientContractCreateService extends AbstractService<Client, Contrac
 			for (Contract c : allContractsByProject) {
 				Double money = c.getBudget().getAmount();
 				res = res + money;
+				res = res + object.getBudget().getAmount();
 			}
 
-			if (object.getBudget().getAmount() != 0.0 && project.getCost() < res)
-				super.state(false, "budget", "client.contract.error.projectBudget");
+			if (object.getBudget() == null)
+				super.state(false, "budget", "client.contract.error.budget");
+
+			if (object.getBudget() != null) {
+				if (object.getBudget().getAmount() < 0.0)
+					super.state(false, "budget", "client.contract.error.negativeBudget");
+				if (object.getBudget().getAmount() == 0.0)
+					super.state(false, "budget", "client.contract.error.projectBudget");
+				if (res > project.getCost())
+					super.state(false, "budget", "client.contract.error.projectBudgetTotal");
+			}
+
 		} else
 			super.state(false, "project", "client.contract.error.project");
 
 		if (!super.getBuffer().getErrors().hasErrors("code"))
 			super.state(!allCodes.contains(object.getCode()), "code", "client.contract.error.codeDuplicate");
-
-		if (object.getBudget() == null)
-			super.state(false, "budget", "client.contract.error.budget");
 
 	}
 
