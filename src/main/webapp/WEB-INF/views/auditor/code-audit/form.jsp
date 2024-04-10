@@ -15,8 +15,9 @@
 		<jstl:when test="${_command == 'create'}">
 			<acme:submit code="auditor.codeaudit.form.button.create" action="/auditor/code-audit/create"/>
 		</jstl:when>
-		<jstl:when test="${acme:anyOf(_command, 'show|update')}">
+		<jstl:when test="${acme:anyOf(_command, 'show|update|delete')}">
 			<acme:submit code="auditor.codeaudit.form.button.update" action="/auditor/code-audit/update"/>
+			<acme:submit code="auditor.codeaudit.form.button.delete" action="/auditor/code-audit/delete"/>
 		</jstl:when>
 	</jstl:choose>
 </acme:form>
