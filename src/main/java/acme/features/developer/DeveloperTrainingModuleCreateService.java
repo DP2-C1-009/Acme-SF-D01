@@ -73,10 +73,7 @@ public class DeveloperTrainingModuleCreateService extends AbstractService<Develo
 	public void validate(final TrainingModule object) {
 		Project project = object.getProject();
 
-		Developer dev;
-		dev = this.repository.findOneDeveloperById(super.getRequest().getPrincipal().getActiveRoleId());
-
-		final Collection<String> allTMCodes = this.repository.findManyTrainingModuleCodesByDeveloperId(dev.getId());
+		final Collection<String> allTMCodes = this.repository.findManyTrainingModuleCodes();
 
 		if (project == null)
 			super.state(false, "project", "developer.training-module.error.project");

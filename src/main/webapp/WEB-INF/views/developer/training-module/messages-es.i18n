@@ -19,6 +19,7 @@ developer.training-module.form.label.draft-mode = Modo borrador
 developer.training-module.form.label.projectCode = Código del proyecto
 developer.training-module.form.label.projects = Proyecto
 developer.training-module.form.button.create = Crear
+developer.training-module.form.button.update = Actualizar
 
 developer.training-module.error.codeDuplicate = Este código ya existe
 developer.training-module.error.project = Proyecto no puede ser nulo

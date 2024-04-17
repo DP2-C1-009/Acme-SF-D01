@@ -20,6 +20,9 @@ public interface DeveloperTrainingModuleRepository extends AbstractRepository {
 	@Query("select tm.code from TrainingModule tm where tm.developer.id = :id")
 	Collection<String> findManyTrainingModuleCodesByDeveloperId(int id);
 
+	@Query("select tm.code from TrainingModule tm")
+	Collection<String> findManyTrainingModuleCodes();
+
 	@Query("select tm from TrainingModule tm where tm.id = :id")
 	TrainingModule findOneTrainingModuleById(int id);
 

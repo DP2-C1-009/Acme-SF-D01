@@ -25,16 +25,16 @@
 	<acme:input-textbox code="developer.training-module.form.label.draft-mode" path="draftMode" readonly="true"/>
 	
 	<jstl:choose>
-		<jstl:when test="${acme:anyOf(_command, 'show|update|publish|delete') && draftmode == true}">
+		<jstl:when test="${acme:anyOf(_command, 'show|update|publish|delete') && draftMode == true}">
 			<acme:input-moment code="developer.training-module.form.label.creation-moment" path="creationMoment" readonly="true"/>
 			<acme:input-textbox code="developer.training-module.form.label.projectCode" path="projectCode" readonly="true"/>
 			
-		    <%-- <acme:submit code="developer.training-module.form.button.update" action="/developer/training-module/update"/>
-		    <acme:submit code="developer.training-module.form.button.publish" action="/developer/training-module/publish"/>
-		    <acme:submit code="developer.training-module.form.button.delete" action="/developer/training-module/delete"/> --%>
-		</jstl:when>	
+			<acme:submit code="developer.training-module.form.button.update" action="/developer/training-module/update"/>
+<%-- 		    <acme:submit code="developer.training-module.form.button.publish" action="/developer/training-module/publish"/> --%>
+<%-- 		    <acme:submit code="developer.training-module.form.button.delete" action="/developer/training-module/delete"/> --%>
+		</jstl:when>
 		
-		<jstl:when test="${acme:anyOf(_command, 'show') && draftmode == false}">
+		<jstl:when test="${acme:anyOf(_command, 'show') && draftMode == false}">
 			<acme:input-moment code="developer.training-module.form.label.creation-moment" path="creationMoment"/>
 			<acme:input-textbox code="developer.training-module.form.label.projectCode" path="projectCode"/>
 			
