@@ -50,6 +50,11 @@ master.menu.consumer.favourite-link = Enlace favorito
 master.menu.developer = Desarrollador
 master.menu.developer.my-training-modules = Mis módulos de formación
 
+# master.menu.client ##########################################################
+
+master.menu.client = Cliente
+master.menu.client.my-contract = Mis contratos
+
 # master.menu.user-account ####################################################
 
 master.menu.user-account = Cuenta
