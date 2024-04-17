@@ -21,6 +21,9 @@ developer.training-module.form.label.projects = Proyecto
 developer.training-module.form.button.create = Crear
 developer.training-module.form.button.update = Actualizar
 developer.training-module.form.button.delete = Eliminar
+developer.training-module.form.button.publish = Publicar
 
 developer.training-module.error.codeDuplicate = Este código ya existe
 developer.training-module.error.project = Proyecto no puede ser nulo
+developer.training-module.error.update-date-before = La fecha de actualización debe ser posterior a la fecha de creación.
+developer.training-module.error.not-enough-training-sessions = Un módulo de formación debe tener al menos una sesión de formación.

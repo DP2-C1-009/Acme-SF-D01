@@ -49,8 +49,6 @@ public class DeveloperTrainingModuleCreateService extends AbstractService<Develo
 		dev = this.repository.findOneDeveloperById(super.getRequest().getPrincipal().getActiveRoleId());
 		object = new TrainingModule();
 		object.setDeveloper(dev);
-		moment = MomentHelper.getCurrentMoment();
-		object.setCreationMoment(moment);
 
 		super.getBuffer().addData(object);
 	}
@@ -80,6 +78,9 @@ public class DeveloperTrainingModuleCreateService extends AbstractService<Develo
 
 		if (!super.getBuffer().getErrors().hasErrors("code"))
 			super.state(!allTMCodes.contains(object.getCode()), "code", "developer.training-module.error.codeDuplicate");
+
+		if (object.getUpdateMoment() != null && !super.getBuffer().getErrors().hasErrors("updateMoment"))
+			super.state(MomentHelper.isAfter(object.getUpdateMoment(), object.getCreationMoment()), "updateMoment", "developer.training-module.error.update-date-before");
 	}
 
 	@Override

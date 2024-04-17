@@ -14,10 +14,11 @@ import acme.client.views.SelectChoices;
 import acme.entities.projects.Project;
 import acme.entities.training.DifficultyLevel;
 import acme.entities.training.TrainingModule;
+import acme.entities.training.TrainingSession;
 import acme.roles.Developer;
 
 @Service
-public class DeveloperTrainingModuleUpdateService extends AbstractService<Developer, TrainingModule> {
+public class DeveloperTrainingModulePublishService extends AbstractService<Developer, TrainingModule> {
 
 	// Internal state ---------------------------------------------------------
 
@@ -39,7 +40,7 @@ public class DeveloperTrainingModuleUpdateService extends AbstractService<Develo
 
 		principal = super.getRequest().getPrincipal();
 
-		status = object != null && object.getDeveloper().getId() == principal.getActiveRoleId() && object.isDraftMode();
+		status = object != null && object.isDraftMode() && object.getDeveloper().getId() == principal.getActiveRoleId();
 
 		super.getResponse().setAuthorised(status);
 	}
@@ -64,6 +65,8 @@ public class DeveloperTrainingModuleUpdateService extends AbstractService<Develo
 
 	@Override
 	public void validate(final TrainingModule object) {
+		assert object != null;
+
 		boolean isCodeChanged = false;
 		final Collection<String> allTMCodes = this.repository.findManyTrainingModuleCodes();
 		final TrainingModule tm = this.repository.findOneTrainingModuleById(object.getId());
@@ -75,12 +78,16 @@ public class DeveloperTrainingModuleUpdateService extends AbstractService<Develo
 
 		if (object.getUpdateMoment() != null && !super.getBuffer().getErrors().hasErrors("updateMoment"))
 			super.state(MomentHelper.isAfter(object.getUpdateMoment(), object.getCreationMoment()), "updateMoment", "developer.training-module.error.update-date-before");
+
+		Collection<TrainingSession> sessions = this.repository.findManyTrainingSessionsByTrainingModuleId(object.getId());
+		super.state(sessions.size() >= 1, "*", "developer.training-module.error.not-enough-training-sessions");
 	}
 
 	@Override
 	public void perform(final TrainingModule object) {
 		assert object != null;
 
+		object.setDraftMode(false);
 		this.repository.save(object);
 	}
 

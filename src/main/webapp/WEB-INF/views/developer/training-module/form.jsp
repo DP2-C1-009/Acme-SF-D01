@@ -17,6 +17,7 @@
 
 <acme:form>
 	<acme:input-textbox code="developer.training-module.form.label.code" path="code"/>
+	<acme:input-moment code="developer.training-module.form.label.creation-moment" path="creationMoment"/>
 	<acme:input-textarea code="developer.training-module.form.label.details" path="details"/>
 	<acme:input-select code="developer.training-module.form.label.difficulty-level" path="difficultyLevel" choices="${difficultyLevels}"/>
 	<acme:input-moment code="developer.training-module.form.label.update-moment" path="updateMoment"/>
@@ -26,23 +27,20 @@
 	
 	<jstl:choose>
 		<jstl:when test="${acme:anyOf(_command, 'show|update|publish|delete') && draftMode == true}">
-			<acme:input-moment code="developer.training-module.form.label.creation-moment" path="creationMoment" readonly="true"/>
 			<acme:input-textbox code="developer.training-module.form.label.projectCode" path="projectCode" readonly="true"/>
 			
 			<acme:submit code="developer.training-module.form.button.update" action="/developer/training-module/update"/>
-<%-- 		    <acme:submit code="developer.training-module.form.button.publish" action="/developer/training-module/publish"/> --%>
+		    <acme:submit code="developer.training-module.form.button.publish" action="/developer/training-module/publish"/>
 		    <acme:submit code="developer.training-module.form.button.delete" action="/developer/training-module/delete"/>
 		</jstl:when>
 		
 		<jstl:when test="${acme:anyOf(_command, 'show') && draftMode == false}">
-			<acme:input-moment code="developer.training-module.form.label.creation-moment" path="creationMoment"/>
 			<acme:input-textbox code="developer.training-module.form.label.projectCode" path="projectCode"/>
 			
 <%-- 			<acme:button code="developer.training-session.form.button.training-session" action="/developer/training-session/list?training-module=${id}"/> --%>
 		</jstl:when>
 		
 		<jstl:when test="${_command == 'create'}">
-			<acme:input-moment code="developer.training-module.form.label.creation-moment" path="creationMoment" readonly="true"/>
 			<acme:input-select code="developer.training-module.form.label.projects" path="project" choices="${projects}"/>
 			
 			<acme:submit code="developer.training-module.form.button.create" action="/developer/training-module/create"/>
