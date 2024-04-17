@@ -31,7 +31,7 @@
 			
 			<acme:submit code="developer.training-module.form.button.update" action="/developer/training-module/update"/>
 <%-- 		    <acme:submit code="developer.training-module.form.button.publish" action="/developer/training-module/publish"/> --%>
-<%-- 		    <acme:submit code="developer.training-module.form.button.delete" action="/developer/training-module/delete"/> --%>
+		    <acme:submit code="developer.training-module.form.button.delete" action="/developer/training-module/delete"/>
 		</jstl:when>
 		
 		<jstl:when test="${acme:anyOf(_command, 'show') && draftMode == false}">

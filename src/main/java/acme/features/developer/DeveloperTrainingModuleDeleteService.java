@@ -13,10 +13,11 @@ import acme.client.views.SelectChoices;
 import acme.entities.projects.Project;
 import acme.entities.training.DifficultyLevel;
 import acme.entities.training.TrainingModule;
+import acme.entities.training.TrainingSession;
 import acme.roles.Developer;
 
 @Service
-public class DeveloperTrainingModuleUpdateService extends AbstractService<Developer, TrainingModule> {
+public class DeveloperTrainingModuleDeleteService extends AbstractService<Developer, TrainingModule> {
 
 	// Internal state ---------------------------------------------------------
 
@@ -38,7 +39,7 @@ public class DeveloperTrainingModuleUpdateService extends AbstractService<Develo
 
 		principal = super.getRequest().getPrincipal();
 
-		status = object != null && object.getDeveloper().getId() == principal.getActiveRoleId() && object.isDraftMode();
+		status = object != null && object.isDraftMode() && object.getDeveloper().getId() == principal.getActiveRoleId();
 
 		super.getResponse().setAuthorised(status);
 	}
@@ -63,21 +64,18 @@ public class DeveloperTrainingModuleUpdateService extends AbstractService<Develo
 
 	@Override
 	public void validate(final TrainingModule object) {
-		boolean isCodeChanged = false;
-		final Collection<String> allTMCodes = this.repository.findManyTrainingModuleCodes();
-		final TrainingModule tm = this.repository.findOneTrainingModuleById(object.getId());
-
-		if (!super.getBuffer().getErrors().hasErrors("code")) {
-			isCodeChanged = !tm.getCode().equals(object.getCode());
-			super.state(!isCodeChanged || !allTMCodes.contains(object.getCode()), "code", "developer.training-module.error.codeDuplicate");
-		}
+		assert object != null;
 	}
 
 	@Override
 	public void perform(final TrainingModule object) {
 		assert object != null;
 
-		this.repository.save(object);
+		Collection<TrainingSession> ts;
+
+		ts = this.repository.findManyTrainingSessionsByTrainingModuleId(object.getId());
+		this.repository.deleteAll(ts);
+		this.repository.delete(object);
 	}
 
 	@Override
