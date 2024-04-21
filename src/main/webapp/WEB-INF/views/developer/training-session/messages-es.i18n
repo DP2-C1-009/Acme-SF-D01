@@ -4,3 +4,19 @@ developer.training-session.list.title = Lista de sesiones de formación
 developer.training-session.list.label.code = Código
 developer.training-session.list.label.startDateTime = Fecha y hora de inicio
 developer.training-session.list.label.instructor = Instructor
+
+developer.training-session.form.title = Training session
+
+developer.training-session.form.label.code = Código
+developer.training-session.form.label.startDateTime = Fecha y hora de inicio
+developer.training-session.form.label.endDateTime = Fecha y hora de finalizacón
+developer.training-session.form.label.location = Ubiación
+developer.training-session.form.label.instructor = Instructor
+developer.training-session.form.label.contactEmail = Email
+developer.training-session.form.label.optionalLink = Link
+developer.training-session.form.label.draftMode = Modo borrador
+developer.training-session.form.label.trainingModuleCode = Código del módulo de formación
+
+developer.training-session.form.button.update = Actualizar
+developer.training-session.form.button.delete = Eliminar
+developer.training-session.form.button.publish = Publicar
