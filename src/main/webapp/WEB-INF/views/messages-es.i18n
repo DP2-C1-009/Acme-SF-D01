@@ -14,3 +14,4 @@ validation.ClientIdentification = El código ingresado debe seguir el formato: "
 validation.CodeAuditCode = "Formato inválido. Por favor, ingresa un código que comience con una a tres letras mayúsculas, seguido de un guion medio, y luego seguido por exactamente tres dígitos."
 validation.invoiceCode = El código de factura debe comenzar con IN-, 4 dígitos, otro guión y 4 dígitos (como IN-9999-9999).
 validation.sponsorshipCode = El código de patrocinio debe comenzar con 1 hasta 3 letras, seguido de un guión y exactamente 3 dígitos al final.
+validation.Progresscompleteness = El porcentaje debe ser un número del 0 al 100 y permitir solo dos decimales

@@ -18,7 +18,6 @@ import org.hibernate.validator.constraints.Length;
 import org.hibernate.validator.constraints.URL;
 
 import acme.client.data.AbstractEntity;
-import acme.roles.Developer;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -56,10 +55,14 @@ public class TrainingSession extends AbstractEntity {
 
 	@NotBlank
 	@Email
+	@Length(max = 255)
 	private String				contactEmail;
 
 	@URL
+	@Length(max = 255)
 	private String				optionalLink;
+
+	protected boolean			draftMode;
 
 	// Derived attributes -----------------------------------------------------
 
@@ -69,10 +72,5 @@ public class TrainingSession extends AbstractEntity {
 	@Valid
 	@ManyToOne(optional = false)
 	private TrainingModule		trainingModule;
-
-	@NotNull
-	@Valid
-	@ManyToOne(optional = false)
-	private Developer			developer;
 
 }
