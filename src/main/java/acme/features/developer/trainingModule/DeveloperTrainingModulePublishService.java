@@ -1,5 +1,5 @@
 
-package acme.features.developer;
+package acme.features.developer.trainingModule;
 
 import java.util.Collection;
 
@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 
 import acme.client.data.accounts.Principal;
 import acme.client.data.models.Dataset;
+import acme.client.helpers.MomentHelper;
 import acme.client.services.AbstractService;
 import acme.client.views.SelectChoices;
 import acme.entities.projects.Project;
@@ -17,7 +18,7 @@ import acme.entities.training.TrainingSession;
 import acme.roles.Developer;
 
 @Service
-public class DeveloperTrainingModuleDeleteService extends AbstractService<Developer, TrainingModule> {
+public class DeveloperTrainingModulePublishService extends AbstractService<Developer, TrainingModule> {
 
 	// Internal state ---------------------------------------------------------
 
@@ -65,17 +66,29 @@ public class DeveloperTrainingModuleDeleteService extends AbstractService<Develo
 	@Override
 	public void validate(final TrainingModule object) {
 		assert object != null;
+
+		boolean isCodeChanged = false;
+		final Collection<String> allTMCodes = this.repository.findManyTrainingModuleCodes();
+		final TrainingModule tm = this.repository.findOneTrainingModuleById(object.getId());
+
+		if (!super.getBuffer().getErrors().hasErrors("code")) {
+			isCodeChanged = !tm.getCode().equals(object.getCode());
+			super.state(!isCodeChanged || !allTMCodes.contains(object.getCode()), "code", "developer.training-module.error.codeDuplicate");
+		}
+
+		if (object.getUpdateMoment() != null && !super.getBuffer().getErrors().hasErrors("updateMoment"))
+			super.state(MomentHelper.isAfter(object.getUpdateMoment(), object.getCreationMoment()), "updateMoment", "developer.training-module.error.update-date-before");
+
+		Collection<TrainingSession> sessions = this.repository.findManyTrainingSessionsByTrainingModuleId(object.getId());
+		super.state(sessions.size() >= 1, "*", "developer.training-module.error.not-enough-training-sessions");
 	}
 
 	@Override
 	public void perform(final TrainingModule object) {
 		assert object != null;
 
-		Collection<TrainingSession> ts;
-
-		ts = this.repository.findManyTrainingSessionsByTrainingModuleId(object.getId());
-		this.repository.deleteAll(ts);
-		this.repository.delete(object);
+		object.setDraftMode(false);
+		this.repository.save(object);
 	}
 
 	@Override
