@@ -18,7 +18,7 @@
 			<acme:input-textbox code="developer.training-session.form.label.trainingModuleCode" path="trainingModuleCode"  readonly="true"/>
 			<acme:submit code="developer.training-session.form.button.update" action="/developer/training-session/update"/>
 			<acme:submit code="developer.training-session.form.button.delete" action="/developer/training-session/delete"/>
-<%-- 			<acme:submit code="developer.training-session.form.button.publish" action="/developer/training-session/publish"/> --%>
+			<acme:submit code="developer.training-session.form.button.publish" action="/developer/training-session/publish"/>
 		</jstl:when>
 		
 		<jstl:when test="${acme:anyOf(_command, 'show') && draftMode == false}">
