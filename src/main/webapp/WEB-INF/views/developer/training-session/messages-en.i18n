@@ -1,0 +1,6 @@
+
+developer.training-session.list.title = Listing of training session
+
+developer.training-session.list.label.code = Code
+developer.training-session.list.label.startDateTime = Start date time
+developer.training-session.list.label.instructor = Instructor
