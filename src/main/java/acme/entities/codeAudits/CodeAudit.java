@@ -50,6 +50,9 @@ public class CodeAudit extends AbstractEntity {
 	@URL
 	@Length(max = 255)
 	protected String			moreInfoLink;
+
+	private boolean				draftMode;
+
 	// Derived attributes -----------------------------------------------------
 	//	@NotNull
 	//	protected AuditRecordMark	mark;

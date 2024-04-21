@@ -10,14 +10,12 @@
 	<acme:input-select code="auditor.codeaudit.list.label.type" path="type" choices="${types}"/>
 	<acme:input-textbox code="auditor.codeaudit.list.label.correctiveActions" path="correctiveActions"/>
 	<acme:input-url code="auditor.codeaudit.list.label.moreInfoLink" path="moreInfoLink"/>
-	
+	<acme:input-textbox code="auditor.codeaudit.list.label.draftMode" path="draftMode" readonly = "true"/>
 	<jstl:choose>
-		<jstl:when test="${_command == 'create'}">
-			<acme:submit code="auditor.codeaudit.form.button.create" action="/auditor/code-audit/create"/>
-		</jstl:when>
-		<jstl:when test="${acme:anyOf(_command, 'show|update|delete')}">
+		<jstl:when test="${acme:anyOf(_command, 'show|update|delete|publish') && draftMode == true}">
 			<acme:submit code="auditor.codeaudit.form.button.update" action="/auditor/code-audit/update"/>
 			<acme:submit code="auditor.codeaudit.form.button.delete" action="/auditor/code-audit/delete"/>
+			<acme:submit code="auditor.codeaudit.form.button.publish" action="/auditor/code-audit/publish"/>
 		</jstl:when>
 	</jstl:choose>
 </acme:form>
