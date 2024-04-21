@@ -44,12 +44,15 @@ public class DeveloperTrainingSessionListService extends AbstractService<Develop
 	public void load() {
 		Collection<TrainingSession> objects;
 		int tmId;
+		boolean tmDraftMode;
 
 		tmId = super.getRequest().getData("trainingModuleId", int.class);
 		objects = this.repository.findManyTrainingSessionsByTrainingModuleId(tmId);
+		tmDraftMode = this.repository.findTrainingModuleDraftModeById(tmId);
 
 		super.getBuffer().addData(objects);
 		super.getResponse().addGlobal("trainingModuleId", tmId);
+		super.getResponse().addGlobal("trainingModuleDraftMode", tmDraftMode);
 	}
 
 	@Override

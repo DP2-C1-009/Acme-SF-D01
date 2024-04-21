@@ -8,3 +8,7 @@
 	<acme:list-column code="developer.training-session.list.label.startDateTime" path="startDateTime"/>
 	<acme:list-column code="developer.training-session.list.label.instructor" path="instructor"/>
 </acme:list>
+
+<jstl:if test="${trainingModuleDraftMode == true}">
+	<acme:button code="developer.training-session.list.button.create" action="/developer/training-session/create?trainingModuleId=${trainingModuleId}"/>
+</jstl:if>

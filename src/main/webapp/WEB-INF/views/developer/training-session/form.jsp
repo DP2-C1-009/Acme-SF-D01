@@ -14,20 +14,20 @@
     <acme:input-textbox code="developer.training-session.form.label.draftMode" path="draftMode" readonly="true"/>
     
    	<jstl:choose>
-		<jstl:when test="${acme:anyOf(_command, 'show|update|publish|delete') && draftmode == true}">
+		<jstl:when test="${acme:anyOf(_command, 'show|update|publish|delete') && draftMode == true}">
 			<acme:input-textbox code="developer.training-session.form.label.trainingModuleCode" path="trainingModuleCode"  readonly="true"/>
 <%-- 			<acme:submit code="developer.training-session.form.button.update" action="/developer/training-session/update"/> --%>
 <%-- 			<acme:submit code="developer.training-session.form.button.delete" action="/developer/training-session/delete"/> --%>
 <%-- 			<acme:submit code="developer.training-session.form.button.publish" action="/developer/training-session/publish"/> --%>
 		</jstl:when>
 		
-		<jstl:when test="${acme:anyOf(_command, 'show') && draftmode == false}">
+		<jstl:when test="${acme:anyOf(_command, 'show') && draftMode == false}">
 			<acme:input-textbox code="developer.training-session.form.label.trainingModuleCode" path="trainingModuleCode"/>
 		</jstl:when>
 		
-		<%-- <jstl:when test="${_command == 'create'}">
-			<acme:submit code="developer.training-session.list.button.create" action="/developer/training-session/create?trainingModuleId=${contractId}"/>
-		</jstl:when> --%>
+		<jstl:when test="${_command == 'create'}">
+			<acme:submit code="developer.training-session.list.button.create" action="/developer/training-session/create?trainingModuleId=${trainingModuleId}"/>
+		</jstl:when>
 	</jstl:choose>	
     
 </acme:form>
