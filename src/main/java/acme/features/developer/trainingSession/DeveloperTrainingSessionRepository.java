@@ -28,4 +28,7 @@ public interface DeveloperTrainingSessionRepository extends AbstractRepository {
 	@Query("select tm.draftMode from TrainingModule tm where tm.id = :id")
 	boolean findTrainingModuleDraftModeById(int id);
 
+	@Query("select ts.trainingModule from TrainingSession ts where ts.id = :tsId")
+	TrainingModule findOneTrainingModuleByTrainingSessionId(int tsId);
+
 }
