@@ -48,7 +48,7 @@ public class AuditorCodeAuditUpdateService extends AbstractService<Auditor, Code
 	public void bind(final CodeAudit object) {
 		assert object != null;
 
-		super.bind(object, "code", "execution", "type", "correctiveActions", "moreInfoLink");
+		super.bind(object, "code", "execution", "type", "correctiveActions", "moreInfoLink", "draftMode");
 
 	}
 
@@ -77,7 +77,7 @@ public class AuditorCodeAuditUpdateService extends AbstractService<Auditor, Code
 
 		id = super.getRequest().getPrincipal().getActiveRoleId();
 
-		dataset = super.unbind(object, "code", "execution", "type", "correctiveActions", "moreInfoLink");
+		dataset = super.unbind(object, "code", "execution", "type", "correctiveActions", "moreInfoLink", "draftMode");
 		dataset.put("types", SelectChoices.from(CodeAuditType.class, object.getType()));
 
 		super.getResponse().addData(dataset);

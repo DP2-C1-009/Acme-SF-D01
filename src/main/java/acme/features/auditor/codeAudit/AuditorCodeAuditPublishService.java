@@ -1,6 +1,8 @@
 
 package acme.features.auditor.codeAudit;
 
+import java.util.Collection;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -60,6 +62,12 @@ public class AuditorCodeAuditPublishService extends AbstractService<Auditor, Cod
 	@Override
 	public void validate(final CodeAudit object) {
 		assert object != null;
+
+		Collection<String> allCodes = this.repository.findAllCodes();
+
+		if (!super.getBuffer().getErrors().hasErrors("code"))
+			super.state(!allCodes.contains(object.getCode()), "code", "client.audit.error.codeDuplicate");
+
 	}
 
 	@Override
@@ -79,7 +87,7 @@ public class AuditorCodeAuditPublishService extends AbstractService<Auditor, Cod
 
 		choicesType = SelectChoices.from(CodeAuditType.class, object.getType());
 
-		dataset = super.unbind(object, "code", "execution", "type", "correctiveActions", "link", "draftMode");
+		dataset = super.unbind(object, "code", "execution", "type", "correctiveActions", "moreInfoLink", "draftMode");
 		dataset.put("types", choicesType);
 
 		super.getResponse().addData(dataset);
