@@ -17,5 +17,9 @@
 			<acme:submit code="auditor.codeaudit.form.button.delete" action="/auditor/code-audit/delete"/>
 			<acme:submit code="auditor.codeaudit.form.button.publish" action="/auditor/code-audit/publish"/>
 		</jstl:when>
+		<jstl:when test="${_command == 'create'}">
+			<acme:submit code="auditor.codeaudit.form.button.create" action="/auditor/code-audit/create"/>
+		</jstl:when>	
 	</jstl:choose>
+	<acme:button code="auditor.codeaudit.form.button.audit-record" action="/auditor/audit-record/list?codeAuditId=${id}"/>
 </acme:form>
