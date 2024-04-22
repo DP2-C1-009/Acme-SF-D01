@@ -18,7 +18,7 @@ import acme.entities.codeAudits.AuditRecordMark;
 import acme.roles.Auditor;
 
 @Service
-public class AuditorAuditRecordUpdateService extends AbstractService<Auditor, AuditRecord> {
+public class AuditorAuditRecordPublishService extends AbstractService<Auditor, AuditRecord> {
 
 	@Autowired
 	private AuditorAuditRecordRepository repository;
@@ -28,11 +28,14 @@ public class AuditorAuditRecordUpdateService extends AbstractService<Auditor, Au
 	public void authorise() {
 		boolean status = false;
 		int id;
+		AuditRecord auditRecord;
+		Principal principal;
 
-		Principal principal = super.getRequest().getPrincipal();
+		id = super.getRequest().getData("id", int.class);
+		auditRecord = this.repository.findAuditRecordById(id);
+		principal = super.getRequest().getPrincipal();
 
-		if (principal.hasRole(Auditor.class))
-			status = true;
+		status = auditRecord != null && auditRecord.getCodeAudit().getAuditor().getId() == principal.getActiveRoleId();
 
 		super.getResponse().setAuthorised(status);
 	}
@@ -62,6 +65,7 @@ public class AuditorAuditRecordUpdateService extends AbstractService<Auditor, Au
 		int id = super.getRequest().getData("id", int.class);
 		AuditRecord auditRecord = this.repository.findAuditRecordById(id);
 		boolean isCodeChanged = false;
+
 		if (!super.getBuffer().getErrors().hasErrors("startMoment"))
 			super.state(MomentHelper.isAfter(object.getFinishMoment(), object.getStartMoment()), "startMoment", "validation.auditrecord.initialIsBefore");
 
@@ -80,6 +84,7 @@ public class AuditorAuditRecordUpdateService extends AbstractService<Auditor, Au
 	public void perform(final AuditRecord object) {
 		assert object != null;
 
+		object.setDraftMode(false);
 		this.repository.save(object);
 	}
 

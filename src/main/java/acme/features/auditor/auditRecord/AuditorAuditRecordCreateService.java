@@ -1,13 +1,16 @@
 
 package acme.features.auditor.auditRecord;
 
+import java.time.temporal.ChronoUnit;
 import java.util.Collection;
+import java.util.Date;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import acme.client.data.accounts.Principal;
 import acme.client.data.models.Dataset;
+import acme.client.helpers.MomentHelper;
 import acme.client.services.AbstractService;
 import acme.client.views.SelectChoices;
 import acme.entities.codeAudits.AuditRecord;
@@ -62,6 +65,15 @@ public class AuditorAuditRecordCreateService extends AbstractService<Auditor, Au
 	public void validate(final AuditRecord object) {
 		Collection<String> allCodes = this.repository.findAllCodes();
 
+		if (!super.getBuffer().getErrors().hasErrors("startMoment"))
+			super.state(MomentHelper.isAfter(object.getFinishMoment(), object.getStartMoment()), "startMoment", "validation.auditrecord.initialIsBefore");
+
+		if (!super.getBuffer().getErrors().hasErrors("finishMoment")) {
+			Date end;
+			end = MomentHelper.deltaFromMoment(object.getStartMoment(), 1, ChronoUnit.HOURS);
+			super.state(MomentHelper.isAfterOrEqual(object.getFinishMoment(), end), "finishMoment", "validation.auditrecord.moment.minimun");
+		}
+
 		if (!super.getBuffer().getErrors().hasErrors("code"))
 			super.state(!allCodes.contains(object.getCode()), "code", "client.audit.error.codeDuplicate");
 	}
@@ -70,6 +82,7 @@ public class AuditorAuditRecordCreateService extends AbstractService<Auditor, Au
 	public void perform(final AuditRecord object) {
 		assert object != null;
 
+		object.setDraftMode(false);
 		this.repository.save(object);
 	}
 

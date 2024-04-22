@@ -11,7 +11,7 @@
 	
 	<jstl:choose>
 		<jstl:when test="${acme:anyOf(_command, 'show|update|publish|delete')}">
-		<acme:input-textbox code="auditor.auditrecord.form.label.mark" path="mark"/>
+			<acme:input-textbox code="auditor.auditrecord.form.label.mark" path="mark"/>
 			<acme:submit code="auditor.auditrecord.form.button.update" action="/auditor/audit-record/update"/>
 			<acme:submit code="auditor.auditrecord.form.button.delete" action="/auditor/audit-record/delete"/>
 			<acme:submit code="auditor.auditrecord.form.button.publish" action="/auditor/audit-record/publish"/>
