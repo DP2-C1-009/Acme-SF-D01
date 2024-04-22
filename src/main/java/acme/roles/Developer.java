@@ -36,9 +36,11 @@ public class Developer extends AbstractRole {
 	private String				skills;
 
 	@Email
+	@Length(max = 255)
 	private String				email;
 
 	@URL
+	@Length(max = 255)
 	private String				optionalLink;
 
 	// Derived attributes -----------------------------------------------------
