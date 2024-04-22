@@ -12,7 +12,6 @@ import acme.client.services.AbstractService;
 import acme.client.views.SelectChoices;
 import acme.entities.codeAudits.AuditRecord;
 import acme.entities.codeAudits.AuditRecordMark;
-import acme.entities.codeAudits.CodeAudit;
 import acme.roles.Auditor;
 
 @Service
@@ -38,10 +37,10 @@ public class AuditorAuditRecordUpdateService extends AbstractService<Auditor, Au
 	@Override
 	public void load() {
 		AuditRecord object;
-		CodeAudit codeAudit;
 		int id;
 
-		id = super.getRequest().getData("codeAuditId", int.class);
+		id = super.getRequest().getData("id", int.class);
+		object = this.repository.findAuditRecordById(id);
 
 		super.getBuffer().addData(object);
 	}
@@ -75,10 +74,7 @@ public class AuditorAuditRecordUpdateService extends AbstractService<Auditor, Au
 
 		Dataset dataset;
 
-		CodeAudit ca = object.getCodeAudit();
-
 		dataset = super.unbind(object, "code", "startMoment", "finishMoment", "mark", "moreInfoLink");
-		dataset.put("codeAuditId", ca.getId());
 		dataset.put("marks", SelectChoices.from(AuditRecordMark.class, object.getMark()));
 
 		super.getResponse().addData(dataset);
