@@ -67,12 +67,18 @@ public class AuditorAuditRecordPublishService extends AbstractService<Auditor, A
 		boolean isCodeChanged = false;
 
 		if (!super.getBuffer().getErrors().hasErrors("startMoment"))
-			super.state(MomentHelper.isAfter(object.getFinishMoment(), object.getStartMoment()), "startMoment", "validation.auditrecord.initialIsBefore");
+			if (object.getFinishMoment() != null && object.getStartMoment() != null)
+				super.state(MomentHelper.isAfter(object.getFinishMoment(), object.getStartMoment()), "startMoment", "validation.auditrecord.initialIsBefore");
+		if (!super.getBuffer().getErrors().hasErrors("finishMoment"))
+			if (object.getFinishMoment() != null && object.getStartMoment() != null) {
+				Date end;
+				end = MomentHelper.deltaFromMoment(object.getStartMoment(), 1, ChronoUnit.HOURS);
+				super.state(MomentHelper.isAfterOrEqual(object.getFinishMoment(), end), "finishMoment", "validation.auditrecord.moment.minimun");
+			}
+		if (!super.getBuffer().getErrors().hasErrors("mark")) {
+			AuditRecordMark mark = object.getMark();
+			super.state(mark == AuditRecordMark.A || mark == AuditRecordMark.A_PLUS || mark == AuditRecordMark.B || mark == AuditRecordMark.C, "mark", "validation.auditrecord.moment.minimun");
 
-		if (!super.getBuffer().getErrors().hasErrors("finishMoment")) {
-			Date end;
-			end = MomentHelper.deltaFromMoment(object.getStartMoment(), 1, ChronoUnit.HOURS);
-			super.state(MomentHelper.isAfterOrEqual(object.getFinishMoment(), end), "finishMoment", "validation.auditrecord.moment.minimun");
 		}
 
 		if (!super.getBuffer().getErrors().hasErrors("code"))
@@ -94,7 +100,7 @@ public class AuditorAuditRecordPublishService extends AbstractService<Auditor, A
 
 		Dataset dataset;
 
-		dataset = super.unbind(object, "code", "startMoment", "finishMoment", "mark", "moreInfoLink");
+		dataset = super.unbind(object, "code", "startMoment", "finishMoment", "mark", "moreInfoLink", "draftMode");
 		dataset.put("marks", SelectChoices.from(AuditRecordMark.class, object.getMark()));
 
 		super.getResponse().addData(dataset);

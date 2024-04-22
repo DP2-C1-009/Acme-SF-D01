@@ -61,19 +61,21 @@ public class AuditorAuditRecordUpdateService extends AbstractService<Auditor, Au
 		Collection<String> allCodes = this.repository.findAllCodes();
 		int id = super.getRequest().getData("id", int.class);
 		AuditRecord auditRecord = this.repository.findAuditRecordById(id);
+
 		boolean isCodeChanged = false;
 		if (!super.getBuffer().getErrors().hasErrors("startMoment"))
-			super.state(MomentHelper.isAfter(object.getFinishMoment(), object.getStartMoment()), "startMoment", "validation.auditrecord.initialIsBefore");
-
-		if (!super.getBuffer().getErrors().hasErrors("finishMoment")) {
-			Date end;
-			end = MomentHelper.deltaFromMoment(object.getStartMoment(), 1, ChronoUnit.HOURS);
-			super.state(MomentHelper.isAfterOrEqual(object.getFinishMoment(), end), "finishMoment", "validation.auditrecord.moment.minimun");
-		}
-
-		if (!super.getBuffer().getErrors().hasErrors("code"))
+			if (object.getFinishMoment() != null && object.getStartMoment() != null)
+				super.state(MomentHelper.isAfter(object.getFinishMoment(), object.getStartMoment()), "startMoment", "validation.auditrecord.initialIsBefore");
+		if (!super.getBuffer().getErrors().hasErrors("finishMoment"))
+			if (object.getFinishMoment() != null && object.getStartMoment() != null) {
+				Date end;
+				end = MomentHelper.deltaFromMoment(object.getStartMoment(), 1, ChronoUnit.HOURS);
+				super.state(MomentHelper.isAfterOrEqual(object.getFinishMoment(), end), "finishMoment", "validation.auditrecord.moment.minimun");
+			}
+		if (!super.getBuffer().getErrors().hasErrors("code")) {
 			isCodeChanged = !object.getCode().equals(auditRecord.getCode());
-		super.state(!isCodeChanged || !allCodes.contains(object.getCode()), "code", "client.audit.error.codeDuplicate");
+			super.state(!isCodeChanged || !allCodes.contains(object.getCode()), "code", "client.audit.error.codeDuplicate");
+		}
 	}
 
 	@Override
@@ -89,7 +91,7 @@ public class AuditorAuditRecordUpdateService extends AbstractService<Auditor, Au
 
 		Dataset dataset;
 
-		dataset = super.unbind(object, "code", "startMoment", "finishMoment", "mark", "moreInfoLink");
+		dataset = super.unbind(object, "code", "startMoment", "finishMoment", "mark", "moreInfoLink", "draftMode");
 		dataset.put("marks", SelectChoices.from(AuditRecordMark.class, object.getMark()));
 
 		super.getResponse().addData(dataset);
