@@ -15,7 +15,7 @@ developer.training-session.form.label.endDateTime = Fecha y hora de finalizacón
 developer.training-session.form.label.location = Ubiación
 developer.training-session.form.label.instructor = Instructor
 developer.training-session.form.label.contactEmail = Email
-developer.training-session.form.label.optionalLink = Link
+developer.training-session.form.label.optionalLink = Enlace
 developer.training-session.form.label.draftMode = Modo borrador
 developer.training-session.form.label.trainingModuleCode = Código del módulo de formación
 
