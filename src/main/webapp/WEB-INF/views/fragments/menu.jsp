@@ -47,7 +47,14 @@
 			<acme:menu-suboption code="master.menu.developer.my-training-modules" action="/developer/training-module/list"/>
 			<acme:menu-suboption code="master.menu.developer.dashboard" action="/developer/developer-dashboard/show"/>
 		</acme:menu-option>
-
+		
+		<acme:menu-option code="master.menu.manager" access="hasRole('Manager')">
+			<acme:menu-suboption code="master.menu.manager.list-project" action="/manager/project/list"/>
+			<acme:menu-suboption code="master.menu.manager.list-user-story" action="/manager/user-story/list-mine"/>
+			<acme:menu-suboption code="master.menu.manager.list-assigments" action="/manager/project-user-stories/list"/>
+			<acme:menu-suboption code="master.menu.manager.show-manager-dashboard" action="/manager/manager-dashboard/show"/>
+		</acme:menu-option>
+		
 		<acme:menu-option code="master.menu.client" access="hasRole('Client')">
 			<acme:menu-suboption code="master.menu.client.my-contract" action="/client/contract/list"/>
 		</acme:menu-option>

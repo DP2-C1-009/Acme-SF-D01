@@ -1,21 +1,21 @@
-key,title,description,estimatedCost,acceptanceCriteria,priority,optionalLink,key:manager
-user-story-01,"A","A",1,"A",MUST,"https://www.google.com",manager-01
-user-story-02,"a","a",2,"a",SHOULD,"https://ev.us.es",manager-01
-user-story-03,"Sign in and sign out","As a customer, i want to sign in and sign out of application",123456789,"The feature must work great and dont overload the server",COULD,null,manager-01
-user-story-04,"Make excels automaticly","As a manager, i want to generate automaticly an excel with the numbers",987654321,"This feature must perform on the app in less than a minute",WONT,null,manager-01
-user-story-05,"Examples test to test that we can have 75 characters of attribute title now","Examples test to test that we can have 100 characters in the description atributte of user-story, so",50,"Example criteria",MUST,null,manager-01
-user-story-06,"Example title","Example description",33,"Example criteria",MUST,null,manager-01
-user-story-07,"Example title","Example description",33,"Example criteria",MUST,null,manager-01
-user-story-08,"Example title","Example description",33,"Example criteria",SHOULD,null,manager-01
-user-story-09,"Example title","Example description",33,"Example criteria",SHOULD,null,manager-01
-user-story-10,"Example title","Example description",33,"Example criteria",SHOULD,null,manager-01
-user-story-11,"Example title","Example description",33,"Example criteria",SHOULD,null,manager-02
-user-story-12,"Example title","Example description",33,"Example criteria",SHOULD,null,manager-02
-user-story-13,"Example title","Example description",33,"Example criteria",COULD,null,manager-02
-user-story-14,"Example title","Example description",33,"Example criteria",COULD,null,manager-02
-user-story-15,"Example title","Example description",33,"Example criteria",COULD,null,manager-02
-user-story-16,"Example title","Example description",33,"Example criteria",COULD,null,manager-02
-user-story-17,"Example title","Example description",33,"Example criteria",COULD,null,manager-02
-user-story-18,"Example title","Example description",33,"Example criteria",WONT,null,manager-02
-user-story-19,"Example title","Example description",33,"Example criteria",WONT,null,manager-02
-user-story-20,"Example title","Example description",33,"Example criteria",WONT,null,manager-02
+key,title,description,estimatedCost,acceptanceCriteria,priority,optionalLink,draftMode,key:manager
+user-story-01,A,A,1,A,MUST,https://www.google.com,true,manager-01
+user-story-02,a,a,2,a,SHOULD,https://ev.us.es,true,manager-01
+user-story-03,Sign in and sign out,"As a customer, i want to sign in and sign out of application",123456789,The feature must work great and dont overload the server,COULD,null,true,manager-01
+user-story-04,Make excels automaticly,"As a manager, i want to generate automaticly an excel with the numbers",987654321,This feature must perform on the app in less than a minute,WONT,null,true,manager-01
+user-story-05,Examples test to test that we can have 75 characters of attribute title now,"Examples test to test that we can have 100 characters in the description atributte of user-story, so",50,Example criteria,MUST,null,true,manager-01
+user-story-06,Example title,Example description,33,Example criteria,MUST,null,true,manager-01
+user-story-07,Example title,Example description,33,Example criteria,MUST,null,false,manager-01
+user-story-08,Example title,Example description,33,Example criteria,SHOULD,null,false,manager-01
+user-story-09,Example title,Example description,33,Example criteria,SHOULD,null,false,manager-01
+user-story-10,Example title,Example description,33,Example criteria,SHOULD,null,false,manager-01
+user-story-11,Example title,Example description,33,Example criteria,SHOULD,null,true,manager-02
+user-story-12,Example title,Example description,33,Example criteria,SHOULD,null,true,manager-02
+user-story-13,Example title,Example description,33,Example criteria,COULD,null,true,manager-02
+user-story-14,Example title,Example description,33,Example criteria,COULD,null,true,manager-02
+user-story-15,Example title,Example description,33,Example criteria,COULD,null,true,manager-02
+user-story-16,Example title,Example description,33,Example criteria,COULD,null,false,manager-02
+user-story-17,Example title,Example description,33,Example criteria,COULD,null,false,manager-02
+user-story-18,Example title,Example description,33,Example criteria,WONT,null,false,manager-02
+user-story-19,Example title,Example description,33,Example criteria,WONT,null,false,manager-02
+user-story-20,Example title,Example description,33,Example criteria,WONT,null,false,manager-02
