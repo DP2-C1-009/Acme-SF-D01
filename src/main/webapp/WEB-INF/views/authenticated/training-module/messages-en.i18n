@@ -1,0 +1,22 @@
+
+authenticated.training-module.list.title = Listing of training modules
+
+authenticated.training-module.list.label.code = Code
+authenticated.training-module.list.label.difficultyLevel = Difficulty Level
+authenticated.training-module.list.label.details = Details
+
+authenticated.training-module.form.title = Training module
+
+authenticated.training-module.form.label.code = Code
+authenticated.training-module.form.label.creation-moment = Creation moment
+authenticated.training-module.form.label.details = Details
+authenticated.training-module.form.label.difficulty-level = Difficulty level
+authenticated.training-module.form.label.update-moment = Update moment
+authenticated.training-module.form.label.optional-link = Link
+authenticated.training-module.form.label.estimated-total-time = Estimated total time
+authenticated.training-module.form.label.projectCode = Project code
+
+authenticated.training-module.error.codeDuplicate = This code already exists
+authenticated.training-module.error.project = Project can not be null
+authenticated.training-module.error.update-date-before = The update date must be after the creation date.
+authenticated.training-module.error.not-enough-training-sessions = A training module must have at least one training session
