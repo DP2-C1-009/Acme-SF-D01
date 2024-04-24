@@ -79,22 +79,32 @@ public class DeveloperTrainingSessionPublishService extends AbstractService<Deve
 			super.state(!isCodeChanged || !allTSCodes.contains(object.getCode()), "code", "developer.training-session.error.codeDuplicate");
 		}
 
+		Date maxStartDate = MomentHelper.deltaFromMoment(MomentHelper.parse("2201/01/01", "yyyy/MM/dd"), -7, ChronoUnit.DAYS);
+
 		if (!super.getBuffer().getErrors().hasErrors("startDateTime")) {
 			TrainingModule tm;
 			int id;
 			Date minimumStart;
 
-			id = super.getRequest().getData("trainingModuleId", int.class);
-			tm = this.repository.findOneTrainingModuleById(id);
+			id = super.getRequest().getData("id", int.class);
+			tm = this.repository.findOneTrainingModuleByTrainingSessionId(id);
 			minimumStart = MomentHelper.deltaFromMoment(tm.getCreationMoment(), 7, ChronoUnit.DAYS);
 			super.state(MomentHelper.isAfterOrEqual(object.getStartDateTime(), minimumStart), "startDateTime", "developer.training-session.error.creation-moment-invalid");
+
+			super.state(!MomentHelper.isAfterOrEqual(object.getStartDateTime(), maxStartDate), "startDateTime", "developer.training-session.error.start-date-too-far");
 		}
 
-		if (!super.getBuffer().getErrors().hasErrors("endDateTime")) {
-			Date minimumEnd;
+		Date maxEndDate = MomentHelper.parse("2201/01/01", "yyyy/MM/dd");
 
-			minimumEnd = MomentHelper.deltaFromMoment(object.getStartDateTime(), 7, ChronoUnit.DAYS);
-			super.state(MomentHelper.isAfterOrEqual(object.getEndDateTime(), minimumEnd), "endDateTime", "developer.training-session.error.too-close");
+		if (!super.getBuffer().getErrors().hasErrors("endDateTime")) {
+			if (object.getStartDateTime() != null) {
+				Date minimumEnd;
+
+				minimumEnd = MomentHelper.deltaFromMoment(object.getStartDateTime(), 7, ChronoUnit.DAYS);
+				super.state(MomentHelper.isAfterOrEqual(object.getEndDateTime(), minimumEnd), "endDateTime", "developer.training-session.error.too-close");
+			}
+
+			super.state(!MomentHelper.isAfterOrEqual(object.getEndDateTime(), maxEndDate), "endDateTime", "developer.training-session.error.end-date-too-far");
 		}
 	}
 

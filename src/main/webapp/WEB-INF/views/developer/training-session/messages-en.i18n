@@ -26,3 +26,5 @@ developer.training-session.form.button.publish = Publish
 developer.training-session.error.codeDuplicate = This code already exists
 developer.training-session.error.creation-moment-invalid = The start date time must be at least 1 week ahead the training module creation date
 developer.training-session.error.too-close = The minimum duration of the session must be one week long
+developer.training-session.error.start-date-too-far = The maximum date is 2200/12/24 23:59 because the session must last at least one week.
+developer.training-session.error.end-date-too-far = The maximum date is 2200/12/31 23:59
