@@ -2,6 +2,7 @@
 package acme.features.developer.trainingModule;
 
 import java.util.Collection;
+import java.util.Date;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -43,11 +44,15 @@ public class DeveloperTrainingModuleCreateService extends AbstractService<Develo
 	public void load() {
 		TrainingModule object;
 		Developer dev;
+		Date moment;
 
 		dev = this.repository.findOneDeveloperById(super.getRequest().getPrincipal().getActiveRoleId());
 		object = new TrainingModule();
 		object.setDeveloper(dev);
 		object.setDraftMode(true);
+
+		moment = MomentHelper.getCurrentMoment();
+		object.setCreationMoment(moment);
 
 		super.getBuffer().addData(object);
 	}
@@ -62,7 +67,7 @@ public class DeveloperTrainingModuleCreateService extends AbstractService<Develo
 		projectId = super.getRequest().getData("project", int.class);
 		project = this.repository.findOneProjectById(projectId);
 
-		super.bind(object, "code", "creationMoment", "details", "difficultyLevel", "updateMoment", "optionalLink", "estimatedTotalTime");
+		super.bind(object, "code", "details", "difficultyLevel", "optionalLink", "estimatedTotalTime");
 		object.setProject(project);
 	}
 
@@ -85,6 +90,10 @@ public class DeveloperTrainingModuleCreateService extends AbstractService<Develo
 	@Override
 	public void perform(final TrainingModule object) {
 		assert object != null;
+
+		Date moment;
+		moment = MomentHelper.getCurrentMoment();
+		object.setCreationMoment(moment);
 
 		object.setDraftMode(true);
 
