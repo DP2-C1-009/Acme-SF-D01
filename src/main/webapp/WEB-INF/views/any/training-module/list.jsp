@@ -16,7 +16,7 @@
 <%@taglib prefix="acme" uri="http://acme-framework.org/"%>
 
 <acme:list>
-	<acme:list-column code="authenticated.training-module.list.label.code" path="code" width="25%"/>
-	<acme:list-column code="authenticated.training-module.list.label.difficultyLevel" path="difficultyLevel" width="25%"/>
-	<acme:list-column code="authenticated.training-module.list.label.details" path="details" width="50%"/>
+	<acme:list-column code="any.training-module.list.label.code" path="code" width="25%"/>
+	<acme:list-column code="any.training-module.list.label.difficultyLevel" path="difficultyLevel" width="25%"/>
+	<acme:list-column code="any.training-module.list.label.details" path="details" width="50%"/>
 </acme:list>

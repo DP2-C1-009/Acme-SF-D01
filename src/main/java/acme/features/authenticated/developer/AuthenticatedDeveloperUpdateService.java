@@ -49,7 +49,7 @@ public class AuthenticatedDeveloperUpdateService extends AbstractService<Authent
 	public void bind(final Developer object) {
 		assert object != null;
 
-		super.bind(object, "degree", "specialisation", "skills", "email", "optionalLink");
+		super.bind(object, "degree", "specialisation", "skills", "optionalLink");
 	}
 
 	@Override

@@ -1,10 +1,10 @@
 
-package acme.features.authenticated.trainingModule;
+package acme.features.any.trainingModule;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import acme.client.data.accounts.Authenticated;
+import acme.client.data.accounts.Any;
 import acme.client.data.models.Dataset;
 import acme.client.services.AbstractService;
 import acme.client.views.SelectChoices;
@@ -13,12 +13,12 @@ import acme.entities.training.DifficultyLevel;
 import acme.entities.training.TrainingModule;
 
 @Service
-public class AuthenticatedTrainingModuleShowService extends AbstractService<Authenticated, TrainingModule> {
+public class AnyTrainingModuleShowService extends AbstractService<Any, TrainingModule> {
 
 	// Internal state ---------------------------------------------------------
 
 	@Autowired
-	private AuthenticatedTrainingModuleRepository repository;
+	private AnyTrainingModuleRepository repository;
 
 	// AbstractService interface ----------------------------------------------
 
@@ -31,7 +31,7 @@ public class AuthenticatedTrainingModuleShowService extends AbstractService<Auth
 
 		tmId = super.getRequest().getData("id", int.class);
 		tm = this.repository.findOneTrainingModuleById(tmId);
-		status = tm != null && super.getRequest().getPrincipal().hasRole(Authenticated.class);
+		status = tm != null;
 
 		super.getResponse().setAuthorised(status);
 	}

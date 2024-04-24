@@ -18,6 +18,9 @@
 
 <acme:menu-bar code="master.menu.home">
 	<acme:menu-left>
+	
+		<acme:menu-option code="master.menu.training-modules" action="/any/training-module/list"/>	
+	
 		<acme:menu-option code="master.menu.anonymous" access="isAnonymous()">
 			<acme:menu-suboption code="master.menu.anonymous.favourite-link-juamarcan8" action="https://www.twitter.com/"/>
 			<acme:menu-suboption code="master.menu.anonymous.favourite-link-edubusluc" action="https://www.astonmartinf1.com/en-GB/"/>
@@ -35,8 +38,6 @@
 			<acme:menu-suboption code="master.menu.administrator.shut-down" action="/administrator/system/shut-down"/>
 		</acme:menu-option>
 		
-		<acme:menu-option code="master.menu.training-modules" access="isAuthenticated()" action="/authenticated/training-module/list"/>
-
 		<acme:menu-option code="master.menu.provider" access="hasRole('Provider')">
 			<acme:menu-suboption code="master.menu.provider.favourite-link" action="http://www.example.com/"/>
 		</acme:menu-option>

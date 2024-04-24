@@ -1,0 +1,22 @@
+
+any.training-module.list.title = Listing of training modules
+
+any.training-module.list.label.code = Code
+any.training-module.list.label.difficultyLevel = Difficulty Level
+any.training-module.list.label.details = Details
+
+any.training-module.form.title = Training module
+
+any.training-module.form.label.code = Code
+any.training-module.form.label.creation-moment = Creation moment
+any.training-module.form.label.details = Details
+any.training-module.form.label.difficulty-level = Difficulty level
+any.training-module.form.label.update-moment = Update moment
+any.training-module.form.label.optional-link = Link
+any.training-module.form.label.estimated-total-time = Estimated total time
+any.training-module.form.label.projectCode = Project code
+
+any.training-module.error.codeDuplicate = This code already exists
+any.training-module.error.project = Project can not be null
+any.training-module.error.update-date-before = The update date must be after the creation date.
+any.training-module.error.not-enough-training-sessions = A training module must have at least one training session
