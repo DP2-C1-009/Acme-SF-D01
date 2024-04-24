@@ -1,7 +1,11 @@
 
 package acme.entities.codeAudits;
 
+import java.beans.Transient;
+import java.util.Collection;
 import java.util.Date;
+import java.util.HashMap;
+import java.util.Map;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -18,6 +22,7 @@ import org.hibernate.validator.constraints.Length;
 import org.hibernate.validator.constraints.URL;
 
 import acme.client.data.AbstractEntity;
+import acme.entities.projects.Project;
 import acme.roles.Auditor;
 import lombok.Getter;
 import lombok.Setter;
@@ -53,14 +58,36 @@ public class CodeAudit extends AbstractEntity {
 
 	private boolean				draftMode;
 
+
 	// Derived attributes -----------------------------------------------------
-	//	@NotNull
-	//	protected AuditRecordMark	mark;
+	@Transient
+	public AuditRecordMark getMark(final Collection<AuditRecord> records) {
+		Map<AuditRecordMark, Integer> frecMap = new HashMap<>();
+		for (AuditRecord r : records) {
+			AuditRecordMark mark = r.getMark();
+			frecMap.put(mark, frecMap.getOrDefault(mark, 0) + 1);
+		}
+		AuditRecordMark mode = null;
+		int max = 0;
+		for (Map.Entry<AuditRecordMark, Integer> entry : frecMap.entrySet())
+			if (entry.getValue() > max) {
+				max = entry.getValue();
+				mode = entry.getKey();
+			}
+
+		return mode;
+	}
 	// Relationships ----------------------------------------------------------
+
 
 	@NotNull
 	@Valid
 	@ManyToOne(optional = false)
-	private Auditor				auditor;
+	private Auditor	auditor;
+
+	@NotNull
+	@Valid
+	@ManyToOne(optional = false)
+	private Project	project;
 
 }
