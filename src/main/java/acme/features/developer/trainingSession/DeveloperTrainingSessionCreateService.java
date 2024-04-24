@@ -39,7 +39,7 @@ public class DeveloperTrainingSessionCreateService extends AbstractService<Devel
 
 		principal = super.getRequest().getPrincipal();
 
-		status = tm.getDeveloper().getId() == principal.getActiveRoleId();
+		status = tm.getDeveloper().getId() == principal.getActiveRoleId() && tm.isDraftMode();
 
 		super.getResponse().setAuthorised(status);
 	}
