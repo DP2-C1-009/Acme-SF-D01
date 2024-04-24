@@ -88,14 +88,14 @@ public class DeveloperTrainingSessionCreateService extends AbstractService<Devel
 
 			id = super.getRequest().getData("trainingModuleId", int.class);
 			tm = this.repository.findOneTrainingModuleById(id);
-			super.state(MomentHelper.isAfter(object.getStartDateTime(), tm.getCreationMoment()), "startDateTime", "developer.training-session.error.creation-moment-invalid");
+			super.state(MomentHelper.isAfterOrEqual(object.getStartDateTime(), tm.getCreationMoment()), "startDateTime", "developer.training-session.error.creation-moment-invalid");
 		}
 
 		if (!super.getBuffer().getErrors().hasErrors("endDateTime")) {
 			Date minimumEnd;
 
 			minimumEnd = MomentHelper.deltaFromMoment(object.getStartDateTime(), 7, ChronoUnit.DAYS);
-			super.state(MomentHelper.isAfter(object.getEndDateTime(), minimumEnd), "endDateTime", "developer.training-session.error.too-close");
+			super.state(MomentHelper.isAfterOrEqual(object.getEndDateTime(), minimumEnd), "endDateTime", "developer.training-session.error.too-close");
 		}
 	}
 
