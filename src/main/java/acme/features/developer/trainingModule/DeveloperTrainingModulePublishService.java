@@ -81,6 +81,8 @@ public class DeveloperTrainingModulePublishService extends AbstractService<Devel
 
 		Collection<TrainingSession> sessions = this.repository.findManyTrainingSessionsByTrainingModuleId(object.getId());
 		super.state(sessions.size() >= 1, "*", "developer.training-module.error.not-enough-training-sessions");
+
+		super.state(!this.repository.isAnyTrainingSessionInDraftModeByTrainingModuleId(object.getId()), "*", "developer.training-module.error.training-session-in-draft-mode");
 	}
 
 	@Override

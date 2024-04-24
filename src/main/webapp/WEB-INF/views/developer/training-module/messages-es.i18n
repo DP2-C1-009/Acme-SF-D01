@@ -26,5 +26,6 @@ developer.training-module.form.button.training-session = Sus sesiones de formaci
 
 developer.training-module.error.codeDuplicate = Este código ya existe
 developer.training-module.error.project = Proyecto no puede ser nulo
-developer.training-module.error.update-date-before = La fecha de actualización debe ser posterior a la fecha de creación.
-developer.training-module.error.not-enough-training-sessions = Un módulo de formación debe tener al menos una sesión de formación.
+developer.training-module.error.update-date-before = La fecha de actualización debe ser posterior a la fecha de creación
+developer.training-module.error.not-enough-training-sessions = Un módulo de formación debe tener al menos una sesión de formación
+developer.training-module.error.training-session-in-draft-mode = Las sesiones de formación deben estar publicadas
