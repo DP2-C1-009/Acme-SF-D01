@@ -1,0 +1,10 @@
+sponsor.sponsorship.list.title = Lista de patrocinios
+
+sponsor.sponsorship.list.label.code = Código
+sponsor.sponsorship.list.label.project = Proyecto
+sponsor.sponsorship.list.label.start = Desde
+sponsor.sponsorship.list.label.end = Hasta
+sponsor.sponsorship.list.label.amount = Cantidad
+sponsor.sponsorship.list.label.type = Tipo
+
+sponsor.sponsorship.list.button.create = Crear
