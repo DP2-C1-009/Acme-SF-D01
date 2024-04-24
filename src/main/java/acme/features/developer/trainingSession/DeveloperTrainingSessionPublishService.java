@@ -82,10 +82,12 @@ public class DeveloperTrainingSessionPublishService extends AbstractService<Deve
 		if (!super.getBuffer().getErrors().hasErrors("startDateTime")) {
 			TrainingModule tm;
 			int id;
+			Date minimumStart;
 
-			id = super.getRequest().getData("id", int.class);
-			tm = this.repository.findOneTrainingModuleByTrainingSessionId(id);
-			super.state(MomentHelper.isAfterOrEqual(object.getStartDateTime(), tm.getCreationMoment()), "startDateTime", "developer.training-session.error.creation-moment-invalid");
+			id = super.getRequest().getData("trainingModuleId", int.class);
+			tm = this.repository.findOneTrainingModuleById(id);
+			minimumStart = MomentHelper.deltaFromMoment(tm.getCreationMoment(), 7, ChronoUnit.DAYS);
+			super.state(MomentHelper.isAfterOrEqual(object.getStartDateTime(), minimumStart), "startDateTime", "developer.training-session.error.creation-moment-invalid");
 		}
 
 		if (!super.getBuffer().getErrors().hasErrors("endDateTime")) {
