@@ -77,7 +77,7 @@ public class AuditorAuditRecordPublishService extends AbstractService<Auditor, A
 			}
 		if (!super.getBuffer().getErrors().hasErrors("mark")) {
 			AuditRecordMark mark = object.getMark();
-			super.state(mark == AuditRecordMark.A || mark == AuditRecordMark.A_PLUS || mark == AuditRecordMark.B || mark == AuditRecordMark.C, "mark", "validation.auditrecord.moment.minimun");
+			super.state(mark == AuditRecordMark.A || mark == AuditRecordMark.A_PLUS || mark == AuditRecordMark.B || mark == AuditRecordMark.C, "mark", "validation.auditrecord.mark.minimun");
 
 		}
 

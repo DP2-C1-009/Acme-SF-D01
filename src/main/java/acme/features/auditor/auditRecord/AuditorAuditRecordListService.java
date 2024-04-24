@@ -6,9 +6,11 @@ import java.util.Collection;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import acme.client.data.accounts.Principal;
 import acme.client.data.models.Dataset;
 import acme.client.services.AbstractService;
 import acme.entities.codeAudits.AuditRecord;
+import acme.entities.codeAudits.CodeAudit;
 import acme.roles.Auditor;
 
 @Service
@@ -23,7 +25,18 @@ public class AuditorAuditRecordListService extends AbstractService<Auditor, Audi
 
 	@Override
 	public void authorise() {
-		super.getResponse().setAuthorised(true);
+		boolean status = false;
+		int codeAuditId;
+		Principal principal;
+		CodeAudit codeAudit;
+
+		codeAuditId = super.getRequest().getData("codeAuditId", int.class);
+		codeAudit = this.repository.findCodeAuditById(codeAuditId);
+
+		principal = super.getRequest().getPrincipal();
+
+		status = codeAudit.getAuditor().getId() == principal.getActiveRoleId();
+		super.getResponse().setAuthorised(status);
 	}
 
 	@Override

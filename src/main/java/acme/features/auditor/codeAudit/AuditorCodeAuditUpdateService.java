@@ -10,6 +10,7 @@ import acme.client.data.accounts.Principal;
 import acme.client.data.models.Dataset;
 import acme.client.services.AbstractService;
 import acme.client.views.SelectChoices;
+import acme.entities.codeAudits.AuditRecord;
 import acme.entities.codeAudits.CodeAudit;
 import acme.entities.codeAudits.CodeAuditType;
 import acme.roles.Auditor;
@@ -55,9 +56,14 @@ public class AuditorCodeAuditUpdateService extends AbstractService<Auditor, Code
 	@Override
 	public void validate(final CodeAudit object) {
 		Collection<String> allCodes = this.repository.findAllCodes();
+		boolean isCodeChanged = false;
+		int id = super.getRequest().getData("id", int.class);
+		CodeAudit codeAudit = this.repository.findCodeAuditById(id);
 
-		if (!super.getBuffer().getErrors().hasErrors("code"))
-			super.state(!allCodes.contains(object.getCode()), "code", "client.audit.error.codeDuplicate");
+		if (!super.getBuffer().getErrors().hasErrors("code")) {
+			isCodeChanged = !object.getCode().equals(codeAudit.getCode());
+			super.state(!isCodeChanged || !allCodes.contains(object.getCode()), "code", "client.audit.error.codeDuplicate");
+		}
 
 	}
 
@@ -76,9 +82,12 @@ public class AuditorCodeAuditUpdateService extends AbstractService<Auditor, Code
 		int id;
 
 		id = super.getRequest().getPrincipal().getActiveRoleId();
+		Collection<AuditRecord> auditRecords = this.repository.findAuditRecordsByCodeAudit(object.getId());
 
 		dataset = super.unbind(object, "code", "execution", "type", "correctiveActions", "moreInfoLink", "draftMode");
+		dataset.put("project", object.getProject().getTitle());
 		dataset.put("types", SelectChoices.from(CodeAuditType.class, object.getType()));
+		dataset.put("mark", object.getMark(auditRecords));
 
 		super.getResponse().addData(dataset);
 
