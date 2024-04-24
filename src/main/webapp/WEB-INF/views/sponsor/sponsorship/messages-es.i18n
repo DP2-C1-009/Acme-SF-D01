@@ -8,3 +8,15 @@ sponsor.sponsorship.list.label.amount = Cantidad
 sponsor.sponsorship.list.label.type = Tipo
 
 sponsor.sponsorship.list.button.create = Crear
+
+sponsor.sponsorship.form.title = Patrocinio
+
+sponsor.sponsorship.form.label.code = Código
+sponsor.sponsorship.form.label.moment = Momento de creación
+sponsor.sponsorship.form.label.start = Desde
+sponsor.sponsorship.form.label.end = Hasta
+sponsor.sponsorship.form.label.amount = Cantidad
+sponsor.sponsorship.form.label.email = Email
+sponsor.sponsorship.form.label.further-info = Más información
+sponsor.sponsorship.form.label.type = Tipo
+sponsor.sponsorship.form.label.projectCode = Código de proyecto

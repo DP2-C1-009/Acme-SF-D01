@@ -4,7 +4,19 @@ sponsor.sponsorship.list.label.code = Code
 sponsor.sponsorship.list.label.project = Project
 sponsor.sponsorship.list.label.start = Start
 sponsor.sponsorship.list.label.end = End
-sponsor.sponsorship.list.label.amount = Quantity
+sponsor.sponsorship.list.label.amount = Amount
 sponsor.sponsorship.list.label.type = Type
 
 sponsor.sponsorship.list.button.create = Create
+
+sponsor.sponsorship.form.title = Sponsorship
+
+sponsor.sponsorship.form.label.code = Code
+sponsor.sponsorship.form.label.moment = Creation moment
+sponsor.sponsorship.form.label.start = Start
+sponsor.sponsorship.form.label.end = End
+sponsor.sponsorship.form.label.amount = Amount
+sponsor.sponsorship.form.label.email = Email
+sponsor.sponsorship.form.label.further-info = Further info
+sponsor.sponsorship.form.label.type = Type
+sponsor.sponsorship.form.label.projectCode = Project code

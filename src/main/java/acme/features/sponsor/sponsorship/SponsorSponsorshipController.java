@@ -16,7 +16,10 @@ public class SponsorSponsorshipController extends AbstractController<Sponsor, Sp
 	// Internal state ---------------------------------------------------------
 
 	@Autowired
-	private SponsorSponsorshipListService listService;
+	private SponsorSponsorshipListService	listService;
+
+	@Autowired
+	private SponsorSponsorshipShowService	showService;
 
 	// Constructors -----------------------------------------------------------
 
@@ -24,6 +27,7 @@ public class SponsorSponsorshipController extends AbstractController<Sponsor, Sp
 	@PostConstruct
 	protected void initialise() {
 		super.addBasicCommand("list", this.listService);
+		super.addBasicCommand("show", this.showService);
 	}
 
 }

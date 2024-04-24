@@ -35,6 +35,11 @@ master.menu.administrator.populate-initial = Poblar BD (inicial)
 master.menu.administrator.populate-sample = Poblar BD (ejemplos)
 master.menu.administrator.shut-down = Parar el sistema
 
+# master.menu.sponsor ###################################################
+
+master.menu.sponsor = Patrocinador
+master.menu.sponsor.my-sponsorships = Mis patrocinios
+
 # master.menu.training-modules ###################################################
 
 master.menu.training-modules = Módulos de formación
