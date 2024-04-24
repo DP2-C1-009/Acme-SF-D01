@@ -14,4 +14,3 @@ auditor.audit-record.list.title = Audit Records
 validation.auditrecord.moment.minimun = Finish date must be at least 1 hour later.
 client.audit.error.codeDuplicate = The code is duplicated
 validation.auditrecord.initialIsBefore = The start date has to be before than the finish date.
-validation.auditrecord.mark.minimun = To publish an audit record you must obtain a mark of at least a C.

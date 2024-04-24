@@ -11,6 +11,7 @@ import acme.client.data.models.Dataset;
 import acme.client.services.AbstractService;
 import acme.client.views.SelectChoices;
 import acme.entities.codeAudits.AuditRecord;
+import acme.entities.codeAudits.AuditRecordMark;
 import acme.entities.codeAudits.CodeAudit;
 import acme.entities.codeAudits.CodeAuditType;
 import acme.entities.projects.Project;
@@ -77,6 +78,10 @@ public class AuditorCodeAuditPublishService extends AbstractService<Auditor, Cod
 		if (!super.getBuffer().getErrors().hasErrors("code")) {
 			isCodeChanged = !object.getCode().equals(codeAudit.getCode());
 			super.state(!isCodeChanged || !allCodes.contains(object.getCode()), "code", "auditor.codeaudit.error.duplicated-code");
+		}
+		if (!super.getBuffer().getErrors().hasErrors("mark")) {
+			AuditRecordMark mark = object.getMark(auditRecords);
+			super.state(mark == AuditRecordMark.A || mark == AuditRecordMark.A_PLUS || mark == AuditRecordMark.B || mark == AuditRecordMark.C, "mark", "validation.codeAudit.mark.minimun");
 		}
 
 	}

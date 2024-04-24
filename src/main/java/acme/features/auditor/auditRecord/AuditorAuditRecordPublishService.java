@@ -75,11 +75,6 @@ public class AuditorAuditRecordPublishService extends AbstractService<Auditor, A
 				end = MomentHelper.deltaFromMoment(object.getStartMoment(), 1, ChronoUnit.HOURS);
 				super.state(MomentHelper.isAfterOrEqual(object.getFinishMoment(), end), "finishMoment", "validation.auditrecord.moment.minimun");
 			}
-		if (!super.getBuffer().getErrors().hasErrors("mark")) {
-			AuditRecordMark mark = object.getMark();
-			super.state(mark == AuditRecordMark.A || mark == AuditRecordMark.A_PLUS || mark == AuditRecordMark.B || mark == AuditRecordMark.C, "mark", "validation.auditrecord.mark.minimun");
-
-		}
 
 		if (!super.getBuffer().getErrors().hasErrors("code"))
 			isCodeChanged = !object.getCode().equals(auditRecord.getCode());
