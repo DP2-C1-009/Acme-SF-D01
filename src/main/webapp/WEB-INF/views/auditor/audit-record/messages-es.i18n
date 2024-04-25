@@ -14,3 +14,4 @@ auditor.audit-record.list.title = Registro de auditoría
 validation.auditrecord.moment.minimun = La fecha de finalización debe ser de al menos 1 hora después del comienzo.
 client.audit.error.codeDuplicate = El código está duplicado
 validation.auditrecord.initialIsBefore = La fecha de comienzo no puede ser anterior a la de finalización.
+auditor.audit-record.form.title = Registro de Auditoría
