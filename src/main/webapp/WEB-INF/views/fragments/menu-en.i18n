@@ -55,6 +55,13 @@ master.menu.developer = Developer
 master.menu.developer.my-training-modules = My training modules
 master.menu.developer.dashboard = Dashboard
 
+# master.menu.manager #########################################################
+
+master.menu.manager = Manager
+master.menu.manager.list-project = List of my projects
+master.menu.manager.list-user-story = List of my user stories
+master.menu.manager.list-made-of = List of my projects with their user stories
+
 # master.menu.client ##########################################################
 
 master.menu.client = Client

@@ -55,6 +55,13 @@ master.menu.developer = Desarrollador
 master.menu.developer.my-training-modules = Mis módulos de formación
 master.menu.developer.dashboard = Panel de indicadores
 
+# master.menu.manager #########################################################
+
+master.menu.manager = Manager
+master.menu.manager.list-project = Lista de mis Proyectos
+master.menu.manager.list-user-story = Lista de mis historias de usuario
+master.menu.manager.list-made-of = Lista de mis proyectos con sus historias de usuario
+
 # master.menu.client ##########################################################
 
 master.menu.client = Cliente
