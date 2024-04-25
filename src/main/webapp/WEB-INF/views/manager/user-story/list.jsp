@@ -21,7 +21,7 @@
 	<acme:list-column code="manager.user-story.list.label.priority" path="priority" width="20%"/>	
 </acme:list>
 
-<jstl:if test="${_command == 'list-all'}">
+<jstl:if test="${_command == 'list-by-project'}">
 	<acme:button code="manager.user-story.list.button.create-form" action="/manager/user-story/create"/>
 </jstl:if>
 
