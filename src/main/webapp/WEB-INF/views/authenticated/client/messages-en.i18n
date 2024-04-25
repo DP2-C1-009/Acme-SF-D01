@@ -6,3 +6,4 @@ authenticated.client.form.label.type = Type
 authenticated.client.form.label.email = Email
 authenticated.client.form.label.furtherInformation = Further Information
 authenticated.client.form.button.create = New Client
+authenticated.client.form.button.update = Update Client
