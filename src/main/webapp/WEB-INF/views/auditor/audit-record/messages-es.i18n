@@ -15,3 +15,4 @@ validation.auditrecord.moment.minimun = La fecha de finalización debe ser de al
 client.audit.error.codeDuplicate = El código está duplicado
 validation.auditrecord.initialIsBefore = La fecha de comienzo no puede ser anterior a la de finalización.
 auditor.audit-record.form.title = Registro de Auditoría
+validation.AuditRecordCode = Formato no válido. Por favor, introduzca un código que empiece por AU, seguido de un guión, cuatro dígitos , otro guión y finalmente tres dígitos.
