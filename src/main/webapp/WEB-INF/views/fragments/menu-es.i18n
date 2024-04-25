@@ -59,6 +59,8 @@ master.menu.developer.dashboard = Panel de indicadores
 
 master.menu.client = Cliente
 master.menu.client.my-contract = Mis contratos
+master.menu.contract = Contratos
+any.contract.list.title = Contratos
 master.menu.client.client-dashboard = Dashboard = Panel de indicadores
 
 # master.menu.user-account ####################################################

@@ -1,38 +1,34 @@
 
-package acme.features.clients.progressLog;
+package acme.features.any.progessLog;
 
 import java.util.Collection;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import acme.client.data.accounts.Principal;
+import acme.client.data.accounts.Any;
 import acme.client.data.models.Dataset;
 import acme.client.services.AbstractService;
 import acme.entities.contract.Contract;
 import acme.entities.progressLogs.ProgressLog;
-import acme.roles.Client;
 
 @Service
-public class ClientProgressLogListService extends AbstractService<Client, ProgressLog> {
+public class AnyProgressLogListService extends AbstractService<Any, ProgressLog> {
 
 	@Autowired
-	private ClientProgressLogRepository repository;
+	private AnyProgressLogRepository repository;
 
 
 	@Override
 	public void authorise() {
 		boolean status;
 		Contract object;
-		Principal principal;
 		int contractId;
 
 		contractId = super.getRequest().getData("contractId", int.class);
 		object = this.repository.findOneContractById(contractId);
-		principal = super.getRequest().getPrincipal();
 
-		status = object.getClient().getId() == principal.getActiveRoleId() && object.isDraftmode() == false;
-
+		status = object.isDraftmode() == false;
 		super.getResponse().setAuthorised(status);
 	}
 
@@ -53,7 +49,7 @@ public class ClientProgressLogListService extends AbstractService<Client, Progre
 		assert object != null;
 
 		Dataset dataset;
-		dataset = super.unbind(object, "recordId", "completeness", "draftmode");
+		dataset = super.unbind(object, "recordId", "completeness", "responsiblePerson");
 
 		super.getResponse().addData(dataset);
 	}

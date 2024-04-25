@@ -18,6 +18,7 @@
 
 <acme:menu-bar code="master.menu.home">
 	<acme:menu-left>
+	<acme:menu-option code="master.menu.contract" action="/any/contract/list"/>
 		<acme:menu-option code="master.menu.anonymous" access="isAnonymous()">
 			<acme:menu-suboption code="master.menu.anonymous.favourite-link-juamarcan8" action="https://www.twitter.com/"/>
 			<acme:menu-suboption code="master.menu.anonymous.favourite-link-edubusluc" action="https://www.astonmartinf1.com/en-GB/"/>

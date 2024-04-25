@@ -59,6 +59,8 @@ master.menu.developer.dashboard = Dashboard
 
 master.menu.client = Client
 master.menu.client.my-contract = My contracts
+master.menu.contract = Contracts
+any.contract.list.title = Contracts
 master.menu.client.client-dashboard = Dashboard
 
 # master.menu.user-account ####################################################
