@@ -20,3 +20,4 @@ sponsor.sponsorship.form.label.email = Email
 sponsor.sponsorship.form.label.further-info = Further info
 sponsor.sponsorship.form.label.type = Type
 sponsor.sponsorship.form.label.projectCode = Project code
+sponsor.sponsorship.form.label.draft-mode = Draft mode

@@ -6,6 +6,7 @@ import java.util.Collection;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import acme.client.data.accounts.Principal;
 import acme.client.data.models.Dataset;
 import acme.client.services.AbstractService;
 import acme.client.views.SelectChoices;
@@ -15,7 +16,7 @@ import acme.entities.sponsorship.Sponsorship;
 import acme.roles.Sponsor;
 
 @Service
-public class SponsorSponsorshipShowService extends AbstractService<Sponsor, Sponsorship> {
+public class SponsorSponsorshipPublishService extends AbstractService<Sponsor, Sponsorship> {
 
 	// Internal state ---------------------------------------------------------
 
@@ -28,12 +29,16 @@ public class SponsorSponsorshipShowService extends AbstractService<Sponsor, Spon
 	@Override
 	public void authorise() {
 		boolean status;
+		Sponsorship object;
+		Principal principal;
 		int sponsorshipId;
-		Sponsorship sponsorship;
 
 		sponsorshipId = super.getRequest().getData("id", int.class);
-		sponsorship = this.repository.findOneSponsorshipById(sponsorshipId);
-		status = sponsorship != null && super.getRequest().getPrincipal().hasRole(sponsorship.getSponsor());
+		object = this.repository.findOneSponsorshipById(sponsorshipId);
+
+		principal = super.getRequest().getPrincipal();
+
+		status = object != null && object.isDraftMode() && object.getSponsor().getId() == principal.getActiveRoleId();
 
 		super.getResponse().setAuthorised(status);
 	}
@@ -47,6 +52,27 @@ public class SponsorSponsorshipShowService extends AbstractService<Sponsor, Spon
 		object = this.repository.findOneSponsorshipById(id);
 
 		super.getBuffer().addData(object);
+	}
+
+	@Override
+	public void bind(final Sponsorship object) {
+		assert object != null;
+
+		super.bind(object, "code", "moment", "start", "end", "amount", "email", "furtherInfo", "type", "project");
+	}
+
+	@Override
+	public void validate(final Sponsorship object) {
+		assert object != null;
+
+	}
+
+	@Override
+	public void perform(final Sponsorship object) {
+		assert object != null;
+
+		object.setDraftMode(false);
+		this.repository.save(object);
 	}
 
 	@Override

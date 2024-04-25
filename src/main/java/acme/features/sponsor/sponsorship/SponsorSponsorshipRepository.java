@@ -10,7 +10,7 @@ import acme.client.repositories.AbstractRepository;
 import acme.entities.projects.Project;
 import acme.entities.sponsorship.Sponsorship;
 import acme.entities.training.TrainingSession;
-import acme.roles.Developer;
+import acme.roles.Sponsor;
 
 @Repository
 public interface SponsorSponsorshipRepository extends AbstractRepository {
@@ -21,14 +21,14 @@ public interface SponsorSponsorshipRepository extends AbstractRepository {
 	@Query("select tm.code from TrainingModule tm where tm.developer.id = :id")
 	Collection<String> findManyTrainingModuleCodesByDeveloperId(int id);
 
-	@Query("select tm.code from TrainingModule tm")
-	Collection<String> findManyTrainingModuleCodes();
+	@Query("select s.code from Sponsorship s")
+	Collection<String> findManySponsorshipCodes();
 
 	@Query("select s from Sponsorship s where s.id = :id")
 	Sponsorship findOneSponsorshipById(int id);
 
-	@Query("select d from Developer d where d.id = :id")
-	Developer findOneDeveloperById(int id);
+	@Query("select s from Sponsor s where s.id = :id")
+	Sponsor findOneSponsorById(int id);
 
 	@Query("select p from Project p where p.id = :id")
 	Project findOneProjectById(int id);

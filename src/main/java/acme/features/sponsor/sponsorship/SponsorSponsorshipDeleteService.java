@@ -1,11 +1,10 @@
 
 package acme.features.sponsor.sponsorship;
 
-import java.util.Collection;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import acme.client.data.accounts.Principal;
 import acme.client.data.models.Dataset;
 import acme.client.services.AbstractService;
 import acme.client.views.SelectChoices;
@@ -15,7 +14,7 @@ import acme.entities.sponsorship.Sponsorship;
 import acme.roles.Sponsor;
 
 @Service
-public class SponsorSponsorshipShowService extends AbstractService<Sponsor, Sponsorship> {
+public class SponsorSponsorshipDeleteService extends AbstractService<Sponsor, Sponsorship> {
 
 	// Internal state ---------------------------------------------------------
 
@@ -28,12 +27,16 @@ public class SponsorSponsorshipShowService extends AbstractService<Sponsor, Spon
 	@Override
 	public void authorise() {
 		boolean status;
+		Sponsorship object;
+		Principal principal;
 		int sponsorshipId;
-		Sponsorship sponsorship;
 
 		sponsorshipId = super.getRequest().getData("id", int.class);
-		sponsorship = this.repository.findOneSponsorshipById(sponsorshipId);
-		status = sponsorship != null && super.getRequest().getPrincipal().hasRole(sponsorship.getSponsor());
+		object = this.repository.findOneSponsorshipById(sponsorshipId);
+
+		principal = super.getRequest().getPrincipal();
+
+		status = object != null && object.isDraftMode() && object.getSponsor().getId() == principal.getActiveRoleId();
 
 		super.getResponse().setAuthorised(status);
 	}
@@ -50,23 +53,46 @@ public class SponsorSponsorshipShowService extends AbstractService<Sponsor, Spon
 	}
 
 	@Override
+	public void bind(final Sponsorship object) {
+		assert object != null;
+
+		super.bind(object, "code", "moment", "start", "end", "amount", "type", "email", "furtherInfo");
+	}
+
+	@Override
+	public void validate(final Sponsorship object) {
+		assert object != null;
+	}
+
+	@Override
+	public void perform(final Sponsorship object) {
+		assert object != null;
+
+		/*
+		 * Collection<TrainingSession> ts;
+		 * 
+		 * ts = this.repository.findManyTrainingSessionsByTrainingModuleId(object.getId());
+		 * this.repository.deleteAll(ts);
+		 * this.repository.delete(object);
+		 */
+
+		this.repository.delete(object);
+	}
+
+	@Override
 	public void unbind(final Sponsorship object) {
 		assert object != null;
 
+		SelectChoices choices;
 		Dataset dataset;
-		Collection<Project> projects;
-		SelectChoices choicesProjects;
-		SelectChoices choicesTypes;
 
-		projects = this.repository.findManyPublishedProjects();
-		choicesProjects = SelectChoices.from(projects, "code", object.getProject());
-		choicesTypes = SelectChoices.from(SponsorshipType.class, object.getType());
+		choices = SelectChoices.from(SponsorshipType.class, object.getType());
+		Project objectProject = object.getProject();
 
 		dataset = super.unbind(object, "code", "moment", "start", "end", "amount", "email", "furtherInfo", "draftMode");
-		dataset.put("project", choicesProjects.getSelected().getKey());
-		dataset.put("projects", choicesProjects);
-		dataset.put("type", choicesTypes.getSelected().getKey());
-		dataset.put("types", choicesTypes);
+		dataset.put("projectCode", objectProject.getCode());
+		dataset.put("type", choices.getSelected().getKey());
+		dataset.put("types", choices);
 
 		super.getResponse().addData(dataset);
 	}
