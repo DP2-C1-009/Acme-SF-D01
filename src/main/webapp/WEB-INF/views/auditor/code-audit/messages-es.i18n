@@ -1,0 +1,6 @@
+auditor.codeaudit.list.label.code = Código
+auditor.codeaudit.list.label.execution = Ejecución
+auditor.codeaudit.list.label.type = Tipo
+auditor.codeaudit.list.label.correctiveActions = Acciones Correctivas
+auditor.codeaudit.list.label.moreInfoLink = Más Info
+auditor.code-audit.list.title = Título
