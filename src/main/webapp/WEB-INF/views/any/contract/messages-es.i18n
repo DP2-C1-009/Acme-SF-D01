@@ -1,0 +1,5 @@
+any.contract.list.label.code = Código
+any.contract.list.label.instantiationMoment	= Momento de instanciación
+any.contract.list.label.providerName = Nombre del proveedor
+any.contract.form.title = Contrato
+any.progressLog.form.button.progressLog = Registro de progresos
