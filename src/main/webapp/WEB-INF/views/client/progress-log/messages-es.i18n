@@ -1,0 +1,17 @@
+client.progressLog.error.recordIdDuplicate = Registro duplicado
+client.progress-log.list.title = Registro de progreso
+client.progressLog.list.label.recordId = Registro Id
+client.progressLog.list.label.draftMode = Modo Borrador
+client.progressLog.list.label.completeness = Completitud
+client.progressLog.list.button.create =  Nuevo Registro de Progreso
+client.progress-log.form.title = Nuevo Registro de Progreso
+client.progressLog.form.label.recordId = Registro Id
+client.progressLog.form.label.completeness = Completitud
+client.progressLog.form.label.comment = Comentario
+client.progressLog.form.label.responsiblePerson = Persona responsable
+client.progressLog.form.label.registrationMoment = Momento de la inscripción
+client.progressLog.form.label.contractCode = Código del contrato
+client.progressLog.form.button.update = Actualizar
+client.progressLog.form.button.publish = Publicar
+client.progressLog.form.button.delete = Eliminar
+client.progressLog.form.button.progressLog = Registro de Progreso

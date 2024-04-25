@@ -1,0 +1,38 @@
+key,key:project,key:client,code,instantiationMoment,providerName,customerName,goals,budget,draftmode
+contract-01,project-11,client-01,AAA123,2022/03/22 11:00,Eduardo Bustamante,Juan Martinez,Esto es una prueba,10EUR,true
+contract-02,project-12,client-01,A001,2022/03/22 11:00,Eduardo Bustamante,Juan Martinez,Esto es una prueba,10EUR,true
+contract-03,project-13,client-01,A002,2022/03/22 11:00,Eduardo Bustamante,Juan Martinez,Esto es una prueba,10EUR,true
+contract-04,project-13,client-01,ABC123,2022/03/22 11:00,Eduardo Bustamante,Juan Martinez,Esto es una prueba,10EUR,true
+contract-05,project-13,client-01,A003,2022/03/22 11:00,Eduardo Bustamante,Juan Martinez,Esto es una prueba,10EUR,true
+contract-06,project-13,client-02,A004,2022/03/22 11:00,Eduardo Bustamante,Juan Martinez,Esto es una prueba,10EUR,true
+contract-07,project-13,client-02,A005,2022/03/22 11:00,a,Juan Martinez,Esto es una prueba,10EUR,false
+contract-08,project-13,client-02,A006,2022/03/22 11:00,ab,Juan Martinez,Esto es una prueba,10EUR,false
+contract-09,project-13,client-02,A007,2022/03/22 11:00,Proveedor XYZ,Juan Martinez,Esto es una prueba,10EUR,false
+contract-10,project-13,client-02,A008,2022/03/22 11:00,Este es un proveedor con un nombre bastante largo que alcanza el límite par,Juan Martinez,Esto es una prueba,10EUR,false
+contract-11,project-13,client-02,A009,2022/03/22 11:00,Este es un proveedor con un nombre bastante largo que alcanza el límite pa,Juan Martinez,Esto es una prueba,10EUR,false
+contract-13,project-13,client-02,A010,2022/03/22 11:00,Eduardo Bustamante,a,Esto es una prueba,10EUR,true
+contract-14,project-13,client-02,A011,2022/03/22 11:00,Eduardo Bustamante,ab,Esto es una prueba,10EUR,true
+contract-15,project-13,client-02,A012,2022/03/22 11:00,Eduardo Bustamante,customerXYZ,Esto es una prueba,10EUR,true
+contract-16,project-13,client-02,A013,2022/03/22 11:00,Eduardo Bustamante,Este es un customer con un nombre bastante largo que alcanza el límite para,Esto es una prueba,10EUR,true
+contract-17,project-13,client-02,A014,2022/03/22 11:00,Eduardo Bustamante,Este es un customer con un nombre bastante largo que alcanza el límite par,Esto es una prueba,10EUR,true
+contract-18,project-11,client-01,A015,2022/03/22 11:00,Eduardo Bustamante,Juan Martinez,a,10EUR,false
+contract-19,project-11,client-01,A016,2022/03/22 11:00,Eduardo Bustamante,Juan Martinez,ab,10EUR,false
+contract-20,project-11,client-01,A017,2022/03/22 11:00,Eduardo Bustamante,Juan Martinez,Establecer metas a corto plazo,10EUR,false
+contract-21,project-11,client-01,A018,2022/03/22 11:00,Eduardo Bustamante,Juan Martinez,Establecer metas a largo plazo para alcanzar el éxito en la vida personal y profesional y probar las,10EUR,false
+contract-22,project-11,client-01,A019,2022/03/22 11:00,Eduardo Bustamante,Juan Martinez,Establecer metas a largo plazo para alcanzar el éxito en la vida personal y profesional y probar la,10EUR,false
+contract-23,project-11,client-01,A021,2022/03/22 11:00,Eduardo Bustamante,Juan Martinez,Establecer metas a corto plazo,-1000000.00USD,false
+contract-24,project-11,client-01,A022,2022/03/22 11:00,Eduardo Bustamante,Juan Martinez,Establecer metas a corto plazo,-999999.99USD,false
+contract-25,project-11,client-01,A023,2022/03/22 11:00,Eduardo Bustamante,Juan Martinez,Establecer metas a corto plazo,500000.00EUR,false
+contract-26,project-11,client-01,A024,2022/03/22 11:00,Eduardo Bustamante,Juan Martinez,Establecer metas a corto plazo,1000000.00JPY,false
+contract-27,project-11,client-01,A025,2022/03/22 11:00,Eduardo Bustamante,Juan Martinez,Establecer metas a corto plazo,999999.99JPY,false
+contract-28,project-11,client-02,A026,2000/01/01 00:00,Eduardo Bustamante,Juan Martinez,Esto es una prueba,10EUR,true
+contract-29,project-11,client-02,A027,2000/01/02 00:00,Eduardo Bustamante,Juan Martinez,Esto es una prueba,10EUR,true
+contract-30,project-11,client-02,A028,2021/10/18 17:39,Eduardo Bustamante,Juan Martinez,Esto es una prueba,10EUR,true
+contract-31,project-11,client-02,A029,2022/07/30 00:00,Eduardo Bustamante,Juan Martinez,Esto es una prueba,10EUR,true
+contract-32,project-11,client-02,A030,2022/07/29 23:59,Eduardo Bustamante,Juan Martinez,Esto es una prueba,10EUR,true
+contract-33,project-11,client-01,A031,2022/03/22 11:00,愛德華多·布斯塔曼特,胡安·馬丁內斯,這是一個測試,10EUR,false
+contract-34,project-11,client-01,A032,2022/03/22 11:00,Εδουάρδος Μπουσταμάντε,Χουάν Μαρτίνεθ,Αυτή είναι μια δοκιμή,10EUR,false
+contract-35,project-11,client-01,A033,2022/03/22 11:00,エドゥアルド・ブスタマンテ,フアン・マルティネス,これはテストです,10EUR,false
+contract-36,project-11,client-02,A034,2021/10/18 17:39,//,\\,'',10EUR,true
+contract-37,project-11,client-02,A035,2021/10/18 17:39,%00,||,%,10EUR,true
+contract-38,project-11,client-02,A036,2021/10/18 17:39,/*…*/,@variable,@@variable,10EUR,true

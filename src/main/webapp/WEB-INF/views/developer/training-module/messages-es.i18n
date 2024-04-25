@@ -1,0 +1,30 @@
+
+developer.training-module.list.title = Lista de módulos de formación
+
+developer.training-module.list.label.code = Código
+developer.training-module.list.label.difficultyLevel = Dificultad
+developer.training-module.list.label.details = Detalles
+developer.training-module.list.button.create = Crear
+
+developer.training-module.form.title = Módulo de formación
+
+developer.training-module.form.label.code = Código
+developer.training-module.form.label.creation-moment = Fecha de creación
+developer.training-module.form.label.details = Detalles
+developer.training-module.form.label.difficulty-level = Dificultad
+developer.training-module.form.label.update-moment = Fecha de actualización
+developer.training-module.form.label.optional-link = Enlace
+developer.training-module.form.label.estimated-total-time = Tiempo total estimado
+developer.training-module.form.label.draft-mode = Modo borrador
+developer.training-module.form.label.projectCode = Código del proyecto
+developer.training-module.form.label.projects = Proyecto
+developer.training-module.form.button.create = Crear
+developer.training-module.form.button.update = Actualizar
+developer.training-module.form.button.delete = Eliminar
+developer.training-module.form.button.publish = Publicar
+developer.training-module.form.button.training-session = Sus sesiones de formación
+
+developer.training-module.error.codeDuplicate = Este código ya existe
+developer.training-module.error.project = Proyecto no puede ser nulo
+developer.training-module.error.update-date-before = La fecha de actualización debe ser posterior a la fecha de creación.
+developer.training-module.error.not-enough-training-sessions = Un módulo de formación debe tener al menos una sesión de formación.

@@ -1,0 +1,23 @@
+
+authenticated.training-module.list.title = Lista de módulos de formación
+
+authenticated.training-module.list.label.code = Código
+authenticated.training-module.list.label.difficultyLevel = Dificultad
+authenticated.training-module.list.label.details = Detalles
+
+authenticated.training-module.form.title = Módulo de formación
+
+authenticated.training-module.form.label.code = Código
+authenticated.training-module.form.label.creation-moment = Fecha de creación
+authenticated.training-module.form.label.details = Detalles
+authenticated.training-module.form.label.difficulty-level = Dificultad
+authenticated.training-module.form.label.update-moment = Fecha de actualización
+authenticated.training-module.form.label.optional-link = Enlace
+authenticated.training-module.form.label.estimated-total-time = Tiempo total estimado
+authenticated.training-module.form.label.draft-mode = Modo borrador
+authenticated.training-module.form.label.projectCode = Código del proyecto
+
+authenticated.training-module.error.codeDuplicate = Este código ya existe
+authenticated.training-module.error.project = Proyecto no puede ser nulo
+authenticated.training-module.error.update-date-before = La fecha de actualización debe ser posterior a la fecha de creación.
+authenticated.training-module.error.not-enough-training-sessions = Un módulo de formación debe tener al menos una sesión de formación.
