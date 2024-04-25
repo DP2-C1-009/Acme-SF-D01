@@ -25,10 +25,10 @@ public class ClientProgressLogListService extends AbstractService<Client, Progre
 		boolean status;
 		Contract object;
 		Principal principal;
-		int enrolmentId;
+		int contractId;
 
-		enrolmentId = super.getRequest().getData("contractId", int.class);
-		object = this.repository.findOneContractById(enrolmentId);
+		contractId = super.getRequest().getData("contractId", int.class);
+		object = this.repository.findOneContractById(contractId);
 		principal = super.getRequest().getPrincipal();
 
 		status = object.getClient().getId() == principal.getActiveRoleId() && object.isDraftmode() == false;

@@ -1,0 +1,9 @@
+client.clientDashboard.form.label.totalLogLessThan25 = Reportes totales menor que 25
+client.clientDashboard.form.label.totalLogLessBetween25And50 = Reportes totales entre 25 y 50
+client.clientDashboard.form.label.totalLogLessBetween50And75 = Reportes totales entre 50 y 75
+client.clientDashboard.form.label.totalLogAbove75	=  Reportes totales mayores que 75
+client.clientDashboard.form.label.averageBudgetOfContracts	= Presupuesto Medio 
+client.clientDashboard.form.label.deviationBudgetOfContracts =	Desviación del Presupuesto
+client.clientDashboard.form.label.minimunBudgetOfContracts	 = Presupuesto mínimo
+client.clientDashboard.form.label.maximumBudgetOfContracts = Presupuesto máximo
+client.client-dashboard.form.title = Panel del cliente
