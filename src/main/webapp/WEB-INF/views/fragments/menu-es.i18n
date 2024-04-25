@@ -89,3 +89,5 @@ master.menu.auditor.auditor-dashboard = Panel
 master.menu.user-account.developer = Datos de desarrollador
 master.menu.user-account.become-developer = Hazte desarrollador
 
+master.menu.anonymous.all-claims = Reclamaciones
+

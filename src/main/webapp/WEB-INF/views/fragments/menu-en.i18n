@@ -85,3 +85,6 @@ master.menu.user-account.client = Client Data
 master.menu.auditor.my-code-audits = My code audits
 master.menu.auditor = Auditor
 master.menu.auditor.auditor-dashboard = Dashboard
+
+
+master.menu.anonymous.all-claims = Claims
