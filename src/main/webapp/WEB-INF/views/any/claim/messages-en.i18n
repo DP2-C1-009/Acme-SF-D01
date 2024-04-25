@@ -17,3 +17,5 @@ any.claim.list.label.email = Email
 any.claim.list.label.optionalLink =Link
 any.claim.list.label.confirmation = Confirmation
 any.claim.list.button.create = Create
+any.claim.form.title = Claim
+any.claim.list.title = Claims List

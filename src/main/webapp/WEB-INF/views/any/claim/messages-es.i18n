@@ -16,4 +16,6 @@ any.claim.list.label.email = Email
 any.claim.list.label.optionalLink =Link
 any.claim.list.label.confirmation = Confirmación
 any.claim.list.button.create = Crear
-any.claim.list.label.instantiationMoment = Fecha de creacióon
+any.claim.list.label.instantiationMoment = Fecha de creación
+any.claim.form.title = Reclamación
+any.claim.list.title = Lista de reclamaciones
