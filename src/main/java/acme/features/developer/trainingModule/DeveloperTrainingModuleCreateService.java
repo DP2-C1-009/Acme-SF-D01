@@ -1,5 +1,5 @@
 
-package acme.features.developer;
+package acme.features.developer.trainingModule;
 
 import java.util.Collection;
 
@@ -14,11 +14,10 @@ import acme.client.views.SelectChoices;
 import acme.entities.projects.Project;
 import acme.entities.training.DifficultyLevel;
 import acme.entities.training.TrainingModule;
-import acme.entities.training.TrainingSession;
 import acme.roles.Developer;
 
 @Service
-public class DeveloperTrainingModulePublishService extends AbstractService<Developer, TrainingModule> {
+public class DeveloperTrainingModuleCreateService extends AbstractService<Developer, TrainingModule> {
 
 	// Internal state ---------------------------------------------------------
 
@@ -30,17 +29,12 @@ public class DeveloperTrainingModulePublishService extends AbstractService<Devel
 
 	@Override
 	public void authorise() {
-		boolean status;
-		TrainingModule object;
-		Principal principal;
-		int tmId;
+		boolean status = false;
 
-		tmId = super.getRequest().getData("id", int.class);
-		object = this.repository.findOneTrainingModuleById(tmId);
+		Principal principal = super.getRequest().getPrincipal();
 
-		principal = super.getRequest().getPrincipal();
-
-		status = object != null && object.isDraftMode() && object.getDeveloper().getId() == principal.getActiveRoleId();
+		if (principal.hasRole(Developer.class))
+			status = true;
 
 		super.getResponse().setAuthorised(status);
 	}
@@ -48,10 +42,12 @@ public class DeveloperTrainingModulePublishService extends AbstractService<Devel
 	@Override
 	public void load() {
 		TrainingModule object;
-		int id;
+		Developer dev;
 
-		id = super.getRequest().getData("id", int.class);
-		object = this.repository.findOneTrainingModuleById(id);
+		dev = this.repository.findOneDeveloperById(super.getRequest().getPrincipal().getActiveRoleId());
+		object = new TrainingModule();
+		object.setDeveloper(dev);
+		object.setDraftMode(true);
 
 		super.getBuffer().addData(object);
 	}
@@ -60,34 +56,38 @@ public class DeveloperTrainingModulePublishService extends AbstractService<Devel
 	public void bind(final TrainingModule object) {
 		assert object != null;
 
+		int projectId;
+		Project project;
+
+		projectId = super.getRequest().getData("project", int.class);
+		project = this.repository.findOneProjectById(projectId);
+
 		super.bind(object, "code", "creationMoment", "details", "difficultyLevel", "updateMoment", "optionalLink", "estimatedTotalTime");
+		object.setProject(project);
 	}
 
 	@Override
 	public void validate(final TrainingModule object) {
-		assert object != null;
+		Project project = object.getProject();
 
-		boolean isCodeChanged = false;
 		final Collection<String> allTMCodes = this.repository.findManyTrainingModuleCodes();
-		final TrainingModule tm = this.repository.findOneTrainingModuleById(object.getId());
 
-		if (!super.getBuffer().getErrors().hasErrors("code")) {
-			isCodeChanged = !tm.getCode().equals(object.getCode());
-			super.state(!isCodeChanged || !allTMCodes.contains(object.getCode()), "code", "developer.training-module.error.codeDuplicate");
-		}
+		if (project == null)
+			super.state(false, "project", "developer.training-module.error.project");
+
+		if (!super.getBuffer().getErrors().hasErrors("code"))
+			super.state(!allTMCodes.contains(object.getCode()), "code", "developer.training-module.error.codeDuplicate");
 
 		if (object.getUpdateMoment() != null && !super.getBuffer().getErrors().hasErrors("updateMoment"))
 			super.state(MomentHelper.isAfter(object.getUpdateMoment(), object.getCreationMoment()), "updateMoment", "developer.training-module.error.update-date-before");
-
-		Collection<TrainingSession> sessions = this.repository.findManyTrainingSessionsByTrainingModuleId(object.getId());
-		super.state(sessions.size() >= 1, "*", "developer.training-module.error.not-enough-training-sessions");
 	}
 
 	@Override
 	public void perform(final TrainingModule object) {
 		assert object != null;
 
-		object.setDraftMode(false);
+		object.setDraftMode(true);
+
 		this.repository.save(object);
 	}
 
@@ -95,16 +95,20 @@ public class DeveloperTrainingModulePublishService extends AbstractService<Devel
 	public void unbind(final TrainingModule object) {
 		assert object != null;
 
-		SelectChoices choices;
 		Dataset dataset;
+		Collection<Project> projects;
+		SelectChoices choicesProjects;
+		SelectChoices choicesDifficultyLevels;
 
-		choices = SelectChoices.from(DifficultyLevel.class, object.getDifficultyLevel());
-		Project objectProject = object.getProject();
+		projects = this.repository.findManyPublishedProjects();
+		choicesProjects = SelectChoices.from(projects, "code", object.getProject());
+		choicesDifficultyLevels = SelectChoices.from(DifficultyLevel.class, object.getDifficultyLevel());
 
 		dataset = super.unbind(object, "code", "creationMoment", "details", "difficultyLevel", "updateMoment", "optionalLink", "estimatedTotalTime", "draftMode");
-		dataset.put("projectCode", objectProject.getCode());
-		dataset.put("difficultyLevel", choices.getSelected().getKey());
-		dataset.put("difficultyLevels", choices);
+		dataset.put("project", choicesProjects.getSelected().getKey());
+		dataset.put("projects", choicesProjects);
+		dataset.put("difficultyLevel", choicesDifficultyLevels.getSelected().getKey());
+		dataset.put("difficultyLevels", choicesDifficultyLevels);
 
 		super.getResponse().addData(dataset);
 	}

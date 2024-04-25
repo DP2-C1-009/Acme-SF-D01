@@ -1,5 +1,5 @@
 
-package acme.features.developer;
+package acme.features.auditor.codeAudit;
 
 import javax.annotation.PostConstruct;
 
@@ -7,32 +7,31 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 
 import acme.client.controllers.AbstractController;
-import acme.entities.training.TrainingModule;
-import acme.roles.Developer;
+import acme.entities.codeAudits.CodeAudit;
+import acme.roles.Auditor;
 
 @Controller
-public class DeveloperTrainingModuleController extends AbstractController<Developer, TrainingModule> {
+public class AuditorCodeAuditController extends AbstractController<Auditor, CodeAudit> {
 
 	// Internal state ---------------------------------------------------------
 
 	@Autowired
-	private DeveloperTrainingModuleListService		listService;
+	private AuditorCodeAuditListService		listService;
 
 	@Autowired
-	private DeveloperTrainingModuleShowService		showService;
+	private AuditorCodeAuditShowService		showService;
 
 	@Autowired
-	private DeveloperTrainingModuleCreateService	createService;
+	private AuditorCodeAuditCreateService	createService;
 
 	@Autowired
-	private DeveloperTrainingModuleUpdateService	updateService;
+	private AuditorCodeAuditUpdateService	updateService;
 
 	@Autowired
-	private DeveloperTrainingModuleDeleteService	deleteService;
+	private AuditorCodeAuditDeleteService	deleteService;
 
 	@Autowired
-	private DeveloperTrainingModulePublishService	publishService;
-
+	private AuditorCodeAuditPublishService	publishService;
 	// Constructors -----------------------------------------------------------
 
 
@@ -44,6 +43,7 @@ public class DeveloperTrainingModuleController extends AbstractController<Develo
 		super.addBasicCommand("update", this.updateService);
 		super.addBasicCommand("delete", this.deleteService);
 		super.addCustomCommand("publish", "update", this.publishService);
+
 	}
 
 }

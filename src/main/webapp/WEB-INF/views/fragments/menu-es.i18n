@@ -35,6 +35,10 @@ master.menu.administrator.populate-initial = Poblar BD (inicial)
 master.menu.administrator.populate-sample = Poblar BD (ejemplos)
 master.menu.administrator.shut-down = Parar el sistema
 
+# master.menu.training-modules ###################################################
+
+master.menu.training-modules = Módulos de formación
+
 # master.menu.provider ########################################################
 
 master.menu.provider = Proveedor
@@ -49,6 +53,7 @@ master.menu.consumer.favourite-link = Enlace favorito
 
 master.menu.developer = Desarrollador
 master.menu.developer.my-training-modules = Mis módulos de formación
+master.menu.developer.dashboard = Panel de indicadores
 
 # master.menu.client ##########################################################
 
@@ -65,3 +70,10 @@ master.menu.user-account.consumer = Datos de consumidor
 master.menu.user-account.become-consumer = Hazte consumidor
 master.menu.user-account.become-client = Hazte cliente
 master.menu.user-account.client = Datos del cliente
+
+# master.menu.auditor ####################################################
+master.menu.auditor.my-code-audits = Mis auditorías
+master.menu.auditor = Auditor
+
+master.menu.user-account.developer = Datos de desarrollador
+master.menu.user-account.become-developer = Hazte desarrollador

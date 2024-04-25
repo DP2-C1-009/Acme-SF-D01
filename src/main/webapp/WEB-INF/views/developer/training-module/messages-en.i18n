@@ -22,6 +22,7 @@ developer.training-module.form.button.create = Create
 developer.training-module.form.button.update = Update
 developer.training-module.form.button.delete = Delete
 developer.training-module.form.button.publish = Publish
+developer.training-module.form.button.training-session = Their training sessions
 
 developer.training-module.error.codeDuplicate = This code already exists
 developer.training-module.error.project = Project can not be null
