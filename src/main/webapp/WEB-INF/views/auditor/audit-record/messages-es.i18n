@@ -1,0 +1,16 @@
+
+auditor.auditrecord.form.label.code = Código
+auditor.auditrecord.form.label.startMoment = Inicio
+auditor.auditrecord.form.label.finishMoment = Final
+auditor.auditrecord.form.label.moreInfoLink = Link más información
+auditor.auditrecord.form.button.update = Actualizar
+auditor.auditrecord.form.button.delete = Eliminar
+auditor.auditrecord.form.button.publish = Publicar
+auditor.auditrecord.form.button.create = Crear
+auditor.auditrecord.list.label.draftMode = Editable
+auditor.auditrecord.form.label.mark = Nota
+auditor.auditrecord.list.label.code = Código
+auditor.audit-record.list.title = Registro de auditoría
+validation.auditrecord.moment.minimun = La fecha de finalización debe ser de al menos 1 hora después del comienzo.
+client.audit.error.codeDuplicate = El código está duplicado
+validation.auditrecord.initialIsBefore = La fecha de comienzo no puede ser anterior a la de finalización.

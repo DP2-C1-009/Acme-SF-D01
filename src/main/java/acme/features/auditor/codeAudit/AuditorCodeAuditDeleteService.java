@@ -1,6 +1,8 @@
 
 package acme.features.auditor.codeAudit;
 
+import java.util.Collection;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -8,6 +10,7 @@ import acme.client.data.accounts.Principal;
 import acme.client.data.models.Dataset;
 import acme.client.services.AbstractService;
 import acme.client.views.SelectChoices;
+import acme.entities.codeAudits.AuditRecord;
 import acme.entities.codeAudits.CodeAudit;
 import acme.entities.codeAudits.CodeAuditType;
 import acme.roles.Auditor;
@@ -58,7 +61,10 @@ public class AuditorCodeAuditDeleteService extends AbstractService<Auditor, Code
 	@Override
 	public void perform(final CodeAudit object) {
 		assert object != null;
+		Collection<AuditRecord> auditRecords;
 
+		auditRecords = this.repository.findAuditRecordsByCodeAudit(object.getId());
+		this.repository.deleteAll(auditRecords);
 		this.repository.delete(object);
 	}
 

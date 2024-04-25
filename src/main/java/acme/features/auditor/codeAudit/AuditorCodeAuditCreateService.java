@@ -14,6 +14,7 @@ import acme.client.services.AbstractService;
 import acme.client.views.SelectChoices;
 import acme.entities.codeAudits.CodeAudit;
 import acme.entities.codeAudits.CodeAuditType;
+import acme.entities.projects.Project;
 import acme.roles.Auditor;
 
 @Service
@@ -44,6 +45,7 @@ public class AuditorCodeAuditCreateService extends AbstractService<Auditor, Code
 		auditor = this.repository.findAuditorById(super.getRequest().getPrincipal().getActiveRoleId());
 		object = new CodeAudit();
 		object.setAuditor(auditor);
+
 		moment = MomentHelper.getCurrentMoment();
 		object.setExecution(moment);
 
@@ -53,7 +55,12 @@ public class AuditorCodeAuditCreateService extends AbstractService<Auditor, Code
 	@Override
 	public void bind(final CodeAudit object) {
 		assert object != null;
+		int pId;
+		Project project;
 
+		pId = super.getRequest().getData("project", int.class);
+		project = this.repository.findProjectById(pId);
+		object.setProject(project);
 		super.bind(object, "code", "execution", "type", "correctiveActions", "moreInfoLink");
 
 	}
@@ -71,6 +78,7 @@ public class AuditorCodeAuditCreateService extends AbstractService<Auditor, Code
 	public void perform(final CodeAudit object) {
 		assert object != null;
 
+		object.setDraftMode(true);
 		this.repository.save(object);
 	}
 
@@ -82,9 +90,13 @@ public class AuditorCodeAuditCreateService extends AbstractService<Auditor, Code
 		int id;
 
 		id = super.getRequest().getPrincipal().getActiveRoleId();
+		Collection<Project> projects = this.repository.findProjectsDraftModeFalse();
+		SelectChoices choices = SelectChoices.from(projects, "title", object.getProject());
 
 		dataset = super.unbind(object, "code", "execution", "type", "correctiveActions", "moreInfoLink");
 		dataset.put("types", SelectChoices.from(CodeAuditType.class, object.getType()));
+		dataset.put("project", choices.getSelected().getKey());
+		dataset.put("projects", choices);
 
 		super.getResponse().addData(dataset);
 
