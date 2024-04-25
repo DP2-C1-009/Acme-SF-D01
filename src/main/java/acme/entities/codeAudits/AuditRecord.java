@@ -30,7 +30,7 @@ public class AuditRecord extends AbstractEntity {
 
 	@Column(unique = true)
 	@NotBlank
-	@Pattern(regexp = "^[A-Z]{1,3}-[0-9]{3}$")
+	@Pattern(regexp = "^AU-[0-9]{4}-[0-9]{3}$")
 	protected String			code;
 
 	@PastOrPresent
@@ -54,5 +54,5 @@ public class AuditRecord extends AbstractEntity {
 	@NotNull
 	@Valid
 	@ManyToOne(optional = false)
-	private CodeAudit			codeAudits;
+	private CodeAudit			codeAudit;
 }

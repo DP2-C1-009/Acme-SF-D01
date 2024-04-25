@@ -1,0 +1,8 @@
+client.error.codeDuplicate = Code Duplicate
+authenticated.client.form.title = Become a Client
+authenticated.client.form.label.identification = Identification
+authenticated.client.form.label.companyName = Company Name
+authenticated.client.form.label.type = Type
+authenticated.client.form.label.email = Email
+authenticated.client.form.label.furtherInformation = Further Information
+authenticated.client.form.button.create = New Client
