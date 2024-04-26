@@ -1,6 +1,8 @@
 
 package acme.features.manager.userStory;
 
+import java.util.Locale;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -58,6 +60,15 @@ public class ManagerUserStoryShowService extends AbstractService<Manager, UserSt
 		Dataset dataset;
 
 		dataset = super.unbind(object, "title", "description", "estimatedCost", "acceptanceCriteria", "priority", "optionalLink", "draftMode");
+
+		if (object.isDraftMode()) {
+
+			final Locale local = super.getRequest().getLocale();
+			dataset.put("draftMode", local.equals(Locale.ENGLISH) ? "Yes" : "Sí");
+
+		} else
+			dataset.put("draftMode", "No");
+
 		dataset.put("priority", choices);
 
 		super.getResponse().addData(dataset);

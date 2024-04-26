@@ -25,11 +25,11 @@
 	
 	<jstl:choose>
 	
-	<jstl:when test="${_command == 'show' && draftMode == false}">
+	<jstl:when test="${_command == 'show' && draftMode == 'No'}">
 		<acme:button code="manager.project.form.button.user-stories" action="/manager/user-story/list-by-projects?masterId=${id}"/>
 	</jstl:when>
 	
-	<jstl:when test="${acme:anyOf(_command, 'show|update|delete|publish') && draftMode == true}">
+	<jstl:when test="${acme:anyOf(_command, 'show|update|delete|publish') && draftMode == 'Yes' || draftMode == 'Sí'}">
 		<acme:button code="manager.project.form.button.user-stories" action="/manager/user-story/list-by-projects?masterId=${id}"/>
 		<acme:submit code="manager.project.form.button.update" action="/manager/project/update"/>
 		<acme:submit code="manager.project.form.button.delete" action="/manager/project/delete"/>
