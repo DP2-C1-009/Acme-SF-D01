@@ -3,6 +3,7 @@ package acme.features.developer.trainingModule;
 
 import java.util.Collection;
 import java.util.Date;
+import java.util.Locale;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -118,6 +119,13 @@ public class DeveloperTrainingModuleCreateService extends AbstractService<Develo
 		dataset.put("projects", choicesProjects);
 		dataset.put("difficultyLevel", choicesDifficultyLevels.getSelected().getKey());
 		dataset.put("difficultyLevels", choicesDifficultyLevels);
+
+		if (object.isDraftMode()) {
+			final Locale local = super.getRequest().getLocale();
+
+			dataset.put("draftMode", local.equals(Locale.ENGLISH) ? "Yes" : "Sí");
+		} else
+			dataset.put("draftMode", "No");
 
 		super.getResponse().addData(dataset);
 	}

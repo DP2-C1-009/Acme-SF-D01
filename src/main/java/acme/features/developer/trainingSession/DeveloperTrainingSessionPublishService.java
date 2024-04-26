@@ -4,6 +4,7 @@ package acme.features.developer.trainingSession;
 import java.time.temporal.ChronoUnit;
 import java.util.Collection;
 import java.util.Date;
+import java.util.Locale;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -126,6 +127,13 @@ public class DeveloperTrainingSessionPublishService extends AbstractService<Deve
 
 		dataset = super.unbind(object, "code", "startDateTime", "endDateTime", "location", "instructor", "contactEmail", "optionalLink", "draftMode");
 		dataset.put("trainingModuleCode", tmObject.getCode());
+
+		if (object.isDraftMode()) {
+			final Locale local = super.getRequest().getLocale();
+
+			dataset.put("draftMode", local.equals(Locale.ENGLISH) ? "Yes" : "Sí");
+		} else
+			dataset.put("draftMode", "No");
 
 		super.getResponse().addData(dataset);
 	}
