@@ -1,0 +1,20 @@
+sponsor.sponsor-dashboard.form.title = Panel de indicadores
+
+sponsor.dashboard.form.title.general-indicators = Indicadores generales
+
+sponsor.dashboard.form.label.invoices-tax-less-or-eq-21	= Facturas con tasas menores o iguales a 21
+sponsor.dashboard.form.label.sponsorships-with-link	= Patrocinios con enlaces
+
+sponsor.dashboard.form.title.sponsorship-indicators = Indicadores de patrocinios
+
+sponsor.dashboard.form.label.average-sponsorships-amount = Media de cantidad de patrocinios
+sponsor.dashboard.form.label.deviation-sponsorships-amount = Desviación de cantidad de patrocinios
+sponsor.dashboard.form.label.minimum-sponsorships-amount = Mínimo de cantidad de patrocinios
+sponsor.dashboard.form.label.maximum-sponsorships-amount = Máximo de cantidad de patrocinios
+
+sponsor.dashboard.form.title.invoice-indicators = Indicadores de facturas
+
+sponsor.dashboard.form.label.average-invoices-quantity = Media de cantidad de facturas
+sponsor.dashboard.form.label.deviation-invoices-quantity = Desviación de cantidad de facturas
+sponsor.dashboard.form.label.minimum-invoices-quantity = Mínimo de cantidad de facturas
+sponsor.dashboard.form.label.maximum-invoices-quantity = Máximo de cantidad de facturas
