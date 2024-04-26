@@ -1,0 +1,32 @@
+sponsor.sponsorship.list.title = Lista de patrocinios
+
+sponsor.sponsorship.list.label.code = Código
+sponsor.sponsorship.list.label.project = Proyecto
+sponsor.sponsorship.list.label.start = Desde
+sponsor.sponsorship.list.label.end = Hasta
+sponsor.sponsorship.list.label.amount = Cantidad
+sponsor.sponsorship.list.label.type = Tipo
+
+sponsor.sponsorship.list.button.create = Crear
+
+sponsor.sponsorship.form.title = Patrocinio
+
+sponsor.sponsorship.form.label.code = Código
+sponsor.sponsorship.form.label.moment = Momento de creación
+sponsor.sponsorship.form.label.start = Desde
+sponsor.sponsorship.form.label.end = Hasta
+sponsor.sponsorship.form.label.amount = Cantidad
+sponsor.sponsorship.form.label.email = Email
+sponsor.sponsorship.form.label.further-info = Más información
+sponsor.sponsorship.form.label.type = Tipo
+sponsor.sponsorship.form.label.projectCode = Código de proyecto
+sponsor.sponsorship.form.label.draft-mode = Borrador
+sponsor.sponsorship.form.label.projects = Proyecto
+
+sponsor.sponsorship.form.button.delete = Borrar
+sponsor.sponsorship.form.button.update = Actualizar
+sponsor.sponsorship.form.button.publish = Publicar
+
+sponsor.sponsorship.error.codeDuplicate = El código ya existe
+sponsor.sponsorship.error.end-after-start = La fecha de fin debe ser posterior a la fecha de inicio
+sponsor.sponsorship.error.start-end-one-month = Debe haber un mes de diferencia entre la fecha de inicio y de fin
