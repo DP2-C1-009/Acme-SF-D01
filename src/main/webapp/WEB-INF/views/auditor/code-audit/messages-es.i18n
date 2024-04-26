@@ -1,0 +1,21 @@
+auditor.codeaudit.list.label.code = Código
+auditor.codeaudit.list.label.execution = Ejecución
+auditor.codeaudit.list.label.type = Tipo
+auditor.codeaudit.list.label.correctiveActions = Acciones Correctivas
+auditor.codeaudit.list.label.moreInfoLink = Más Info
+auditor.code-audit.list.title = Título
+auditor.codeaudit.list.label.project = Proyecto
+auditor.codeaudit.list.label.draftMode = Borrador
+auditor.codeaudit.form.label.projects = Proyecto
+auditor.codeaudit.form.button.publish = Publicar
+auditor.codeaudit.form.button.update = Actualizar
+auditor.codeaudit.form.button.delete = Borrar
+auditor.codeaudit.form.button.audit-record = Registro de auditoría
+auditor.codeaudit.list.button.create = Crear
+auditor.codeaudit.form.button.create = Crear
+auditor.codeaudit.list.label.mark = Nota
+auditor.codeaudit.error.draftMode = Debe publicar todos los registros de auditoría antes de publicar la auditoría de código
+auditor.codeaudit.error.duplicated-code = El codigo está duplicado
+auditor.code-audit.form.title = Auditoría de codigo
+validation.codeAudit.mark.minimun = Para publicar una auditoría debes obtener una nota de al menos una C.
+

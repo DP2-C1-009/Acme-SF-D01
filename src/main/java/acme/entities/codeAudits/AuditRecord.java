@@ -23,14 +23,13 @@ import lombok.Setter;
 @Entity
 @Getter
 @Setter
-
 public class AuditRecord extends AbstractEntity {
 
 	protected static final long	serialVersionUID	= 1L;
 
 	@Column(unique = true)
 	@NotBlank
-	@Pattern(regexp = "^[A-Z]{1,3}-[0-9]{3}$")
+	@Pattern(regexp = "^AU-[0-9]{4}-[0-9]{3}$", message = "{validation.AuditRecordCode}")
 	protected String			code;
 
 	@PastOrPresent
@@ -49,10 +48,12 @@ public class AuditRecord extends AbstractEntity {
 	@URL
 	protected String			moreInfoLink;
 
+	protected boolean			draftMode;
+
 	// Relationships ----------------------------------------------------------
 
 	@NotNull
 	@Valid
 	@ManyToOne(optional = false)
-	private CodeAudit			codeAudits;
+	private CodeAudit			codeAudit;
 }

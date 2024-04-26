@@ -24,5 +24,7 @@ developer.training-session.form.button.delete = Eliminar
 developer.training-session.form.button.publish = Publicar
 
 developer.training-session.error.codeDuplicate = Este código ya existe
-developer.training-session.error.creation-moment-invalid = La fecha de inicio debe ser posterior a la fecha de creación del módulo de formación
+developer.training-session.error.creation-moment-invalid = La fecha de inicio debe ser al menos 7 días posterior a la fecha de creación del módulo de formación
 developer.training-session.error.too-close = La duración mínima de la sesión debe ser de una semana
+developer.training-session.error.start-date-too-far = La fecha máxima es 24/12/2200 23:59 porque la sesión debe durar al menos una semana
+developer.training-session.error.end-date-too-far = La fecha máxima es 31/12/2200 23:59
