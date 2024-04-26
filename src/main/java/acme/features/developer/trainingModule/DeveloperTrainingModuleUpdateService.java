@@ -2,6 +2,7 @@
 package acme.features.developer.trainingModule;
 
 import java.util.Collection;
+import java.util.Date;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -59,7 +60,7 @@ public class DeveloperTrainingModuleUpdateService extends AbstractService<Develo
 	public void bind(final TrainingModule object) {
 		assert object != null;
 
-		super.bind(object, "code", "creationMoment", "details", "difficultyLevel", "updateMoment", "optionalLink", "estimatedTotalTime");
+		super.bind(object, "code", "details", "difficultyLevel", "optionalLink", "estimatedTotalTime");
 	}
 
 	@Override
@@ -74,12 +75,16 @@ public class DeveloperTrainingModuleUpdateService extends AbstractService<Develo
 		}
 
 		if (object.getUpdateMoment() != null && !super.getBuffer().getErrors().hasErrors("updateMoment"))
-			super.state(MomentHelper.isAfter(object.getUpdateMoment(), object.getCreationMoment()), "updateMoment", "developer.training-module.error.update-date-before");
+			super.state(MomentHelper.isAfterOrEqual(object.getUpdateMoment(), object.getCreationMoment()), "updateMoment", "developer.training-module.error.update-date-before");
 	}
 
 	@Override
 	public void perform(final TrainingModule object) {
 		assert object != null;
+
+		Date moment;
+		moment = MomentHelper.getCurrentMoment();
+		object.setUpdateMoment(moment);
 
 		this.repository.save(object);
 	}

@@ -1,5 +1,5 @@
 
-package acme.features.authenticated.trainingModule;
+package acme.features.any.trainingModule;
 
 import javax.annotation.PostConstruct;
 
@@ -7,19 +7,19 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 
 import acme.client.controllers.AbstractController;
-import acme.client.data.accounts.Authenticated;
+import acme.client.data.accounts.Any;
 import acme.entities.training.TrainingModule;
 
 @Controller
-public class AuthenticatedTrainingModuleController extends AbstractController<Authenticated, TrainingModule> {
+public class AnyTrainingModuleController extends AbstractController<Any, TrainingModule> {
 
 	// Internal state ---------------------------------------------------------
 
 	@Autowired
-	private AuthenticatedTrainingModuleListService	listService;
+	private AnyTrainingModuleListService	listService;
 
 	@Autowired
-	private AuthenticatedTrainingModuleShowService	showService;
+	private AnyTrainingModuleShowService	showService;
 
 	// Constructors -----------------------------------------------------------
 
