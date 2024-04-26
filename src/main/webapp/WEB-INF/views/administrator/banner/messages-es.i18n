@@ -1,0 +1,34 @@
+# messages-es.i18n
+#
+# Copyright (C) 2012-2024 Rafael Corchuelo.
+#
+# In keeping with the traditional purpose of furthering education and research, it is
+# the policy of the copyright owner to permit non-commercial use and redistribution of
+# this software. It has been tested carefully, but it is not guaranteed for any particular
+# purposes.  The copyright owner does not offer any warranties or representations, nor do
+# they accept any liabilities with respect to them.
+
+administrator.banner.list.title = Listado de los Banners
+administrator.banner.form.title = Detalles del Banner
+
+administrator.banner.list.label.moment = Momento de Instanciado
+administrator.banner.list.label.start = Fecha de Inicio
+administrator.banner.list.label.end = Fecha de Fin
+administrator.banner.list.label.slogan = Eslogan
+
+administrator.banner.list.button.create = Crear
+
+administrator.banner.form.label.moment = Momento de Instanciado:
+administrator.banner.form.label.start = Fecha de Inicio: 
+administrator.banner.form.label.end = Fecha de Fin:
+administrator.banner.form.label.picture = Imagen:
+administrator.banner.form.label.slogan = Eslogan:
+administrator.banner.form.label.web = Página Web Destino:
+
+administrator.banner.form.button.update = Actualizar
+administrator.banner.form.button.delete = Eliminar
+administrator.banner.form.button.create = Crear
+
+administrator.banner.form.error.must-start-after-instantiation = El periodo de visualización debe iniciar posteriormente a su creación.
+administrator.banner.form.error.must-finish-after-start = La fecha de fin del periodo de visualización debe ser posterior a la fecha de inicio.
+administrator.banner.form.error.display-period-too-short = El periodo de visualización debe durar al menos una semana
