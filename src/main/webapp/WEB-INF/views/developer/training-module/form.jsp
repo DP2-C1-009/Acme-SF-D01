@@ -26,7 +26,7 @@
 	<acme:input-textbox code="developer.training-module.form.label.draft-mode" path="draftMode" readonly="true"/>
 	
 	<jstl:choose>
-		<jstl:when test="${acme:anyOf(_command, 'show|update|publish|delete') && draftMode == true}">
+		<jstl:when test="${acme:anyOf(_command, 'show|update|publish|delete') && (draftMode == 'Yes' || draftMode == 'Sí')}">
 			<acme:input-textbox code="developer.training-module.form.label.projectCode" path="projectCode" readonly="true"/>
 			
 			<acme:submit code="developer.training-module.form.button.update" action="/developer/training-module/update"/>
@@ -35,7 +35,7 @@
 			<acme:button code="developer.training-module.form.button.training-session" action="/developer/training-session/list?trainingModuleId=${id}"/>
 		</jstl:when>
 		
-		<jstl:when test="${acme:anyOf(_command, 'show') && draftMode == false}">
+		<jstl:when test="${acme:anyOf(_command, 'show') && draftMode == 'No'}">
 			<acme:input-textbox code="developer.training-module.form.label.projectCode" path="projectCode"/>
 			
 			<acme:button code="developer.training-module.form.button.training-session" action="/developer/training-session/list?trainingModuleId=${id}"/>

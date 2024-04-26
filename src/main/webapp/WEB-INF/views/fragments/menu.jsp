@@ -19,9 +19,9 @@
 <acme:menu-bar code="master.menu.home">
 	<acme:menu-left>
 	
-		<acme:menu-option code="master.menu.training-modules" action="/any/training-module/list"/>	
-
+	  <acme:menu-option code="master.menu.training-modules" action="/any/training-module/list"/>
 	  <acme:menu-option code="master.menu.contract" action="/any/contract/list"/>
+	  <acme:menu-option code="master.menu.anonymous.all-claims" action="/any/claim/list"/>
 
 		<acme:menu-option code="master.menu.anonymous" access="isAnonymous()">
 			<acme:menu-suboption code="master.menu.anonymous.favourite-link-juamarcan8" action="https://www.twitter.com/"/>
@@ -30,7 +30,6 @@
 			<acme:menu-suboption code="master.menu.anonymous.favourite-link-jualeomad" action="https://www.fcbarcelona.es/"/>
 			<acme:menu-suboption code="master.menu.anonymous.favourite-link-rafgargal" action="https://www.realbetisbalompie.es/"/>
 		</acme:menu-option>
-		<acme:menu-option code="master.menu.anonymous.all-claims" action="/any/claim/list"/>
 
 		<acme:menu-option code="master.menu.administrator" access="hasRole('Administrator')">
 			<acme:menu-suboption code="master.menu.administrator.user-accounts" action="/administrator/user-account/list"/>
