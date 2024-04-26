@@ -75,7 +75,6 @@ public class SponsorSponsorshipPublishService extends AbstractService<Sponsor, S
 			super.state(sponsorshipAlreadyPay.equals(object.getAmount().getAmount()), "draftMode", "sponsor.sponsorship.error.totalAmountInvoices");
 
 		}
-
 	}
 
 	@Override
