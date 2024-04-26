@@ -1,5 +1,5 @@
 
-package acme.features.sponsor.sponsorship;
+package acme.features.sponsor.invoices;
 
 import java.util.Collection;
 
@@ -13,7 +13,7 @@ import acme.entities.sponsorship.Sponsorship;
 import acme.roles.Sponsor;
 
 @Repository
-public interface SponsorSponsorshipRepository extends AbstractRepository {
+public interface SponsorInvoiceRepository extends AbstractRepository {
 
 	@Query("select s from Sponsorship s where s.sponsor.id = :id")
 	Collection<Sponsorship> findManySponsorshipsBySponsorId(int id);
@@ -35,5 +35,17 @@ public interface SponsorSponsorshipRepository extends AbstractRepository {
 
 	@Query("select i from Invoice i where i.sponsorship.id = :id")
 	Collection<Invoice> findManyInvoicesBySponsorshipId(int id);
+
+	@Query("select s.draftMode from Sponsorship s where s.id = :id")
+	boolean findSponsorshipDraftModeById(int id);
+
+	@Query("select s from Sponsorship s where s.draftMode = true")
+	Collection<Sponsorship> findSponsorshipsInDraftMode();
+
+	@Query("select i from Invoice i where i.id = :id")
+	Invoice findOneInvoiceById(int id);
+
+	@Query("select i.code from Invoice i")
+	Collection<String> findManyInvoiceCodes();
 
 }

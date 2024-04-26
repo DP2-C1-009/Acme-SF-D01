@@ -1,6 +1,8 @@
 
 package acme.features.sponsor.sponsorship;
 
+import java.util.Collection;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -10,6 +12,7 @@ import acme.client.services.AbstractService;
 import acme.client.views.SelectChoices;
 import acme.datatypes.SponsorshipType;
 import acme.entities.projects.Project;
+import acme.entities.sponsorship.Invoice;
 import acme.entities.sponsorship.Sponsorship;
 import acme.roles.Sponsor;
 
@@ -68,13 +71,10 @@ public class SponsorSponsorshipDeleteService extends AbstractService<Sponsor, Sp
 	public void perform(final Sponsorship object) {
 		assert object != null;
 
-		/*
-		 * Collection<TrainingSession> ts;
-		 * 
-		 * ts = this.repository.findManyTrainingSessionsByTrainingModuleId(object.getId());
-		 * this.repository.deleteAll(ts);
-		 * this.repository.delete(object);
-		 */
+		Collection<Invoice> invoices;
+
+		invoices = this.repository.findManyInvoicesBySponsorshipId(object.getId());
+		this.repository.deleteAll(invoices);
 
 		this.repository.delete(object);
 	}

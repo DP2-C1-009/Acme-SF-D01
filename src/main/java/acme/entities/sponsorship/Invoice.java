@@ -58,6 +58,8 @@ public class Invoice extends AbstractEntity {
 	@URL
 	protected String			furtherInfo;
 
+	protected boolean			draftMode;
+
 	// Derived attributes -----------------------------------------------------
 
 

@@ -37,10 +37,13 @@
 			<acme:submit code="sponsor.sponsorship.form.button.update" action="/sponsor/sponsorship/update"/>
 			<acme:submit code="sponsor.sponsorship.form.button.publish" action="/sponsor/sponsorship/publish"/>
 			
+			<acme:button code="sponsor.sponsorship.form.button.invoices" action="/sponsor/invoice/list?sponsorshipId=${id}"/>
 		</jstl:when>
 		
 		<jstl:when test="${acme:anyOf(_command, 'show') && draftMode == false}">
 			<acme:input-select code="sponsor.sponsorship.form.label.projects" path="project" choices="${projects}" readonly="true"/>
+			
+			<acme:button code="sponsor.sponsorship.form.button.invoices" action="/sponsor/invoice/list?sponsorshipId=${id}"/>
 		</jstl:when>
 		
 		<jstl:when test="${_command == 'create'}">

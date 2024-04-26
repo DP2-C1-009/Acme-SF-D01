@@ -7,11 +7,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import acme.client.data.accounts.Principal;
+import acme.client.data.datatypes.Money;
 import acme.client.data.models.Dataset;
 import acme.client.services.AbstractService;
 import acme.client.views.SelectChoices;
 import acme.datatypes.SponsorshipType;
 import acme.entities.projects.Project;
+import acme.entities.sponsorship.Invoice;
 import acme.entities.sponsorship.Sponsorship;
 import acme.roles.Sponsor;
 
@@ -64,6 +66,15 @@ public class SponsorSponsorshipPublishService extends AbstractService<Sponsor, S
 	@Override
 	public void validate(final Sponsorship object) {
 		assert object != null;
+
+		final Collection<Invoice> invoices = this.repository.findManyInvoicesBySponsorshipId(object.getId());
+
+		if (object.getAmount() != null) {
+			super.state(!invoices.stream().anyMatch(i -> i.isDraftMode()), "draftMode", "sponsor.sponsorship.error.invoicesDraftMode");
+			Double sponsorshipAlreadyPay = invoices.stream().filter(in -> in.getId() != object.getId()).map(Invoice::totalAmount).mapToDouble(Money::getAmount).sum();
+			super.state(sponsorshipAlreadyPay.equals(object.getAmount().getAmount()), "draftMode", "sponsor.sponsorship.error.totalAmountInvoices");
+
+		}
 
 	}
 

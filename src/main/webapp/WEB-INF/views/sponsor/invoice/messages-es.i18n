@@ -1,0 +1,28 @@
+sponsor.invoice.list.title = Lista de facturas
+
+sponsor.invoice.list.label.code = Código
+sponsor.invoice.list.label.dueDate = Fecha de vencimiento
+sponsor.invoice.list.label.totalAmount = Cantidad total
+
+sponsor.invoice.list.button.create = Crear
+
+sponsor.invoice.form.title = Factura
+
+sponsor.invoice.form.label.code = Código
+sponsor.invoice.form.label.registrationTime = Fecha de registro
+sponsor.invoice.form.label.dueDate = Fecha de vencimiento
+sponsor.invoice.form.label.quantity = Cantidad
+sponsor.invoice.form.label.tax = Tasa
+sponsor.invoice.form.label.totalAmount = Cantidad total
+sponsor.invoice.form.label.furtherInfo = Más información
+sponsor.invoice.form.label.draftMode = Borrador
+sponsor.invoice.form.label.sponsorship = Patrocinio
+
+sponsor.invoice.form.button.update = Actualizar
+sponsor.invoice.form.button.delete = Borrar
+sponsor.invoice.form.button.publish = Publicar
+
+sponsor.invoice.error.codeDuplicate = El código ya existe
+sponsor.invoice.error.due-after-registration = La fecha de vencimiento debe ser posterior a la de registro
+sponsor.invoice.error.registration-due-one-month = La fecha de vencimiento debe ser al menos un mes posterior a la de registro
+sponsor.invoice.error.totalAmount = El total de las facturas de un patrocinio no pueden superar el costo de este
