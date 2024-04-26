@@ -18,6 +18,7 @@ master.menu.sign-out = Sign out
 # master.menu.anonymous #######################################################
 
 master.menu.anonymous = Anonymous
+master.menu.anonymous.all-claims = Claims
 master.menu.anonymous.favourite-link = Favourite link
 master.menu.anonymous.favourite-link-juamarcan8 = 29545666G: Martínez Cano, Juan
 master.menu.anonymous.favourite-link-riccarmar = 80230334D: Carreno Marino, Ricardo
@@ -87,11 +88,10 @@ master.menu.user-account.consumer = Consumer data
 master.menu.user-account.become-consumer = Become a consumer
 master.menu.user-account.become-client = Become a client
 master.menu.user-account.client = Client Data
+master.menu.user-account.manager = Manager data
+master.menu.user-account.become-manager = Become a manager
 
 # master.menu.auditor ####################################################
 master.menu.auditor.my-code-audits = My code audits
 master.menu.auditor = Auditor
 master.menu.auditor.auditor-dashboard = Dashboard
-
-
-master.menu.anonymous.all-claims = Claims

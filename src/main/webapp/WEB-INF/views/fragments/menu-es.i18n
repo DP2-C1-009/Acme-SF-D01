@@ -18,6 +18,7 @@ master.menu.sign-out = Salir
 # master.menu.anonymous #######################################################
 
 master.menu.anonymous = Anónimo
+master.menu.anonymous.all-claims = Reclamaciones
 master.menu.anonymous.favourite-link = Enlace favorito
 master.menu.anonymous.favourite-link-juamarcan8 = 29545666G: Martínez Cano, Juan
 master.menu.anonymous.favourite-link-riccarmar = 80230334D: Carreño Mariño, Ricardo
@@ -87,14 +88,13 @@ master.menu.user-account.consumer = Datos de consumidor
 master.menu.user-account.become-consumer = Hazte consumidor
 master.menu.user-account.become-client = Hazte cliente
 master.menu.user-account.client = Datos del cliente
+master.menu.user-account.manager = Datos de manager
+master.menu.user-account.become-manager = Hazte manager
+master.menu.user-account.developer = Datos de desarrollador
+master.menu.user-account.become-developer = Hazte desarrollador
 
 # master.menu.auditor ####################################################
 master.menu.auditor.my-code-audits = Mis auditorías
 master.menu.auditor = Auditor
 master.menu.auditor.auditor-dashboard = Panel
-
-master.menu.user-account.developer = Datos de desarrollador
-master.menu.user-account.become-developer = Hazte desarrollador
-
-master.menu.anonymous.all-claims = Reclamaciones
 
