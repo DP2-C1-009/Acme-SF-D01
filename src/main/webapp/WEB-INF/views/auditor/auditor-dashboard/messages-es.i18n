@@ -1,0 +1,11 @@
+auditor.auditor-dashboard.form.title = Panel
+auditor.dashboard.form.label.totalNumberCodeAuditsTypeStatic = Número de auditorías de código estáticas
+auditor.dashboard.form.label.totalNumberCodeAuditsTypeDynamic = Número de auditorías de código dinámicas
+auditor.dashboard.form.label.averageNumberRecords = Media de registros de auditorías
+auditor.dashboard.form.label.deviationNumberRecords	= Desviación de registros de auditorías
+auditor.dashboard.form.label.minimumNumberRecords = Mínimo número de registros de auditorías
+auditor.dashboard.form.label.maximumNumberRecords = Máximo número de registros de auditorías
+auditor.dashboard.form.label.averagePeriodLength = Media de la duración del periodo
+auditor.dashboard.form.label.deviationPeriodLength = Desviación de la duración del periodo
+auditor.dashboard.form.label.minimumPeriodLength = Mínimo de la duración del periodo
+auditor.dashboard.form.label.maximumPeriodLength = Máximo de la duración del periodo

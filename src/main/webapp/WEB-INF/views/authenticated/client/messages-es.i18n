@@ -1,0 +1,9 @@
+client.error.codeDuplicate = Código Duplicado	
+authenticated.client.form.title = Hazte Cliente
+authenticated.client.form.label.identification = Identificación
+authenticated.client.form.label.companyName = Nombre de la compañía
+authenticated.client.form.label.type = Tipo
+authenticated.client.form.label.email = Correo Electrónico
+authenticated.client.form.label.furtherInformation = Más Información
+authenticated.client.form.button.create = Crear Cliente
+authenticated.client.form.button.update = Actualizar Cliente
