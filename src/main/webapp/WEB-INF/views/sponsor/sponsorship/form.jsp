@@ -17,7 +17,11 @@
 
 <acme:form>
 	<acme:input-textbox code="sponsor.sponsorship.form.label.code" path="code"/>
-	<acme:input-moment code="sponsor.sponsorship.form.label.moment" path="moment"/>
+	
+	<jstl:if test="${acme:anyOf(_command, 'show|update|publish|delete')}">
+		<acme:input-moment code="sponsor.sponsorship.form.label.moment" path="moment" readonly="true"/>
+	</jstl:if>
+	
 	<acme:input-moment code="sponsor.sponsorship.form.label.start" path="start"/>
 	<acme:input-moment code="sponsor.sponsorship.form.label.end" path="end"/>
 	<acme:input-money code="sponsor.sponsorship.form.label.amount" path="amount"/>

@@ -21,3 +21,12 @@ sponsor.sponsorship.form.label.further-info = Further info
 sponsor.sponsorship.form.label.type = Type
 sponsor.sponsorship.form.label.projectCode = Project code
 sponsor.sponsorship.form.label.draft-mode = Draft mode
+sponsor.sponsorship.form.label.projects = Projects
+
+sponsor.sponsorship.form.button.delete = Delete
+sponsor.sponsorship.form.button.update = Update
+sponsor.sponsorship.form.button.publish = Publish
+
+sponsor.sponsorship.error.codeDuplicate = The code already exists
+sponsor.sponsorship.error.end-after-start = End date must be after start date
+sponsor.sponsorship.error.start-end-one-month = There must be a month difference between the start and end date

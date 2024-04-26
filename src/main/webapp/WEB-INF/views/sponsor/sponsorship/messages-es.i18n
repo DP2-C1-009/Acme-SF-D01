@@ -21,3 +21,12 @@ sponsor.sponsorship.form.label.further-info = Más información
 sponsor.sponsorship.form.label.type = Tipo
 sponsor.sponsorship.form.label.projectCode = Código de proyecto
 sponsor.sponsorship.form.label.draft-mode = Borrador
+sponsor.sponsorship.form.label.projects = Proyecto
+
+sponsor.sponsorship.form.button.delete = Borrar
+sponsor.sponsorship.form.button.update = Actualizar
+sponsor.sponsorship.form.button.publish = Publicar
+
+sponsor.sponsorship.error.codeDuplicate = El código ya existe
+sponsor.sponsorship.error.end-after-start = La fecha de fin debe ser posterior a la fecha de inicio
+sponsor.sponsorship.error.start-end-one-month = Debe haber un mes de diferencia entre la fecha de inicio y de fin

@@ -1,6 +1,7 @@
 
 package acme.features.sponsor.sponsorship;
 
+import java.time.temporal.ChronoUnit;
 import java.util.Collection;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -8,6 +9,7 @@ import org.springframework.stereotype.Service;
 
 import acme.client.data.accounts.Principal;
 import acme.client.data.models.Dataset;
+import acme.client.helpers.MomentHelper;
 import acme.client.services.AbstractService;
 import acme.client.views.SelectChoices;
 import acme.datatypes.SponsorshipType;
@@ -58,7 +60,7 @@ public class SponsorSponsorshipUpdateService extends AbstractService<Sponsor, Sp
 	public void bind(final Sponsorship object) {
 		assert object != null;
 
-		super.bind(object, "code", "moment", "start", "end", "amount", "email", "furtherInfo", "type", "project");
+		super.bind(object, "code", "start", "end", "amount", "email", "furtherInfo", "type", "project");
 	}
 
 	@Override
@@ -72,10 +74,10 @@ public class SponsorSponsorshipUpdateService extends AbstractService<Sponsor, Sp
 			super.state(!isCodeChanged || !allSponsorshipCodes.contains(object.getCode()), "code", "sponsor.sponsorship.error.codeDuplicate");
 		}
 
-		/*
-		 * if (object.getUpdateMoment() != null && !super.getBuffer().getErrors().hasErrors("updateMoment"))
-		 * super.state(MomentHelper.isAfter(object.getUpdateMoment(), object.getCreationMoment()), "updateMoment", "sponsor.sponsorship.error.update-date-before");
-		 */
+		if (object.getStart() != null && object.getEnd() != null) {
+			super.state(MomentHelper.isAfter(object.getEnd(), object.getStart()), "end", "sponsor.sponsorship.error.end-after-start");
+			super.state(MomentHelper.isLongEnough(object.getStart(), object.getEnd(), 30, ChronoUnit.DAYS), "end", "sponsor.sponsorship.error.start-end-one-month");
+		}
 	}
 
 	@Override
@@ -89,16 +91,20 @@ public class SponsorSponsorshipUpdateService extends AbstractService<Sponsor, Sp
 	public void unbind(final Sponsorship object) {
 		assert object != null;
 
-		SelectChoices choices;
 		Dataset dataset;
+		Collection<Project> projects;
+		SelectChoices choicesProjects;
+		SelectChoices choicesTypes;
 
-		choices = SelectChoices.from(SponsorshipType.class, object.getType());
-		Project objectProject = object.getProject();
+		projects = this.repository.findManyPublishedProjects();
+		choicesProjects = SelectChoices.from(projects, "code", object.getProject());
+		choicesTypes = SelectChoices.from(SponsorshipType.class, object.getType());
 
 		dataset = super.unbind(object, "code", "moment", "start", "end", "amount", "email", "furtherInfo", "draftMode");
-		dataset.put("projectCode", objectProject.getCode());
-		dataset.put("type", choices.getSelected().getKey());
-		dataset.put("types", choices);
+		dataset.put("project", choicesProjects.getSelected().getKey());
+		dataset.put("projects", choicesProjects);
+		dataset.put("type", choicesTypes.getSelected().getKey());
+		dataset.put("types", choicesTypes);
 
 		super.getResponse().addData(dataset);
 	}
