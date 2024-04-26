@@ -22,7 +22,7 @@ def get_jsp_code(directory_path,excluded_path):
                                 codes.add(match)
     return codes
 
-def get_i18n_code(directory_path,excluded_path):
+def get_eni18n_code(directory_path,excluded_path):
     codes = set()
     for root, _, files in os.walk(directory_path):
         root = root.replace("\\", "/")
@@ -30,7 +30,28 @@ def get_i18n_code(directory_path,excluded_path):
             continue
         else:
             for file in files:
-                if file.endswith(".i18n"):
+                if file.endswith("en.i18n"):
+                    file_path = os.path.join(root, file)
+                    with open(file_path, 'r') as f:
+                        content = f.read()
+                        for line in content.splitlines():
+                            # Ignora líneas que comienzan con "#"
+                            if not line.startswith("#")  and  "=" in line:
+                                code = line.split("=")[0].strip()
+                                
+                                codes.add(code)
+       
+    return codes
+
+def get_esi18n_code(directory_path,excluded_path):
+    codes = set()
+    for root, _, files in os.walk(directory_path):
+        root = root.replace("\\", "/")
+        if root.startswith(excluded_path) :
+            continue
+        else:
+            for file in files:
+                if file.endswith("es.i18n"):
                     file_path = os.path.join(root, file)
                     with open(file_path, 'r') as f:
                         content = f.read()
@@ -71,5 +92,8 @@ if __name__ == "__main__":
     excluded_path = os.path.dirname(os.path.abspath(__file__)) + "/target"
 
     set1 = get_jsp_code(directory_path,excluded_path)
-    set2 = get_i18n_code(directory_path,excluded_path)
+    set2 = get_eni18n_code(directory_path,excluded_path)
+    set3 = get_esi18n_code(directory_path,excluded_path)
+
     compare_sets(set1,set2)
+    compare_sets(set1,set3)

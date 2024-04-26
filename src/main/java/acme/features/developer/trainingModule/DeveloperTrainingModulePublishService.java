@@ -60,7 +60,7 @@ public class DeveloperTrainingModulePublishService extends AbstractService<Devel
 	public void bind(final TrainingModule object) {
 		assert object != null;
 
-		super.bind(object, "code", "creationMoment", "details", "difficultyLevel", "updateMoment", "optionalLink", "estimatedTotalTime");
+		super.bind(object, "code", "details", "difficultyLevel", "optionalLink", "estimatedTotalTime");
 	}
 
 	@Override
@@ -77,10 +77,12 @@ public class DeveloperTrainingModulePublishService extends AbstractService<Devel
 		}
 
 		if (object.getUpdateMoment() != null && !super.getBuffer().getErrors().hasErrors("updateMoment"))
-			super.state(MomentHelper.isAfter(object.getUpdateMoment(), object.getCreationMoment()), "updateMoment", "developer.training-module.error.update-date-before");
+			super.state(MomentHelper.isAfterOrEqual(object.getUpdateMoment(), object.getCreationMoment()), "updateMoment", "developer.training-module.error.update-date-before");
 
 		Collection<TrainingSession> sessions = this.repository.findManyTrainingSessionsByTrainingModuleId(object.getId());
 		super.state(sessions.size() >= 1, "*", "developer.training-module.error.not-enough-training-sessions");
+
+		super.state(!this.repository.isAnyTrainingSessionInDraftModeByTrainingModuleId(object.getId()), "*", "developer.training-module.error.training-session-in-draft-mode");
 	}
 
 	@Override

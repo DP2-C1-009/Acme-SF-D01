@@ -26,5 +26,6 @@ developer.training-module.form.button.training-session = Their training sessions
 
 developer.training-module.error.codeDuplicate = This code already exists
 developer.training-module.error.project = Project can not be null
-developer.training-module.error.update-date-before = The update date must be after the creation date.
+developer.training-module.error.update-date-before = The update date must be after the creation date
 developer.training-module.error.not-enough-training-sessions = A training module must have at least one training session
+developer.training-module.error.training-session-in-draft-mode = The training sessions must be published

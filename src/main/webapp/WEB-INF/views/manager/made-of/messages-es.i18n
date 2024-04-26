@@ -1,0 +1,26 @@
+# messages-es.i18n
+#
+# Copyright (C) 2012-2024 Rafael Corchuelo.
+#
+# In keeping with the traditional purpose of furthering education and research, it is
+# the policy of the copyright owner to permit non-commercial use and redistribution of
+# this software. It has been tested carefully, but it is not guaranteed for any particular
+# purposes.  The copyright owner does not offer any warranties or representations, nor do
+# they accept any liabilities with respect to them.
+
+manager.made-of.form.title = Detalle de Proyecto e Historia de Usuario
+manager.made-of.list.title = Listado de Proyectos e Historias de Usuario
+
+manager.madeof.form.label.project = Proyecto:
+manager.madeof.form.label.user-story = Historia de Usuario:
+
+manager.madeof.form.button.delete = Eliminar
+manager.madeof.form.button.create = Crear
+
+manager.madeof.form.error.existing-project-madeof = Ya existe una relación entre este proyecto y esta historia de usuario
+manager.madeof.form.error.published-project = No puedes asignar una historia de usuario sin publicar a un proyecto publicado
+
+manager.madeof.list.label.project = Projecto
+manager.madeof.list.label.user-story = Historia de Usuario
+
+manager.madeof.list.button.create = Crear
