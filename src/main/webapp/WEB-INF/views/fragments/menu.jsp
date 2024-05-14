@@ -23,6 +23,7 @@
 	  <acme:menu-option code="master.menu.contract" action="/any/contract/list"/>
 	  <acme:menu-option code="master.menu.anonymous.all-claims" action="/any/claim/list"/>
 	  <acme:menu-option code="master.menu.anonymous.published-projects" action="/any/project/list"/>
+	  <acme:menu-option code="master.menu.sponsorships" action="/any/sponsorship/list"/>
 
 		<acme:menu-option code="master.menu.anonymous" access="isAnonymous()">
 			<acme:menu-suboption code="master.menu.anonymous.favourite-link-juamarcan8" action="https://www.twitter.com/"/>

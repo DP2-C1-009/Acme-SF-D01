@@ -48,6 +48,10 @@ master.menu.sponsor.dashboard = Panel de indicadores
 
 master.menu.training-modules = Módulos de formación
 
+# master.menu.sponsorships ###################################################
+
+master.menu.sponsorships = Patrocinios
+
 # master.menu.provider ########################################################
 
 master.menu.provider = Proveedor

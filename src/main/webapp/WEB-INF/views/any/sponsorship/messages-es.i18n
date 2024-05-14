@@ -1,0 +1,24 @@
+any.sponsorship.list.title = Lista de patrocinios
+
+any.sponsorship.list.label.code = Código
+any.sponsorship.list.label.project = Proyecto
+any.sponsorship.list.label.start = Desde
+any.sponsorship.list.label.end = Hasta
+any.sponsorship.list.label.amount = Cantidad
+any.sponsorship.list.label.type = Tipo
+
+any.sponsorship.list.button.create = Crear
+
+any.sponsorship.form.title = Patrocinio
+
+any.sponsorship.form.label.code = Código
+any.sponsorship.form.label.moment = Momento de creación
+any.sponsorship.form.label.start = Desde
+any.sponsorship.form.label.end = Hasta
+any.sponsorship.form.label.amount = Cantidad
+any.sponsorship.form.label.email = Email
+any.sponsorship.form.label.further-info = Más información
+any.sponsorship.form.label.type = Tipo
+any.sponsorship.form.label.projectCode = Código de proyecto
+any.sponsorship.form.label.draft-mode = Borrador
+any.sponsorship.form.label.projects = Proyecto
