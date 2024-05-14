@@ -48,6 +48,10 @@ master.menu.sponsor.dashboard = Dashboard
 
 master.menu.training-modules = Training modules
 
+# master.menu.sponsorships ###################################################
+
+master.menu.sponsorships = Sponsorships
+
 # master.menu.provider ########################################################
 
 master.menu.provider = Provider
