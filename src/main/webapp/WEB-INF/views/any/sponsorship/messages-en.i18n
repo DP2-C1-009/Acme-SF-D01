@@ -1,0 +1,25 @@
+any.sponsorship.list.title = Sponsorships list
+
+any.sponsorship.list.label.code = Code
+any.sponsorship.list.label.project = Project
+any.sponsorship.list.label.start = Start
+any.sponsorship.list.label.end = End
+any.sponsorship.list.label.amount = Amount
+any.sponsorship.list.label.type = Type
+
+any.sponsorship.list.button.create = Create
+
+any.sponsorship.form.title = Sponsorship
+
+any.sponsorship.form.label.code = Code
+any.sponsorship.form.label.moment = Creation moment
+any.sponsorship.form.label.start = Start
+any.sponsorship.form.label.end = End
+any.sponsorship.form.label.amount = Amount
+any.sponsorship.form.label.email = Email
+any.sponsorship.form.label.further-info = Further info
+any.sponsorship.form.label.type = Type
+any.sponsorship.form.label.projectCode = Project code
+any.sponsorship.form.label.draft-mode = Draft mode
+any.sponsorship.form.label.projects = Projects
+
