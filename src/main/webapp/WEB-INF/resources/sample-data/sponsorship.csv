@@ -1,10 +1,38 @@
 key,code,moment,start,end,amount,type,email,further-info,draft-mode,key:sponsor,key:project
-sponsorship-01,AAA-111,2022/07/30 00:00,2022/07/30 05:00,2022/07/30 05:00,EUR 220.00,IN_KIND,test@example.com,http://example.com,true,sponsor-01,project-25
-sponsorship-02,AAA-112,2022/07/30 00:00,2022/07/30 05:00,2022/07/30 05:01,EUR 220.00,IN_KIND,test@example.com,http://example.com,false,sponsor-01,project-25
-sponsorship-03,AAA-113,2022/07/30 00:00,2022/07/30 05:00,2022/08/30 13:00,EUR 220.00,IN_KIND,test@example.com,http://example.com,false,sponsor-01,project-25
-sponsorship-04,AAA-114,2022/07/30 00:00,2022/07/30 05:00,2022/08/30 13:00,EUR 220.00,IN_KIND,test@example.com,http://example.com,false,sponsor-01,project-25
-sponsorship-05,A-114,2022/07/30 00:00,2022/07/30 05:00,2022/08/30 13:00,EUR 220.00,FINANCIAL,test@example.com,http://example.com,false,sponsor-01,project-25
-sponsorship-06,AAA-115,2022/07/30 00:00,2022/07/30 05:00,2022/08/30 13:00,EUR 0.1,FINANCIAL,test@example.com,http://example.com,true,sponsor-01,project-25
-sponsorship-07,AAA-116,2022/07/30 00:00,2022/07/30 05:00,2022/08/30 13:00,USD 220.00,FINANCIAL,test@example.com,http://example.com,true,sponsor-01,project-25
-sponsorship-08,AAA-117,2022/07/30 00:00,2022/07/30 05:00,2022/08/30 13:00,USD 220.00,FINANCIAL,null,http://example.com,true,sponsor-01,project-25
-sponsorship-09,AAA-118,2022/07/30 00:00,2022/07/30 05:00,2022/08/30 13:00,USD 220.00,FINANCIAL,test@example.com,null,true,sponsor-01,project-25
+# Base
+sponsorship-01,AAA-000,2022/07/30 00:00,2024/05/20 00:00,2024/06/19 00:00,EUR 100,IN_KIND,test@example.com,http://example.com,true,sponsor-01,project-25
+# Code
+sponsorship-02,B-000,2022/07/30 00:00,2024/05/20 00:00,2024/06/19 00:00,EUR 100,IN_KIND,test@example.com,http://example.com,true,sponsor-01,project-25
+sponsorship-03,AC-999,2022/07/30 00:00,2024/05/20 00:00,2024/06/19 00:00,EUR 100,IN_KIND,test@example.com,http://example.com,true,sponsor-01,project-25
+sponsorship-04,XYZ-089,2022/07/30 00:00,2024/05/20 00:00,2024/06/19 00:00,EUR 100,IN_KIND,test@example.com,http://example.com,true,sponsor-01,project-25
+# Moment
+sponsorship-05,AAA-001,2000/01/01 00:00,2024/05/20 00:00,2024/06/19 00:00,EUR 100,IN_KIND,test@example.com,http://example.com,true,sponsor-01,project-25
+sponsorship-06,AAA-002,2000/01/01 00:01,2024/05/20 00:00,2024/06/19 00:00,EUR 100,IN_KIND,test@example.com,http://example.com,true,sponsor-01,project-25
+sponsorship-07,AAA-003,2022/07/29 23:59,2024/05/20 00:00,2024/06/19 00:00,EUR 100,IN_KIND,test@example.com,http://example.com,true,sponsor-01,project-25
+sponsorship-08,AAA-004,2022/07/30 00:00,2024/05/20 00:00,2024/06/19 00:00,EUR 100,IN_KIND,test@example.com,http://example.com,true,sponsor-01,project-25
+# Start - end
+sponsorship-09,AAA-005,2022/07/30 00:00,2022/07/30 00:01,2024/06/19 00:00,EUR 100,IN_KIND,test@example.com,http://example.com,true,sponsor-01,project-25
+sponsorship-10,AAA-006,2022/07/30 00:00,2023/07/30 00:00,2024/06/19 00:00,EUR 100,IN_KIND,test@example.com,http://example.com,true,sponsor-01,project-25
+sponsorship-11,AAA-007,2022/07/30 00:00,2024/05/20 00:00,2024/06/19 00:00,EUR 100,IN_KIND,test@example.com,http://example.com,true,sponsor-01,project-25
+sponsorship-12,AAA-008,2022/07/30 00:00,2024/05/20 00:00,2024/06/19 00:01,EUR 100,IN_KIND,test@example.com,http://example.com,true,sponsor-01,project-25
+sponsorship-13,AAA-009,2022/07/30 00:00,2024/05/20 00:00,2024/07/19 00:00,EUR 100,IN_KIND,test@example.com,http://example.com,true,sponsor-01,project-25
+# Amount
+sponsorship-14,AAA-010,2022/07/30 00:00,2024/05/20 00:00,2024/06/19 00:00,EUR 0.01,IN_KIND,test@example.com,http://example.com,true,sponsor-01,project-25
+sponsorship-15,AAA-011,2022/07/30 00:00,2024/05/20 00:00,2024/06/19 00:00,EUR 0.02,IN_KIND,test@example.com,http://example.com,true,sponsor-01,project-25
+sponsorship-16,AAA-012,2022/07/30 00:00,2024/05/20 00:00,2024/06/19 00:00,EUR 999.99,IN_KIND,test@example.com,http://example.com,true,sponsor-01,project-25
+sponsorship-17,AAA-013,2022/07/30 00:00,2024/05/20 00:00,2024/06/19 00:00,EUR 1000,IN_KIND,test@example.com,http://example.com,true,sponsor-01,project-25
+sponsorship-18,AAA-014,2022/07/30 00:00,2024/05/20 00:00,2024/06/19 00:00,USD 1000,IN_KIND,test@example.com,http://example.com,true,sponsor-01,project-25
+# Type
+sponsorship-19,AAA-015,2022/07/30 00:00,2024/05/20 00:00,2024/06/19 00:00,EUR 100,FINANCIAL,test@example.com,http://example.com,true,sponsor-01,project-25
+# Email
+sponsorship-20,AAA-016,2022/07/30 00:00,2024/05/20 00:00,2024/06/19 00:00,EUR 100,IN_KIND,a@b.es,http://example.com,true,sponsor-01,project-25
+sponsorship-21,AAA-017,2022/07/30 00:00,2024/05/20 00:00,2024/06/19 00:00,EUR 100,IN_KIND,a@b.esx,http://example.com,true,sponsor-01,project-25
+sponsorship-22,AAA-018,2022/07/30 00:00,2024/05/20 00:00,2024/06/19 00:00,EUR 100,IN_KIND,pepeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee@aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaacme.pepeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee.cooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooom,http://example.com,true,sponsor-01,project-25
+sponsorship-23,AAA-019,2022/07/30 00:00,2024/05/20 00:00,2024/06/19 00:00,EUR 100,IN_KIND,pepeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee@aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaacme.pepeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee.coooooooooooooooooooooooooooooooooooooooooooooooooooooooooooom,http://example.com,true,sponsor-01,project-25
+sponsorship-24,AAA-020,2022/07/30 00:00,2024/05/20 00:00,2024/06/19 00:00,EUR 100,IN_KIND,,http://example.com,true,sponsor-01,project-25
+# Further info
+sponsorship-25,AAA-021,2022/07/30 00:00,2024/05/20 00:00,2024/06/19 00:00,EUR 100,IN_KIND,test@example.com,ftp://a,true,sponsor-01,project-25
+sponsorship-26,AAA-022,2022/07/30 00:00,2024/05/20 00:00,2024/06/19 00:00,EUR 100,IN_KIND,test@example.com,ftp://a.b,true,sponsor-01,project-25
+sponsorship-27,AAA-023,2022/07/30 00:00,2024/05/20 00:00,2024/06/19 00:00,EUR 100,IN_KIND,test@example.com,http://urllargaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa.com,true,sponsor-01,project-25
+sponsorship-28,AAA-024,2022/07/30 00:00,2024/05/20 00:00,2024/06/19 00:00,EUR 100,IN_KIND,test@example.com,http://urllargaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa.com,true,sponsor-01,project-25
+sponsorship-29,AAA-025,2022/07/30 00:00,2024/05/20 00:00,2024/06/19 00:00,EUR 100,IN_KIND,test@example.com,,true,sponsor-01,project-25

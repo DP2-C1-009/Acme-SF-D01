@@ -26,3 +26,4 @@ sponsor.invoice.error.codeDuplicate = El código ya existe
 sponsor.invoice.error.due-after-registration = La fecha de vencimiento debe ser posterior a la de registro
 sponsor.invoice.error.registration-due-one-month = La fecha de vencimiento debe ser al menos un mes posterior a la de registro
 sponsor.invoice.error.totalAmount = El total de las facturas de un patrocinio no pueden superar el costo de este
+sponsor.invoice.error.quantityzero = La cantidad debe ser positiva

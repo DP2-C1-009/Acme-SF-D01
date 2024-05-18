@@ -25,6 +25,7 @@ sponsor.sponsorship.form.label.projects = Projects
 
 sponsor.sponsorship.form.button.delete = Delete
 sponsor.sponsorship.form.button.update = Update
+sponsor.sponsorship.form.button.create = Create
 sponsor.sponsorship.form.button.publish = Publish
 sponsor.sponsorship.form.button.invoices = Invoices
 
@@ -33,8 +34,5 @@ sponsor.sponsorship.error.end-after-start = End date must be after start date
 sponsor.sponsorship.error.start-end-one-month = There must be a month difference between the start and end date
 sponsor.sponsorship.error.invoicesDraftMode = The sponsorship cannot be published if any of their invoices is not published
 sponsor.sponsorship.error.totalAmountInvoices = The total amount of the sponsorship's invoices is not equal to the sponsorship amount
-
-sponsor.sponsorship.error.codeDuplicate = The code already exists
-sponsor.sponsorship.error.end-after-start = End date must be after start date
-sponsor.sponsorship.error.start-end-one-month = There must be a month difference between the start and end date
+sponsor.sponsorship.error.amount-not-positive = The quantity is not positive
 

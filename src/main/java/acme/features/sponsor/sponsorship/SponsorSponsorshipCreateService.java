@@ -81,6 +81,9 @@ public class SponsorSponsorshipCreateService extends AbstractService<Sponsor, Sp
 		if (!super.getBuffer().getErrors().hasErrors("code"))
 			super.state(!allSponsorshipCodes.contains(object.getCode()), "code", "sponsor.sponsorship.error.codeDuplicate");
 
+		if (!super.getBuffer().getErrors().hasErrors("amount"))
+			super.state(object.getAmount().getAmount() > 0, "amount", "sponsor.sponsorship.error.amount-not-positive");
+
 		if (object.getStart() != null && object.getEnd() != null) {
 			super.state(MomentHelper.isAfter(object.getEnd(), object.getStart()), "end", "sponsor.sponsorship.error.end-after-start");
 			super.state(MomentHelper.isLongEnough(object.getStart(), object.getEnd(), 30, ChronoUnit.DAYS), "end", "sponsor.sponsorship.error.start-end-one-month");

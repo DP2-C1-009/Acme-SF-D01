@@ -25,6 +25,7 @@ sponsor.sponsorship.form.label.projects = Proyecto
 
 sponsor.sponsorship.form.button.delete = Borrar
 sponsor.sponsorship.form.button.update = Actualizar
+sponsor.sponsorship.form.button.create = Crear
 sponsor.sponsorship.form.button.publish = Publicar
 sponsor.sponsorship.form.button.invoices = Facturas
 
@@ -33,7 +34,4 @@ sponsor.sponsorship.error.end-after-start = La fecha de fin debe ser posterior a
 sponsor.sponsorship.error.start-end-one-month = Debe haber un mes de diferencia entre la fecha de inicio y de fin
 sponsor.sponsorship.error.invoicesDraftMode = El patrocinio no puede ser publicado si alguna de sus facturas no está publicada
 sponsor.sponsorship.error.totalAmountInvoices = El total de las facturas de este patrocinio no es igual a la cantidad del patrocinio
-
-sponsor.sponsorship.error.codeDuplicate = El código ya existe
-sponsor.sponsorship.error.end-after-start = La fecha de fin debe ser posterior a la fecha de inicio
-sponsor.sponsorship.error.start-end-one-month = Debe haber un mes de diferencia entre la fecha de inicio y de fin
+sponsor.sponsorship.error.amount-not-positive = La cantidad no es positiva
