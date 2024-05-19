@@ -36,3 +36,5 @@ sponsorship-26,AAA-022,2022/07/30 00:00,2024/05/20 00:00,2024/06/19 00:00,EUR 10
 sponsorship-27,AAA-023,2022/07/30 00:00,2024/05/20 00:00,2024/06/19 00:00,EUR 100,IN_KIND,test@example.com,http://urllargaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa.com,true,sponsor-01,project-25
 sponsorship-28,AAA-024,2022/07/30 00:00,2024/05/20 00:00,2024/06/19 00:00,EUR 100,IN_KIND,test@example.com,http://urllargaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa.com,true,sponsor-01,project-25
 sponsorship-29,AAA-025,2022/07/30 00:00,2024/05/20 00:00,2024/06/19 00:00,EUR 100,IN_KIND,test@example.com,,true,sponsor-01,project-25
+# Wron-action
+# sponsorship-30,XXX-888,2022/07/30 00:00,2024/05/20 00:00,2024/06/19 00:00,EUR 100,IN_KIND,test@example.com,http://example.com,false,sponsor-01,project-25

@@ -30,6 +30,7 @@ sponsor.sponsorship.form.button.publish = Publish
 sponsor.sponsorship.form.button.invoices = Invoices
 
 sponsor.sponsorship.error.codeDuplicate = The code already exists
+sponsor.sponsorship.error.start-after-moment = Start date must be after creation moment
 sponsor.sponsorship.error.end-after-start = End date must be after start date
 sponsor.sponsorship.error.start-end-one-month = There must be a month difference between the start and end date
 sponsor.sponsorship.error.invoicesDraftMode = The sponsorship cannot be published if any of their invoices is not published

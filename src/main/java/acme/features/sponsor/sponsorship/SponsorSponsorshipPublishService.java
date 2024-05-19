@@ -1,6 +1,7 @@
 
 package acme.features.sponsor.sponsorship;
 
+import java.time.temporal.ChronoUnit;
 import java.util.Collection;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,6 +10,7 @@ import org.springframework.stereotype.Service;
 import acme.client.data.accounts.Principal;
 import acme.client.data.datatypes.Money;
 import acme.client.data.models.Dataset;
+import acme.client.helpers.MomentHelper;
 import acme.client.services.AbstractService;
 import acme.client.views.SelectChoices;
 import acme.datatypes.SponsorshipType;
@@ -60,12 +62,30 @@ public class SponsorSponsorshipPublishService extends AbstractService<Sponsor, S
 	public void bind(final Sponsorship object) {
 		assert object != null;
 
-		super.bind(object, "code", "moment", "start", "end", "amount", "email", "furtherInfo", "type", "project");
+		super.bind(object, "code", "start", "end", "amount", "email", "furtherInfo", "type", "project");
 	}
 
 	@Override
 	public void validate(final Sponsorship object) {
 		assert object != null;
+
+		boolean isCodeChanged = false;
+		final Collection<String> allSponsorshipCodes = this.repository.findManySponsorshipCodes();
+		final Sponsorship tm = this.repository.findOneSponsorshipById(object.getId());
+
+		if (!super.getBuffer().getErrors().hasErrors("code")) {
+			isCodeChanged = !tm.getCode().equals(object.getCode());
+			super.state(!isCodeChanged || !allSponsorshipCodes.contains(object.getCode()), "code", "sponsor.sponsorship.error.codeDuplicate");
+		}
+
+		if (!super.getBuffer().getErrors().hasErrors("amount"))
+			super.state(object.getAmount().getAmount() > 0, "amount", "sponsor.sponsorship.error.amount-not-positive");
+
+		if (object.getStart() != null && object.getEnd() != null) {
+			super.state(MomentHelper.isAfter(object.getStart(), object.getMoment()), "start", "sponsor.sponsorship.error.start-after-moment");
+			super.state(MomentHelper.isAfter(object.getEnd(), object.getStart()), "end", "sponsor.sponsorship.error.end-after-start");
+			super.state(MomentHelper.isLongEnough(object.getStart(), object.getEnd(), 30, ChronoUnit.DAYS), "end", "sponsor.sponsorship.error.start-end-one-month");
+		}
 
 		final Collection<Invoice> invoices = this.repository.findManyInvoicesBySponsorshipId(object.getId());
 

@@ -32,3 +32,5 @@ invoice-23,IN-0000-0020,2022/07/30 00:00,2022/08/30 00:00,EUR 50.00,20,ftp://a.b
 invoice-24,IN-0000-0021,2022/07/30 00:00,2022/08/30 00:00,EUR 50.00,20,http://urllargaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa.com,true,sponsorship-01
 invoice-25,IN-0000-0022,2022/07/30 00:00,2022/08/30 00:00,EUR 50.00,20,http://urllargaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa.com,true,sponsorship-01
 invoice-26,IN-0000-0023,2022/07/30 00:00,2022/08/30 00:00,EUR 50.00,20,,true,sponsorship-01
+# Wron-action
+# invoice-27,IN-0000-8888,2022/07/30 00:00,2022/08/30 00:00,EUR 50.00,20,http://example.com,false,sponsorship-30
