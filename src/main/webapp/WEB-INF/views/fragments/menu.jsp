@@ -19,11 +19,13 @@
 <acme:menu-bar code="master.menu.home">
 	<acme:menu-left>
 	
-	  <acme:menu-option code="master.menu.training-modules" action="/any/training-module/list"/>
-	  <acme:menu-option code="master.menu.contract" action="/any/contract/list"/>
-	  <acme:menu-option code="master.menu.anonymous.all-claims" action="/any/claim/list"/>
-	  <acme:menu-option code="master.menu.anonymous.published-projects" action="/any/project/list"/>
-	  <acme:menu-option code="master.menu.sponsorships" action="/any/sponsorship/list"/>
+		<acme:menu-option code="master.menu.any">
+			<acme:menu-suboption code="master.menu.training-modules" action="/any/training-module/list"/>
+			<acme:menu-suboption code="master.menu.contract" action="/any/contract/list"/>
+			<acme:menu-suboption code="master.menu.anonymous.all-claims" action="/any/claim/list"/>
+			<acme:menu-suboption code="master.menu.anonymous.published-projects" action="/any/project/list"/>
+      <acme:menu-suboption code="master.menu.sponsorships" action="/any/sponsorship/list"/>
+		</acme:menu-option>
 
 		<acme:menu-option code="master.menu.anonymous" access="isAnonymous()">
 			<acme:menu-suboption code="master.menu.anonymous.favourite-link-juamarcan8" action="https://www.twitter.com/"/>
