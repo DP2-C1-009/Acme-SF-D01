@@ -26,3 +26,4 @@ sponsor.invoice.error.codeDuplicate = Code already exists
 sponsor.invoice.error.due-after-registration = Due date must be after registration time
 sponsor.invoice.error.registration-due-one-month = Due date must be 1 month ahead registration time
 sponsor.invoice.error.totalAmount = The total invoices for a sponsorship cannot exceed the cost of this sponsorship
+sponsor.invoice.error.quantityzero = The quantity must be positive
