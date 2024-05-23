@@ -15,3 +15,4 @@ user-account-manager-01,true,"UserIdentity{name: 'Manager1', surname: 'Acme', em
 user-account-manager-02,true,"UserIdentity{name: 'Manager2', surname: 'Acme', email: 'manager2@acme.com'}",manager2,manager2
 user-account-administrator-01,true,"UserIdentity{name: 'Administrator1', surname: 'administrator1', email: 'administrator1@acme.com'}",administrator1,administrator1
 user-account-administrator-02,true,"UserIdentity{name: 'Administrator2', surname: 'administrator2', email: 'administrator2@acme.com'}",administrator2,administrator2
+user-account-developer-03,true,"UserIdentity{name: 'Dev3', surname: 'developer3', email: 'developer3@acme.com'}",developer3,developer3

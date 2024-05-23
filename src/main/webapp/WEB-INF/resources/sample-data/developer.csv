@@ -1,3 +1,4 @@
 key,key:userAccount,degree,specialisation,skills,email,optionalLink
 developer-01,user-account-developer-01,"Degree dev 1","Backend","Softskills","developer1@acme.com",
 developer-02,user-account-developer-02,"Degree dev 2","Frontend","Hardskills","developer2@acme.com",
+developer-03,user-account-developer-03,"Degree dev 3","Fullstack","Skills","developer3@acme.com",
