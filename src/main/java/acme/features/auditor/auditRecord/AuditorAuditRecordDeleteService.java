@@ -5,11 +5,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import acme.client.data.accounts.Principal;
-import acme.client.data.models.Dataset;
 import acme.client.services.AbstractService;
-import acme.client.views.SelectChoices;
 import acme.entities.codeAudits.AuditRecord;
-import acme.entities.codeAudits.AuditRecordMark;
 import acme.roles.Auditor;
 
 @Service
@@ -66,13 +63,5 @@ public class AuditorAuditRecordDeleteService extends AbstractService<Auditor, Au
 	@Override
 	public void unbind(final AuditRecord object) {
 		assert object != null;
-
-		Dataset dataset;
-
-		dataset = super.unbind(object, "code", "startMoment", "finishMoment", "mark", "moreInfoLink");
-		dataset.put("marks", SelectChoices.from(AuditRecordMark.class, object.getMark()));
-
-		super.getResponse().addData(dataset);
-
 	}
 }
