@@ -20,10 +20,11 @@ public class AuditorAuditRecordDeleteService extends AbstractService<Auditor, Au
 	public void authorise() {
 		boolean status = false;
 		int id;
-
+		id = super.getRequest().getData("id", int.class);
+		AuditRecord ar = this.repository.findAuditRecordById(id);
 		Principal principal = super.getRequest().getPrincipal();
 
-		if (principal.hasRole(Auditor.class))
+		if (principal.hasRole(Auditor.class) && ar.isDraftMode() && principal.getActiveRoleId() == ar.getCodeAudit().getAuditor().getId())
 			status = true;
 
 		super.getResponse().setAuthorised(status);

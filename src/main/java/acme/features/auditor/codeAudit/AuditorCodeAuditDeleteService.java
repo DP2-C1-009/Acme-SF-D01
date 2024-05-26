@@ -24,8 +24,11 @@ public class AuditorCodeAuditDeleteService extends AbstractService<Auditor, Code
 		boolean status = false;
 
 		Principal principal = super.getRequest().getPrincipal();
+		int id = super.getRequest().getData("id", int.class);
 
-		if (principal.hasRole(Auditor.class))
+		CodeAudit ca = this.repository.findCodeAuditById(id);
+
+		if (principal.hasRole(Auditor.class) && ca.isDraftMode() && ca.getAuditor().getId() == principal.getActiveRoleId())
 			status = true;
 
 		super.getResponse().setAuthorised(status);
