@@ -32,3 +32,4 @@ administrator.banner.form.button.create = Create
 administrator.banner.form.error.must-start-after-instantiation = The display period must start after its creation.
 administrator.banner.form.error.must-finish-after-start = The end date for the display period must be after the start date.
 administrator.banner.form.error.display-period-too-short = The display period must last at least one week
+administrator.banner.form.error.must-end-after-start = The end date for the display period must be after the start date.
