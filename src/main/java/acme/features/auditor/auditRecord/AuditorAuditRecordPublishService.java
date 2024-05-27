@@ -35,7 +35,7 @@ public class AuditorAuditRecordPublishService extends AbstractService<Auditor, A
 		auditRecord = this.repository.findAuditRecordById(id);
 		principal = super.getRequest().getPrincipal();
 
-		status = auditRecord != null && auditRecord.getCodeAudit().getAuditor().getId() == principal.getActiveRoleId();
+		status = auditRecord != null && auditRecord.getCodeAudit().getAuditor().getId() == principal.getActiveRoleId() && auditRecord.isDraftMode();
 
 		super.getResponse().setAuthorised(status);
 	}

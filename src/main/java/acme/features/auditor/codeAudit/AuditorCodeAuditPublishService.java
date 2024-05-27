@@ -39,7 +39,7 @@ public class AuditorCodeAuditPublishService extends AbstractService<Auditor, Cod
 
 		principal = super.getRequest().getPrincipal();
 
-		status = object != null && object.getAuditor().getId() == principal.getActiveRoleId();
+		status = object != null && object.getAuditor().getId() == principal.getActiveRoleId() && object.isDraftMode();
 
 		super.getResponse().setAuthorised(status);
 	}

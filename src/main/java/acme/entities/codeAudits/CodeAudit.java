@@ -2,9 +2,11 @@
 package acme.entities.codeAudits;
 
 import java.beans.Transient;
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Date;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import javax.persistence.Column;
@@ -58,8 +60,9 @@ public class CodeAudit extends AbstractEntity {
 
 	private boolean				draftMode;
 
-
 	// Derived attributes -----------------------------------------------------
+
+
 	@Transient
 	public AuditRecordMark getMark(final Collection<AuditRecord> records) {
 		Map<AuditRecordMark, Integer> frecMap = new HashMap<>();
@@ -67,16 +70,29 @@ public class CodeAudit extends AbstractEntity {
 			AuditRecordMark mark = r.getMark();
 			frecMap.put(mark, frecMap.getOrDefault(mark, 0) + 1);
 		}
-		AuditRecordMark mode = null;
+
+		List<AuditRecordMark> modes = new ArrayList<>();
 		int max = 0;
 		for (Map.Entry<AuditRecordMark, Integer> entry : frecMap.entrySet())
 			if (entry.getValue() > max) {
 				max = entry.getValue();
-				mode = entry.getKey();
-			}
+				modes.clear();
+				modes.add(entry.getKey());
+			} else if (entry.getValue() == max)
+				modes.add(entry.getKey());
 
-		return mode;
+		// Selección de la marca más alta entre las marcas empatadas
+		if (!modes.isEmpty()) {
+			AuditRecordMark highestMark = modes.get(0);
+			for (AuditRecordMark mark : modes)
+				if (mark.ordinal() < highestMark.ordinal())
+					highestMark = mark;
+			return highestMark;
+		}
+
+		return null;
 	}
+
 	// Relationships ----------------------------------------------------------
 
 
