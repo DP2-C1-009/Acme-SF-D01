@@ -58,23 +58,18 @@ public class ManagerMadeOfCreateService extends AbstractService<Manager, MadeOf>
 
 		project = object.getWork();
 		userStory = object.getStory();
+		int managerId = super.getRequest().getPrincipal().getActiveRoleId();
+		Manager manager = this.repository.findOneManagerById(managerId);
 
-		if (!super.getBuffer().getErrors().hasErrors("work")) {
+		super.state(object.getWork() != null, "*", "manager.madeof.create.error.null-project");
+		super.state(object.getStory() != null, "*", "manager.madeof.create.error.null-user-story");
+
+		if (!super.getBuffer().getErrors().hasErrors("work") && !super.getBuffer().getErrors().hasErrors("story")) {
 			MadeOf existing;
-
 			existing = this.repository.findOneMadeOfByProjectIdAndUserStoryId(project.getId(), userStory.getId());
-			super.state(existing == null, "work", "manager.madeOf.form.error.existing-project-madeOf");
-
-			super.state(project.isDraftMode() || !userStory.isDraftMode(), "work", "manager.madeOf.form.error.published-project");
-		}
-
-		if (!super.getBuffer().getErrors().hasErrors("story")) {
-			MadeOf existing;
-
-			existing = this.repository.findOneMadeOfByProjectIdAndUserStoryId(project.getId(), userStory.getId());
-			super.state(existing == null, "story", "manager.madeOf.form.error.existing-project-madeOf");
-
-			super.state(project.isDraftMode() || !userStory.isDraftMode(), "userStory", "manager.madeOf.form.error.published-project");
+			super.state(project.getManager().equals(manager) && userStory.getManager().equals(manager), "*", "manager.madeof.form.error.wrong-manager");
+			super.state(existing == null, "*", "manager.madeof.form.error.existing-project-madeof");
+			super.state(project.isDraftMode() || !userStory.isDraftMode(), "work", "manager.madeof.form.error.published-project");
 		}
 
 	}
@@ -99,16 +94,16 @@ public class ManagerMadeOfCreateService extends AbstractService<Manager, MadeOf>
 
 		managerId = super.getRequest().getPrincipal().getActiveRoleId();
 
-		userStories = this.repository.findUserStoriesByManagerId(managerId);
+		userStories = this.repository.findPublishedUserStoriesByManagerId(managerId, false);
 		choicesUserStory = SelectChoices.from(userStories, "title", object.getStory());
 
-		projects = this.repository.findProjectsByManagerId(managerId);
+		projects = this.repository.findNotPublishedProjectsByManagerId(managerId, true);
 		choicesProject = SelectChoices.from(projects, "code", object.getWork());
 
 		dataset = super.unbind(object, "story", "work");
-		dataset.put("story", choicesUserStory.getSelected().getKey());
+		dataset.put("userStory", choicesUserStory.getSelected().getKey());
 		dataset.put("userStories", choicesUserStory);
-		dataset.put("work", choicesProject.getSelected().getKey());
+		dataset.put("project", choicesProject.getSelected().getKey());
 		dataset.put("projects", choicesProject);
 
 		super.getResponse().addData(dataset);

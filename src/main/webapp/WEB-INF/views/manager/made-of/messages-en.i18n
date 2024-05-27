@@ -17,8 +17,11 @@ manager.madeof.form.label.user-story = User Story:
 manager.madeof.form.button.delete = Delete
 manager.madeof.form.button.create = Create
 
-manager.madeof.form.error.existing-project-madeof = A relationship between this project and this user story already exists
+manager.madeof.form.error.existing-project-madeof = A relationship already exists between this project and this user story
 manager.madeof.form.error.published-project = You cannot assign an unpublished user story to a published project
+manager.madeof.create.error.null-project = The project cannot be null
+manager.madeof.create.error.null-user-story = The user story cannot be null
+manager.madeof.form.error.wrong-manager = The project and the user stories must belong to the same manager
 
 manager.madeof.list.label.project = Project
 manager.madeof.list.label.user-story = User Story
