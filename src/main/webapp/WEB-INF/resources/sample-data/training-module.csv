@@ -35,4 +35,21 @@ training-module-33,JAV-143,2020/07/30 00:00,Introducción a Java Programming,BAS
 training-module-34,JAV-144,2020/07/30 00:00,Introducción a Java Programming,BASIC,2020/08/05 12:00,https://java.com,9999,false,project-25,developer-01
 training-module-35,JAV-145,2020/07/30 00:00,Introducción a Java Programming,BASIC,2020/08/05 12:00,https://java.com,10000,false,project-25,developer-01
 training-module-36,JAV-146,2020/07/30 00:00,Introducción a Java Programming,BASIC,2020/08/05 12:00,https://java.com,120,true,project-25,developer-01
-training-module-37,JAV-147,1999/01/01 00:00,Introducción a Java Programming (TS pruebas),BASIC,,https://java.com,120,true,project-25,developer-01
+training-module-37,JAV-147,2000/01/01 00:00,Introducción a Java Programming (TS pruebas),BASIC,,https://java.com,120,true,project-25,developer-01
+training-module-38,A-111,2020/07/30 00:00,Introducción a Java Programming,BASIC,2020/08/05 12:00,https://java.com,120,true,project-25,developer-03
+training-module-39,AA-111,2020/07/30 00:00,Introducción a Java Programming,BASIC,2020/08/05 12:00,https://java.com,120,true,project-25,developer-03
+training-module-40,AAA-111,2020/07/30 00:00,Introducción a Java Programming,BASIC,2020/08/05 12:00,ftp://a,120,true,project-25,developer-03
+training-module-41,AAA-112,2020/07/30 00:00,Introducción a Java Programming,BASIC,2020/08/05 12:00,ftp://a.b,120,true,project-25,developer-03
+training-module-42,AAA-113,2020/07/30 00:00,Introducción a Java Programming,BASIC,2020/08/05 12:00,https://www.lorem-ipsum.org,120,true,project-25,developer-03
+training-module-43,AAA-114,2020/07/30 00:00,Introducción a Java Programming,BASIC,2020/08/05 12:00,ftp://www.lorem-ipsum.org,120,true,project-25,developer-03
+training-module-44,AAA-115,2020/07/30 00:00,Introducción a Java Programming,BASIC,2020/08/05 12:00,http://www.lorem-ipsum.org/dolor/sit.html,120,true,project-25,developer-03
+training-module-45,AAA-116,2020/07/30 00:00,Introducción a Java Programming,BASIC,2020/08/05 12:00,http://www.lorem-ipsum.org/dolor/sit.html#dolor,120,true,project-25,developer-03
+training-module-46,AAA-117,2020/07/30 00:00,Introducción a Java Programming,BASIC,2020/08/05 12:00,http://example.org?a=1&b=2,120,true,project-25,developer-03
+training-module-47,AAA-118,2020/07/30 00:00,Introducción a Java Programming,BASIC,2020/08/05 12:00,http://example.org?,120,true,project-25,developer-03
+training-module-48,AAA-119,2020/07/30 00:00,Introducción a Java Programming,BASIC,2020/08/05 12:00,http://example.org?a,120,true,project-25,developer-03
+training-module-49,AAA-120,2020/07/30 00:00,Introducción a Java Programming,BASIC,2020/08/05 12:00,http://example.org?a&b,120,true,project-25,developer-03
+training-module-50,AAA-121,2020/07/30 00:00,Introducción a Java Programming,BASIC,2020/08/05 12:00,http://example.org/,120,true,project-25,developer-03
+training-module-51,AAA-122,2020/07/30 00:00,Introducción a Java Programming,BASIC,2020/08/05 12:00,http://example.org/a,120,true,project-25,developer-03
+training-module-52,AAA-123,2020/07/30 00:00,Introducción a Java Programming,BASIC,2020/08/05 12:00,http://example.org/a/b,120,true,project-25,developer-03
+training-module-53,AAA-124,2020/07/30 00:00,Introducción a Java Programming,BASIC,2020/08/05 12:00,http://example.org/a/b?,120,true,project-25,developer-03
+training-module-54,AAA-125,2020/07/30 00:00,Introducción a Java Programming,BASIC,2020/08/05 12:00,http://example.org/a/b?a&b,120,true,project-25,developer-03
