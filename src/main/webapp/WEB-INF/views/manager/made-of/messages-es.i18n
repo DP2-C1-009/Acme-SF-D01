@@ -19,6 +19,9 @@ manager.madeof.form.button.create = Crear
 
 manager.madeof.form.error.existing-project-madeof = Ya existe una relación entre este proyecto y esta historia de usuario
 manager.madeof.form.error.published-project = No puedes asignar una historia de usuario sin publicar a un proyecto publicado
+manager.madeof.create.error.null-project = El proyecto no puede ser nulo
+manager.madeof.create.error.null-user-story = La historia de usuario no puede ser nula
+manager.madeof.form.error.wrong-manager = El proyecto y las historias de usuario deben pertenecer al mismo manager
 
 manager.madeof.list.label.project = Projecto
 manager.madeof.list.label.user-story = Historia de Usuario
