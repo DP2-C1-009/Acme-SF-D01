@@ -1,8 +1,10 @@
 
 package acme.features.clients.contracts;
 
+import java.util.Arrays;
 import java.util.Collection;
 import java.util.Date;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -41,33 +43,32 @@ public class ClientContractCreateService extends AbstractService<Client, Contrac
 		final Collection<String> allCodes = this.repository.findAllContractsCode();
 		double res = 0.0;
 
+		List<String> validMoneyType = Arrays.asList("USD", "EUR", "GBP", "CHF", "JPY", "HKD", "CAD", "CNY", "AUD", "BRL", "RUB", "MXN");
+
 		if (project != null) {
 			final Collection<Contract> allContractsByProject = this.repository.findAllContractsWithProject(object.getProject().getId());
 
 			for (Contract c : allContractsByProject) {
 				Double money = c.getBudget().getAmount();
 				res = res + money;
-				res = res + object.getBudget().getAmount();
 			}
 
-			if (object.getBudget() == null)
-				super.state(false, "budget", "client.contract.error.budget");
-
-			if (object.getBudget() != null) {
-				if (object.getBudget().getAmount() < 0.0)
-					super.state(false, "budget", "client.contract.error.negativeBudget");
-				if (object.getBudget().getAmount() == 0.0)
-					super.state(false, "budget", "client.contract.error.projectBudget");
-				if (res > project.getCost())
-					super.state(false, "budget", "client.contract.error.projectBudgetTotal");
-			}
-
-		} else
-			super.state(false, "project", "client.contract.error.project");
+		}
 
 		if (!super.getBuffer().getErrors().hasErrors("code"))
 			super.state(!allCodes.contains(object.getCode()), "code", "client.contract.error.codeDuplicate");
 
+		if (project != null && object.getBudget() != null) {
+			res = res + object.getBudget().getAmount();
+			if (object.getProject().getCost() < res)
+				super.state(false, "budget", "client.contract.error.projectBudgetTotal");
+		}
+		if (object.getBudget() != null) {
+			if (object.getBudget().getAmount() < 0.0)
+				super.state(false, "budget", "client.contract.error.negativeBudget");
+			if (!validMoneyType.contains(object.getBudget().getCurrency()))
+				super.state(false, "budget", "client.contract.error.negativeType");
+		}
 	}
 
 	@Override
@@ -88,14 +89,7 @@ public class ClientContractCreateService extends AbstractService<Client, Contrac
 	@Override
 	public void perform(final Contract object) {
 		assert object != null;
-
-		Date moment;
-
-		moment = MomentHelper.getCurrentMoment();
-
-		object.setInstantiationMoment(moment);
 		object.setDraftmode(true);
-
 		this.repository.save(object);
 	}
 

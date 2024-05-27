@@ -1,12 +1,15 @@
 
 package acme.features.clients.contracts;
 
+import java.util.Arrays;
 import java.util.Collection;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import acme.client.data.accounts.Principal;
+import acme.client.data.datatypes.Money;
 import acme.client.data.models.Dataset;
 import acme.client.services.AbstractService;
 import acme.entities.contract.Contract;
@@ -66,22 +69,29 @@ public class ClientContractPublishService extends AbstractService<Client, Contra
 		final Collection<String> allCodes = this.repository.findAllContractsCode();
 		final Collection<Contract> allContractsByProject = this.repository.findAllContractsWithProject(object.getProject().getId());
 		final Contract contract = this.repository.findOneContractById(object.getId());
+		List<String> validMoneyType = Arrays.asList("USD", "EUR", "GBP", "CHF", "JPY", "HKD", "CAD", "CNY", "AUD", "BRL", "RUB", "MXN");
+		Money budget = object.getBudget();
 
 		for (Contract c : allContractsByProject) {
 			Double money = c.getBudget().getAmount();
 			res = res + money;
 		}
 
-		if (object.getBudget().getAmount() != 0.0 && project.getCost() < res)
-			super.state(false, "budget", "client.contract.error.projectBudget");
+		if (budget != null) {
+			res = res + budget.getAmount();
+			if (project.getCost() < res)
+				super.state(false, "budget", "client.contract.error.projectBudgetTotal");
+			if (budget.getAmount() < 0.0)
+				super.state(false, "budget", "client.contract.error.projectBudget");
+			if (!validMoneyType.contains(object.getBudget().getCurrency()))
+				super.state(false, "budget", "client.contract.error.negativeType");
+
+		}
 
 		if (!super.getBuffer().getErrors().hasErrors("code")) {
 			isCodeChanged = !contract.getCode().equals(object.getCode());
 			super.state(!isCodeChanged || !allCodes.contains(object.getCode()), "code", "client.contract.error.codeDuplicate");
 		}
-
-		if (object.getBudget() == null)
-			super.state(false, "budget", "client.contract.error.budget");
 
 	}
 
