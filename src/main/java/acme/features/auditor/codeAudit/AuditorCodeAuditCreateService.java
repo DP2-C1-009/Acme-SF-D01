@@ -46,9 +46,6 @@ public class AuditorCodeAuditCreateService extends AbstractService<Auditor, Code
 		object = new CodeAudit();
 		object.setAuditor(auditor);
 
-		moment = MomentHelper.getCurrentMoment();
-		object.setExecution(moment);
-
 		super.getBuffer().addData(object);
 	}
 
@@ -72,6 +69,12 @@ public class AuditorCodeAuditCreateService extends AbstractService<Auditor, Code
 		if (!super.getBuffer().getErrors().hasErrors("code"))
 			super.state(!allCodes.contains(object.getCode()), "code", "client.audit.error.codeDuplicate");
 
+		if (!super.getBuffer().getErrors().hasErrors("execution")) {
+			Date execution = object.getExecution();
+			Date minDate = MomentHelper.parse("1999-12-31 23:59", "yyyy-MM-dd HH:mm");
+			super.state(execution.after(minDate), "execution", "auditor.audit.error.minDate");
+		}
+
 	}
 
 	@Override
@@ -91,7 +94,7 @@ public class AuditorCodeAuditCreateService extends AbstractService<Auditor, Code
 
 		id = super.getRequest().getPrincipal().getActiveRoleId();
 		Collection<Project> projects = this.repository.findProjectsDraftModeFalse();
-		SelectChoices choices = SelectChoices.from(projects, "title", object.getProject());
+		SelectChoices choices = SelectChoices.from(projects, "code", object.getProject());
 
 		dataset = super.unbind(object, "code", "execution", "type", "correctiveActions", "moreInfoLink");
 		dataset.put("types", SelectChoices.from(CodeAuditType.class, object.getType()));
