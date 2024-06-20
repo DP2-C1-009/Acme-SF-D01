@@ -42,6 +42,7 @@ public class Client extends AbstractRole {
 	private String				email;
 
 	@URL
+	@Length(max = 255)
 	private String				furtherInformation;
 
 }

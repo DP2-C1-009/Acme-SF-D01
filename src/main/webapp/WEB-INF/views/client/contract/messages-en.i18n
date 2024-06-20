@@ -24,3 +24,5 @@ client.contract.error.project = Project can not be null
 client.contract.error.projectBudgetTotal =  The cost of the contract cannot exceed the total cost of the project
 client.contract.error.negativeBudget = Budget can not be less than 0
 client.contract.error.negativeType = Money type not valid
+client.contract.error.overLimit = Budget can not be more than 1000000
+client.contract.error.moneyValidator = invalid currency, valid currency: USD, EUR, GBP
