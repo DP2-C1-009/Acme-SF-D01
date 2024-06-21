@@ -20,6 +20,6 @@
 	<acme:list-column code="auditor.codeaudit.list.label.project" path="project"/>
 	<acme:list-column code="auditor.codeaudit.list.label.execution" path="execution"/>
 	<acme:list-column code="auditor.codeaudit.list.label.type" path="type"/>
-	
+	<acme:list-column code="auditor.codeaudit.list.label.draftMode" path="draftMode"/>
 </acme:list>
 	<acme:button code="auditor.codeaudit.list.button.create" action="/auditor/code-audit/create"/>

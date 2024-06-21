@@ -37,7 +37,7 @@ public class AuditorAuditRecordCreateService extends AbstractService<Auditor, Au
 
 		principal = super.getRequest().getPrincipal();
 
-		status = codeAudit.getAuditor().getId() == principal.getActiveRoleId();
+		status = codeAudit.getAuditor().getId() == principal.getActiveRoleId() && codeAudit.isDraftMode();
 		super.getResponse().setAuthorised(status);
 	}
 
@@ -80,6 +80,18 @@ public class AuditorAuditRecordCreateService extends AbstractService<Auditor, Au
 
 		if (!super.getBuffer().getErrors().hasErrors("code"))
 			super.state(!allCodes.contains(object.getCode()), "code", "client.audit.error.codeDuplicate");
+
+		if (!super.getBuffer().getErrors().hasErrors("startMoment")) {
+			Date date = object.getStartMoment();
+			Date minDate = MomentHelper.parse("1999-12-31 23:59", "yyyy-MM-dd HH:mm");
+			super.state(date.after(minDate), "startMoment", "auditor.auditrecord.error.minDate");
+		}
+
+		if (!super.getBuffer().getErrors().hasErrors("finishMoment")) {
+			Date date = object.getStartMoment();
+			Date minDate = MomentHelper.parse("1999-12-31 23:59", "yyyy-MM-dd HH:mm");
+			super.state(date.after(minDate), "finishMoment", "auditor.auditrecord.error.minDate");
+		}
 	}
 
 	@Override

@@ -28,11 +28,14 @@ public class AuditorAuditRecordUpdateService extends AbstractService<Auditor, Au
 	public void authorise() {
 		boolean status = false;
 		int id;
+		AuditRecord auditRecord;
+		Principal principal;
 
-		Principal principal = super.getRequest().getPrincipal();
+		id = super.getRequest().getData("id", int.class);
+		auditRecord = this.repository.findAuditRecordById(id);
+		principal = super.getRequest().getPrincipal();
 
-		if (principal.hasRole(Auditor.class))
-			status = true;
+		status = auditRecord != null && auditRecord.getCodeAudit().getAuditor().getId() == principal.getActiveRoleId() && auditRecord.isDraftMode() && auditRecord.getCodeAudit().isDraftMode();
 
 		super.getResponse().setAuthorised(status);
 	}
@@ -75,6 +78,17 @@ public class AuditorAuditRecordUpdateService extends AbstractService<Auditor, Au
 		if (!super.getBuffer().getErrors().hasErrors("code")) {
 			isCodeChanged = !object.getCode().equals(auditRecord.getCode());
 			super.state(!isCodeChanged || !allCodes.contains(object.getCode()), "code", "client.audit.error.codeDuplicate");
+		}
+		if (!super.getBuffer().getErrors().hasErrors("startMoment")) {
+			Date date = object.getStartMoment();
+			Date minDate = MomentHelper.parse("1999-12-31 23:59", "yyyy-MM-dd HH:mm");
+			super.state(date.after(minDate), "startMoment", "auditor.auditrecord.error.minDate");
+		}
+
+		if (!super.getBuffer().getErrors().hasErrors("finishMoment")) {
+			Date date = object.getStartMoment();
+			Date minDate = MomentHelper.parse("1999-12-31 23:59", "yyyy-MM-dd HH:mm");
+			super.state(date.after(minDate), "finishMoment", "auditor.auditrecord.error.minDate");
 		}
 	}
 

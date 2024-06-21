@@ -2,12 +2,14 @@
 package acme.features.auditor.codeAudit;
 
 import java.util.Collection;
+import java.util.Date;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import acme.client.data.accounts.Principal;
 import acme.client.data.models.Dataset;
+import acme.client.helpers.MomentHelper;
 import acme.client.services.AbstractService;
 import acme.client.views.SelectChoices;
 import acme.entities.codeAudits.AuditRecord;
@@ -59,7 +61,7 @@ public class AuditorCodeAuditPublishService extends AbstractService<Auditor, Cod
 	public void bind(final CodeAudit object) {
 		assert object != null;
 
-		super.bind(object, "code", "execution", "type", "correctiveActions", "moreInfoLink");
+		super.bind(object, "code", "project", "execution", "type", "correctiveActions", "moreInfoLink");
 	}
 
 	@Override
@@ -82,6 +84,11 @@ public class AuditorCodeAuditPublishService extends AbstractService<Auditor, Cod
 		if (!super.getBuffer().getErrors().hasErrors("mark")) {
 			AuditRecordMark mark = object.getMark(auditRecords);
 			super.state(mark == AuditRecordMark.A || mark == AuditRecordMark.A_PLUS || mark == AuditRecordMark.B || mark == AuditRecordMark.C, "mark", "validation.codeAudit.mark.minimun");
+		}
+		if (!super.getBuffer().getErrors().hasErrors("execution")) {
+			Date execution = object.getExecution();
+			Date minDate = MomentHelper.parse("1999-12-31 23:59", "yyyy-MM-dd HH:mm");
+			super.state(execution.after(minDate), "execution", "auditor.audit.error.minDate");
 		}
 
 	}
@@ -106,9 +113,15 @@ public class AuditorCodeAuditPublishService extends AbstractService<Auditor, Cod
 		choicesType = SelectChoices.from(CodeAuditType.class, object.getType());
 
 		dataset = super.unbind(object, "code", "execution", "type", "correctiveActions", "moreInfoLink", "draftMode");
-		dataset.put("project", p.getTitle());
+
 		dataset.put("types", choicesType);
 		dataset.put("mark", object.getMark(auditRecords));
+
+		Collection<Project> projects = this.repository.findProjectsDraftModeFalse();
+		SelectChoices choices = SelectChoices.from(projects, "code", object.getProject());
+
+		dataset.put("project", choices.getSelected().getKey());
+		dataset.put("projects", choices);
 
 		super.getResponse().addData(dataset);
 	}
