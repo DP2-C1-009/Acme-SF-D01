@@ -5,9 +5,9 @@
 
 <acme:form>
 	<acme:input-textbox code="client.contract.form.label.code" path="code"/>
-	<acme:input-textarea code="client.contract.form.label.providerName" path="providerName"/>
-	<acme:input-textarea code="client.contract.form.label.customerName" path="customerName"/>
-    <acme:input-textbox code="client.contract.form.label.goals" path="goals"/>
+	<acme:input-textbox code="client.contract.form.label.providerName" path="providerName"/>
+	<acme:input-textbox code="client.contract.form.label.customerName" path="customerName"/>
+    <acme:input-textarea code="client.contract.form.label.goals" path="goals"/>
     <acme:input-money code="client.contract.form.label.budget" path="budget"/>
 	
 	<jstl:choose>
@@ -22,7 +22,7 @@
 		<jstl:when test="${acme:anyOf(_command, 'show') && draftmode == false}">
 			<acme:input-moment code="client.contract.form.label.instantiationMoment" path="instantiationMoment"/>
 			<acme:input-textbox code="client.contract.form.label.projectCode" path="projectCode"/>
-			 <acme:button code="client.progressLog.form.button.progressLog" action="/client/progress-log/list?contractId=${id}"/>
+			<acme:button code="client.progressLog.form.button.progressLog" action="/client/progress-log/list?contractId=${id}"/>
 			
 		</jstl:when>
 		

@@ -2,6 +2,7 @@
 package acme.features.clients.progressLog;
 
 import java.util.Collection;
+import java.util.Locale;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -55,7 +56,17 @@ public class ClientProgressLogListService extends AbstractService<Client, Progre
 		Dataset dataset;
 		dataset = super.unbind(object, "recordId", "completeness", "draftmode");
 
+		if (object.isDraftmode()) {
+			final Locale local = super.getRequest().getLocale();
+			String draftmodeText;
+			if (local.equals(Locale.ENGLISH))
+				draftmodeText = "Yes";
+			else
+				draftmodeText = "Sí";
+			dataset.put("draftmode", draftmodeText);
+		} else
+			dataset.put("draftmode", "No");
+
 		super.getResponse().addData(dataset);
 	}
-
 }

@@ -6,7 +6,7 @@
 <acme:form>
 	<acme:input-textbox code="client.progressLog.form.label.recordId" path="recordId"/>
 	<acme:input-textbox code="client.progressLog.form.label.completeness" path="completeness"/>
-	<acme:input-textbox code="client.progressLog.form.label.comment" path="comment"/>
+	<acme:input-textarea code="client.progressLog.form.label.comment" path="comment"/>
     <acme:input-textbox code="client.progressLog.form.label.responsiblePerson" path="responsiblePerson"/>
     
    	<jstl:choose>

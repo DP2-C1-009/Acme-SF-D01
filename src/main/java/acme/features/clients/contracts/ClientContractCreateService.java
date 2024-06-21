@@ -1,10 +1,8 @@
 
 package acme.features.clients.contracts;
 
-import java.util.Arrays;
 import java.util.Collection;
 import java.util.Date;
-import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -17,12 +15,16 @@ import acme.client.views.SelectChoices;
 import acme.entities.contract.Contract;
 import acme.entities.projects.Project;
 import acme.roles.Client;
+import acme.validators.MoneyValidator;
 
 @Service
 public class ClientContractCreateService extends AbstractService<Client, Contract> {
 
 	@Autowired
-	private ClientContractRepository repository;
+	private ClientContractRepository	repository;
+
+	@Autowired
+	private MoneyValidator				moneyValidator;
 
 
 	@Override
@@ -39,35 +41,17 @@ public class ClientContractCreateService extends AbstractService<Client, Contrac
 
 	@Override
 	public void validate(final Contract object) {
-		Project project = object.getProject();
 		final Collection<String> allCodes = this.repository.findAllContractsCode();
-		double res = 0.0;
-
-		List<String> validMoneyType = Arrays.asList("USD", "EUR", "GBP", "CHF", "JPY", "HKD", "CAD", "CNY", "AUD", "BRL", "RUB", "MXN");
-
-		if (project != null) {
-			final Collection<Contract> allContractsByProject = this.repository.findAllContractsWithProject(object.getProject().getId());
-
-			for (Contract c : allContractsByProject) {
-				Double money = c.getBudget().getAmount();
-				res = res + money;
-			}
-
-		}
 
 		if (!super.getBuffer().getErrors().hasErrors("code"))
 			super.state(!allCodes.contains(object.getCode()), "code", "client.contract.error.codeDuplicate");
 
-		if (project != null && object.getBudget() != null) {
-			res = res + object.getBudget().getAmount();
-			if (object.getProject().getCost() < res)
-				super.state(false, "budget", "client.contract.error.projectBudgetTotal");
-		}
-		if (object.getBudget() != null) {
+		if (!super.getBuffer().getErrors().hasErrors("budget")) {
 			if (object.getBudget().getAmount() < 0.0)
 				super.state(false, "budget", "client.contract.error.negativeBudget");
-			if (!validMoneyType.contains(object.getBudget().getCurrency()))
-				super.state(false, "budget", "client.contract.error.negativeType");
+			if (object.getBudget().getAmount() > 1000000.0)
+				super.state(false, "budget", "client.contract.error.overLimit");
+			super.state(this.moneyValidator.moneyValidator(object.getBudget().getCurrency()), "budget", "client.contract.error.moneyValidator");
 		}
 	}
 
@@ -82,14 +66,18 @@ public class ClientContractCreateService extends AbstractService<Client, Contrac
 		object.setClient(client);
 		moment = MomentHelper.getCurrentMoment();
 		object.setInstantiationMoment(moment);
-
 		super.getBuffer().addData(object);
 	}
 
 	@Override
 	public void perform(final Contract object) {
 		assert object != null;
+
+		Date moment;
+
 		object.setDraftmode(true);
+		moment = MomentHelper.getCurrentMoment();
+		object.setInstantiationMoment(moment);
 		this.repository.save(object);
 	}
 
@@ -100,11 +88,13 @@ public class ClientContractCreateService extends AbstractService<Client, Contrac
 		Dataset dataset;
 		Collection<Project> projects;
 		SelectChoices choices;
+		Date moment = MomentHelper.getCurrentMoment();
 
 		projects = this.repository.findAllProjectsWithoutDraftMode();
 		choices = SelectChoices.from(projects, "code", object.getProject());
 
 		dataset = super.unbind(object, "code", "instantiationMoment", "providerName", "customerName", "goals", "budget", "draftmode");
+		dataset.put("instantiationMoment", moment);
 		dataset.put("project", choices.getSelected().getKey());
 		dataset.put("projects", choices);
 
@@ -122,7 +112,7 @@ public class ClientContractCreateService extends AbstractService<Client, Contrac
 		projectId = super.getRequest().getData("project", int.class);
 		project = this.repository.findProjectById(projectId);
 
-		super.bind(object, "code", "instantiationMoment", "providerName", "customerName", "goals", "budget");
+		super.bind(object, "code", "providerName", "customerName", "goals", "budget");
 		object.setProject(project);
 	}
 
