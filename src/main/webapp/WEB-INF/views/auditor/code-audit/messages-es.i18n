@@ -18,4 +18,5 @@ auditor.codeaudit.error.draftMode = Debe publicar todos los registros de auditor
 auditor.codeaudit.error.duplicated-code = El codigo está duplicado
 auditor.code-audit.form.title = Auditoría de codigo
 validation.codeAudit.mark.minimun = Para publicar una auditoría debes obtener una nota de al menos una C.
-
+auditor.audit.error.minDate = La fecha debe ser posterior a 2000/01/01 00:00
+auditor.audit.error.project = Debes seleccionar un proyecto válido

@@ -72,6 +72,10 @@ public class AuditorCodeAuditUpdateService extends AbstractService<Auditor, Code
 			Date minDate = MomentHelper.parse("1999-12-31 23:59", "yyyy-MM-dd HH:mm");
 			super.state(execution.after(minDate), "execution", "auditor.audit.error.minDate");
 		}
+		if (!super.getBuffer().getErrors().hasErrors("project")) {
+			Project project = object.getProject();
+			super.state(!project.isDraftMode(), "project", "auditor.audit.error.project");
+		}
 
 	}
 

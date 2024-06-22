@@ -18,3 +18,4 @@ auditor.codeaudit.error.duplicated-code = Duplicated Code
 auditor.codeaudit.error.draftMode = You must publish all audit records before publishing the code audit
 auditor.code-audit.form.title = Code Audit
 validation.codeAudit.mark.minimun = To publish an audit you must obtain a mark of at least a C.
+auditor.audit.error.minDate = The date has to be after 2000/01/01 00:00

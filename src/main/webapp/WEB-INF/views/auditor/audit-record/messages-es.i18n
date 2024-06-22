@@ -17,3 +17,4 @@ validation.auditrecord.initialIsBefore = La fecha de comienzo no puede ser anter
 auditor.audit-record.form.title = Registro de Auditoría
 validation.AuditRecordCode = Formato no válido. Por favor, introduzca un código que empiece por AU, seguido de un guión, cuatro dígitos , otro guión y finalmente tres dígitos.
 auditor.auditrecord.list.label.mark = Nota
+auditor.auditrecord.error.minDate = La fecha debe ser posterior a 2000/01/01 00:00

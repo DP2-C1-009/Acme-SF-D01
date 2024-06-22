@@ -16,3 +16,5 @@ client.audit.error.codeDuplicate = The code is duplicated
 validation.auditrecord.initialIsBefore = The start date has to be before than the finish date.
 auditor.audit-record.form.title = Audit Record
 validation.AuditRecordCode = Invalid format. Please enter a code that starts with AU, followed by a hyphen, four digits , another hyphen and finally three digits
+auditor.auditrecord.error.minDate = The date has to be after 2000/01/01 00:00
+auditor.audit.error.project = You have to select a valid project
