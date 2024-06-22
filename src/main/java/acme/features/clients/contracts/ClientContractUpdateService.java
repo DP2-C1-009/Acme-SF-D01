@@ -12,12 +12,16 @@ import acme.client.services.AbstractService;
 import acme.entities.contract.Contract;
 import acme.entities.projects.Project;
 import acme.roles.Client;
+import acme.validators.MoneyValidator;
 
 @Service
 public class ClientContractUpdateService extends AbstractService<Client, Contract> {
 
 	@Autowired
-	private ClientContractRepository repository;
+	private ClientContractRepository	repository;
+
+	@Autowired
+	private MoneyValidator				moneyValidator;
 
 
 	@Override
@@ -50,30 +54,40 @@ public class ClientContractUpdateService extends AbstractService<Client, Contrac
 
 	@Override
 	public void validate(final Contract object) {
-		Project project = object.getProject();
 		boolean isCodeChanged = false;
-
-		double res = 0.0;
-
 		final Collection<String> allCodes = this.repository.findAllContractsCode();
-		final Collection<Contract> allContractsByProject = this.repository.findAllContractsWithProject(object.getProject().getId());
 		final Contract contract = this.repository.findOneContractById(object.getId());
 
-		for (Contract c : allContractsByProject) {
-			Double money = c.getBudget().getAmount();
-			res = res + money;
+		if (!super.getBuffer().getErrors().hasErrors("budget")) {
+			if (object.getBudget().getAmount() < 0.0)
+				super.state(false, "budget", "client.contract.error.negativeBudget");
+			if (object.getBudget().getAmount() > 1000000.0)
+				super.state(false, "budget", "client.contract.error.overLimit");
+			super.state(this.moneyValidator.moneyValidator(object.getBudget().getCurrency()), "budget", "client.contract.error.moneyValidator");
+			super.state(this.validatorProjectCost(object), "budget", "client.contract.error.projectBudgetTotal");
 		}
-
-		if (object.getBudget().getAmount() != 0.0 && project.getCost() < res)
-			super.state(false, "budget", "client.contract.error.projectBudget");
 
 		if (!super.getBuffer().getErrors().hasErrors("code")) {
 			isCodeChanged = !contract.getCode().equals(object.getCode());
 			super.state(!isCodeChanged || !allCodes.contains(object.getCode()), "code", "client.contract.error.codeDuplicate");
 		}
 
-		if (object.getBudget() == null)
-			super.state(false, "budget", "client.contract.error.budget");
+	}
+
+	private boolean validatorProjectCost(final Contract object) {
+		assert object != null;
+		double projectCost = object.getProject().getCost();
+		double totalCost = 0.0;
+		if (object.getProject() != null) {
+			Collection<Contract> allContracts = this.repository.findAllContractsWithProject(object.getProject().getId());
+			for (Contract c : allContracts)
+				if (!c.isDraftmode())
+					totalCost = totalCost + c.getBudget().getAmount();
+
+		}
+		Boolean res;
+		res = projectCost >= totalCost + object.getBudget().getAmount();
+		return res;
 
 	}
 
@@ -103,7 +117,7 @@ public class ClientContractUpdateService extends AbstractService<Client, Contrac
 	public void bind(final Contract object) {
 		assert object != null;
 
-		super.bind(object, "code", "instantiationMoment", "providerName", "customerName", "goals", "budget");
+		super.bind(object, "code", "providerName", "customerName", "goals", "budget");
 
 	}
 

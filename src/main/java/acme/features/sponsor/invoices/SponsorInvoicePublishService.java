@@ -112,7 +112,8 @@ public class SponsorInvoicePublishService extends AbstractService<Sponsor, Invoi
 		dataset = super.unbind(object, "code", "registrationTime", "dueDate", "quantity", "tax", "furtherInfo", "draftMode");
 		dataset.put("sponsorshipCode", sponsorship.getCode());
 		dataset.put("sponsorshipId", sponsorship.getId());
-		dataset.put("totalAmount", object.totalAmount());
+		if (object.getQuantity() != null)
+			dataset.put("totalAmount", object.totalAmount());
 
 		super.getResponse().addData(dataset);
 	}

@@ -14,12 +14,16 @@ import acme.entities.progressLogs.ProgressLog;
 public class AnyPogressLogController extends AbstractController<Any, ProgressLog> {
 
 	@Autowired
-	private AnyProgressLogListService listService;
+	private AnyProgressLogListService	listService;
+
+	@Autowired
+	private AnyProgressLogShowService	showService;
 
 
 	@PostConstruct
 	protected void initialise() {
 		super.addBasicCommand("list", this.listService);
+		super.addBasicCommand("show", this.showService);
 	}
 
 }

@@ -15,12 +15,16 @@ import acme.client.views.SelectChoices;
 import acme.entities.contract.Contract;
 import acme.entities.projects.Project;
 import acme.roles.Client;
+import acme.validators.MoneyValidator;
 
 @Service
 public class ClientContractCreateService extends AbstractService<Client, Contract> {
 
 	@Autowired
-	private ClientContractRepository repository;
+	private ClientContractRepository	repository;
+
+	@Autowired
+	private MoneyValidator				moneyValidator;
 
 
 	@Override
@@ -37,37 +41,18 @@ public class ClientContractCreateService extends AbstractService<Client, Contrac
 
 	@Override
 	public void validate(final Contract object) {
-		Project project = object.getProject();
 		final Collection<String> allCodes = this.repository.findAllContractsCode();
-		double res = 0.0;
-
-		if (project != null) {
-			final Collection<Contract> allContractsByProject = this.repository.findAllContractsWithProject(object.getProject().getId());
-
-			for (Contract c : allContractsByProject) {
-				Double money = c.getBudget().getAmount();
-				res = res + money;
-				res = res + object.getBudget().getAmount();
-			}
-
-			if (object.getBudget() == null)
-				super.state(false, "budget", "client.contract.error.budget");
-
-			if (object.getBudget() != null) {
-				if (object.getBudget().getAmount() < 0.0)
-					super.state(false, "budget", "client.contract.error.negativeBudget");
-				if (object.getBudget().getAmount() == 0.0)
-					super.state(false, "budget", "client.contract.error.projectBudget");
-				if (res > project.getCost())
-					super.state(false, "budget", "client.contract.error.projectBudgetTotal");
-			}
-
-		} else
-			super.state(false, "project", "client.contract.error.project");
 
 		if (!super.getBuffer().getErrors().hasErrors("code"))
 			super.state(!allCodes.contains(object.getCode()), "code", "client.contract.error.codeDuplicate");
 
+		if (!super.getBuffer().getErrors().hasErrors("budget")) {
+			if (object.getBudget().getAmount() < 0.0)
+				super.state(false, "budget", "client.contract.error.negativeBudget");
+			if (object.getBudget().getAmount() > 1000000.0)
+				super.state(false, "budget", "client.contract.error.overLimit");
+			super.state(this.moneyValidator.moneyValidator(object.getBudget().getCurrency()), "budget", "client.contract.error.moneyValidator");
+		}
 	}
 
 	@Override
@@ -81,7 +66,6 @@ public class ClientContractCreateService extends AbstractService<Client, Contrac
 		object.setClient(client);
 		moment = MomentHelper.getCurrentMoment();
 		object.setInstantiationMoment(moment);
-
 		super.getBuffer().addData(object);
 	}
 
@@ -91,11 +75,9 @@ public class ClientContractCreateService extends AbstractService<Client, Contrac
 
 		Date moment;
 
-		moment = MomentHelper.getCurrentMoment();
-
-		object.setInstantiationMoment(moment);
 		object.setDraftmode(true);
-
+		moment = MomentHelper.getCurrentMoment();
+		object.setInstantiationMoment(moment);
 		this.repository.save(object);
 	}
 
@@ -106,11 +88,13 @@ public class ClientContractCreateService extends AbstractService<Client, Contrac
 		Dataset dataset;
 		Collection<Project> projects;
 		SelectChoices choices;
+		Date moment = MomentHelper.getCurrentMoment();
 
 		projects = this.repository.findAllProjectsWithoutDraftMode();
 		choices = SelectChoices.from(projects, "code", object.getProject());
 
 		dataset = super.unbind(object, "code", "instantiationMoment", "providerName", "customerName", "goals", "budget", "draftmode");
+		dataset.put("instantiationMoment", moment);
 		dataset.put("project", choices.getSelected().getKey());
 		dataset.put("projects", choices);
 
@@ -128,7 +112,7 @@ public class ClientContractCreateService extends AbstractService<Client, Contrac
 		projectId = super.getRequest().getData("project", int.class);
 		project = this.repository.findProjectById(projectId);
 
-		super.bind(object, "code", "instantiationMoment", "providerName", "customerName", "goals", "budget");
+		super.bind(object, "code", "providerName", "customerName", "goals", "budget");
 		object.setProject(project);
 	}
 

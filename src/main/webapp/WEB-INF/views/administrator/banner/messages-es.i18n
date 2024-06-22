@@ -32,3 +32,4 @@ administrator.banner.form.button.create = Crear
 administrator.banner.form.error.must-start-after-instantiation = El periodo de visualización debe iniciar posteriormente a su creación.
 administrator.banner.form.error.must-finish-after-start = La fecha de fin del periodo de visualización debe ser posterior a la fecha de inicio.
 administrator.banner.form.error.display-period-too-short = El periodo de visualización debe durar al menos una semana
+administrator.banner.form.error.must-end-after-start = La fecha de fin del periodo de visualización debe ser posterior a la fecha de inicio.

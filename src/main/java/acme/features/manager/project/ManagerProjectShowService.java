@@ -6,6 +6,7 @@ import java.util.Locale;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import acme.client.data.accounts.Principal;
 import acme.client.data.models.Dataset;
 import acme.client.services.AbstractService;
 import acme.entities.projects.Project;
@@ -27,12 +28,19 @@ public class ManagerProjectShowService extends AbstractService<Manager, Project>
 		boolean status;
 		int projectId;
 		Project project;
-		Manager manager;
+		Manager manager1;
+		Manager manager2;
+		int managerId;
 
 		projectId = super.getRequest().getData("id", int.class);
 		project = this.repository.findOneProjectById(projectId);
-		manager = project == null ? null : project.getManager();
-		status = project != null && project.isDraftMode() || super.getRequest().getPrincipal().hasRole(manager);
+
+		Principal principal = super.getRequest().getPrincipal();
+		managerId = principal.getActiveRoleId();
+		manager2 = this.repository.findOneManagerById(managerId);
+
+		manager1 = project == null ? null : project.getManager();
+		status = project != null && manager1.equals(manager2);
 
 		super.getResponse().setAuthorised(status);
 	}

@@ -31,14 +31,16 @@ public class ManagerUserStoryListService extends AbstractService<Manager, UserSt
 		int projectId;
 		Project project;
 		int managerId;
+		Manager m;
 
 		projectId = super.getRequest().getData("masterId", int.class);
 		project = this.repository.findProjectById(projectId);
 
 		Principal principal = super.getRequest().getPrincipal();
 		managerId = principal.getActiveRoleId();
+		m = this.repository.findManagerById(managerId);
 
-		status = project != null && principal.hasRole(Manager.class) && project.getManager().getId() == managerId;
+		status = project != null && principal.hasRole(Manager.class) && project.getManager().equals(m);
 
 		super.getResponse().setAuthorised(status);
 	}
