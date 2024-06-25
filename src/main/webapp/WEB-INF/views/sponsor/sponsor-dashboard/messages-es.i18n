@@ -18,3 +18,6 @@ sponsor.dashboard.form.label.average-invoices-quantity = Media de cantidad de fa
 sponsor.dashboard.form.label.deviation-invoices-quantity = Desviación de cantidad de facturas
 sponsor.dashboard.form.label.minimum-invoices-quantity = Mínimo de cantidad de facturas
 sponsor.dashboard.form.label.maximum-invoices-quantity = Máximo de cantidad de facturas
+
+sponsor.dashboard.form.no-sponsorships = No hay ningún patrocinio
+sponsor.dashboard.form.no-invoices = No hay ninguna factura

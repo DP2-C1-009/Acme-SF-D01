@@ -45,16 +45,19 @@ public class SponsorDashboardShowService extends AbstractService<Sponsor, Sponso
 		Collection<Sponsorship> sponsorships = this.repository.findAllSponsorshipsBySponsorId(userAccountId);
 		Collection<Invoice> invoices = this.repository.findAllInvoicesBySponsorId(userAccountId);
 
-		sponsorDashboard.setSponsorshipsWithLink(0);
-		sponsorDashboard.setAverageSponsorshipsAmount(0);
-		sponsorDashboard.setDeviationSponsorshipsAmount(0);
-		sponsorDashboard.setMaximumSponsorshipsAmount(0);
-		sponsorDashboard.setMinimumSponsorshipsAmount(0);
+		// Default values
 		sponsorDashboard.setInvoicesTaxLessOrEq21(0);
-		sponsorDashboard.setAverageInvoicesQuantity(0);
-		sponsorDashboard.setDeviationInvoicesQuantity(0);
-		sponsorDashboard.setMaximumInvoicesQuantity(0);
-		sponsorDashboard.setMinimumInvoicesQuantity(0);
+		sponsorDashboard.setSponsorshipsWithLink(0);
+
+		sponsorDashboard.setAverageSponsorshipsAmount(null);
+		sponsorDashboard.setDeviationSponsorshipsAmount(null);
+		sponsorDashboard.setMaximumSponsorshipsAmount(null);
+		sponsorDashboard.setMinimumSponsorshipsAmount(null);
+
+		sponsorDashboard.setAverageInvoicesQuantity(null);
+		sponsorDashboard.setDeviationInvoicesQuantity(null);
+		sponsorDashboard.setMaximumInvoicesQuantity(null);
+		sponsorDashboard.setMinimumInvoicesQuantity(null);
 
 		if (!sponsorships.isEmpty()) {
 			sponsorDashboard.setSponsorshipsWithLink(this.repository.findSponsorshipsWithLink(userAccountId));
