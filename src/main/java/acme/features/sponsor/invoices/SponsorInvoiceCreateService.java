@@ -71,7 +71,7 @@ public class SponsorInvoiceCreateService extends AbstractService<Sponsor, Invoic
 		id = super.getRequest().getData("sponsorshipId", int.class);
 		sponsorship = this.repository.findOneSponsorshipById(id);
 
-		super.bind(object, "code", "registrationTime", "dueDate", "quantity", "tax", "furtherInfo");
+		super.bind(object, "code", "dueDate", "quantity", "tax", "furtherInfo");
 		object.setSponsorship(sponsorship);
 	}
 
@@ -114,7 +114,7 @@ public class SponsorInvoiceCreateService extends AbstractService<Sponsor, Invoic
 
 		Sponsorship sponsorship = object.getSponsorship();
 
-		dataset = super.unbind(object, "code", "registrationTime", "dueDate", "quantity", "tax", "furtherInfo", "draftMode");
+		dataset = super.unbind(object, "code", "dueDate", "quantity", "tax", "furtherInfo", "draftMode");
 		dataset.put("sponsorshipId", sponsorship.getId());
 		dataset.put("sponsorshipCode", sponsorship.getCode());
 		if (object.getQuantity() != null)
