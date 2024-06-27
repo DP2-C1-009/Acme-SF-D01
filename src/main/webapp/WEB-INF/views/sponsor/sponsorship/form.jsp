@@ -27,7 +27,7 @@
 	<acme:input-money code="sponsor.sponsorship.form.label.amount" path="amount"/>
 	<acme:input-email code="sponsor.sponsorship.form.label.email" path="email"/>
 	<acme:input-textbox code="sponsor.sponsorship.form.label.further-info" path="furtherInfo"/>
-	<acme:input-select code="sponsor.sponsorship.form.label.type" path="type" choices="${types}"/>	
+	<acme:input-select code="sponsor.sponsorship.form.label.type" path="type" choices="${types}"/>
 	
 	<jstl:choose>
 	

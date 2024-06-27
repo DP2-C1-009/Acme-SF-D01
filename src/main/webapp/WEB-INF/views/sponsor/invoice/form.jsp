@@ -6,19 +6,21 @@
 <acme:form>
 	<acme:input-textbox code="sponsor.invoice.form.label.code" path="code"/>
 	
-	<jstl:if test="${acme:anyOf(_command, 'show')}">
+	<jstl:if test="${acme:anyOf(_command, 'show|update|publish|delete')}">
 		<acme:input-moment code="sponsor.invoice.form.label.registrationTime" path="registrationTime" readonly="true"/>
 	</jstl:if>
 	<acme:input-moment code="sponsor.invoice.form.label.dueDate" path="dueDate"/>
     <acme:input-money code="sponsor.invoice.form.label.quantity" path="quantity"/>
     <acme:input-double code="sponsor.invoice.form.label.tax" path="tax"/>
-    <jstl:if test="${acme:anyOf(_command, 'show')}">
+    
+    <jstl:if test="${acme:anyOf(_command, 'show|update|publish|delete')}">
     	<acme:input-money code="sponsor.invoice.form.label.totalAmount" path="totalAmount" readonly="true"/>
 	</jstl:if>
+	
 	<acme:input-url code="sponsor.invoice.form.label.furtherInfo" path="furtherInfo"/>
     
     
-    <jstl:if test="${acme:anyOf(_command, 'show')}">
+    <jstl:if test="${acme:anyOf(_command, 'show|update|publish|delete')}">
 		<acme:input-textbox code="sponsor.invoice.form.label.sponsorship" path="sponsorshipCode" readonly="true"/>
 		<acme:input-checkbox code="sponsor.invoice.form.label.draftMode" path="draftMode" readonly="true"/>
 	</jstl:if>	
