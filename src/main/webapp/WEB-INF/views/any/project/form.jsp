@@ -19,7 +19,6 @@
 	<acme:input-textbox code="any.project.form.label.code" path="code"/>
 	<acme:input-textbox code="any.project.form.label.title" path="title"/>
 	<acme:input-textbox code="any.project.form.label.pAbstract" path="pAbstract"/>	
-	<acme:input-textbox code="any.project.form.label.fatalErrors" path="fatalErrors"/>	
 	<acme:input-money code="any.project.form.label.cost" path="cost" />
 	<acme:input-url code="any.project.form.label.optionalLink" path="optionalLink"/>	
 </acme:form>
