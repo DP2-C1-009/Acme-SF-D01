@@ -84,7 +84,7 @@ public class ClientContractPublishService extends AbstractService<Client, Contra
 
 	private boolean validatorProjectCost(final Contract object) {
 		assert object != null;
-		double projectCost = object.getProject().getCost();
+		double projectCost = object.getProject().getCost().getAmount();
 		double totalCost = 0.0;
 		if (object.getProject() != null) {
 			Collection<Contract> allContracts = this.repository.findAllContractsWithProject(object.getProject().getId());
