@@ -12,21 +12,24 @@ manager.manager-dashboard.form.title = Manager Dashboard
 
 manager.manager-dashboard.form.title.operations-projects = Costs of My Projects
 
-manager.manager-dashboard.form.label.average-cost-projects = Average cost of projects
-manager.manager-dashboard.form.label.deviation-cost-projects = Cost deviation of projects
-manager.manager-dashboard.form.label.minimum-cost-projects = Minimum cost of projects
-manager.manager-dashboard.form.label.maximum-cost-projects = Maximum cost of projects
+manager.dashboard.form.label.project-indicators = General Indicators for Published Projects with Currency
+
+manager.manager-dashboard.form.label.average-cost-projects = Average Cost of Projects
+manager.manager-dashboard.form.label.deviation-cost-projects = Cost Deviation of Projects
+manager.manager-dashboard.form.label.minimum-cost-projects = Minimum Cost of Projects
+manager.manager-dashboard.form.label.maximum-cost-projects = Maximum Cost of Projects
 
 manager.manager-dashboard.form.title.user-stories-by-priority = My User Stories by Priority
 
-manager.manager-dashboard.form.label.must-user-stories = Number of MUST priority user stories
-manager.manager-dashboard.form.label.should-user-stories = Number of SHOULD priority user stories
-manager.manager-dashboard.form.label.could-user-stories = Number of COULD priority user stories
-manager.manager-dashboard.form.label.wont-user-stories = Number of WONT priority user stories
+manager.manager-dashboard.form.label.must-user-stories = Number of MUST Priority User Stories
+manager.manager-dashboard.form.label.should-user-stories = Number of SHOULD Priority User Stories
+manager.manager-dashboard.form.label.could-user-stories = Number of COULD Priority User Stories
+manager.manager-dashboard.form.label.wont-user-stories = Number of WONT Priority User Stories
 
 manager.manager-dashboard.form.title.operations-user-stories = Costs of My User Stories
 
-manager.manager-dashboard.form.label.average-cost-user-stories = Average cost of user stories
-manager.manager-dashboard.form.label.deviation-cost-user-stories = Cost deviation of user stories
-manager.manager-dashboard.form.label.minimum-cost-user-stories = Minimum cost of user stories
-manager.manager-dashboard.form.label.maximum-cost-user-stories = Maximum cost of user stories
+manager.manager-dashboard.form.label.average-cost-user-stories = Average Cost of User Stories
+manager.manager-dashboard.form.label.deviation-cost-user-stories = Cost Deviation of User Stories
+manager.manager-dashboard.form.label.minimum-cost-user-stories = Minimum Cost of User Stories
+manager.manager-dashboard.form.label.maximum-cost-user-stories = Maximum Cost of User Stories
+
