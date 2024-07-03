@@ -66,7 +66,7 @@
 			<acme:message code="manager.manager-dashboard.form.label.average-cost-user-stories"/>
 		</th>
 		<td>
-			<acme:print value="${averageEstimatedCostUserStories == null ? 'No data' : averageEstimatedCostUserStories}"/>
+			<acme:print value="${averageEstimatedCostUserStories == null ? '---' : averageEstimatedCostUserStories}"/>
 		</td>
 	</tr>
 	<tr>
@@ -74,7 +74,7 @@
 			<acme:message code="manager.manager-dashboard.form.label.deviation-cost-user-stories"/>
 		</th>
 		<td>
-			<acme:print value="${deviationEstimatedCostUserStories == null ? 'No data' : deviationEstimatedCostUserStories}"/>
+			<acme:print value="${deviationEstimatedCostUserStories == null ? '---' : deviationEstimatedCostUserStories}"/>
 		</td>
 	</tr>
 	<tr>
@@ -82,7 +82,7 @@
 			<acme:message code="manager.manager-dashboard.form.label.minimum-cost-user-stories"/>
 		</th>
 		<td>
-			<acme:print value="${minEstimatedCostUserStories == null ? 'No data' : minEstimatedCostUserStories}"/>
+			<acme:print value="${minEstimatedCostUserStories == null ? '---' : minEstimatedCostUserStories}"/>
 		</td>
 	</tr>
 	<tr>
@@ -90,7 +90,7 @@
 			<acme:message code="manager.manager-dashboard.form.label.maximum-cost-user-stories"/>
 		</th>
 		<td>
-			<acme:print value="${maxEstimatedCostUserStories == null ? 'No data' : maxEstimatedCostUserStories}"/>
+			<acme:print value="${maxEstimatedCostUserStories == null ? '---' : maxEstimatedCostUserStories}"/>
 		</td>
 	</tr>
 </table>
@@ -100,40 +100,46 @@
 	<acme:message code="manager.manager-dashboard.form.title.operations-projects"/>
 </h2>
 
-<table class="table table-sm">
-	<tr>
-		<th scope="row">
-			<acme:message code="manager.manager-dashboard.form.label.average-cost-projects"/>
-		</th>
-		<td>
-			<acme:print value="${averageCostProjects == null ? 'No data' : averageCostProjects}"/>
-		</td>
-	</tr>
-	<tr>
-		<th scope="row">
-			<acme:message code="manager.manager-dashboard.form.label.deviation-cost-projects"/>
-		</th>
-		<td>
-			<acme:print value="${deviationCostProjects == null ? 'No data' : deviationCostProjects}"/>
-		</td>
-	</tr>
-	<tr>
-		<th scope="row">
-			<acme:message code="manager.manager-dashboard.form.label.minimum-cost-projects"/>
-		</th>
-		<td>
-			<acme:print value="${minCostProjects == null ? 'No data' : minCostProjects}"/>
-		</td>
-	</tr>
-	<tr>
-		<th scope="row">
-			<acme:message code="manager.manager-dashboard.form.label.maximum-cost-projects"/>
-		</th>
-		<td>
-			<acme:print value="${maxCostProjects == null ? 'No data' : maxCostProjects}"/>
-		</td>
-	</tr>
+<jstl:forEach var="currency" items="${supportedCurrencies}">
+    <h3>
+        <acme:message code="manager.dashboard.form.label.project-indicators"/>
+        <acme:message code="${currency}"/>
+    </h3>
+
+   <table class="table table-sm">
+    <tr>
+        <th scope="row">
+            <acme:message code="manager.manager-dashboard.form.label.average-cost-projects"/>
+        </th>
+        <td>
+            <acme:print value="${averageProjectCostPerCurrency[currency] == null ? '---' : averageProjectCostPerCurrency[currency]}"/>
+        </td>
+    </tr>
+    <tr>
+        <th scope="row">
+            <acme:message code="manager.manager-dashboard.form.label.deviation-cost-projects"/>
+        </th>
+        <td>
+            <acme:print value="${deviationProjectCostPerCurrency[currency] == null ? '---' : deviationProjectCostPerCurrency[currency]}"/>
+        </td>
+    </tr>
+    <tr>
+        <th scope="row">
+            <acme:message code="manager.manager-dashboard.form.label.minimum-cost-projects"/>
+        </th>
+        <td>
+            <acme:print value="${minProjectCostPerCurrency[currency] == null ? '---' : minProjectCostPerCurrency[currency]}"/>
+        </td>
+    </tr>   
+    <tr>
+        <th scope="row">
+            <acme:message code="manager.manager-dashboard.form.label.maximum-cost-projects"/>
+        </th>
+        <td>
+            <acme:print value="${maxProjectCostPerCurrency[currency] == null ? '---' : maxProjectCostPerCurrency[currency]}"/>
+        </td>
+    </tr>
 </table>
 
-
+</jstl:forEach>
 <acme:return/>

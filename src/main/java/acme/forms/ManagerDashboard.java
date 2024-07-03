@@ -1,6 +1,9 @@
 
 package acme.forms;
 
+import java.util.List;
+import java.util.Map;
+
 import acme.client.data.AbstractForm;
 import lombok.Getter;
 import lombok.Setter;
@@ -25,9 +28,11 @@ public class ManagerDashboard extends AbstractForm {
 	private Double				maxEstimatedCostUserStories;
 	private Double				minEstimatedCostUserStories;
 
-	private Double				averageCostProjects;
-	private Double				deviationCostProjects;
-	private Double				maxCostProjects;
-	private Double				minCostProjects;
+	private Map<String, Double>	averageProjectCostPerCurrency;
+	private Map<String, Double>	deviationProjectCostPerCurrency;
+	private Map<String, Double>	maxProjectCostPerCurrency;
+	private Map<String, Double>	minProjectCostPerCurrency;
+
+	private List<String>		supportedCurrencies;
 
 }

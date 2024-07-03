@@ -1,5 +1,18 @@
-any.contract.list.label.code = Código
-any.contract.list.label.instantiationMoment	= Momento de instanciación
-any.contract.list.label.providerName = Nombre del proveedor
-any.contract.form.title = Contrato
-any.progressLog.form.button.progressLog = Registro de progresos
+any.project.list.title = Proyectos Publicados
+any.project.form.title = Formulario de Proyecto
+
+# listing details
+any.project.list.label.code = Código
+any.project.list.label.title = Título
+any.project.list.label.pAbstract = Resumen del Proyecto
+any.project.list.label.fatalErrors = Indicaciones (errores críticos)
+any.project.list.label.cost = Coste
+any.project.list.label.optionalLink = Enlace
+
+# form details
+any.project.form.label.code = Código
+any.project.form.label.title = Título
+any.project.form.label.pAbstract = Resumen del Proyecto
+any.project.form.label.fatalErrors = Indicaciones (errores críticos)
+any.project.form.label.cost = Coste
+any.project.form.label.optionalLink = Enlace

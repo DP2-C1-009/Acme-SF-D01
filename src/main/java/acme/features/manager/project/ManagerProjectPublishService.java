@@ -3,6 +3,7 @@ package acme.features.manager.project;
 
 import java.util.List;
 import java.util.Locale;
+import java.util.stream.Stream;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -12,6 +13,7 @@ import acme.client.services.AbstractService;
 import acme.entities.projects.MadeOf;
 import acme.entities.projects.Project;
 import acme.entities.projects.UserStory;
+import acme.entities.systemConfiguration.SystemConfiguration;
 import acme.roles.Manager;
 
 @Service
@@ -74,8 +76,13 @@ public class ManagerProjectPublishService extends AbstractService<Manager, Proje
 		if (!super.getBuffer().getErrors().hasErrors("fatalErrors"))
 			super.state(object.isFatalErrors() == false, "fatalErrors", "manager.project.form.error.fatalErrors");
 
-		if (!super.getBuffer().getErrors().hasErrors("cost"))
-			super.state(object.getCost() > 0, "cost", "manager.project.form.error.negativeCost");
+		if (!super.getBuffer().getErrors().hasErrors("cost")) {
+			super.state(object.getCost().getAmount() >= 0, "cost", "manager.project.form.error.negativeCost");
+
+			List<SystemConfiguration> sc = this.repository.findSystemConfiguration();
+			final boolean foundCurrency = Stream.of(sc.get(0).getAcceptedCurrency().split(",")).map(String::trim).anyMatch(c -> c.equals(object.getCost().getCurrency()));
+			super.state(foundCurrency, "cost", "manager.project.form.error.currencyNotSupported");
+		}
 
 		int id = super.getRequest().getData("id", int.class);
 		List<UserStory> listMadeOf = this.repository.findAllMadeOfByProjectId(id).stream().map(MadeOf::getStory).toList();
