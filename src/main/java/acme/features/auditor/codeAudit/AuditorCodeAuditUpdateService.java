@@ -27,12 +27,17 @@ public class AuditorCodeAuditUpdateService extends AbstractService<Auditor, Code
 
 	@Override
 	public void authorise() {
-		boolean status = false;
+		boolean status;
+		CodeAudit object;
+		Principal principal;
+		int codeAuditId;
 
-		Principal principal = super.getRequest().getPrincipal();
+		codeAuditId = super.getRequest().getData("id", int.class);
+		object = this.repository.findCodeAuditById(codeAuditId);
 
-		if (principal.hasRole(Auditor.class))
-			status = true;
+		principal = super.getRequest().getPrincipal();
+
+		status = object != null && object.getAuditor().getId() == principal.getActiveRoleId() && object.isDraftMode();
 
 		super.getResponse().setAuthorised(status);
 	}

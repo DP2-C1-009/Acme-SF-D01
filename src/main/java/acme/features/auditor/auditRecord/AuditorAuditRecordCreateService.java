@@ -88,7 +88,7 @@ public class AuditorAuditRecordCreateService extends AbstractService<Auditor, Au
 		}
 
 		if (!super.getBuffer().getErrors().hasErrors("finishMoment")) {
-			Date date = object.getStartMoment();
+			Date date = object.getFinishMoment();
 			Date minDate = MomentHelper.parse("1999-12-31 23:59", "yyyy-MM-dd HH:mm");
 			super.state(date.after(minDate), "finishMoment", "auditor.auditrecord.error.minDate");
 		}
