@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 import acme.client.data.accounts.Principal;
 import acme.client.data.models.Dataset;
 import acme.client.services.AbstractService;
+import acme.client.views.SelectChoices;
 import acme.entities.contract.Contract;
 import acme.entities.projects.Project;
 import acme.roles.Client;
@@ -56,7 +57,14 @@ public class ClientContractPublishService extends AbstractService<Client, Contra
 	public void bind(final Contract object) {
 		assert object != null;
 
+		int projectId;
+		Project project;
+
+		projectId = super.getRequest().getData("project", int.class);
+		project = this.repository.findProjectById(projectId);
+
 		super.bind(object, "code", "providerName", "customerName", "goals", "budget");
+		object.setProject(project);
 
 	}
 
@@ -84,18 +92,21 @@ public class ClientContractPublishService extends AbstractService<Client, Contra
 
 	private boolean validatorProjectCost(final Contract object) {
 		assert object != null;
-		double projectCost = object.getProject().getCost().getAmount();
 		double totalCost = 0.0;
+		Boolean res;
 		if (object.getProject() != null) {
+			double projectCost = object.getProject().getCost().getAmount();
 			Collection<Contract> allContracts = this.repository.findAllContractsWithProject(object.getProject().getId());
 			for (Contract c : allContracts)
 				if (!c.isDraftmode())
 					totalCost = totalCost + c.getBudget().getAmount();
 
+			res = projectCost >= totalCost + object.getBudget().getAmount();
+			return res;
+
 		}
-		Boolean res;
-		res = projectCost >= totalCost + object.getBudget().getAmount();
-		return res;
+
+		return true;
 
 	}
 
@@ -114,10 +125,15 @@ public class ClientContractPublishService extends AbstractService<Client, Contra
 
 		Dataset dataset;
 
-		Project objectProject = object.getProject();
+		Collection<Project> projects;
+		SelectChoices choices;
+
+		projects = this.repository.findAllProjectsWithoutDraftMode();
+		choices = SelectChoices.from(projects, "code", object.getProject());
 
 		dataset = super.unbind(object, "code", "instantiationMoment", "providerName", "customerName", "goals", "budget", "draftmode");
-		dataset.put("projectCode", objectProject.getCode());
+		dataset.put("project", choices.getSelected().getKey());
+		dataset.put("projects", choices);
 
 		super.getResponse().addData(dataset);
 

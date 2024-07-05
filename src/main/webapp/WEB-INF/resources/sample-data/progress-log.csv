@@ -1,41 +1,27 @@
 key,key:contract,recordId,completeness,comment,registrationMoment,responsiblePerson,draftmode
-progressLog-01,contract-38,PG-A-0001,50.00,Lorem ipsum,2022/07/29 23:00,Lorem ipsum,true
-progressLog-02,contract-38,PG-A-0002,00.00,Lorem ipsum,2022/07/29 23:00,Lorem ipsum,true
-progressLog-03,contract-38,PG-A-0003,00.01,Lorem ipsum,2022/07/29 23:00,Lorem ipsum,true
-progressLog-04,contract-38,PG-A-0004,99.99,Lorem ipsum,2022/07/29 23:00,Lorem ipsum,true
-progressLog-05,contract-38,PG-A-0005,100.00,Lorem ipsum,2022/07/29 23:00,Lorem ipsum,true
-progressLog-06,contract-38,PG-A-0006,50.00,L,2022/07/29 23:00,Lorem ipsum,true
-progressLog-07,contract-38,PG-A-0007,50.00,Lo,2022/07/29 23:00,Lorem ipsum,true
-progressLog-08,contract-38,PG-A-0008,50.00,Lorem ipsum dolor sit amet. consectetur adipiscing elit. sed do eiusmod te Lorem ipsum dolor sit am,2022/07/29 23:00,Lorem ipsum,true
-progressLog-09,contract-38,PG-A-0009,50.00,Lorem ipsum dolor sit amet. consectetur adipiscing elit. sed do eiusmod te Lorem ipsum dolor sit ame,2022/07/29 23:00,Lorem ipsum,true
-progressLog-10,contract-38,PG-A-0010,50.00,<h1>!</h1>,2022/07/29 23:00,Lorem ipsum,true
-progressLog-11,contract-38,PG-A-0011,50.00,'or'A'='A,2022/07/29 23:00,Lorem ipsum,true
-progressLog-12,contract-38,PG-A-0012,50.00,국민경제의 발전을,2022/07/29 23:00,Lorem ipsum,true
-progressLog-13,contract-38,PG-A-0013,50.00,العظمى واعتلاء,2022/07/29 23:00,Lorem ipsum,true 
-progressLog-14,contract-39,PG-A-0014,50.00,Lorem ipsum,2000/01/01 00:00,Lorem ipsum,true
-progressLog-15,contract-38,PG-A-0015,50.00,Lorem ipsum,2000/01/01 00:01,Lorem ipsum,true
-progressLog-16,contract-38,PG-A-0016,50.00,Lorem ipsum,2022/07/29 23:59,Lorem ipsum,true
-progressLog-17,contract-38,PG-A-0017,50.00,Lorem ipsum,2022/07/30 00:00,Lorem ipsum,true
-progressLog-18,contract-38,PG-A-0018,50.00,Lorem ipsum,2020/02/28 00:00,Lorem ipsum,true
-progressLog-19,contract-38,PG-A-0019,50.00,Lorem ipsum,2022/07/29 23:00,L,true
-progressLog-20,contract-38,PG-A-0020,50.00,Lorem ipsum,2022/07/29 23:00,Lo,true
-progressLog-21,contract-38,PG-A-0021,50.00,Lorem ipsum,2022/07/29 23:00,Lorem ipsum dolor sit amet. consectetur adipiscing elit. sed do eiusmod te,true
-progressLog-22,contract-38,PG-A-0022,50.00,Lorem ipsum,2022/07/29 23:00,Lorem ipsum dolor sit amet. consectetur adipiscing elit. sed do eiusmod tem,true
-progressLog-23,contract-38,PG-A-0023,50.00,Lorem ipsum,2022/07/29 23:00,<h1>!</h1>,true
-progressLog-24,contract-38,PG-A-0024,50.00,Lorem ipsum,2022/07/29 23:00,'or'A'='A,true
-progressLog-25,contract-38,PG-A-0025,50.00,Lorem ipsum,2022/07/29 23:00,국민경제의 발전을,true
-progressLog-26,contract-38,PG-A-0026,50.00,Lorem ipsum,2022/07/29 23:00,العظمى واعتلاء,true
-progressLog-27,contract-39,PG-AB-4113,10.00,Lorem ipsum,2022/07/29 23:00,Lorem ipsum,false
-progressLog-28,contract-40,PG-AA-3893,10.00,Lorem ipsum,2022/07/29 23:00,Lorem ipsum,false
-progressLog-29,contract-39,PG-A-8931,50.00,Lorem ipsum,2022/07/29 23:00,Lorem ipsum,false
-progressLog-30,contract-40,PG-A-0381,50.00,Lorem ipsum,2022/07/29 23:00,Lorem ipsum,false
-progressLog-31,contract-39,PG-AE-8312,80.00,Lorem ipsum,2022/07/29 23:00,Lorem ipsum,false
-progressLog-32,contract-40,PG-ZA-1921,80.00,Lorem ipsum,2022/07/29 23:00,Lorem ipsum,false
-progressLog-33,contract-39,PG-A-9038,23.00,Lorem ipsum,2022/07/29 23:00,Lorem ipsum,false
-progressLog-34,contract-40,PG-EW-0938,23.00,Lorem ipsum,2022/07/29 23:00,Lorem ipsum,false
-progressLog-35,contract-39,PG-A-0893,56.00,Lorem ipsum,2022/07/29 23:00,Lorem ipsum,false
-progressLog-36,contract-40,PG-A-0982,56.00,Lorem ipsum,2022/07/29 23:00,Lorem ipsum,false
-progressLog-37,contract-39,PG-JA-7821,98.00,Lorem ipsum,2022/07/29 23:00,Lorem ipsum,true
-progressLog-38,contract-40,PG-KJ-2342,98.00,Lorem ipsum,2022/07/29 23:00,Lorem ipsum,true
-progressLog-39,contract-39,PG-NM-7821,98.00,Lorem ipsum,2022/07/29 23:00,Lorem ipsum,true
-progressLog-40,contract-40,PG-UJ-7212,12.00,Lorem ipsum,2022/07/29 23:00,Lorem ipsum,true
+progressLog-01,contract-22,PG-A-0001,50.00,Lorem ipsum,2022/07/29 23:00,Lorem ipsum,true
+progressLog-02,contract-23,PG-AA-0002,00.00,Lorem ipsum,2022/07/29 23:00,Lorem ipsum,true
+progressLog-03,contract-22,PG-B-0003,00.01,Lorem ipsum,2022/07/29 23:00,Lorem ipsum,false
+progressLog-04,contract-23,PG-BB-0004,99.99,Lorem ipsum,2022/07/29 23:00,Lorem ipsum,false
+progressLog-05,contract-22,PG-C-0005,100.00,Lorem ipsum,2022/07/29 23:00,Lorem ipsum,true
+progressLog-06,contract-23,PG-CC-0006,50.00,L,2022/07/29 23:00,Lorem ipsum,true
+progressLog-07,contract-22,PG-D-0007,50.00,Lo,2022/07/29 23:00,Lorem ipsum,false
+progressLog-08,contract-23,PG-DD-0008,50.00,Lorem ipsum dolor sit amet. consectetur adipiscing elit. sed do eiusmod te Lorem ipsum dolor sit am,2022/07/29 23:00,Lorem ipsum,false
+progressLog-09,contract-22,PG-E-0009,50.00,Lorem ipsum dolor sit amet. consectetur adipiscing elit. sed do eiusmod te Lorem ipsum dolor sit ame,2022/07/29 23:00,Lorem ipsum,true
+progressLog-10,contract-23,PG-EE-0010,50.00,<h1>!</h1>,2022/07/29 23:00,Lorem ipsum,true
+progressLog-11,contract-22,PG-F-0011,50.00,'or'A'='A,2022/07/29 23:00,Lorem ipsum,false
+progressLog-12,contract-23,PG-FF-0012,50.00,국민경제의 발전을,2022/07/29 23:00,Lorem ipsum,false
+progressLog-13,contract-22,PG-G-0013,50.00,العظمى واعتلاء,2022/07/29 23:00,Lorem ipsum,true 
+progressLog-14,contract-23,PG-GG-0014,50.00,Lorem ipsum,2000/01/01 00:00,Lorem ipsum,true
+progressLog-15,contract-22,PG-H-0015,50.00,Lorem ipsum,2000/01/01 00:01,Lorem ipsum,false
+progressLog-16,contract-23,PG-HH-0016,50.00,Lorem ipsum,2022/07/29 23:59,Lorem ipsum,false
+progressLog-17,contract-22,PG-I-0017,50.00,Lorem ipsum,2022/07/30 00:00,Lorem ipsum,true
+progressLog-18,contract-23,PG-II-0018,50.00,Lorem ipsum,2020/02/28 00:00,Lorem ipsum,true
+progressLog-19,contract-22,PG-J-0019,50.00,Lorem ipsum,2022/07/29 23:00,L,false
+progressLog-20,contract-23,PG-JJ-0020,50.00,Lorem ipsum,2022/07/29 23:00,Lo,false
+progressLog-21,contract-22,PG-K-0021,50.00,Lorem ipsum,2022/07/29 23:00,Lorem ipsum dolor sit amet. consectetur adipiscing elit. sed do eiusmod te,true
+progressLog-22,contract-23,PG-KK-0022,50.00,Lorem ipsum,2022/07/29 23:00,Lorem ipsum dolor sit amet. consectetur adipiscing elit. sed do eiusmod tem,true
+progressLog-23,contract-22,PG-L-0023,50.00,Lorem ipsum,2022/07/29 23:00,<h1>!</h1>,false
+progressLog-24,contract-23,PG-LL-0024,50.00,Lorem ipsum,2022/07/29 23:00,'or'A'='A,false
+progressLog-25,contract-22,PG-M-0025,50.00,Lorem ipsum,2022/07/29 23:00,국민경제의 발전을,true
+progressLog-26,contract-23,PG-MM-0026,50.00,Lorem ipsum,2022/07/29 23:00,العظمى واعتلاء,true
