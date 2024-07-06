@@ -15,3 +15,4 @@ client.progressLog.form.button.update = Actualizar
 client.progressLog.form.button.publish = Publicar
 client.progressLog.form.button.delete = Eliminar
 client.progressLog.form.button.progressLog = Registro de Progreso
+client.progress-log.form.recordId.placeholder = PG-[A-Z]{1,2}-[0-9]{4}
