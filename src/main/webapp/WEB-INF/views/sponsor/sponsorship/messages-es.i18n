@@ -36,3 +36,4 @@ sponsor.sponsorship.error.start-end-one-month = Debe haber un mes de diferencia 
 sponsor.sponsorship.error.invoicesDraftMode = El patrocinio no puede ser publicado si alguna de sus facturas no está publicada
 sponsor.sponsorship.error.totalAmountInvoices = El total de las facturas de este patrocinio no es igual a la cantidad del patrocinio
 sponsor.sponsorship.error.amount-not-positive = La cantidad no es positiva
+sponsor.sponsorship.error.currency-match = La divisa no coincide entre el patrocinio y sus facturas

@@ -36,4 +36,4 @@ sponsor.sponsorship.error.start-end-one-month = There must be a month difference
 sponsor.sponsorship.error.invoicesDraftMode = The sponsorship cannot be published if any of their invoices is not published
 sponsor.sponsorship.error.totalAmountInvoices = The total amount of the sponsorship's invoices is not equal to the sponsorship amount
 sponsor.sponsorship.error.amount-not-positive = The quantity is not positive
-
+sponsor.sponsorship.error.currency-match = The currency does not match between the sponsorship and your invoices
