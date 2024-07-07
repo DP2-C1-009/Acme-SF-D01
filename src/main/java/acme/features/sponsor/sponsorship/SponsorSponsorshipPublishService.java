@@ -92,7 +92,11 @@ public class SponsorSponsorshipPublishService extends AbstractService<Sponsor, S
 		if (object.getAmount() != null) {
 			super.state(!invoices.stream().anyMatch(i -> i.isDraftMode()), "draftMode", "sponsor.sponsorship.error.invoicesDraftMode");
 			Double sponsorshipAlreadyPay = invoices.stream().filter(in -> in.getId() != object.getId()).map(Invoice::totalAmount).mapToDouble(Money::getAmount).sum();
-			super.state(sponsorshipAlreadyPay.equals(object.getAmount().getAmount()), "draftMode", "sponsor.sponsorship.error.totalAmountInvoices");
+			super.state(sponsorshipAlreadyPay.equals(object.getAmount().getAmount()), "amount", "sponsor.sponsorship.error.totalAmountInvoices");
+
+			// Match currency
+			String currency = invoices.stream().filter(inv -> !inv.isDraftMode()).map(inv -> inv.getQuantity().getCurrency()).findFirst().orElse(null);
+			super.state(currency != null && currency.equals(object.getAmount().getCurrency()), "amount", "sponsor.sponsorship.error.currency-match");
 
 		}
 	}

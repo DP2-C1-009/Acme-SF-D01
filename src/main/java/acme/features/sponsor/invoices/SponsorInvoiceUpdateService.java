@@ -8,7 +8,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import acme.client.data.accounts.Principal;
-import acme.client.data.datatypes.Money;
 import acme.client.data.models.Dataset;
 import acme.client.helpers.MomentHelper;
 import acme.client.services.AbstractService;
@@ -63,7 +62,7 @@ public class SponsorInvoiceUpdateService extends AbstractService<Sponsor, Invoic
 	public void bind(final Invoice object) {
 		assert object != null;
 
-		super.bind(object, "code", "registrationTime", "dueDate", "quantity", "tax", "furtherInfo");
+		super.bind(object, "code", "dueDate", "quantity", "tax", "furtherInfo");
 	}
 
 	@Override
@@ -82,12 +81,15 @@ public class SponsorInvoiceUpdateService extends AbstractService<Sponsor, Invoic
 			super.state(MomentHelper.isLongEnough(object.getRegistrationTime(), object.getDueDate(), 30, ChronoUnit.DAYS), "dueDate", "sponsor.invoice.error.registration-due-one-month");
 		}
 
-		final Collection<Invoice> invoices = this.repository.findManyInvoicesBySponsorshipId(object.getSponsorship().getId());
-
-		if (object.getQuantity() != null) {
+		if (object.getQuantity() != null)
 			super.state(object.getQuantity().getAmount() > 0, "quantity", "sponsor.invoice.error.quantityzero");
-			Double sponsorshipAlreadyPay = invoices.stream().filter(in -> in.getId() != object.getId()).map(Invoice::totalAmount).mapToDouble(Money::getAmount).sum();
-			super.state(sponsorshipAlreadyPay + object.totalAmount().getAmount() <= object.getSponsorship().getAmount().getAmount(), "quantity", "sponsor.invoice.error.totalAmount");
+
+		// Currency match
+		final Collection<Invoice> invoices = this.repository.findManyInvoicesBySponsorshipId(object.getSponsorship().getId());
+		if (object.getQuantity() != null) {
+			String currency = invoices.stream().filter(inv -> !inv.isDraftMode()).map(inv -> inv.getQuantity().getCurrency()).findFirst().orElse(null);
+			super.state(currency != null && currency.equals(object.getQuantity().getCurrency()), "quantity", "sponsor.sponsorship.error.currency-match");
+
 		}
 	}
 

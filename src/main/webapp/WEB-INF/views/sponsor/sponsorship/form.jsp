@@ -27,12 +27,14 @@
 	<acme:input-money code="sponsor.sponsorship.form.label.amount" path="amount"/>
 	<acme:input-email code="sponsor.sponsorship.form.label.email" path="email"/>
 	<acme:input-textbox code="sponsor.sponsorship.form.label.further-info" path="furtherInfo"/>
-	<acme:input-select code="sponsor.sponsorship.form.label.type" path="type" choices="${types}"/>	
+	<acme:input-select code="sponsor.sponsorship.form.label.type" path="type" choices="${types}"/>
 	
 	<jstl:choose>
 	
 		<jstl:when test="${acme:anyOf(_command, 'show|update|publish|delete') && draftMode == true}">
 			<acme:input-select code="sponsor.sponsorship.form.label.projects" path="project" choices="${projects}"/>
+			<acme:input-checkbox code="sponsor.sponsorship.form.label.draft-mode" path="draftMode" readonly="true"/>
+			
 			<acme:submit code="sponsor.sponsorship.form.button.delete" action="/sponsor/sponsorship/delete"/>
 			<acme:submit code="sponsor.sponsorship.form.button.update" action="/sponsor/sponsorship/update"/>
 			<acme:submit code="sponsor.sponsorship.form.button.publish" action="/sponsor/sponsorship/publish"/>
@@ -43,6 +45,8 @@
 		
 		<jstl:when test="${acme:anyOf(_command, 'show') && draftMode == false}">
 			<acme:input-select code="sponsor.sponsorship.form.label.projects" path="project" choices="${projects}" readonly="true"/>
+			
+			<acme:input-checkbox code="sponsor.sponsorship.form.label.draft-mode" path="draftMode" readonly="true"/>
 			
 			<acme:button code="sponsor.sponsorship.form.button.invoices" action="/sponsor/invoice/list?sponsorshipId=${id}"/>
 
@@ -55,8 +59,6 @@
 		</jstl:when>
 		
 	</jstl:choose>
-	
-	<acme:input-checkbox code="sponsor.sponsorship.form.label.draft-mode" path="draftMode" readonly="true"/>
 	
 </acme:form>
 

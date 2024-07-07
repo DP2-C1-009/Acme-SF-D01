@@ -18,3 +18,6 @@ sponsor.dashboard.form.label.average-invoices-quantity = Average invoices quanti
 sponsor.dashboard.form.label.deviation-invoices-quantity = Deviation invoices quantity
 sponsor.dashboard.form.label.minimum-invoices-quantity = Minimum invoices quantity
 sponsor.dashboard.form.label.maximum-invoices-quantity = Maximum invoices quantity
+
+sponsor.dashboard.form.no-sponsorships = There are no sponsorships
+sponsor.dashboard.form.no-invoices = There are no invoices

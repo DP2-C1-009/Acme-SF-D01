@@ -62,6 +62,7 @@ public class SponsorSponsorshipCreateService extends AbstractService<Sponsor, Sp
 		Project project;
 
 		projectId = super.getRequest().getData("project", int.class);
+
 		project = this.repository.findOneProjectById(projectId);
 
 		super.bind(object, "code", "start", "end", "amount", "type", "email", "furtherInfo");
@@ -74,9 +75,6 @@ public class SponsorSponsorshipCreateService extends AbstractService<Sponsor, Sp
 		Project project = object.getProject();
 
 		final Collection<String> allSponsorshipCodes = this.repository.findManySponsorshipCodes();
-
-		if (project == null)
-			super.state(false, "project", "sponsor.sponsorship.error.project");
 
 		if (!super.getBuffer().getErrors().hasErrors("code"))
 			super.state(!allSponsorshipCodes.contains(object.getCode()), "code", "sponsor.sponsorship.error.codeDuplicate");
