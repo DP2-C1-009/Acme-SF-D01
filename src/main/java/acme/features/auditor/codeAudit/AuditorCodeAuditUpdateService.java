@@ -27,12 +27,17 @@ public class AuditorCodeAuditUpdateService extends AbstractService<Auditor, Code
 
 	@Override
 	public void authorise() {
-		boolean status = false;
+		boolean status;
+		CodeAudit object;
+		Principal principal;
+		int codeAuditId;
 
-		Principal principal = super.getRequest().getPrincipal();
+		codeAuditId = super.getRequest().getData("id", int.class);
+		object = this.repository.findCodeAuditById(codeAuditId);
 
-		if (principal.hasRole(Auditor.class))
-			status = true;
+		principal = super.getRequest().getPrincipal();
+
+		status = object != null && object.getAuditor().getId() == principal.getActiveRoleId() && object.isDraftMode();
 
 		super.getResponse().setAuthorised(status);
 	}
@@ -71,6 +76,10 @@ public class AuditorCodeAuditUpdateService extends AbstractService<Auditor, Code
 			Date execution = object.getExecution();
 			Date minDate = MomentHelper.parse("1999-12-31 23:59", "yyyy-MM-dd HH:mm");
 			super.state(execution.after(minDate), "execution", "auditor.audit.error.minDate");
+		}
+		if (!super.getBuffer().getErrors().hasErrors("project")) {
+			Project project = object.getProject();
+			super.state(!project.isDraftMode(), "project", "auditor.audit.error.project");
 		}
 
 	}

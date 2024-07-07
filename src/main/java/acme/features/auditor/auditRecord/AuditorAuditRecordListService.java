@@ -46,11 +46,13 @@ public class AuditorAuditRecordListService extends AbstractService<Auditor, Audi
 		Collection<AuditRecord> collection;
 
 		int id = super.getRequest().getData("codeAuditId", int.class);
+		CodeAudit codeAudit = this.repository.findCodeAuditById(id);
 
 		collection = this.repository.findAuditRecordByCodeAudit(id);
 
 		super.getBuffer().addData(collection);
 		super.getResponse().addGlobal("codeAuditId", id);
+		super.getResponse().addGlobal("codeAuditDM", codeAudit.isDraftMode());
 
 	}
 
@@ -59,7 +61,6 @@ public class AuditorAuditRecordListService extends AbstractService<Auditor, Audi
 		assert object != null;
 
 		Dataset dataset;
-		Boolean codeAuditDM = object.getCodeAudit().isDraftMode();
 
 		dataset = super.unbind(object, "code", "mark", "moreInfoLink", "draftMode");
 
@@ -74,7 +75,6 @@ public class AuditorAuditRecordListService extends AbstractService<Auditor, Audi
 		} else
 			dataset.put("draftMode", "No");
 
-		super.getResponse().addGlobal("codeAuditDM", codeAuditDM);
 		super.getResponse().addData(dataset);
 	}
 
