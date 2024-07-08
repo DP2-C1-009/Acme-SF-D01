@@ -96,7 +96,8 @@ public class SponsorSponsorshipPublishService extends AbstractService<Sponsor, S
 
 			// Match currency
 			String currency = invoices.stream().filter(inv -> !inv.isDraftMode()).map(inv -> inv.getQuantity().getCurrency()).findFirst().orElse(null);
-			super.state(currency != null && currency.equals(object.getAmount().getCurrency()), "amount", "sponsor.sponsorship.error.currency-match");
+			if (currency != null)
+				super.state(currency.equals(object.getAmount().getCurrency()), "amount", "sponsor.sponsorship.error.currency-match");
 
 		}
 	}

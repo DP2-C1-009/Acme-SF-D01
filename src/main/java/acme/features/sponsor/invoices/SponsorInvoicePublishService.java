@@ -90,7 +90,8 @@ public class SponsorInvoicePublishService extends AbstractService<Sponsor, Invoi
 		final Collection<Invoice> invoices = this.repository.findManyInvoicesBySponsorshipId(object.getSponsorship().getId());
 		if (object.getQuantity() != null) {
 			String currency = invoices.stream().filter(inv -> !inv.isDraftMode()).map(inv -> inv.getQuantity().getCurrency()).findFirst().orElse(null);
-			super.state(currency != null && currency.equals(object.getQuantity().getCurrency()), "quantity", "sponsor.sponsorship.error.currency-match");
+			if (currency != null)
+				super.state(currency.equals(object.getQuantity().getCurrency()), "quantity", "sponsor.sponsorship.error.currency-match");
 
 		}
 	}
