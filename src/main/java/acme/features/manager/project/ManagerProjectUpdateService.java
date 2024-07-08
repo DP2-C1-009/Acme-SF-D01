@@ -67,11 +67,12 @@ public class ManagerProjectUpdateService extends AbstractService<Manager, Projec
 			Project existing;
 
 			existing = this.repository.findOneProjectByCode(object.getCode());
-			super.state(existing == null || existing.equals(object), "code", "manager.project.form.error.duplicated");
+			super.state(existing == null || existing.equals(object), "code", "manager.project.form.error.codeDuplicate");
 		}
 
 		if (!super.getBuffer().getErrors().hasErrors("cost")) {
 			super.state(object.getCost().getAmount() >= 0, "cost", "manager.project.form.error.negativeCost");
+			super.state(object.getCost().getAmount() <= 1000000.0, "cost", "manager.project.form.error.overLimit");
 
 			List<SystemConfiguration> sc = this.repository.findSystemConfiguration();
 			final boolean foundCurrency = Stream.of(sc.get(0).getAcceptedCurrency().split(",")).map(String::trim).anyMatch(c -> c.equals(object.getCost().getCurrency()));

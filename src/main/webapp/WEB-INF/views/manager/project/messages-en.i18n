@@ -37,3 +37,4 @@ manager.project.form.error.fatalErrors = The project has fatal errors
 manager.project.form.error.userStories-empty = The project has no user stories
 manager.project.form.error.userStories-draftMode = The project contains user stories in draft mode
 manager.project.form.error.currencyNotSupported = This currency is not supported
+manager.project.form.error.overLimit = The cost cannot be greater than 1000000
