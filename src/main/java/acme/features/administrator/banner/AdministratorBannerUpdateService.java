@@ -50,7 +50,7 @@ public class AdministratorBannerUpdateService extends AbstractService<Administra
 	public void bind(final Banner object) {
 		assert object != null;
 
-		super.bind(object, "moment", "start", "end", "picture", "slogan", "web");
+		super.bind(object, "start", "end", "picture", "slogan", "web");
 	}
 
 	@Override
