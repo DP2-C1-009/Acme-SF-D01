@@ -12,14 +12,14 @@
     <panel_attributes>&lt;&lt;Entity&gt;&gt;
 Sponsorship
 --
-+ code: String {Unique, NotBlank, Pattern([A-Z]{1,3}-[0-9]{3})}
++ code: String {Unique, NotBlank, Pattern(^[A-Z]{1,3}-[0-9]{3}$)}
 + moment: Date {NotNull, PastOrPresent, Temporal(TIMESTAMP)}
 + start: Date {NotNull, Temporal(TIMESTAMP)}
 + end: Date {NotNull, Temporal(TIMESTAMP)}
 + amount: Money {NotNull}
 + type: SponsorshipType
-+ email: String {Email}
-+ furtherInfo: String {URL}
++ email: String {Email, Length(max=255}
++ furtherInfo: String {URL, Length(max=255}
 bg=green</panel_attributes>
     <additional_attributes/>
   </element>
@@ -76,12 +76,12 @@ bg=blue</panel_attributes>
     <panel_attributes>&lt;&lt;Entity&gt;&gt;
 Invoice
 --
-+ code: String {Unique, NotBlank, Pattern(IN-[0-9]{4}-[0-9]{4})}
++ code: String {Unique, NotBlank, Pattern(^IN-[0-9]{4}-[0-9]{4}$)}
 + registrationTime: Date {NotNull, PastOrPresent}
 + dueDate: Date {NotNull, Temporal(TIMESTAMP)}
 + quantity: Money {NotNull}
-+ tax: double {Min(0)}
-+ furtherInfo: String {URL}
++ tax: double {Min(0), Max(100)}
++ furtherInfo: String {URL, Length(max=255}
 + / totalAmount: Money {Transient}
 bg=green</panel_attributes>
     <additional_attributes/>
@@ -125,7 +125,7 @@ bg=blue</panel_attributes>
     </coordinates>
     <panel_attributes>totalAmount
 
-quantity * (1 + tax)
+quantity * (1 + (tax/100))
 bg=green</panel_attributes>
     <additional_attributes/>
   </element>
@@ -178,8 +178,8 @@ Sponsor
 --
 + name: String {NotBlank, Length(max = 75)}
 + expectedBenefits: String {NotBlank, Length(max = 100)}
-+ furtherInformation: String {URL}
-+ email: String {Email}
++ furtherInformation: String {URL, Length(max=255}
++ email: String {Email, Length(max=255}
 bg=green</panel_attributes>
     <additional_attributes/>
   </element>
