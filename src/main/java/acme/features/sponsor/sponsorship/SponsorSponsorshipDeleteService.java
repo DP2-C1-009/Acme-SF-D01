@@ -1,8 +1,8 @@
 
 package acme.features.sponsor.sponsorship;
 
-
 import java.util.Collection;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -59,7 +59,7 @@ public class SponsorSponsorshipDeleteService extends AbstractService<Sponsor, Sp
 	public void bind(final Sponsorship object) {
 		assert object != null;
 
-		super.bind(object, "code", "moment", "start", "end", "amount", "type", "email", "furtherInfo");
+		super.bind(object, "code", "start", "end", "amount", "type", "email", "furtherInfo");
 	}
 
 	@Override
