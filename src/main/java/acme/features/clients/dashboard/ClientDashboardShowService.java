@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Locale;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -90,7 +91,7 @@ public class ClientDashboardShowService extends AbstractService<Client, ClientDa
 			if (averageBudgetOfContracts != null)
 				averagePerCurrency.put(currency, averageBudgetOfContracts);
 			else
-				averagePerCurrency.put(currency, 0.0);
+				averagePerCurrency.put(currency, null);
 		}
 		return averagePerCurrency;
 	}
@@ -102,7 +103,7 @@ public class ClientDashboardShowService extends AbstractService<Client, ClientDa
 			if (deviationBudgetPerCurrency != null)
 				deviationPerCurrency.put(currency, deviationBudgetPerCurrency);
 			else
-				deviationPerCurrency.put(currency, 0.0);
+				deviationPerCurrency.put(currency, null);
 
 		}
 		return deviationPerCurrency;
@@ -115,7 +116,7 @@ public class ClientDashboardShowService extends AbstractService<Client, ClientDa
 			if (minContract != null)
 				minimunBudgetOfContracts.put(currency, minContract);
 			else
-				minimunBudgetOfContracts.put(currency, 0.0);
+				minimunBudgetOfContracts.put(currency, null);
 		}
 		return minimunBudgetOfContracts;
 	}
@@ -127,7 +128,7 @@ public class ClientDashboardShowService extends AbstractService<Client, ClientDa
 			if (maxContract != null)
 				maximumBudgetOfContracts.put(currency, maxContract);
 			else
-				maximumBudgetOfContracts.put(currency, 0.0);
+				maximumBudgetOfContracts.put(currency, null);
 		}
 		return maximumBudgetOfContracts;
 	}
@@ -136,11 +137,18 @@ public class ClientDashboardShowService extends AbstractService<Client, ClientDa
 	public void unbind(final ClientDashboard object) {
 		assert object != null;
 		Dataset dataset;
+		String nullValues;
+		Locale local;
+
+		local = super.getRequest().getLocale();
+		nullValues = local.equals(Locale.ENGLISH) ? "No Data" : "Sin Datos";
 
 		String money = this.moneyValidator.findAcceptedCurrencies();
 		String[] currenciesArray = money.split(",\\s*");
 
 		dataset = super.unbind(object, "totalLogLessThan25", "totalLogLessBetween25And50", "totalLogLessBetween50And75", "totalLogAbove75", "averageBudgetOfContracts", "deviationBudgetOfContracts", "minimunBudgetOfContracts", "maximumBudgetOfContracts");
+		dataset.put("nullValues", nullValues);
+
 		super.getResponse().addData(dataset);
 		super.getResponse().addGlobal("currency", currenciesArray);
 	}

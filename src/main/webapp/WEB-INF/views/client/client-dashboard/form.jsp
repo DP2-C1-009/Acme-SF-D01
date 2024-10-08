@@ -50,7 +50,7 @@
                 <acme:message code="client.client-dashboard.form.label.averageBudgetOfContracts"/>
             </th>
             <td class="align-right">
-                <acme:print value="${averageBudgetOfContracts[ce]}"/>
+                <acme:print value="${averageBudgetOfContracts[ce] == null? nullValues: averageBudgetOfContracts[ce]}"/>
             </td>
         </tr>
         <tr>
@@ -58,7 +58,7 @@
                 <acme:message code="client.client-dashboard.form.label.deviationBudgetOfContracts"/>
             </th>
             <td class="align-right">
-                <acme:print value="${deviationBudgetOfContracts[ce]}"/>
+                <acme:print value="${deviationBudgetOfContracts[ce] == null? nullValues: deviationBudgetOfContracts[ce]}"/>
             </td>
         </tr>
         <tr>
@@ -66,7 +66,7 @@
                 <acme:message code="client.client-dashboard.form.label.minimunBudgetOfContracts"/>
             </th>
             <td class="align-right">
-                <acme:print value="${minimunBudgetOfContracts[ce]}"/>
+                <acme:print value="${minimunBudgetOfContracts[ce] == null? nullValues: minimunBudgetOfContracts[ce]}"/>
             </td>
         </tr>
         <tr>
@@ -74,7 +74,7 @@
                 <acme:message code="client.client-dashboard.form.label.maximumBudgetOfContracts"/>
             </th>
             <td class="align-right">
-                <acme:print value="${maximumBudgetOfContracts[ce]}"/>
+                <acme:print value="${maximumBudgetOfContracts[ce] == null? nullValues: maximumBudgetOfContracts[ce]}"/>
             </td>
         </tr>
     </table>
