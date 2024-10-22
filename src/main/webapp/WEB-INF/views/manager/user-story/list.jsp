@@ -15,16 +15,15 @@
 <%@taglib prefix="jstl" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@taglib prefix="acme" uri="http://acme-framework.org/"%>
 
-<acme:list>
-	<acme:list-column code="manager.user-story.list.label.title" path="title" width="60%"/>
-	<acme:list-column code="manager.user-story.list.label.estimatedCost" path="estimatedCost" width="20%"/>	
-	<acme:list-column code="manager.user-story.list.label.priority" path="priority" width="20%"/>	
+<acme:list navigable="true">
+	<acme:list-column code="manager.user-story.list.label.title" path="title" width="10%"/>
+	<acme:list-column code="manager.user-story.list.label.description" path="description" width="10%"/>
+	<acme:list-column code="manager.user-story.list.label.estimatedCost" path="estimatedCost" width="10%"/>
+	<acme:list-column code="manager.user-story.list.label.acceptanceCriteria" path="acceptanceCriteria" width="10%"/>
+	<acme:list-column code="manager.user-story.list.label.optionalLink" path="optionalLink" width="10%"/>
+	<acme:list-column code="manager.user-story.list.label.draftMode" path="draftMode" width="10%"/>
 </acme:list>
 
-<jstl:if test="${_command == 'list-by-project'}">
-	<acme:button code="manager.user-story.list.button.create-form" action="/manager/user-story/create"/>
-</jstl:if>
-
-<jstl:if test="${_command == 'list-mine'}">
-	<acme:button code="manager.user-story.list.button.create-form" action="/manager/user-story/create"/>
+<jstl:if test="${_command == 'list'}">
+	<acme:button code="manager.user-story.list.button.create" action="/manager/user-story/create"/>
 </jstl:if>

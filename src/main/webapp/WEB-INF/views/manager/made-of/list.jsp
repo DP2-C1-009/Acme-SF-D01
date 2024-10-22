@@ -11,16 +11,17 @@
 - they accept any liabilities with respect to them.
 --%>
 
-<%@page%>
+<%@page language="java"%>
 
 <%@taglib prefix="jstl" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@taglib prefix="acme" uri="http://acme-framework.org/"%>
 
-<acme:list>
-	<acme:list-column code="manager.madeof.list.label.project" path="work" width="50%"/>
-	<acme:list-column code="manager.madeof.list.label.user-story" path="story" width="50%"/>
-</acme:list>
 
-<jstl:if test="${_command == 'list'}">
-	<acme:button code="manager.madeof.list.button.create" action="/manager/made-of/create"/>
+<acme:list>
+    <acme:list-column code="manager.made-of.list.label.work" path="work"/>
+    <acme:list-column code="manager.made-of.list.label.story" path="story"/>
+    </acme:list>
+    
+    <jstl:if test="${_command == 'list'}">
+    <acme:button code="manager.made-of.list.button.create" action="/manager/made-of/create"/>
 </jstl:if>

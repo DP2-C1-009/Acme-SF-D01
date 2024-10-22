@@ -1,42 +1,47 @@
 
 package acme.features.manager.dashboard;
 
-import java.util.Collection;
-import java.util.List;
-
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
 import acme.client.repositories.AbstractRepository;
-import acme.entities.projects.Project;
-import acme.entities.projects.UserStory;
-import acme.entities.projects.UserStoryPriority;
-import acme.entities.systemConfiguration.SystemConfiguration;
 
 @Repository
 public interface ManagerDashboardRepository extends AbstractRepository {
 
-	@Query("select us from UserStory us where us.manager.id = :managerId")
-	Collection<UserStory> findUserStoriesByManagerId(int managerId);
+	@Query("select count(u) from UserStory u where u.priority = acme.entities.projects.UserStoryPriority.COULD and u.manager.id = :managerId and u.draftMode = false")
+	int totalCouldUserStories(int managerId);
 
-	@Query("select p from Project p where p.manager.id = :managerId")
-	Collection<Project> findProjectsByManagerId(int managerId);
+	@Query("select count(u) from UserStory u where u.priority = acme.entities.projects.UserStoryPriority.SHOULD and u.manager.id = :managerId and u.draftMode = false")
+	int totalShouldUserStories(int managerId);
 
-	@Query("select COUNT(us) FROM UserStory us WHERE us.priority = :p AND us.manager.id = :id AND us.draftMode = :draftMode")
-	int totalNumberOfPriorityUserStories(UserStoryPriority p, int id, boolean draftMode);
+	@Query("select count(u) from UserStory u where u.priority = acme.entities.projects.UserStoryPriority.MUST and u.manager.id = :managerId and u.draftMode = false")
+	int totalMustUserStories(int managerId);
 
-	@Query("SELECT AVG(us.estimatedCost) FROM UserStory us WHERE us.manager.id = :id AND us.draftMode = :draftMode")
-	Double averageEstimatedCostUserStories(int id, boolean draftMode);
+	@Query("select count(u) from UserStory u where u.priority = acme.entities.projects.UserStoryPriority.WONT and u.manager.id = :managerId and u.draftMode = false")
+	int totalWontUserStories(int managerId);
 
-	@Query("SELECT STDDEV(us.estimatedCost) FROM UserStory us WHERE us.manager.id = :id AND us.draftMode = :draftMode")
-	Double deviationEstimatedCostUserStories(int id, boolean draftMode);
+	@Query("select avg(u.estimatedCost) from UserStory u where u.manager.id = :managerId and u.draftMode = false")
+	Double userStoryEstimatedCostAverage(int managerId);
 
-	@Query("SELECT MIN(us.estimatedCost) FROM UserStory us WHERE us.manager.id = :id AND us.draftMode = :draftMode")
-	Double minEstimatedCostUserStories(int id, boolean draftMode);
+	@Query("select max(u.estimatedCost) from UserStory u where u.manager.id = :managerId and u.draftMode = false")
+	Integer maximumUserStoryEstimatedCost(int managerId);
 
-	@Query("SELECT MAX(us.estimatedCost) FROM UserStory us WHERE us.manager.id = :id AND us.draftMode = :draftMode")
-	Double maxEstimatedCostUserStories(int id, boolean draftMode);
+	@Query("select min(u.estimatedCost) from UserStory u where u.manager.id = :managerId and u.draftMode = false")
+	Integer minimumUserStoryEstimatedCost(int managerId);
 
-	@Query("select sc from SystemConfiguration sc")
-	List<SystemConfiguration> findSystemConfiguration();
+	@Query("select avg(p.cost) from Project p where p.manager.id = :managerId and p.draftMode = false")
+	Double projectCostAverage(int managerId);
+
+	@Query("select max(p.cost) from Project p where p.manager.id = :managerId and p.draftMode = false")
+	Integer maximumProjectCost(int managerId);
+
+	@Query("select min(p.cost) from Project p where p.manager.id = :managerId and p.draftMode = false")
+	Integer minimumProjectCost(int managerId);
+
+	@Query("select stddev(u.estimatedCost) from UserStory u where u.manager.id = :managerId and u.draftMode = false")
+	Double userStoryEstimatedCostDeviation(int managerId);
+
+	@Query("select stddev(p.cost) from Project p where p.manager.id = :managerId and p.draftMode = false")
+	Double projectCostDeviation(int managerId);
 }

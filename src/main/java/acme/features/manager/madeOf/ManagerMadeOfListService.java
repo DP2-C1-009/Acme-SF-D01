@@ -9,8 +9,6 @@ import org.springframework.stereotype.Service;
 import acme.client.data.models.Dataset;
 import acme.client.services.AbstractService;
 import acme.entities.projects.MadeOf;
-import acme.entities.projects.Project;
-import acme.entities.projects.UserStory;
 import acme.roles.Manager;
 
 @Service
@@ -47,20 +45,9 @@ public class ManagerMadeOfListService extends AbstractService<Manager, MadeOf> {
 	@Override
 	public void unbind(final MadeOf object) {
 		assert object != null;
-
-		Project project;
-		UserStory userStory;
-		int madeOfId;
-		Dataset dataset;
-
-		madeOfId = object.getId();
-		project = this.repository.findOneProjectByMadeOfId(madeOfId);
-		userStory = this.repository.findOneUserStoryByMadeOfId(madeOfId);
-
-		dataset = super.unbind(object, "story", "work");
-		dataset.put("work", project.getCode());
-		dataset.put("story", userStory.getTitle());
-
+		Dataset dataset = super.unbind(object, "work", "story");
+		dataset.put("work", object.getWork().getTitle());
+		dataset.put("story", object.getStory().getTitle());
 		super.getResponse().addData(dataset);
 	}
 }

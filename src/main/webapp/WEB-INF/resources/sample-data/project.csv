@@ -1,40 +1,40 @@
 key,code,title,pAbstract,fatalErrors,cost,optionalLink,draftMode,key:manager
-project-01,AAA-0000,A,Smart Home Automation Systems SO for Modern Living,true,EUR 100,https://www.google.com,true,manager-01
-project-02,AAA-0001,AA,Smart Home Automation Systems SO for Modern Living,true,EUR 100,https://www.google.com,true,manager-01
-project-03,AAA-0002,Efficient Data Management System for Businesses,Smart Home Automation Systems SO for Modern Living,true,EUR 100,https://www.google.com,true,manager-01
-project-04,AAA-0003,Advanced Marketing Analytics Platform for Enterprisessssssssssssssssssssss,Smart Home Automation Systems SO for Modern Living,true,EUR 100,https://www.google.com,true,manager-01
-project-05,AAA-0004,Advanced Marketing Analytics Platform for Enterprisesssssssssssssssssssssss,Smart Home Automation Systems SO for Modern Living,true,EUR 100,https://www.google.com,true,manager-01
-project-06,AAA-0005,<script>alert('Injected!');</script>,Smart Home Automation Systems SO for Modern Living,false,EUR 100,https://www.google.com,true,manager-01
-project-07,AAA-0006,' OR 'x'='x,Smart Home Automation Systems SO for Modern Living,false,EUR 100,https://www.google.com,true,manager-02
-project-08,AAA-0007,مثال عنوان المشروع Java 描述示例,Smart Home Automation Systems SO for Modern Living,false,EUR 100,https://www.google.com,true,manager-01
-project-09,BBB-0000,Efficient Data Management System for Businesses,A,true,EUR 100,https://www.google.com,false,manager-01
-project-10,BBB-0001,Efficient Data Management System for Businesses,AA,true,EUR 100,https://www.google.com,true,manager-01
-project-11,BBB-0002,Efficient Data Management System for Businesses,Utilizing robotic software to automate repetitive and time-consuming tasks.,true,EUR 100,https://www.google.com,true,manager-01
-project-12,BBB-0003,Efficient Data Management System for Businesses,Utilizing robotic software to automate repetitive and time-consuming tasksssssssssssssssssssssssss.,true,EUR 100,https://www.google.com,true,manager-01
-project-13,BBB-0004,Efficient Data Management System for Businesses,Utilizing robotic software to automate repetitive and time-consuming taskssssssssssssssssssssssssss.,true,EUR 100,https://www.google.com,true,manager-01
-project-14,BBB-0005,Efficient Data Management System for Businesses,<script>alert('Injected!');</script>,true,EUR 100,https://www.google.com,true,manager-01
-project-15,BBB-0006,Efficient Data Management System for Businesses,' OR 'x'='x,true,EUR 100,https://www.google.com,true,manager-01
-project-16,BBB-0007,Efficient Data Management System for Businesses,مثال عنوان المشروع Java 描述示例,true,EUR 100,https://www.google.com,true,manager-01
-project-17,CCC-0000,Efficient Data Management System for Businesses,Smart Home Automation Systems SO for Modern Living,false,EUR 0,https://www.google.com,true,manager-02
-project-18,DDD-0001,Efficient Data Management System for Businesses,Smart Home Automation Systems SO for Modern Living,true,EUR 0.1,https://www.google.com,true,manager-02
-project-19,DDD-0002,Efficient Data Management System for Businesses,Smart Home Automation Systems SO for Modern Living,false,EUR 999999.99,https://www.google.com,true,manager-02
-project-20,DDD-0003,Efficient Data Management System for Businesses,Smart Home Automation Systems SO for Modern Living,false,EUR 1000000.00,https://www.google.com,true,manager-02
-project-21,EEE-0000,Efficient Data Management System for Businesses,Smart Home Automation Systems SO for Modern Living,false,GBP 832,https://www.google.com,true,manager-02
-project-22,EEE-0001,Efficient Data Management System for Businesses,Smart Home Automation Systems SO for Modern Living,false,USD 381,,true,manager-02
-project-23,EEE-0002,Efficient Data Management System for Businesses,Smart Home Automation Systems SO for Modern Living,false,EUR 1961,https://javaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa.com,true,manager-02
-project-24,EEE-0003,Efficient Data Management System for Businesses,Smart Home Automation Systems SO for Modern Living,false,GBP 492,https://javaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa.com,true,manager-02
-project-25,FFF-0000,Efficient Data Management System for Businesses,Smart Home Automation Systems SO for Modern Living,false,USD 801,https://www.google.com,false,manager-02
-project-26,FFF-0001,Efficient Data Management System for Businesses,Smart Home Automation Systems SO for Modern Living,false,EUR 3012,https://www.google.com,true,manager-02
-project-27,PRJ-1234,Efficient Data Management System for Businesses,Smart Home Automation Systems SO for Modern Living,false,GBP 846,https://www.google.com,true,manager-02
-project-28,PRJ-2345,Efficient Data Management System for Businesses,Smart Home Automation Systems SO for Modern Living,false,USD 327,https://www.google.com,true,manager-02
-project-29,PRJ-3456,Efficient Data Management System for Businesses,Smart Home Automation Systems SO for Modern Living,false,USD 1000000.00,https://www.google.com,false,manager-01
-project-30,PRJ-4567,Efficient Data Management System for Businesses,Smart Home Automation Systems SO for Modern Living,false,USD 1000000.00,https://www.google.com,false,manager-01
-project-31,PRJ-5678,Efficient Data Management System for Businesses,Smart Home Automation Systems SO for Modern Living,false,USD 1000000.00,https://www.google.com,false,manager-01
-project-32,PRJ-6789,Efficient Data Management System for Businesses,Smart Home Automation Systems SO for Modern Living,false,USD 1000000.00,https://www.google.com,false,manager-01
-project-33,PRJ-7899,Efficient Data Management System for Businesses,Smart Home Automation Systems SO for Modern Living,false,USD 1000000.00,https://www.google.com,false,manager-01
-project-34,PRJ-1111,Efficient Data Management System for Businesses,Smart Home Automation Systems SO for Modern Living,false,USD 1000000.00,https://www.google.com,false,manager-02
-project-35,PRJ-2222,Efficient Data Management System for Businesses,Smart Home Automation Systems SO for Modern Living,false,USD 1000000.00,https://www.google.com,false,manager-02
-project-36,PRJ-3333,Efficient Data Management System for Businesses,Smart Home Automation Systems SO for Modern Living,false,USD 1000000.00,https://www.google.com,false,manager-02
-project-37,PRJ-4444,Efficient Data Management System for Businesses,Smart Home Automation Systems SO for Modern Living,false,USD 1000000.00,https://www.google.com,false,manager-02
-project-38,PRJ-5555,Efficient Data Management System for Businesses,Smart Home Automation Systems SO for Modern Living,false,USD 1000000.00,https://www.google.com,false,manager-02
-project-39,PRJ-6666,Efficient Data Management System for Businesses,Smart Home Automation Systems SO for Modern Living,false,USD 1000000.00,https://www.google.com,false,manager-02
+project-01,AAA-0000,A,Smart Home Automation Systems SO for Modern Living,true,5000,https://www.google.com,true,manager-01
+project-02,AAA-0001,AA,Smart Home Automation Systems SO for Modern Living,true,5000,https://www.google.com,true,manager-01
+project-03,AAA-0002,Efficient Data Management System for Businesses,Smart Home Automation Systems SO for Modern Living,true,5000,https://www.google.com,true,manager-01
+project-04,AAA-0003,Advanced Marketing Analytics Platform for Enterprisessssssssssssssssssssss,Smart Home Automation Systems SO for Modern Living,true,5000,https://www.google.com,true,manager-01
+project-05,AAA-0004,Advanced Marketing Analytics Platform for Enterprisesssssssssssssssssssssss,Smart Home Automation Systems SO for Modern Living,true,5000,https://www.google.com,true,manager-01
+project-06,AAA-0005,<script>alert('Injected!');</script>,Smart Home Automation Systems SO for Modern Living,false,5000,https://www.google.com,true,manager-01
+project-07,AAA-0006,' OR 'x'='x,Smart Home Automation Systems SO for Modern Living,false,5000,https://www.google.com,true,manager-02
+project-08,AAA-0007,مثال عنوان المشروع Java 描述示例,Smart Home Automation Systems SO for Modern Living,false,5000,https://www.google.com,true,manager-01
+project-09,BBB-0000,Efficient Data Management System for Businesses,A,true,5000,https://www.google.com,false,manager-01
+project-10,BBB-0001,Efficient Data Management System for Businesses,AA,true,5000,https://www.google.com,true,manager-01
+project-11,BBB-0002,Efficient Data Management System for Businesses,Utilizing robotic software to automate repetitive and time-consuming tasks.,true,5000,https://www.google.com,true,manager-01
+project-12,BBB-0003,Efficient Data Management System for Businesses,Utilizing robotic software to automate repetitive and time-consuming tasksssssssssssssssssssssssss.,true,5000,https://www.google.com,true,manager-01
+project-13,BBB-0004,Efficient Data Management System for Businesses,Utilizing robotic software to automate repetitive and time-consuming taskssssssssssssssssssssssssss.,true,5000,https://www.google.com,true,manager-01
+project-14,BBB-0005,Efficient Data Management System for Businesses,<script>alert('Injected!');</script>,true,5000,https://www.google.com,true,manager-01
+project-15,BBB-0006,Efficient Data Management System for Businesses,' OR 'x'='x,true,5000,https://www.google.com,true,manager-01
+project-16,BBB-0007,Efficient Data Management System for Businesses,مثال عنوان المشروع Java 描述示例,true,5000,https://www.google.com,true,manager-01
+project-17,CCC-0000,Efficient Data Management System for Businesses,Smart Home Automation Systems SO for Modern Living,false,0,https://www.google.com,true,manager-02
+project-18,DDD-0001,Efficient Data Management System for Businesses,Smart Home Automation Systems SO for Modern Living,true,1,https://www.google.com,true,manager-02
+project-19,DDD-0002,Efficient Data Management System for Businesses,Smart Home Automation Systems SO for Modern Living,false,5000,https://www.google.com,true,manager-02
+project-20,DDD-0003,Efficient Data Management System for Businesses,Smart Home Automation Systems SO for Modern Living,false,9999,https://www.google.com,true,manager-02
+project-21,EEE-0000,Efficient Data Management System for Businesses,Smart Home Automation Systems SO for Modern Living,false,10000,https://www.google.com,true,manager-02
+project-22,EEE-0001,Efficient Data Management System for Businesses,Smart Home Automation Systems SO for Modern Living,false,5000,,true,manager-02
+project-23,EEE-0002,Efficient Data Management System for Businesses,Smart Home Automation Systems SO for Modern Living,false,5000,ftp://a,true,manager-02
+project-24,EEE-0003,Efficient Data Management System for Businesses,Smart Home Automation Systems SO for Modern Living,false,5000,ftp://a.b,true,manager-02
+project-25,FFF-0000,Efficient Data Management System for Businesses,Smart Home Automation Systems SO for Modern Living,false,5000,"http://www.lorem-ipsum.org/dolor/sit/amet,/consectetur/adipiscing/elit,/sed/do/eiusmod/tempor/incididunt/ut/labore/et/dolore/magna/aliqua/Ut/enim/ad/minim/veniam/quis/nostrud/exercitation/ullamco/laboris/nisi/ut/aliquip/ex/ea/commodo/consequat/duis/aute/",false,manager-02
+project-26,FFF-0001,Efficient Data Management System for Businesses,Smart Home Automation Systems SO for Modern Living,false,5000,"http://www.lorem-ipsum.org/dolor/sit/amet,/consectetur/adipiscing/elit,/sed/do/eiusmod/tempor/incididunt/ut/labore/et/dolore/magna/aliqua/Ut/enim/ad/minim/veniam/quis/nostrud/exercitation/ullamco/laboris/nisi/ut/aliquip/ex/ea/commodo/consequat/duis/aute/X",true,manager-02
+project-27,PRJ-1234,Efficient Data Management System for Businesses,Smart Home Automation Systems SO for Modern Living,false,5000,https://www.google.com,true,manager-02
+project-28,PRJ-2345,Efficient Data Management System for Businesses,Smart Home Automation Systems SO for Modern Living,false,5000,https://www.google.com,true,manager-02
+project-29,PRJ-3456,Efficient Data Management System for Businesses,Smart Home Automation Systems SO for Modern Living,false,5000,https://www.google.com,false,manager-01
+project-30,PRJ-4567,Efficient Data Management System for Businesses,Smart Home Automation Systems SO for Modern Living,false,5000,https://www.google.com,false,manager-01
+project-31,PRJ-5678,Efficient Data Management System for Businesses,Smart Home Automation Systems SO for Modern Living,false,5000,https://www.google.com,false,manager-01
+project-32,PRJ-6789,Efficient Data Management System for Businesses,Smart Home Automation Systems SO for Modern Living,false,5000,https://www.google.com,false,manager-01
+project-33,PRJ-7899,Efficient Data Management System for Businesses,Smart Home Automation Systems SO for Modern Living,false,5000,https://www.google.com,false,manager-01
+project-34,PRJ-1111,Efficient Data Management System for Businesses,Smart Home Automation Systems SO for Modern Living,false,5000,https://www.google.com,false,manager-02
+project-35,PRJ-2222,Efficient Data Management System for Businesses,Smart Home Automation Systems SO for Modern Living,false,5000,https://www.google.com,false,manager-02
+project-36,PRJ-3333,Efficient Data Management System for Businesses,Smart Home Automation Systems SO for Modern Living,false,5000,https://www.google.com,false,manager-02
+project-37,PRJ-4444,Efficient Data Management System for Businesses,Smart Home Automation Systems SO for Modern Living,false,5000,https://www.google.com,false,manager-02
+project-38,PRJ-5555,Efficient Data Management System for Businesses,Smart Home Automation Systems SO for Modern Living,false,5000,https://www.google.com,false,manager-02
+project-39,PRJ-6666,Efficient Data Management System for Businesses,Smart Home Automation Systems SO for Modern Living,false,5000,https://www.google.com,false,manager-02

@@ -2,6 +2,7 @@
 package acme.features.manager.project;
 
 import java.util.Collection;
+import java.util.Locale;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -12,7 +13,7 @@ import acme.entities.projects.Project;
 import acme.roles.Manager;
 
 @Service
-public class ManagerProjectListService extends AbstractService<Manager, Project> {
+public class ManagerProjectListMineService extends AbstractService<Manager, Project> {
 
 	// Internal state ---------------------------------------------------------
 
@@ -37,7 +38,7 @@ public class ManagerProjectListService extends AbstractService<Manager, Project>
 		int managerId;
 
 		managerId = super.getRequest().getPrincipal().getActiveRoleId();
-		objects = this.repository.findAllProjectByManagerId(managerId);
+		objects = this.repository.findAllProjectsByManagerId(managerId);
 
 		super.getBuffer().addData(objects);
 	}
@@ -47,8 +48,16 @@ public class ManagerProjectListService extends AbstractService<Manager, Project>
 		assert object != null;
 
 		Dataset dataset;
+		dataset = super.unbind(object, "code", "title", "pAbstract", "fatalErrors", "cost", "optionalLink");
 
-		dataset = super.unbind(object, "code", "title", "cost");
+		if (object.isDraftMode()) {
+
+			final Locale local = super.getRequest().getLocale();
+
+			dataset.put("draftMode", local.equals(Locale.ENGLISH) ? "Yes" : "Sí");
+
+		} else
+			dataset.put("draftMode", "No");
 
 		super.getResponse().addData(dataset);
 	}

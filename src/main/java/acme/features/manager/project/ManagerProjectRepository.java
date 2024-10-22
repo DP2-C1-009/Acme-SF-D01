@@ -14,7 +14,6 @@ import acme.entities.contract.Contract;
 import acme.entities.progressLogs.ProgressLog;
 import acme.entities.projects.MadeOf;
 import acme.entities.projects.Project;
-import acme.entities.projects.UserStory;
 import acme.entities.sponsorship.Invoice;
 import acme.entities.sponsorship.Sponsorship;
 import acme.entities.systemConfiguration.SystemConfiguration;
@@ -25,54 +24,45 @@ import acme.roles.Manager;
 @Repository
 public interface ManagerProjectRepository extends AbstractRepository {
 
+	@Query("select p from Project p where p.manager.id = :managerId")
+	Collection<Project> findAllProjectsByManagerId(int managerId);
+
 	@Query("select p from Project p where p.id = :id")
 	Project findOneProjectById(int id);
-
-	@Query("select p from Project p")
-	Collection<Project> findAllProject();
-
-	@Query("select p from Project p where p.manager.id = :id")
-	Collection<Project> findAllProjectByManagerId(int id);
-
-	@Query("select m from Manager m where m.id = :id")
-	Manager findOneManagerById(int id);
-
-	@Query("select m from Manager m")
-	List<Manager> findAllManager();
 
 	@Query("select p from Project p where p.code = :code")
 	Project findOneProjectByCode(String code);
 
-	@Query("select count(mo) from MadeOf mo where mo.story.draftMode = true and mo.work.id = :id")
-	boolean isAnyUserStoryInDraftModeByProjectId(int id);
+	@Query("select m from Manager m where m.id = :managerId")
+	Manager findManagerById(int managerId);
 
-	@Query("select mo from MadeOf mo where mo.work.id = :id")
-	Collection<MadeOf> findAllMadeOfByProjectId(int id);
+	@Query("select mo from MadeOf mo where mo.work.id = :projectId")
+	Collection<MadeOf> findAllMadeOfsByProjectId(int projectId);
 
-	@Query("select us from UserStory us join MadeOf mo on us.id = mo.story.id where mo.work.id = :projectId")
-	Collection<UserStory> findAllUserStoriesOfAProject(int projectId);
+	@Query("select c from CodeAudit c where c.project.id = :projectId")
+	Collection<CodeAudit> findAllCodeAuditsFromProjectId(int projectId);
 
-	@Query("select c from Contract c where c.project.id = :id")
-	Collection<Contract> findAllContractsByProjectId(int id);
-	@Query("select pl from ProgressLog pl where pl.contract.id = :id")
-	Collection<ProgressLog> findAllProgressLogsByContractId(int id);
+	@Query("select a from AuditRecord a where a.codeAudit.id = :codeAuditId")
+	Collection<AuditRecord> findAllAuditRecordsFromCodeAuditId(int codeAuditId);
 
-	@Query("select ss from Sponsorship ss where ss.project.id = :id")
-	Collection<Sponsorship> findAllSponsorshipsByProjectId(int id);
-	@Query("select i from Invoice i where i.sponsorship.id = :id")
-	Collection<Invoice> findAllInvoicesBySponsorshipId(int id);
+	@Query("select c from Contract c where c.project.id = :projectId")
+	Collection<Contract> findAllContractsByProjectId(int projectId);
 
-	@Query("select ca from CodeAudit ca where ca.project.id = :id")
-	Collection<CodeAudit> findAllCodeAuditsByProjectId(int id);
-	@Query("select ar from AuditRecord ar where ar.codeAudit.id = :id")
-	Collection<AuditRecord> findAllAuditsRecordsByCodeAuditsId(int id);
+	@Query("select p from ProgressLog p where p.contract.id = :contractId")
+	Collection<ProgressLog> findAllProgressLogsByContractId(int contractId);
 
-	@Query("select tm from TrainingModule tm where tm.project.id = :id")
-	Collection<TrainingModule> findAllTrainingModuleByProjectId(int id);
-	@Query("select ts from TrainingSession ts where ts.trainingModule.id = :id")
-	Collection<TrainingSession> findAllTrainingSessionByTrainingModuleId(int id);
+	@Query("select s from Sponsorship s where s.project.id = :projectId")
+	Collection<Sponsorship> findAllSponsorshipsByProjectId(int projectId);
+
+	@Query("select i from Invoice i where i.sponsorship.id = :sponsorshipId")
+	Collection<Invoice> findAllInvoicesBySponsorshipId(int sponsorshipId);
+
+	@Query("select t from TrainingModule t where t.project.id = :projectId")
+	Collection<TrainingModule> findAllTrainingModulesByProjectId(int projectId);
+
+	@Query("select t from TrainingSession t where t.trainingModule.id = :trainingModuleId")
+	Collection<TrainingSession> findAllTrainingSessionsFromTrainingModuleId(int trainingModuleId);
 
 	@Query("select s from SystemConfiguration s")
 	List<SystemConfiguration> findSystemConfiguration();
-
 }

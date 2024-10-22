@@ -8,28 +8,22 @@
 # purposes.  The copyright owner does not offer any warranties or representations, nor do
 # they accept any liabilities with respect to them.
 
-manager.manager-dashboard.form.title = Manager Dashboard
+manager.manager-dashboard.form.title = Manager dashboard
 
-manager.manager-dashboard.form.title.operations-projects = Costs of My Projects
+manager.manager-dashboard.form.title.general-indicators = General indicators
 
-manager.dashboard.form.label.project-indicators = General Indicators for Published Projects with Currency
+manager.manager-dashboard.form.label.total-could-user-stories = Total of user stories with priority "could"
+manager.manager-dashboard.form.label.total-should-user-stories = Total of user stories with priority "should"
+manager.manager-dashboard.form.label.total-must-user-stories = Total of user stories with priority "must"
+manager.manager-dashboard.form.label.total-wont-user-stories = Total of user stories with priority "wont"
 
-manager.manager-dashboard.form.label.average-cost-projects = Average Cost of Projects
-manager.manager-dashboard.form.label.deviation-cost-projects = Cost Deviation of Projects
-manager.manager-dashboard.form.label.minimum-cost-projects = Minimum Cost of Projects
-manager.manager-dashboard.form.label.maximum-cost-projects = Maximum Cost of Projects
+manager.manager-dashboard.form.label.user-story-estimated-cost-average = User story estimated cost average
+manager.manager-dashboard.form.label.user-story-estimated-cost-deviation = User story estimated cost deviation
+manager.manager-dashboard.form.label.maximum-user-story-estimated-cost = Maximum user story estimated cost
+manager.manager-dashboard.form.label.minimum-user-story-estimated-cost = Minimum user story estimated cost
 
-manager.manager-dashboard.form.title.user-stories-by-priority = My User Stories by Priority
-
-manager.manager-dashboard.form.label.must-user-stories = Number of MUST Priority User Stories
-manager.manager-dashboard.form.label.should-user-stories = Number of SHOULD Priority User Stories
-manager.manager-dashboard.form.label.could-user-stories = Number of COULD Priority User Stories
-manager.manager-dashboard.form.label.wont-user-stories = Number of WONT Priority User Stories
-
-manager.manager-dashboard.form.title.operations-user-stories = Costs of My User Stories
-
-manager.manager-dashboard.form.label.average-cost-user-stories = Average Cost of User Stories
-manager.manager-dashboard.form.label.deviation-cost-user-stories = Cost Deviation of User Stories
-manager.manager-dashboard.form.label.minimum-cost-user-stories = Minimum Cost of User Stories
-manager.manager-dashboard.form.label.maximum-cost-user-stories = Maximum Cost of User Stories
+manager.manager-dashboard.form.label.project-cost-average = Project cost average
+manager.manager-dashboard.form.label.project-cost-deviation = Project cost deviation
+manager.manager-dashboard.form.label.maximum-project-cost = Maximum project cost
+manager.manager-dashboard.form.label.minimum-project-cost = Minimum project cost
 

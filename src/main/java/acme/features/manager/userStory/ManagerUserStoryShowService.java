@@ -35,7 +35,7 @@ public class ManagerUserStoryShowService extends AbstractService<Manager, UserSt
 		int managerId;
 
 		userStoryId = super.getRequest().getData("id", int.class);
-		userStory = this.repository.findUserStoryById(userStoryId);
+		userStory = this.repository.findOneUserStoryById(userStoryId);
 
 		Principal principal = super.getRequest().getPrincipal();
 		managerId = principal.getActiveRoleId();
@@ -53,7 +53,7 @@ public class ManagerUserStoryShowService extends AbstractService<Manager, UserSt
 		int id;
 
 		id = super.getRequest().getData("id", int.class);
-		object = this.repository.findUserStoryById(id);
+		object = this.repository.findOneUserStoryById(id);
 
 		super.getBuffer().addData(object);
 	}
@@ -67,7 +67,7 @@ public class ManagerUserStoryShowService extends AbstractService<Manager, UserSt
 
 		Dataset dataset;
 
-		dataset = super.unbind(object, "title", "description", "estimatedCost", "acceptanceCriteria", "priority", "optionalLink", "draftMode");
+		dataset = super.unbind(object, "title", "description", "estimatedCost", "acceptanceCriteria", "priority", "optionalLink");
 
 		if (object.isDraftMode()) {
 

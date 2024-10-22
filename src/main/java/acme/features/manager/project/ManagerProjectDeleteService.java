@@ -2,6 +2,7 @@
 package acme.features.manager.project;
 
 import java.util.Collection;
+import java.util.Locale;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -15,10 +16,12 @@ import acme.entities.contract.Contract;
 import acme.entities.progressLogs.ProgressLog;
 import acme.entities.projects.MadeOf;
 import acme.entities.projects.Project;
+import acme.entities.projects.UserStory;
 import acme.entities.sponsorship.Invoice;
 import acme.entities.sponsorship.Sponsorship;
 import acme.entities.training.TrainingModule;
 import acme.entities.training.TrainingSession;
+import acme.features.manager.userStory.ManagerUserStoryRepository;
 import acme.roles.Manager;
 
 @Service
@@ -27,7 +30,10 @@ public class ManagerProjectDeleteService extends AbstractService<Manager, Projec
 	// Internal state ---------------------------------------------------------
 
 	@Autowired
-	private ManagerProjectRepository repository;
+	private ManagerProjectRepository	managerProjectRepository;
+
+	@Autowired
+	private ManagerUserStoryRepository	managerUserStoryRepository;
 
 	// AbstractService interface ----------------------------------------------
 
@@ -36,18 +42,16 @@ public class ManagerProjectDeleteService extends AbstractService<Manager, Projec
 	public void authorise() {
 		boolean status;
 		int projectId;
-		Manager manager1;
-		Manager manager2;
+		Manager manager;
 		Project project;
 
 		projectId = super.getRequest().getData("id", int.class);
-		project = this.repository.findOneProjectById(projectId);
+		project = this.managerProjectRepository.findOneProjectById(projectId);
 
 		Principal principal = super.getRequest().getPrincipal();
-		manager1 = this.repository.findOneManagerById(principal.getActiveRoleId());
-		manager2 = project == null ? null : project.getManager();
+		manager = this.managerProjectRepository.findManagerById(principal.getActiveRoleId());
 
-		status = project != null && project.isDraftMode() && manager1.equals(manager2);
+		status = project != null && super.getRequest().getPrincipal().hasRole(manager) && project.getManager().equals(manager) && project.isDraftMode();
 
 		super.getResponse().setAuthorised(status);
 	}
@@ -58,7 +62,7 @@ public class ManagerProjectDeleteService extends AbstractService<Manager, Projec
 		int id;
 
 		id = super.getRequest().getData("id", int.class);
-		object = this.repository.findOneProjectById(id);
+		object = this.managerProjectRepository.findOneProjectById(id);
 
 		super.getBuffer().addData(object);
 	}
@@ -72,74 +76,66 @@ public class ManagerProjectDeleteService extends AbstractService<Manager, Projec
 	@Override
 	public void validate(final Project object) {
 		assert object != null;
+		boolean condition = object.isDraftMode();
+		super.state(condition, "*", "manager.project.delete.error.draft-mode");
 	}
 
 	@Override
 	public void perform(final Project object) {
 		assert object != null;
+		int projectId;
+		projectId = super.getRequest().getData("id", int.class);
 
-		Collection<Contract> contracts;
-		Collection<ProgressLog> progressLogs;
-
-		Collection<CodeAudit> codeAudits;
-		Collection<AuditRecord> auditRecords;
-
-		Collection<TrainingModule> trainingModules;
-		Collection<TrainingSession> trainingSessions;
-
-		Collection<Sponsorship> sponsorships;
-		Collection<Invoice> invoices;
+		// Check intermediate entity
 
 		Collection<MadeOf> madeOfs;
-		int id = object.getId();
+		madeOfs = this.managerProjectRepository.findAllMadeOfsByProjectId(projectId);
+		this.managerProjectRepository.deleteAll(madeOfs);
 
-		// Contracts & ProgressLogs ---------------------------------------------------------
+		// Check Code Audits
 
-		contracts = this.repository.findAllContractsByProjectId(id);
-		if (contracts != null)
-			for (final Contract c : contracts) {
-				progressLogs = this.repository.findAllProgressLogsByContractId(c.getId());
-				this.repository.deleteAll(progressLogs);
-			}
+		Collection<CodeAudit> codeAudits = this.managerProjectRepository.findAllCodeAuditsFromProjectId(projectId);
+		for (CodeAudit codeAudit : codeAudits) {
+			Collection<AuditRecord> auditRecords = this.managerProjectRepository.findAllAuditRecordsFromCodeAuditId(codeAudit.getId());
+			this.managerProjectRepository.deleteAll(auditRecords);
+		}
 
-		// CodeAudits & AuditRecords ---------------------------------------------------------
+		this.managerProjectRepository.deleteAll(codeAudits);
 
-		codeAudits = this.repository.findAllCodeAuditsByProjectId(id);
-		if (codeAudits != null)
-			for (final CodeAudit ca : codeAudits) {
-				auditRecords = this.repository.findAllAuditsRecordsByCodeAuditsId(ca.getId());
-				this.repository.deleteAll(auditRecords);
-			}
+		// Check Contracts
 
-		// TrainingModule & TrainingSession --------------------------------------------------
+		Collection<Contract> contracts = this.managerProjectRepository.findAllContractsByProjectId(projectId);
+		for (Contract contract : contracts) {
+			Collection<ProgressLog> progressLogs = this.managerProjectRepository.findAllProgressLogsByContractId(contract.getId());
+			this.managerProjectRepository.deleteAll(progressLogs);
+		}
+		this.managerProjectRepository.deleteAll(contracts);
 
-		trainingModules = this.repository.findAllTrainingModuleByProjectId(id);
-		if (trainingModules != null)
-			for (final TrainingModule tm : trainingModules) {
-				trainingSessions = this.repository.findAllTrainingSessionByTrainingModuleId(tm.getId());
-				this.repository.deleteAll(trainingSessions);
-			}
+		// Check Sponsorship
 
-		// Sponsorships & Invoices --------------------------------------------------
+		Collection<Sponsorship> sponsorships = this.managerProjectRepository.findAllSponsorshipsByProjectId(projectId);
+		for (Sponsorship sponsorship : sponsorships) {
+			Collection<Invoice> invoices = this.managerProjectRepository.findAllInvoicesBySponsorshipId(sponsorship.getId());
+			this.managerProjectRepository.deleteAll(invoices);
+		}
+		this.managerProjectRepository.deleteAll(sponsorships);
 
-		sponsorships = this.repository.findAllSponsorshipsByProjectId(id);
-		if (sponsorships != null)
-			for (final Sponsorship ss : sponsorships) {
-				invoices = this.repository.findAllInvoicesBySponsorshipId(ss.getId());
-				this.repository.deleteAll(invoices);
-			}
+		// Check Training Modules
 
-		// MadeOfs --------------------------------------------------
+		Collection<TrainingModule> trainingModules = this.managerProjectRepository.findAllTrainingModulesByProjectId(projectId);
+		for (TrainingModule trainingModule : trainingModules) {
+			Collection<TrainingSession> trainingSessions = this.managerProjectRepository.findAllTrainingSessionsFromTrainingModuleId(trainingModule.getId());
+			this.managerProjectRepository.deleteAll(trainingSessions);
+		}
+		this.managerProjectRepository.deleteAll(trainingModules);
 
-		madeOfs = this.repository.findAllMadeOfByProjectId(id);
+		// Check User Stories
 
-		this.repository.deleteAll(madeOfs);
-		this.repository.deleteAll(contracts);
-		this.repository.deleteAll(codeAudits);
-		this.repository.deleteAll(trainingModules);
-		this.repository.deleteAll(sponsorships);
+		Collection<UserStory> userStories;
+		userStories = this.managerUserStoryRepository.findAllUserStoriesByProjectId(projectId);
+		this.managerUserStoryRepository.deleteAll(userStories);
 
-		this.repository.delete(object);
+		this.managerProjectRepository.delete(object);
 	}
 
 	@Override
@@ -147,8 +143,16 @@ public class ManagerProjectDeleteService extends AbstractService<Manager, Projec
 		assert object != null;
 
 		Dataset dataset;
+		dataset = super.unbind(object, "code", "title", "pAbstract", "fatalErrors", "cost", "optionalLink");
 
-		dataset = super.unbind(object, "code", "title", "pAbstract", "fatalErrors", "cost", "optionalLink", "draftMode");
+		if (object.isDraftMode()) {
+
+			final Locale local = super.getRequest().getLocale();
+
+			dataset.put("draftMode", local.equals(Locale.ENGLISH) ? "Yes" : "Sí");
+
+		} else
+			dataset.put("draftMode", "No");
 
 		super.getResponse().addData(dataset);
 	}
