@@ -8,27 +8,21 @@
 # purposes.  The copyright owner does not offer any warranties or representations, nor do
 # they accept any liabilities with respect to them.
 
-manager.manager-dashboard.form.title = Panel de Gerente
+manager.manager-dashboard.form.title = Panel de indicadores de manager
 
-manager.manager-dashboard.form.title.operations-projects = Costes de mis Proyectos
+manager.manager-dashboard.form.title.general-indicators = Indicadores generales
 
-manager.dashboard.form.label.project-indicators = Indicadores generales para los proyectos publicados con divisa
+manager.manager-dashboard.form.label.total-could-user-stories = Total de historias de usuario con prioridad "could"
+manager.manager-dashboard.form.label.total-should-user-stories = Total de historias de usuario con prioridad "should"
+manager.manager-dashboard.form.label.total-must-user-stories = Total de historias de usuario con prioridad "must"
+manager.manager-dashboard.form.label.total-wont-user-stories = Total de historias de usuario con prioridad "wont"
 
-manager.manager-dashboard.form.label.average-cost-projects = Coste medio de proyectos
-manager.manager-dashboard.form.label.deviation-cost-projects = Desviación del coste de proyectos
-manager.manager-dashboard.form.label.minimum-cost-projects = Coste mínimo de proyectos
-manager.manager-dashboard.form.label.maximum-cost-projects = Coste máximo de proyectos
+manager.manager-dashboard.form.label.user-story-estimated-cost-average = Media del coste estimado de las historias de usuario
+manager.manager-dashboard.form.label.user-story-estimated-cost-deviation = Desviación del coste estimado de las historias de usuario
+manager.manager-dashboard.form.label.maximum-user-story-estimated-cost = Máximo del coste estimado de las historias de usuario
+manager.manager-dashboard.form.label.minimum-user-story-estimated-cost = Mínimo del coste estimado de las historias de usuario
 
-manager.manager-dashboard.form.title.user-stories-by-priority = Mis Historias de Usuario en función de su Prioridad
-
-manager.manager-dashboard.form.label.must-user-stories = Número de Historias de Usuario con prioridad MUST
-manager.manager-dashboard.form.label.should-user-stories = Número de Historias de Usuario con prioridad SHOULD
-manager.manager-dashboard.form.label.could-user-stories = Número de Historias de Usuario con prioridad COULD
-manager.manager-dashboard.form.label.wont-user-stories = Número de Historias de Usuario con prioridad WONT
-
-manager.manager-dashboard.form.title.operations-user-stories = Costes de mis Historias de Usuario
-
-manager.manager-dashboard.form.label.average-cost-user-stories = Coste medio de historias de usuario
-manager.manager-dashboard.form.label.deviation-cost-user-stories = Desviación del coste de historias de usuario
-manager.manager-dashboard.form.label.minimum-cost-user-stories = Coste mínimo de historias de usuario
-manager.manager-dashboard.form.label.maximum-cost-user-stories = Coste máximo de historias de usuario
+manager.manager-dashboard.form.label.project-cost-average = Media del coste de los proyectos
+manager.manager-dashboard.form.label.project-cost-deviation = Desviación del coste de los proyectos
+manager.manager-dashboard.form.label.maximum-project-cost = Máximo del coste de los proyectos
+manager.manager-dashboard.form.label.minimum-project-cost = Mínimo del coste de los proyectos

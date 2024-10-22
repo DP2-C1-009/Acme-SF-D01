@@ -2,6 +2,7 @@
 package acme.features.manager.userStory;
 
 import java.util.Collection;
+import java.util.Locale;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -9,11 +10,12 @@ import org.springframework.stereotype.Service;
 import acme.client.data.accounts.Principal;
 import acme.client.data.models.Dataset;
 import acme.client.services.AbstractService;
+import acme.entities.projects.Project;
 import acme.entities.projects.UserStory;
 import acme.roles.Manager;
 
 @Service
-public class ManagerUserStoryListAllService extends AbstractService<Manager, UserStory> {
+public class ManagerUserStoryListMineService extends AbstractService<Manager, UserStory> {
 
 	// Internal state ---------------------------------------------------------
 
@@ -25,21 +27,21 @@ public class ManagerUserStoryListAllService extends AbstractService<Manager, Use
 
 	@Override
 	public void authorise() {
-		boolean status;
-
+		int projectId = super.getRequest().getData("projectId", int.class);
+		Project project = this.repository.findOneProjectByProjectId(projectId);
 		Principal principal = super.getRequest().getPrincipal();
-		status = principal.hasRole(Manager.class);
+		Manager manager = this.repository.findManagerById(principal.getActiveRoleId());
 
+		boolean status = super.getRequest().getPrincipal().hasRole(manager) && project.getManager().equals(manager);
 		super.getResponse().setAuthorised(status);
 	}
 
 	@Override
 	public void load() {
-		int managerId;
 		Collection<UserStory> userStories;
 
-		managerId = super.getRequest().getPrincipal().getActiveRoleId();
-		userStories = this.repository.findUserStoriesByManagerId(managerId);
+		int projectId = super.getRequest().getData("projectId", int.class);
+		userStories = this.repository.findAllUserStoriesByProjectId(projectId);
 
 		super.getBuffer().addData(userStories);
 	}
@@ -49,9 +51,13 @@ public class ManagerUserStoryListAllService extends AbstractService<Manager, Use
 		assert object != null;
 
 		Dataset dataset;
+		dataset = super.unbind(object, "title", "description", "estimatedCost", "acceptanceCriteria", "priority", "optionalLink");
+		if (object.isDraftMode()) {
+			final Locale local = super.getRequest().getLocale();
 
-		dataset = super.unbind(object, "title", "estimatedCost", "priority");
-
+			dataset.put("draftMode", local.equals(Locale.ENGLISH) ? "Yes" : "Sí");
+		} else
+			dataset.put("draftMode", "No");
 		super.getResponse().addData(dataset);
 	}
 

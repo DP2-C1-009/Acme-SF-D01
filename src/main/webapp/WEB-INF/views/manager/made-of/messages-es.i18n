@@ -8,22 +8,21 @@
 # purposes.  The copyright owner does not offer any warranties or representations, nor do
 # they accept any liabilities with respect to them.
 
-manager.made-of.form.title = Detalle de Proyecto e Historia de Usuario
-manager.made-of.list.title = Listado de Proyectos e Historias de Usuario
+manager.made-of.form.title = Asocia historias de usuario a un proyecto
+manager.made-of.list.title = Lista de asignaciones
 
-manager.madeof.form.label.project = Proyecto:
-manager.madeof.form.label.user-story = Historia de Usuario:
+manager.made-of.form.label.project = Selecciona proyecto
+manager.made-of.form.label.user-stories = Selecciona historia de usuario
 
-manager.madeof.form.button.delete = Eliminar
-manager.madeof.form.button.create = Crear
+manager.made-of.form.button.create = Crear
+manager.made-of.form.button.delete = Borrar
+manager.made-of.form.button.update = Actualizar
 
-manager.madeof.form.error.existing-project-madeof = Ya existe una relación entre este proyecto y esta historia de usuario
-manager.madeof.form.error.published-project = No puedes asignar una historia de usuario sin publicar a un proyecto publicado
-manager.madeof.create.error.null-project = El proyecto no puede ser nulo
-manager.madeof.create.error.null-user-story = La historia de usuario no puede ser nula
-manager.madeof.form.error.wrong-manager = El proyecto y las historias de usuario deben pertenecer al mismo manager
+manager.made-of.list.label.work = Proyecto
+manager.made-of.list.label.story = Historia de usuario
 
-manager.madeof.list.label.project = Projecto
-manager.madeof.list.label.user-story = Historia de Usuario
+manager.made-of.list.button.create = Crear
 
-manager.madeof.list.button.create = Crear
+manager.made-of.create.error.draft-mode = El proyecto no debe estar publicado
+manager.made-of.create.error.null-user-story = La historia de usuario no debe ser nula
+manager.made-of.create.error.null-project = El proyecto no debe ser nulo

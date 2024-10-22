@@ -1,19 +1,17 @@
 
 package acme.features.manager.project;
 
-import java.util.List;
+import java.util.Collection;
 import java.util.Locale;
-import java.util.stream.Stream;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import acme.client.data.models.Dataset;
 import acme.client.services.AbstractService;
-import acme.entities.projects.MadeOf;
 import acme.entities.projects.Project;
 import acme.entities.projects.UserStory;
-import acme.entities.systemConfiguration.SystemConfiguration;
+import acme.features.manager.userStory.ManagerUserStoryRepository;
 import acme.roles.Manager;
 
 @Service
@@ -22,7 +20,10 @@ public class ManagerProjectPublishService extends AbstractService<Manager, Proje
 	// Internal state ---------------------------------------------------------
 
 	@Autowired
-	private ManagerProjectRepository repository;
+	private ManagerProjectRepository	managerProjectRepository;
+
+	@Autowired
+	private ManagerUserStoryRepository	managerUserStoryRepository;
 
 	// AbstractService interface ----------------------------------------------
 
@@ -35,7 +36,7 @@ public class ManagerProjectPublishService extends AbstractService<Manager, Proje
 		Manager manager;
 
 		projectId = super.getRequest().getData("id", int.class);
-		project = this.repository.findOneProjectById(projectId);
+		project = this.managerProjectRepository.findOneProjectById(projectId);
 
 		manager = project == null ? null : project.getManager();
 		status = project != null && project.isDraftMode() && super.getRequest().getPrincipal().hasRole(manager);
@@ -49,7 +50,7 @@ public class ManagerProjectPublishService extends AbstractService<Manager, Proje
 		int id;
 
 		id = super.getRequest().getData("id", int.class);
-		object = this.repository.findOneProjectById(id);
+		object = this.managerProjectRepository.findOneProjectById(id);
 
 		super.getBuffer().addData(object);
 	}
@@ -69,31 +70,23 @@ public class ManagerProjectPublishService extends AbstractService<Manager, Proje
 		if (!super.getBuffer().getErrors().hasErrors("code")) {
 			Project existing;
 
-			existing = this.repository.findOneProjectByCode(object.getCode());
+			existing = this.managerProjectRepository.findOneProjectByCode(object.getCode());
 			super.state(existing == null || existing.equals(object), "code", "manager.project.form.error.codeDuplicate");
 		}
 
 		if (!super.getBuffer().getErrors().hasErrors("fatalErrors"))
 			super.state(object.isFatalErrors() == false, "fatalErrors", "manager.project.form.error.fatalErrors");
 
-		if (!super.getBuffer().getErrors().hasErrors("cost")) {
-			super.state(object.getCost().getAmount() >= 0, "cost", "manager.project.form.error.negativeCost");
-			super.state(object.getCost().getAmount() <= 1000000.0, "cost", "manager.project.form.error.overLimit");
+		Collection<UserStory> userStories = this.managerUserStoryRepository.findAllUserStoriesByProjectId(object.getId());
 
-			List<SystemConfiguration> sc = this.repository.findSystemConfiguration();
-			final boolean foundCurrency = Stream.of(sc.get(0).getAcceptedCurrency().split(",")).map(String::trim).anyMatch(c -> c.equals(object.getCost().getCurrency()));
-			super.state(foundCurrency, "cost", "manager.project.form.error.currencyNotSupported");
-		}
-
-		int id = super.getRequest().getData("id", int.class);
-		List<UserStory> listMadeOf = this.repository.findAllMadeOfByProjectId(id).stream().map(MadeOf::getStory).toList();
-
-		final boolean draftUserStories = listMadeOf.stream().anyMatch(x -> x.isDraftMode());
-		final boolean noUserStories = listMadeOf.isEmpty();
+		final boolean draftUserStories = userStories.stream().anyMatch(x -> x.isDraftMode());
+		final boolean noUserStories = userStories.isEmpty();
 
 		super.state(!noUserStories, "*", "manager.project.form.error.userStories-empty");
 		super.state(!draftUserStories, "*", "manager.project.form.error.userStories-draftMode");
-		;
+
+		boolean conditionProject = object.isDraftMode();
+		super.state(conditionProject, "*", "manager.project.publish.error.draft-mode");
 	}
 
 	@Override
@@ -101,7 +94,7 @@ public class ManagerProjectPublishService extends AbstractService<Manager, Proje
 		assert object != null;
 
 		object.setDraftMode(false);
-		this.repository.save(object);
+		this.managerProjectRepository.save(object);
 	}
 
 	@Override
@@ -110,7 +103,7 @@ public class ManagerProjectPublishService extends AbstractService<Manager, Proje
 
 		Dataset dataset;
 
-		dataset = super.unbind(object, "code", "title", "pAbstract", "fatalErrors", "cost", "optionalLink", "draftMode");
+		dataset = super.unbind(object, "code", "title", "pAbstract", "fatalErrors", "cost", "optionalLink", "manager");
 
 		if (object.isDraftMode()) {
 

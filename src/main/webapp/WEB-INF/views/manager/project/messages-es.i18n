@@ -8,27 +8,34 @@
 # purposes.  The copyright owner does not offer any warranties or representations, nor do
 # they accept any liabilities with respect to them.
 manager.project.list.title = Lista de proyectos
+manager.project.form.title = Detalles de proyecto
 
 manager.project.list.label.code = Código
 manager.project.list.label.title = Título
+manager.project.list.label.pAbstract = Resumen
+manager.project.list.label.fatalErrors = Contiene errores fatales
 manager.project.list.label.cost = Coste
-manager.project.list.button.create = Crear proyecto
-
-manager.project.form.title = Proyecto
+manager.project.list.label.optionalLink = Enlace
+manager.project.list.label.draftMode = Draft mode
 
 manager.project.form.label.code = Código
 manager.project.form.label.title = Título
 manager.project.form.label.pAbstract = Resumen
-manager.project.form.label.fatalErrors = Errores fatales
+manager.project.form.label.fatalErrors = Contiene errores fatales
 manager.project.form.label.cost = Coste
-manager.project.form.label.optional-link = Enlace
-manager.project.form.label.draft-mode = Modo borrador
-manager.project.form.button.user-stories = Historias de usuario
+manager.project.form.label.optionalLink = Enlace
+manager.project.form.label.draftMode = Draft mode
 
+manager.project.form.button.user-stories = Historias de usuario
 manager.project.form.button.create = Crear
 manager.project.form.button.update = Actualizar
-manager.project.form.button.delete = Eliminar
+manager.project.form.button.delete = Borrar
 manager.project.form.button.publish = Publicar
+
+manager.project.list.button.create = Crear
+
+manager.project.publish.error.duplicated = Ya existe un proyecto con este código
+manager.project.publish.error.draft-mode = Todas las historias de usuario deben estar publicadas
 
 manager.project.form.error.codeDuplicate = Este código ya existe
 manager.project.form.error.negativeCost = El coste no puede ser negativo

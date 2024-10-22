@@ -79,7 +79,7 @@ public class ManagerUserStoryCreateService extends AbstractService<Manager, User
 
 		Dataset dataset;
 
-		dataset = super.unbind(object, "title", "description", "estimatedCost", "acceptanceCriteria", "priority", "optionalLink", "draftMode");
+		dataset = super.unbind(object, "title", "description", "estimatedCost", "acceptanceCriteria", "priority", "optionalLink");
 
 		if (object.isDraftMode()) {
 

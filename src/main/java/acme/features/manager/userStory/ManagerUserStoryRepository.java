@@ -15,25 +15,22 @@ import acme.roles.Manager;
 @Repository
 public interface ManagerUserStoryRepository extends AbstractRepository {
 
-	@Query("select mo from MadeOf mo where mo.work.id = :id")
-	Collection<MadeOf> findMadeOfByProjectId(int id);
+	@Query("select u from UserStory u where u.id = :id")
+	UserStory findOneUserStoryById(int id);
 
-	@Query("select mo from MadeOf mo where mo.story.id = :id")
-	Collection<MadeOf> findMadeOfByUserStoryId(int id);
+	@Query("select u from UserStory u where u.manager.id = :managerId")
+	Collection<UserStory> findAllUserStoriesByManagerId(int managerId);
 
-	@Query("select us from UserStory us where us.id = :id")
-	UserStory findUserStoryById(int id);
+	@Query("select mo.story from MadeOf mo where mo.work.id = :projectId")
+	Collection<UserStory> findAllUserStoriesByProjectId(int projectId);
 
-	@Query("select p from Project p where p.id = :id")
-	Project findProjectById(int id);
+	@Query("select m from Manager m where m.id = :managerId")
+	Manager findManagerById(int managerId);
 
-	@Query("select m from Manager m where m.id = :id")
-	Manager findManagerById(int id);
+	@Query("select mo from MadeOf mo where mo.story.id = :userStoryId")
+	Collection<MadeOf> findMadeOfsByUserStoryId(int userStoryId);
 
-	@Query("select us from UserStory us where us.manager.id = :id")
-	Collection<UserStory> findUserStoriesByManagerId(int id);
-
-	@Query("select mo from MadeOf mo where mo.work.id = :projectId and mo.story.id = :userStoryId")
-	Collection<MadeOf> findMadeOfByProjectIdAndUserStoryId(int projectId, int userStoryId);
+	@Query("select p from Project p where p.id = :projectId")
+	Project findOneProjectByProjectId(int projectId);
 
 }

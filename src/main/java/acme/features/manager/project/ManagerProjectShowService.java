@@ -37,7 +37,7 @@ public class ManagerProjectShowService extends AbstractService<Manager, Project>
 
 		Principal principal = super.getRequest().getPrincipal();
 		managerId = principal.getActiveRoleId();
-		manager2 = this.repository.findOneManagerById(managerId);
+		manager2 = this.repository.findManagerById(managerId);
 
 		manager1 = project == null ? null : project.getManager();
 		status = project != null && manager1.equals(manager2);
@@ -62,7 +62,7 @@ public class ManagerProjectShowService extends AbstractService<Manager, Project>
 
 		Dataset dataset;
 
-		dataset = super.unbind(object, "code", "title", "pAbstract", "fatalErrors", "cost", "optionalLink", "draftMode");
+		dataset = super.unbind(object, "code", "title", "pAbstract", "fatalErrors", "cost", "optionalLink");
 
 		if (object.isDraftMode()) {
 

@@ -8,22 +8,21 @@
 # purposes.  The copyright owner does not offer any warranties or representations, nor do
 # they accept any liabilities with respect to them.
 
-manager.made-of.form.title = Project and User Story Detail
-manager.made-of.list.title = List of Projects and User Stories
+manager.made-of.form.title = Link user stories to a project
+manager.made-of.list.title = List of assignments
 
-manager.madeof.form.label.project = Project:
-manager.madeof.form.label.user-story = User Story:
+manager.made-of.form.label.project = Select project
+manager.made-of.form.label.user-stories = Select user story
 
-manager.madeof.form.button.delete = Delete
-manager.madeof.form.button.create = Create
+manager.made-of.form.button.create = Create
+manager.made-of.form.button.delete = Delete
+manager.made-of.form.button.update = Update
 
-manager.madeof.form.error.existing-project-madeof = A relationship already exists between this project and this user story
-manager.madeof.form.error.published-project = You cannot assign an unpublished user story to a published project
-manager.madeof.create.error.null-project = The project cannot be null
-manager.madeof.create.error.null-user-story = The user story cannot be null
-manager.madeof.form.error.wrong-manager = The project and the user stories must belong to the same manager
+manager.made-of.list.label.work = Project
+manager.made-of.list.label.story = User story
 
-manager.madeof.list.label.project = Project
-manager.madeof.list.label.user-story = User Story
+manager.made-of.list.button.create = Create
 
-manager.madeof.list.button.create = Create
+manager.made-of.create.error.draft-mode = Project must not be published
+manager.made-of.create.error.null-user-story = User story must not be null
+manager.made-of.create.error.null-project = Project must not be null

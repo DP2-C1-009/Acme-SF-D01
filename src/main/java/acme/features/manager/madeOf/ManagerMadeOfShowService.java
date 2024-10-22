@@ -6,6 +6,7 @@ import java.util.Collection;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import acme.client.data.accounts.Principal;
 import acme.client.data.models.Dataset;
 import acme.client.services.AbstractService;
 import acme.client.views.SelectChoices;
@@ -27,16 +28,13 @@ public class ManagerMadeOfShowService extends AbstractService<Manager, MadeOf> {
 
 	@Override
 	public void authorise() {
-		boolean status;
-		int madeOfId;
-		MadeOf madeOf;
-		Manager manager;
+		int id = super.getRequest().getData("id", int.class);
+		MadeOf madeOf = this.repository.findOneMadeOfById(id);
 
-		madeOfId = super.getRequest().getData("id", int.class);
-		madeOf = this.repository.findOneMadeOfById(madeOfId);
-		manager = madeOf == null ? null : madeOf.getWork().getManager();
+		Principal principal = super.getRequest().getPrincipal();
+		Manager manager = this.repository.findOneManagerById(principal.getActiveRoleId());
 
-		status = madeOf != null && super.getRequest().getPrincipal().hasRole(manager);
+		boolean status = madeOf != null && super.getRequest().getPrincipal().hasRole(manager) && madeOf.getWork().getManager().equals(manager) && madeOf.getStory().getManager().equals(manager);
 
 		super.getResponse().setAuthorised(status);
 	}
@@ -56,27 +54,20 @@ public class ManagerMadeOfShowService extends AbstractService<Manager, MadeOf> {
 	public void unbind(final MadeOf object) {
 		assert object != null;
 
-		Collection<UserStory> userStories;
-		Collection<Project> projects;
-		SelectChoices choicesUserStory;
-		SelectChoices choicesProject;
-		Dataset dataset;
-		int managerId;
+		Principal principal = super.getRequest().getPrincipal();
+		int managerId = principal.getActiveRoleId();
 
-		managerId = super.getRequest().getPrincipal().getActiveRoleId();
+		Collection<UserStory> userStories = this.repository.findUserStoriesByManagerId(managerId);
+		SelectChoices userStoryChoices = SelectChoices.from(userStories, "title", object.getStory());
 
-		userStories = this.repository.findUserStoriesByManagerId(managerId);
-		choicesUserStory = SelectChoices.from(userStories, "title", object.getStory());
+		Collection<Project> projects = this.repository.findProjectsByManagerId(managerId);
+		SelectChoices projectChoices = SelectChoices.from(projects, "title", object.getWork());
 
-		projects = this.repository.findProjectsByManagerId(managerId);
-		choicesProject = SelectChoices.from(projects, "code", object.getWork());
-
-		dataset = super.unbind(object, "story", "work");
-		dataset.put("story", choicesUserStory.getSelected().getKey());
-		dataset.put("userStories", choicesUserStory);
-		dataset.put("work", choicesProject.getSelected().getKey());
-		dataset.put("projects", choicesProject);
-
+		Dataset dataset = super.unbind(object, "work", "story");
+		dataset.put("work", object.getWork().getId());
+		dataset.put("projects", projectChoices);
+		dataset.put("story", object.getStory().getId());
+		dataset.put("userStories", userStoryChoices);
 		super.getResponse().addData(dataset);
 	}
 }

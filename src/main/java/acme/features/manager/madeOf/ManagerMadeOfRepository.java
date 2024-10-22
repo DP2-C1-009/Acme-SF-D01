@@ -15,43 +15,34 @@ import acme.roles.Manager;
 @Repository
 public interface ManagerMadeOfRepository extends AbstractRepository {
 
-	@Query("SELECT mo FROM MadeOf mo WHERE mo.id = :id")
-	MadeOf findOneMadeOfById(int id);
+	@Query("select m from Manager m where m.id = :managerId")
+	Manager findOneManagerById(int managerId);
 
-	@Query("SELECT mo FROM MadeOf mo WHERE mo.work.manager.id = :id AND mo.story.manager.id = :id")
-	Collection<MadeOf> findMadeOfsByManagerId(int id);
+	@Query("select p from Project p where p.manager.id = :managerId and p.draftMode = :draftMode")
+	Collection<Project> findUnpublishedProjectsByManagerId(int managerId, boolean draftMode);
 
-	@Query("SELECT m FROM Manager m WHERE m.id = :id")
-	Manager findOneManagerById(int id);
+	@Query("select p from Project p where p.manager.id = :managerId")
+	Collection<Project> findProjectsByManagerId(int managerId);
 
-	@Query("SELECT mo FROM MadeOf mo WHERE mo.work.id = :id")
-	Collection<MadeOf> findMadeOfsByProjectId(int id);
+	@Query("select u from UserStory u where u.manager.id = :managerId and u.draftMode = :draftMode")
+	Collection<UserStory> findPublishedUserStoriesByManagerId(int managerId, boolean draftMode);
 
-	@Query("SELECT mo FROM MadeOf mo WHERE mo.story.id = :id")
-	Collection<MadeOf> findMadeOfsByUserStoryId(int id);
+	@Query("select u from UserStory u where u.manager.id = :managerId")
+	Collection<UserStory> findUserStoriesByManagerId(int managerId);
 
-	@Query("SELECT mo FROM MadeOf mo WHERE mo.work.id = :projectId AND mo.story.id = :userStoryId")
-	MadeOf findOneMadeOfByProjectIdAndUserStoryId(int projectId, int userStoryId);
+	@Query("select p from Project p where p.id = :projectId")
+	Project findOneProjectById(int projectId);
 
-	@Query("SELECT us FROM UserStory us WHERE us.manager.id = :id")
-	Collection<UserStory> findUserStoriesByManagerId(int id);
+	@Query("select u from UserStory u where u.id = :userStoryId")
+	UserStory findOneUserStoryById(int userStoryId);
 
-	@Query("SELECT p FROM Project p WHERE p.manager.id = :id")
-	Collection<Project> findProjectsByManagerId(int id);
+	@Query("select mo from MadeOf mo where mo.id = :madeOfId")
+	MadeOf findOneMadeOfById(int madeOfId);
 
-	@Query("SELECT mo.work FROM MadeOf mo WHERE mo.id = :id")
-	Project findOneProjectByMadeOfId(int id);
+	@Query("select mo from MadeOf mo where mo.id = :madeOfId")
+	Collection<MadeOf> findMadeOfsById(int madeOfId);
 
-	@Query("SELECT mo.story FROM MadeOf mo WHERE mo.id = :id")
-	UserStory findOneUserStoryByMadeOfId(int id);
-
-	@Query("SELECT mo.work.manager FROM MadeOf mo WHERE mo.id = :id")
-	Manager findOneManagerByMadeOfId(int id);
-
-	@Query("select p from Project p where p.manager.id = :id and p.draftMode = :draftMode")
-	Collection<Project> findNotPublishedProjectsByManagerId(int id, boolean draftMode);
-
-	@Query("select us from UserStory us where us.manager.id = :id and us.draftMode = :draftMode")
-	Collection<UserStory> findPublishedUserStoriesByManagerId(int id, boolean draftMode);
+	@Query("select mo from MadeOf mo where mo.work.manager.id = :managerId and mo.story.manager.id = :managerId")
+	Collection<MadeOf> findMadeOfsByManagerId(int managerId);
 
 }

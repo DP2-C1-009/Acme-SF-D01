@@ -35,7 +35,7 @@ public class ManagerUserStoryPublishService extends AbstractService<Manager, Use
 		int managerId;
 
 		userStoryId = super.getRequest().getData("id", int.class);
-		userStory = this.repository.findUserStoryById(userStoryId);
+		userStory = this.repository.findOneUserStoryById(userStoryId);
 
 		Principal principal = super.getRequest().getPrincipal();
 		managerId = principal.getActiveRoleId();
@@ -53,7 +53,7 @@ public class ManagerUserStoryPublishService extends AbstractService<Manager, Use
 		int id;
 
 		id = super.getRequest().getData("id", int.class);
-		object = this.repository.findUserStoryById(id);
+		object = this.repository.findOneUserStoryById(id);
 
 		super.getBuffer().addData(object);
 	}
@@ -69,6 +69,8 @@ public class ManagerUserStoryPublishService extends AbstractService<Manager, Use
 	public void validate(final UserStory object) {
 		assert object != null;
 
+		boolean condition = object.isDraftMode();
+		super.state(condition, "*", "manager.user-story.publish.error.draft-mode");
 		if (!super.getBuffer().getErrors().hasErrors("estimatedCost"))
 			super.state(object.getEstimatedCost() > 0, "estimatedCost", "manager.userStory.form.error.negativeCost");
 	}
@@ -90,7 +92,7 @@ public class ManagerUserStoryPublishService extends AbstractService<Manager, Use
 
 		Dataset dataset;
 
-		dataset = super.unbind(object, "title", "description", "estimatedCost", "acceptanceCriteria", "priority", "optionalLink", "draftMode");
+		dataset = super.unbind(object, "title", "description", "estimatedCost", "acceptanceCriteria", "priority", "optionalLink");
 
 		if (object.isDraftMode()) {
 

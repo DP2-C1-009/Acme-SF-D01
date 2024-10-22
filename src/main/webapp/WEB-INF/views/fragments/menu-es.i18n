@@ -71,11 +71,11 @@ master.menu.developer.dashboard = Panel de indicadores
 
 # master.menu.manager #########################################################
 
-master.menu.manager = Gerente
-master.menu.manager.list-project = Lista de mis proyectos
-master.menu.manager.list-user-story = Lista de mis historias de usuario
-master.menu.manager.list-made-of = Lista de mis proyectos con sus historias de usuario
-master.menu.manager.manager-dashboard = Mi panel de gerente
+master.menu.manager = Manager
+master.menu.manager.my-projects = Listar mis proyectos
+master.menu.manager.my-user-stories = Listar mis historias de usuario
+master.menu.manager.manager-dashboard = Panel de indicadores
+master.menu.manager.made-of = Asociaciones proyecto-historia de usuario
 
 # master.menu.client ##########################################################
 

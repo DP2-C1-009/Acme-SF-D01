@@ -8,33 +8,30 @@
 # purposes.  The copyright owner does not offer any warranties or representations, nor do
 # they accept any liabilities with respect to them.
 
-#Cabecera de titulos de pantallas
-
-manager.user-story.list.title = List of your User Stories
-manager.user-story.form.title = User Story form
-
-#Cabecera de listado de proyectos
+manager.user-story.list.title = List of user stories
+manager.user-story.form.title = User story
 
 manager.user-story.list.label.title = Title
-manager.user-story.list.label.description = Description
-manager.user-story.list.label.estimatedCost = Estimated Cost
-manager.user-story.list.label.acceptanceCriteria = Acceptance Criteria
+manager.user-story.list.label.description = Description 
+manager.user-story.list.label.estimatedCost = Estimated cost
+manager.user-story.list.label.acceptanceCriteria = Acceptance criteria
+manager.user-story.list.label.cost = Cost
+manager.user-story.list.label.optionalLink = Link
 manager.user-story.list.label.priority = Priority
-manager.user-story.list.label.link = Link
-manager.user-story.list.label.draftMode = DraftMode
+manager.user-story.list.label.draftMode = Draft mode
 
+manager.user-story.form.label.title = Title
+manager.user-story.form.label.description = Description 
+manager.user-story.form.label.estimatedCost = Estimated cost
+manager.user-story.form.label.acceptanceCriteria = Acceptance criteria
+manager.user-story.form.label.cost = Cost
+manager.user-story.form.label.optionalLink = Link
+manager.user-story.form.label.priority = Priority
+manager.user-story.form.label.draftMode = Draft mode
 
-manager.user-story.form.label.title = Title:
-manager.user-story.form.label.description = Description:
-manager.user-story.form.label.estimatedCost = Estimated Cost:
-manager.user-story.form.label.acceptanceCriteria = Acceptance Criteria:
-manager.user-story.form.label.priority = Priority:
-manager.user-story.form.label.link = Link:
-manager.user-story.form.label.draftMode = DraftMode:
+manager.user-story.form.button.create = Create
+manager.user-story.form.button.update = Update
+manager.user-story.form.button.delete = Delete
+manager.user-story.form.button.publish = Publish
 
-manager.user-story.list.button.create-form=Create User Story
-
-manager.user-story.form.button.create-user-story=Create
-manager.user-story.form.button.update=Update
-manager.user-story.form.button.delete=Delete
-manager.user-story.form.button.publish=Publish
+manager.user-story.list.button.create = Create

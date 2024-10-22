@@ -18,20 +18,25 @@
 <acme:form>
 	<acme:input-textbox code="manager.user-story.form.label.title" path="title"/>
 	<acme:input-textbox code="manager.user-story.form.label.description" path="description"/>
-	<acme:input-textbox code="manager.user-story.form.label.estimatedCost" path="estimatedCost"/>	
+	<acme:input-integer code="manager.user-story.form.label.estimatedCost" path="estimatedCost"/>	
 	<acme:input-textbox code="manager.user-story.form.label.acceptanceCriteria" path="acceptanceCriteria"/>	
 	<acme:input-select code="manager.user-story.form.label.priority" path="priority" choices="${priority}"/>
-	<acme:input-url code="manager.user-story.form.label.link" path="optionalLink"/>	
-
+	<acme:input-url code="manager.user-story.form.label.optionalLink" path="optionalLink"/>	
+	
+	<jstl:choose>
+		<jstl:when test="${_command != 'create'}">
+			<acme:input-textbox code="manager.user-story.form.label.draftMode" path="draftMode" readonly="true"/>	
+		</jstl:when>
+	</jstl:choose>		
 	
 	<jstl:choose>	 
-		<jstl:when test="${acme:anyOf(_command, 'show|update|delete|publish') && draftMode == 'Yes' || draftMode == 'Sí'}">
+		<jstl:when test="${acme:anyOf(_command, 'show|update|delete|publish') && (draftMode == 'Yes' || draftMode == 'Sí')}">
 			<acme:submit code="manager.user-story.form.button.update" action="/manager/user-story/update"/>
 			<acme:submit code="manager.user-story.form.button.delete" action="/manager/user-story/delete"/>
-			<acme:submit code="manager.user-story.form.button.publish" action="/manager/user-story/publish?masterId=${id}"/>
+			<acme:submit code="manager.user-story.form.button.publish" action="/manager/user-story/publish"/>
 		</jstl:when>
 		<jstl:when test="${_command == 'create'}">
-			<acme:submit code="manager.user-story.form.button.create-user-story" action="/manager/user-story/create"/>
+			<acme:submit code="manager.user-story.form.button.create" action="/manager/user-story/create"/>
 		</jstl:when>		
 	</jstl:choose>
 </acme:form>

@@ -7,6 +7,8 @@ import javax.persistence.Index;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.validation.Valid;
+import javax.validation.constraints.Max;
+import javax.validation.constraints.Min;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
@@ -15,7 +17,6 @@ import org.hibernate.validator.constraints.Length;
 import org.hibernate.validator.constraints.URL;
 
 import acme.client.data.AbstractEntity;
-import acme.client.data.datatypes.Money;
 import acme.roles.Manager;
 import lombok.Getter;
 import lombok.Setter;
@@ -24,7 +25,7 @@ import lombok.Setter;
 @Getter
 @Setter
 @Table(indexes = {
-	@Index(columnList = "code"), @Index(columnList = "manager_id")
+	@Index(columnList = "draftMode", unique = false), @Index(columnList = "manager_id, draftMode", unique = false)
 })
 public class Project extends AbstractEntity {
 
@@ -49,25 +50,15 @@ public class Project extends AbstractEntity {
 
 	private boolean				fatalErrors;
 
-	@NotNull
-	private Money				cost;
+	@Min(value = 0)
+	@Max(value = 10000)
+	private int					cost;
 
 	@URL
 	@Length(max = 255)
 	private String				optionalLink;
 
 	private boolean				draftMode;
-
-	// Derived attributes -----------------------------------------------------
-
-	//	@Transient
-	//	public boolean isAvailable() {
-	//		boolean result;
-	//
-	//		result = !this.draftMode && !this.hasFatalErrors;
-	//
-	//		return result;
-	//	}
 
 	// Relationships ----------------------------------------------------------
 

@@ -8,27 +8,34 @@
 # purposes.  The copyright owner does not offer any warranties or representations, nor do
 # they accept any liabilities with respect to them.
 manager.project.list.title = List of projects
+manager.project.form.title = Project details
 
 manager.project.list.label.code = Code
 manager.project.list.label.title = Title
+manager.project.list.label.pAbstract = Abstract
+manager.project.list.label.fatalErrors = Conatains fatal errors
 manager.project.list.label.cost = Cost
-manager.project.list.button.create = Create project
-
-manager.project.form.title = Project
+manager.project.list.label.optionalLink = Link
+manager.project.list.label.draftMode = Draft mode
 
 manager.project.form.label.code = Code
 manager.project.form.label.title = Title
 manager.project.form.label.pAbstract = Abstract
-manager.project.form.label.fatalErrors = Fatal errors
+manager.project.form.label.fatalErrors = Conatains fatal errors
 manager.project.form.label.cost = Cost
-manager.project.form.label.optional-link = Link
-manager.project.form.label.draft-mode = Draft mode
-manager.project.form.button.user-stories = User stories
+manager.project.form.label.optionalLink = Link
+manager.project.form.label.draftMode = Draft mode
 
+manager.project.form.button.user-stories = User stories
 manager.project.form.button.create = Create
 manager.project.form.button.update = Update
 manager.project.form.button.delete = Delete
 manager.project.form.button.publish = Publish
+
+manager.project.list.button.create = Create
+
+manager.project.publish.error.duplicated = There already exists a project with this code
+manager.project.publish.error.draft-mode = All user stories must be published
 
 manager.project.form.error.codeDuplicate = This code already exists
 manager.project.form.error.negativeCost = Cost cannot be negative
